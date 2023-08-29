@@ -1,31 +1,73 @@
 """ Plugins  ------------------------------------------------------
-set surround                " enables the surround plugin, which allows you to add, delete, and change surroundings (e.g. parentheses, quotes) with `cs`, `ds`, and `ys` commands
-set multiple-cursors        " enables the multiple-cursors plugin, which allows you to have multiple cursors/selections with `<C-n>` command
-set highlightedyank         " enables the highlightedyank plugin, which highlights yanked text for a short time
-set NERDTree                " enables the NERDTree plugin, which provides a file explorer tree view with `:NERDTreeToggle` command
-set commentary              " enables the commentary plugin, which allows you to comment/uncomment lines with `gc` command
-set easymotion              " enables the easymotion plugin, which provides fast motion within the file with `<Leader><Leader>` command
-set vim-paragraph-motion    " enables the vim-paragraph-motion plugin, which provides paragraph text objects and motions with `{` and `}` commands
-set textobj-indent          " enables the textobj-indent plugin, which provides indent text objects with `ii` and `ai` commands
-set textobj-entire          " enables the textobj-entire plugin, which provides entire buffer text objects with `ae` and `ie` commands
-set argtextobj              " enables the argtextobj plugin, which provides argument text objects with `ia` and `aa` commands
-set ReplaceWithRegister     " enables the ReplaceWithRegister plugin, which allows you to replace text objects with register contents with `gr` command
-set exchange                " enables the exchange plugin, which allows you to exchange two regions of text with `cx` command
+" enables the surround plugin, which allows you to add, delete, and change surroundings (e.g. parentheses, quotes) with `cs`, `ds`, and `ys` commands
+Plug 'tpope/vim-surround'
+" enables the multiple-cursors plugin, which allows you to have multiple cursors/selections with `<C-n>` command
+Plug 'terryma/vim-multiple-cursors'
+" enables the highlightedyank plugin, which highlights yanked text for a short time
+Plug 'machakann/vim-highlightedyank'
+" enables the NERDTree plugin, which provides a file explorer tree view with `:NERDTreeToggle` command
+Plug 'preservim/nerdtree'
+" enables the commentary plugin, which allows you to comment/uncomment lines with `gc` command
+Plug 'tpope/vim-commentary'
+" enables the easymotion plugin, which provides fast motion within the file with `<Leader><Leader>` command
+Plug 'easymotion/vim-easymotion'
+" enables the vim-paragraph-motion plugin, which provides paragraph text objects and motions with `{` and `}` commands
+Plug 'vim-scripts/paragraph-motion'
+" enables the textobj-indent plugin, which provides indent text objects with `ii` and `ai` commands
+Plug 'kana/vim-textobj-indent'
+" enables the textobj-entire plugin, which provides entire buffer text objects with `ae` and `ie` commands
+Plug 'kana/vim-textobj-entire'
+" enables the argtextobj plugin, which provides argument text objects with `ia` and `aa` commands
+Plug 'vim-scripts/argtextobj.vim'
+" enables the ReplaceWithRegister plugin, which allows you to replace text objects with register contents with `gr` command
+Plug 'vim-scripts/ReplaceWithRegister'
+" enables the exchange plugin, which allows you to exchange two regions of text with `cx` command
+Plug 'tommcdo/vim-exchange'
 
 """ Vim Settings ---------------------------------------------------
-set relativenumber          " displays line numbers relative to the current line
-set incsearch               " highlights search matches as you type
-set ignorecase              " makes search case-insensitive
-set smartcase               " makes search case-sensitive if it contains uppercase letters
-set clipboard=unnamed       " yank and paste from system clipboard
-set scrolloff=999           " the cursor is centered vertically if possible
-set idearefactormode=keep   " keeps the mode that was enabled before starting a refactoring (such as renaming, live template, introduce variable, etc.)
+set relativenumber              " displays line numbers relative to the current line
+set incsearch                   " highlights search matches as you type
+set ignorecase                  " makes search case-insensitive
+set smartcase                   " makes search case-sensitive if it contains uppercase letters
+set clipboard=unnamed          " yank and paste from system clipboard
+set scrolloff=999               " the cursor is centered vertically if possible
+set idearefactormode=keep       " keeps the mode that was enabled before starting a refactoring (such as renaming, live template, introduce variable, etc.)
 
 let mapleader = " "
 
-nnoremap <leader>so :source ~/.ideavimrc<CR>  " maps <leader>so to source ~/.ideavimrc command to reload IdeaVim configuration
+nnoremap <silent> :so ~/.Ideavimrc<CR>      "command to reload IdeaVim configuration
 
 """ NERDTree Keybindings ------------------------------------------
-nnoremap <leader>p :NERDTreeToggle<CR>  " maps <leader>p to toggle NERDTree file explorer
-nnoremap <leader>pf :NERDTreeFocus<CR>  " maps <leader>pf to focus on current file in NERDTree file explorer
+" maps <leader>p to toggle NERDTree file explorer
+nnoremap <leader>nt  :NERDTreeToggle<CR>
+" maps <leader>pf to focus on current file in NERDTree file explorer
+nnoremap <leader>ntf :NERDTreeFocus<CR>
+
+""" IntelliJ Keybindings ------------------------------------------
+" maps <leader>ra to RunAnything action in IntelliJ
+nnoremap <leader>ra :action RunAnything<CR>
+
+""" System clipboard ----------------------------------------------
+" yank selected text into system clipboard in visual mode
+vmap <leader>y "+y
+" delete selected text into system clipboard in visual mode
+vmap <leader>d "+d
+" yank current line into system clipboard in normal mode
+nmap <leader>y "+yy
+" paste from system clipboard after cursor in normal mode
+nmap <leader>p "+p
+" paste from system clipboard before cursor in normal mode
+nmap <leader>P "+P
+" paste from system clipboard after cursor in visual mode (replacing selected text)
+vmap <leader>p "+p
+" paste from system clipboard before cursor in visual mode (replacing selected text)
+vmap <leader>P "+P
+
+""" Multiple cursor -----------------------------------------------
+" select next occurrence of word under cursor for multiple cursors editing in normal mode
+map mc <A-n>
+" skip current occurrence of word under cursor for multiple cursors editing in normal mode
+map mx <A-x>
+" go back to previous occurrence of word under cursor for multiple cursors editing in normal mode
+map mp <A-p>
 
