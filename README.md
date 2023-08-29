@@ -27,3 +27,12 @@ ln -s  ~/.dotfiles/.config/yabai/yabairc ~/.config/yabai/yabairc
 ln -s  ~/.dotfiles/.config/skhd/skhdrc ~/.config/skhd/skhdrc
 ```
 
+#### ideavimrc
+
+```
+ln -s  ~/.dotfiles/.ideavimrc ~/.ideavimrc
+```
+
+
+
+
