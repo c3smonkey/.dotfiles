@@ -29,7 +29,6 @@ set relativenumber              " displays line numbers relative to the current 
 set incsearch                   " highlights search matches as you type
 set ignorecase                  " makes search case-insensitive
 set smartcase                   " makes search case-sensitive if it contains uppercase letters
-set clipboard=unnamed          " yank and paste from system clipboard
 set scrolloff=999               " the cursor is centered vertically if possible
 set idearefactormode=keep       " keeps the mode that was enabled before starting a refactoring (such as renaming, live template, introduce variable, etc.)
 
