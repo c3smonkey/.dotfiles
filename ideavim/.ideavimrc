@@ -57,6 +57,8 @@ nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap <leader>ga :action Annotate<CR>
 nnoremap <leader>gr :action ChangesView.Revert<CR>
 nnoremap <leader>gcb :action Git.CompareWithBranch<CR>
+nnoremap <leader>cat :action CloseActiveTab<CR>
+
 
 
 """ System clipboard ----------------------------------------------
