@@ -37,9 +37,9 @@ let mapleader = " "
 nnoremap <silent> :so ~/.Ideavimrc<CR>      "command to reload IdeaVim configuration
 
 """ NERDTree Keybindings ------------------------------------------
-" maps <leader>p to toggle NERDTree file explorer
+" NERDTree file explorer
 nnoremap <leader>nt  :NERDTreeToggle<CR>
-" maps <leader>pf to focus on current file in NERDTree file explorer
+" focus on current file in NERDTree file explorer
 nnoremap <leader>ntf :NERDTreeFocus<CR>
 
 """ IntelliJ Keybindings ------------------------------------------
