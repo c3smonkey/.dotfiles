@@ -31,6 +31,7 @@ set ignorecase                  " makes search case-insensitive
 set smartcase                   " makes search case-sensitive if it contains uppercase letters
 set scrolloff=999               " the cursor is centered vertically if possible
 set idearefactormode=keep       " keeps the mode that was enabled before starting a refactoring (such as renaming, live template, introduce variable, etc.)
+set hlsearch                    " highlights search results
 
 let mapleader = " "
 
