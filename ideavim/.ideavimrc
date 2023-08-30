@@ -44,7 +44,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 " maps <leader>ra to RunAnything action in IntelliJ
 nnoremap <leader>ra :action RunAnything<CR>
 " maps oi to OptimizeImports action in IntelliJ
-nnoremap oi :action OptimizeImports<CR>
+nnoremap <leader>oi :action OptimizeImports<CR>
 
 
 """ System clipboard ----------------------------------------------
