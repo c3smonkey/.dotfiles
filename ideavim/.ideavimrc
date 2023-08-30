@@ -43,9 +43,12 @@ nnoremap <leader><space> :nohlsearch<CR>
 """ IntelliJ Keybindings ------------------------------------------
 " maps <leader>ra to RunAnything action in IntelliJ
 nnoremap <leader>ra :action RunAnything<CR>
-" maps oi to OptimizeImports action in IntelliJ
+" maps <leader>oi to OptimizeImports action in IntelliJ
 nnoremap <leader>oi :action OptimizeImports<CR>
-
+" maps <leader>gcb to CompareWithBranch action in IntelliJ
+nnoremap <leader>gcb :action CompareWithBranch<CR>
+" maps <leader>fc to ReformatCode action in IntelliJ
+nnoremap <leader>fc :action ReformatCode<CR>
 
 """ System clipboard ----------------------------------------------
 " yank selected text into system clipboard in visual mode
