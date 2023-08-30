@@ -41,14 +41,23 @@ nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configura
 nnoremap <leader><space> :nohlsearch<CR>
 
 """ IntelliJ Keybindings ------------------------------------------
-" maps <leader>ra to RunAnything action in IntelliJ
-nnoremap <leader>ra :action RunAnything<CR>
-" maps <leader>oi to OptimizeImports action in IntelliJ
-nnoremap <leader>oi :action OptimizeImports<CR>
-" maps <leader>gcb to CompareWithBranch action in IntelliJ
-nnoremap <leader>gcb :action CompareWithBranch<CR>
-" maps <leader>fc to ReformatCode action in IntelliJ
+" Refactorings ------------------------------------------------------
+nnoremap <leader>roi :action OptimizeImports<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rf :action ReformatCode<CR>
 nnoremap <leader>fc :action ReformatCode<CR>
+nnoremap <leader>oi :action OptimizeImports<CR>
+
+" Test and Run -----------------------------------------------------
+nnoremap <leader>ra :action RunAnything<CR>
+
+" Git ---------------------------------------------------------------
+nnoremap <leader>gm :action Git.Menu<CR>
+nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>ga :action Annotate<CR>
+nnoremap <leader>gr :action ChangesView.Revert<CR>
+nnoremap <leader>gcb :action Git.CompareWithBranch<CR>
+
 
 """ System clipboard ----------------------------------------------
 " yank selected text into system clipboard in visual mode
