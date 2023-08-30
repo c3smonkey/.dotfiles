@@ -40,15 +40,12 @@ nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configura
 " Remove search highlighting with <leader><space>
 nnoremap <leader><space> :nohlsearch<CR>
 
-""" NERDTree Keybindings ------------------------------------------
-" NERDTree file explorer
-nnoremap <leader>nt  :NERDTreeToggle<CR>
-" focus on current file in NERDTree file explorer
-nnoremap <leader>ntf :NERDTreeFocus<CR>
-
 """ IntelliJ Keybindings ------------------------------------------
 " maps <leader>ra to RunAnything action in IntelliJ
 nnoremap <leader>ra :action RunAnything<CR>
+" maps oi to OptimizeImports action in IntelliJ
+nnoremap oi :action OptimizeImports<CR>
+
 
 """ System clipboard ----------------------------------------------
 " yank selected text into system clipboard in visual mode
