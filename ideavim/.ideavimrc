@@ -35,6 +35,10 @@ set hlsearch                    " highlights search results
 
 let mapleader = " "
 
+
+" use jk to exit insert mode
+:inoremap jk <Esc>
+
 nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configuration
 
 " Remove search highlighting with <leader><space>
