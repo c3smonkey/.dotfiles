@@ -26,6 +26,7 @@ Plug 'tommcdo/vim-exchange'
 
 """ Vim Settings ---------------------------------------------------
 set relativenumber              " displays line numbers relative to the current line
+set number                      " displays the absolute line number of the current line
 set incsearch                   " highlights search matches as you type
 set ignorecase                  " makes search case-insensitive
 set smartcase                   " makes search case-sensitive if it contains uppercase letters
@@ -35,8 +36,8 @@ set hlsearch                    " highlights search results
 
 let mapleader = " "
 
-" use jk to exit insert mode
-inoremap <leader>jk <Esc>
+" Map jk to exit insert mode
+inoremap jk <ESC>
 
 nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configuration
 
