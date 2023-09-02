@@ -45,16 +45,20 @@ nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configura
 nnoremap <leader><space> :nohlsearch<CR>
 
 """ IntelliJ Keybindings ------------------------------------------
-" Refactorings ------------------------------------------------------
+" Refactorings ----------------------------------------------------
 nnoremap <leader>roi :action OptimizeImports<CR>
 nnoremap <leader>rn :action RenameElement<CR>
 nnoremap <leader>fc :action ReformatCode<CR>
 nnoremap <leader>oi :action OptimizeImports<CR>
 
+
+" NERDTree ---------------------------------------------------------
+nnoremap <leader>ee  :NERDTreeToggle<CR>
+
 " Test and Run -----------------------------------------------------
 nnoremap <leader>ra :action RunAnything<CR>
 
-" Git ---------------------------------------------------------------
+" Git --------------------------------------------------------------
 nnoremap <leader>gm :action Git.Menu<CR>
 nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap <leader>ga :action Annotate<CR>
