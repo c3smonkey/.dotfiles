@@ -44,7 +44,7 @@ inoremap jk <ESC>
 nnoremap <leader><space> :nohlsearch<CR>
 
 """ IntelliJ Keybindings ------------------------------------------
-" Refactorings ----------------------------------------------------
+" Refactoring ----------------------------------------------------
 nnoremap ,r :action RefactoringMenu<CR>
 vnoremap ,r :action RefactoringMenu<CR>
 nnoremap ,rn :action RenameElement<CR>
