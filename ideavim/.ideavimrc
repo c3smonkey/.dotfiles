@@ -33,26 +33,27 @@ set smartcase                   " makes search case-sensitive if it contains upp
 set scrolloff=999               " the cursor is centered vertically if possible
 set idearefactormode=keep       " keeps the mode that was enabled before starting a refactoring (such as renaming, live template, introduce variable, etc.)
 set hlsearch                    " highlights search results
+set scrolloff=10
 
 let mapleader = " "
 
 " Map jk to exit insert mode
 inoremap jk <ESC>
 
-nnoremap <silent> :so ~/.ideavimrc<CR>      "command to reload IdeaVim configuration
-
 " Remove search highlighting with <leader><space>
 nnoremap <leader><space> :nohlsearch<CR>
 
 """ IntelliJ Keybindings ------------------------------------------
 " Refactorings ----------------------------------------------------
-nnoremap <leader>roi :action OptimizeImports<CR>
-nnoremap <leader>rn :action RenameElement<CR>
-nnoremap <leader>fc :action ReformatCode<CR>
+nnoremap ,r :action RefactoringMenu<CR>
+vnoremap ,r :action RefactoringMenu<CR>
+nnoremap ,rn :action RenameElement<CR>
+nnoremap ,rf :action ReformatCode<CR>
+
+" Code ----------------------------------------------------
 nnoremap <leader>oi :action OptimizeImports<CR>
 
-
-" NERDTree ---------------------------------------------------------
+" Windows Management NERDTree ---------------------------------------------------------
 nnoremap <leader>ee  :NERDTreeToggle<CR>
 
 " Test and Run -----------------------------------------------------
@@ -61,10 +62,8 @@ nnoremap <leader>ra :action RunAnything<CR>
 " Git --------------------------------------------------------------
 nnoremap <leader>gm :action Git.Menu<CR>
 nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
-nnoremap <leader>ga :action Annotate<CR>
-nnoremap <leader>gr :action ChangesView.Revert<CR>
 nnoremap <leader>gcb :action Git.CompareWithBranch<CR>
-nnoremap <leader>ct :action CloseActiveTab<CR>
+
 
 
 
