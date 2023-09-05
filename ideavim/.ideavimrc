@@ -50,11 +50,11 @@ vnoremap ,r :action RefactoringMenu<CR>
 nnoremap ,rn :action RenameElement<CR>
 nnoremap ,rf :action ReformatCode<CR>
 
-" Code ----------------------------------------------------
+" Code -----------------------------------------------------------------------
 nnoremap <leader>oi :action OptimizeImports<CR>
 
-" Windows Management NERDTree ---------------------------------------------------------
-nnoremap <leader>ee  :NERDTreeToggle<CR>
+" Windows Management ---------------------------------------------------------
+nnoremap <leader>s :action SearchEverywhere<CR>
 
 " Test and Run -----------------------------------------------------
 nnoremap <leader>ra :action RunAnything<CR>
