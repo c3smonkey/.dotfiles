@@ -40,6 +40,10 @@ let mapleader = " "
 " Map jk to exit insert mode
 inoremap jk <ESC>
 
+" Split screen
+nnoremap <leader>vs :vsplit<CR>
+nnoremap <leader>hs :split<CR>
+
 " Remove search highlighting with <leader><space>
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -55,6 +59,8 @@ nnoremap <leader>oi :action OptimizeImports<CR>
 
 " Windows Management ---------------------------------------------------------
 nnoremap <leader>s :action SearchEverywhere<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
 
 " Test and Run -----------------------------------------------------
 nnoremap <leader>ra :action RunAnything<CR>
@@ -63,6 +69,7 @@ nnoremap <leader>ra :action RunAnything<CR>
 nnoremap <leader>gm :action Git.Menu<CR>
 nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap <leader>gcb :action Git.CompareWithBranch<CR>
+
 
 
 
