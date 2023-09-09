@@ -213,3 +213,19 @@ nnoremap ,f :action RerunFailedTests<CR>
 nnoremap ,b :action ToggleLineBreakpoint<CR>
 nnoremap ,d :action ContextDebug<CR>
 nnoremap ,n :action ActivateDebugToolWindow<CR>
+
+-""" System clipboard ----------------------------------------------
+-" yank selected text into system clipboard in visual mode
+-vmap <leader>y "+y
+-" delete selected text into system clipboard in visual mode
+-vmap <leader>d "+d
+-" yank current line into system clipboard in normal mode
+-nmap <leader>y "+yy
+-" paste from system clipboard after cursor in normal mode
+-nmap <leader>p "+p
+-" paste from system clipboard before cursor in normal mode
+-nmap <leader>P "+P
+-" paste from system clipboard after cursor in visual mode (replacing selected text)
+-vmap <leader>p "+p
+-" paste from system clipboard before cursor in visual mode (replacing selected text)
+-vmap <leader>P "+P
