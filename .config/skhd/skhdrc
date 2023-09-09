@@ -50,15 +50,15 @@ ctrl + alt - p : yabai -m window --space prev;
 ctrl + alt - n : yabai -m window --space next;
 
 # change window focus within space
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+ctrl - h : yabai -m window --focus west
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - l : yabai -m window --focus east
 # support also arrows
-cmd - left : yabai -m window --focus west
-cmd - down : yabai -m window --focus south
-cmd - up : yabai -m window --focus north
-cmd - right : yabai -m window --focus east
+ctrl - left : yabai -m window --focus west
+ctrl - down : yabai -m window --focus south
+ctrl - up : yabai -m window --focus north
+ctrl - right : yabai -m window --focus east
 
 
 
