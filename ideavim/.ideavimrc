@@ -1,4 +1,4 @@
-set so=5 " Keep few lines visible when scrolling
+set so=10 " Keep few lines visible when scrolling
 set incsearch
 set number relativenumber " Set relative line numbers
 set timeoutlen=400
@@ -15,11 +15,8 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 set which-key
 
 set notimeout
-let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_ShowVimActions = "false"
 let g:WhichKey_DefaultDelay = 1000
-
-
-
 
 
 
@@ -37,8 +34,9 @@ set surround
 """ argtextobj  Plugin  --------------------------------
 " Emulates argtextobj. Provides a text-object 'a' for function arguments
 " Text object
-" ai
-" aa
+"   daa   Delete an argument
+"   cia   Change inner argument.
+"   via   Select inner argument.
 " See https://www.vim.org/scripts/script.php?script_id=2699 for details
 set argtextobj
 let g:argtextobj_pairs="[:],(:),<:>"
@@ -105,6 +103,8 @@ Plug 'tpope/vim-commentary'
 "   {Visual}["x]gr          Replace the selection with the contents of register x.
 " See https://github.com/vim-scripts/ReplaceWithRegister for details
 Plug 'vim-scripts/ReplaceWithRegister'
+let g:WhichKeyDesc_ReplaceWithRegisterVisual = "gr   Replace With Register (Visual)"
+let g:WhichKeyDesc_ReplaceWithRegister = "grr   Replace With Register"
 
 
 """ textobj-entire plugin  --------------------------------
@@ -121,8 +121,8 @@ set textobj-entire
 " See https://github.com/machakann/vim-highlightedyank for details
 Plug 'machakann/vim-highlightedyank'
 
-
 Plug 'michaeljsmith/vim-indent-object'
+
 
 "" Common settings -------------------------
 set clipboard+=unnamed " Clipboard sharing for Mac Os
@@ -142,6 +142,11 @@ let mapleader=" "
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 """ Terminal
+" Keymap/Other/Tool Windows View Mode
+" DockPinnedMode  (ctrl+d)
+" FloatMode       (ctrl+f)
+" WindowMode      (ctrl+w)
+"
 nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
 
 """ Navigation (ctrl+w -> hjkl
@@ -173,10 +178,13 @@ nnoremap ]] :action MethodDown<CR>
 
 nnoremap zc :action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
+
 nnoremap zo :action ExpandRegion<CR>
 let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
+
 nnoremap <leader>zc :action CollapseAllRegions<CR>
 let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
+
 nnoremap <leader>zo :action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
 
@@ -186,91 +194,123 @@ let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
 
 nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 let g:WhichKeyDesc_QuickListPopupActions= "<leader>r Refactor This"
+
 nnoremap <leader>o :action OptimizeImports<CR>
 let g:WhichKeyDesc_OptimizeImports= "<leader>o Optimize Imports"
 
-"nnoremap <c-r> :action RecentFiles<CR>
-nnoremap <leader>fr :action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles= "<leader>fr Recent Files"
 nnoremap <leader>l :action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations= "<leader>l Recent Locations"
+
 nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
 let g:WhichKeyDesc_ShowHistory= "<leader>h Show History"
 
 nnoremap ge :action GotoNextError<CR>
 let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-nnoremap gE :action GotoPreviousError<CR>
-let g:WhichKeyDesc_GotoPreviousError= "ge Go to Previous Error"
 
+nnoremap gE :action GotoPreviousError<CR>
+let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
 """ Searching and Source Code Navigation
 set incsearch
 
-"nnoremap <c-/> :action FindInPath<CR>
-"nnoremap <c-a> :action GotoAction<CR>
-"nnoremap <c-f> :action GotoFile<CR>
+nnoremap <leader>gs :action GotoSymbol<CR>
+let g:WhichKeyDesc_GotoSymbol= "<leader>gs Go to Symbol"
+
+nnoremap <leader>gc :action GotoClass<CR>
+let g:WhichKeyDesc_GotoClass= "<leader>gc Go to Class"
+
+nnoremap <leader>gr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles= "<leader>gr Recent Files"
+
+nnoremap <leader>ga :action GotoAction<CR>
+let g:WhichKeyDesc_GotoAction = "<leader>ga Go to Action"
+
+nnoremap <leader>gf :action GotoFile<CR>
+let g:WhichKeyDesc_GotoFile = "<leader>gf Go to File"
+
 nnoremap <leader>fp :action FindInPath<CR>
 let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
-nnoremap <leader>fa :action GotoAction<CR>
-let g:WhichKeyDesc_GotoAction = "<leader>fa Go to Action"
-nnoremap <leader>ff :action GotoFile<CR>
-let g:WhichKeyDesc_GotoFile = "<leader>ff Go to File"
+
 nnoremap <leader>fu :action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
 
-
-"nnoremap <leader>s :action GotoRelated<CR>
+" nnoremap <leader>s :action GotoRelated<CR>
+" let g:WhichKeyDesc_GotoRelated= "<leader>s Go to Related"
 nnoremap <leader>h :action CallHierarchy<CR>
 let g:WhichKeyDesc_CallHierarchy = "<leader>h Call Hierarchy"
+
 nnoremap <leader>b :action ShowNavBar<CR>
 let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
+
 nnoremap <c-s> :action FileStructurePopup<CR>
-nnoremap gs :action GotoSymbol<CR>
-let g:WhichKeyDesc_GotoSymbol= "gs Go to Symbol"
-nnoremap gc :action GotoClass<CR>
-let g:WhichKeyDesc_GotoClass= "gc Go to Class"
+
 nnoremap gi :action GotoImplementation<CR>
 let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
+
 nnoremap gd :action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
+
 nnoremap gp :action GotoSuperMethod<CR>
 let g:WhichKeyDesc_GotoSuperMethod= "gp Go to Super Method"
+
 nnoremap gt :action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
+
 nnoremap gb :action Back<CR>
 let g:WhichKeyDesc_Back= "gb Go Back"
+
 nnoremap gf :action Forward<CR>
 let g:WhichKeyDesc_Forward= "gf Go Forward"
 
-""" Tool windows
-nnoremap <M-p> :action JumpToLastWindow<CR>
-nnoremap <M-x> :action HideAllWindows<CR>
 
-""" Running and Debugging
+
+
+""" Running and Debugging and Git
+nnoremap ,gm :action Git.Menu<CR>
+let g:WhichKeyDesc_GitMenu= ",gm Open Git Menu"
+
+nnoremap ,gu :action Vcs.UpdateProject<CR>
+let g:WhichKeyDesc_UpdateProject= ",gu Update Project"
+
+nnoremap ,gc :action CheckinProject<CR>
+let g:WhichKeyDesc_CheckinProject= ",gc Cheking Project"
+
+nnoremap ,gb :action Git.CompareWithBranch<CR>
+let g:WhichKeyDesc_CompareWithBranch= ",gb Compare with Branch"
+
+nnoremap ,ga :action Annotate<CR>
+let g:WhichKeyDesc_Annotate= ",ga Show Annotation (Blame)"
+
+nnoremap ,gr :action ChangesView.Revert<CR>
+let g:WhichKeyDesc_ChangesViewRevert= ",gr Revert Changes"
+
+nnoremap ,R :action RunAnything<CR>
+let g:WhichKeyDesc_RunAnything = ",R   Run Anything"
+
 nnoremap ,r :action ContextRun<CR>
+let g:WhichKeyDesc_Prefix = ",r   Prefix"
+
 nnoremap ,c :action RunClass<CR>
-nnoremap ,f :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_RunClass = ",c   Run Class"
+
+nnoremap ,F :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_ChooseRunConfiguration = ",F   Choose Run Configuration"
+
 nnoremap ,t :action ActivateRunToolWindow<CR>
+let g:WhichKeyDesc_ActivateRunToolWindow = ",t   Activate Run Tool Window"
+
 nnoremap ,u :action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",u   Rerun"
 
 nnoremap ,f :action RerunFailedTests<CR>
+let g:WhichKeyDesc_RerunFailedTests = ",f   Rerun Failed Tests"
 
 nnoremap ,b :action ToggleLineBreakpoint<CR>
-nnoremap ,d :action ContextDebug<CR>
-nnoremap ,n :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = ",b   Toggle Line Breakpoint"
 
--""" System clipboard ----------------------------------------------
--" yank selected text into system clipboard in visual mode
--vmap <leader>y "+y
--" delete selected text into system clipboard in visual mode
--vmap <leader>d "+d
--" yank current line into system clipboard in normal mode
--nmap <leader>y "+yy
--" paste from system clipboard after cursor in normal mode
--nmap <leader>p "+p
--" paste from system clipboard before cursor in normal mode
--nmap <leader>P "+P
--" paste from system clipboard after cursor in visual mode (replacing selected text)
--vmap <leader>p "+p
--" paste from system clipboard before cursor in visual mode (replacing selected text)
--vmap <leader>P "+P
+nnoremap ,d :action ContextDebug<CR>
+let g:WhichKeyDesc_ContextDebug = ",d   Context Debug"
+
+nnoremap ,n :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ActivateDebugToolWindow = ",n   Activate Debug Tool Window"
+
