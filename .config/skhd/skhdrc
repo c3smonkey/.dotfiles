@@ -26,11 +26,14 @@
 
 # === Launch Commands ===
 # Start IntelliJ IDEA Ultimate
-cmd + shift - i : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
-# Start Safari
-cmd + shift - s : osascript -e "tell application \"Safari\" to activate"
+cmd + shift - 1 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
+
 # Start Warp
-cmd + shift - w : osascript -e "tell application \"Warp\" to activate"
+cmd + shift - 2 : osascript -e "tell application \"Warp\" to activate"
+
+
+# Start Safari
+cmd + shift - 3 : osascript -e "tell application \"Safari\" to activate"
 
 
 # === Navigation ===
