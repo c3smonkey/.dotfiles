@@ -177,8 +177,8 @@ let g:WhichKeyDesc_MaximizeEditorInSplit= ";sm Maximize Editor in Split"
 nnoremap <TAB> :action PreviousTab<CR>
 nnoremap <s-TAB> :action NextTab<CR>
 
-nnoremap <Leader>e :action EditSourceInNewWindow<CR>
-let g:WhichKeyDesc_EditSourceInNewWindow= "<Leader>e Edit Source in New Window"
+" nnoremap <Leader>e :action EditSourceInNewWindow<CR>
+" let g:WhichKeyDesc_EditSourceInNewWindow= "<Leader>e Edit Source in New Window"
 
 "sethandler <D-n> a:vim
 "nnoremap <D-n> :action NextWindow<CR>
