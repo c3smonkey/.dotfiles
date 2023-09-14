@@ -62,15 +62,12 @@ ctrl - down : yabai -m window --focus south
 ctrl - up : yabai -m window --focus north
 ctrl - right : yabai -m window --focus east
 
-
-
-
 # -- Moving Windows Around --
 # swap windows
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - l : yabai -m window --swap east
+ctrl + shift - j : yabai -m window --swap south
+ctrl + shift - k : yabai -m window --swap north
+ctrl + shift - h : yabai -m window --swap west
+ctrl + shift - l : yabai -m window --swap east
 
 # move window and split
 ctrl + cmd - j : yabai -m window --warp south
@@ -78,38 +75,25 @@ ctrl + cmd - k : yabai -m window --warp north
 ctrl + cmd - h : yabai -m window --warp west
 ctrl + cmd - l : yabai -m window --warp east
 
-
 # -- Modifying the Layout --
-# rotate windows clockwise / anticlockwise
-alt - r         : yabai -m space --rotate 270
-shift + alt - r : yabai -m space --rotate 90
+# rotate windows 
+ctrl + alt - r : yabai -m space --rotate 90
 
 # rotate on X and Y axis
-alt - x : yabai -m space --mirror x-axis
-alt - y : yabai -m space --mirror y-axis
+ctrl - x : yabai -m space --mirror x-axis
+ctrl - y : yabai -m space --mirror y-axis
 
 # toggle window float
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:20:20
+ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:20:20
 
 # toggle padding and gap
-alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+ctrl - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # maximize a window
-alt - m : yabai -m window --toggle zoom-fullscreen
+ctrl - m : yabai -m window --toggle zoom-fullscreen
 
 # balance out tree of windows (resize to occupy same area)
-alt - b : yabai -m space --balance
-
-# balance out tree of windows (resize to occupy same area)
-alt - b : yabai -m space --balance 
-
-# set insertion point for focused container
-shift + ctrl + alt - h : yabai -m window --insert west
-shift + ctrl + alt - j : yabai -m window --insert south
-shift + ctrl + alt - k : yabai -m window --insert north
-shift + ctrl + alt - l : yabai -m window --insert east
-
-
+ctrl - b : yabai -m space --balance
 
 
 # change window sizes and border color
@@ -133,9 +117,6 @@ resize < up   : yabai -m window --resize top:0:-50; yabai -m window --resize bot
 resize < right : yabai -m window --resize right:50:0; yabai -m window --resize left:50:0
 
 
-
-
-
 # -- disable some OSX built-in key mappings --
 # disable osx hide window
 cmd - h : :
@@ -144,14 +125,10 @@ alt + cmd - m : :
 cmd - m : :
 
 
-
-
 # -- Manage yabai and skhd --
 # stop/start/restart yabai
-ctrl + alt - q : yabai --stop-service
-ctrl + alt - s : yabai --start-service
-ctrl + alt - r : yabai --restart-service
-# Reload skhd configuration
-shift + cmd - r : skhd --reload
+cmd + alt - q : yabai --stop-service
+cmd + alt - s : yabai --start-service
+cmd + alt - r : yabai --restart-service
 
 
