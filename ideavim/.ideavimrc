@@ -25,7 +25,7 @@ set which-key
 
 set notimeout
 let g:WhichKey_ShowVimActions = "false"
-let g:WhichKey_DefaultDelay = 1000
+let g:WhichKey_DefaultDelay = 300
 "--------------------------------------------------------------------------------------------
 
 
