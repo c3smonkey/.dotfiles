@@ -270,8 +270,6 @@ set incsearch " Highlight the searching string while typing
 set relativenumber " Set relative line numbers
 
 """ The Escape button
-map <C-c> <Esc>
-inoremap jk <Esc>
 inoremap jj <Esc>
 
 """ The Leader Key
