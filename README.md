@@ -10,6 +10,12 @@ git clone git@github.com:c3smonkey/.dotfiles.git
 
 ### Create Symlink
 
+### .zshrc
+
+```
+ln -s  ~/.dotfiles/.zshrc ~/.zshrc
+```
+
 #### starship.toml
 
 ```
