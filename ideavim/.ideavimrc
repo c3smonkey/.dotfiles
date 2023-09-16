@@ -12,11 +12,8 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
 
 
-
-
 "" Plugins
 "--------------------------------------------------------------------------------------------
-
 
 """ Wich-key Plugin
 "--------------------------------------------------------------------------------------------
@@ -27,8 +24,6 @@ set notimeout
 let g:WhichKey_ShowVimActions = "false"
 let g:WhichKey_DefaultDelay = 300
 "--------------------------------------------------------------------------------------------
-
-
 
 
 " Surround plugin
@@ -51,7 +46,6 @@ let g:WhichKeyDesc_Surround_ys = "ys Surround text object"
 "--------------------------------------------------------------------------------------------
 
 
-
 " argtextobj plugin
 "--------------------------------------------------------------------------------------------
 "   https://www.vim.org/scripts/script.php?script_id=2699 for details
@@ -69,7 +63,6 @@ let g:WhichKeyDesc_ArgTextObj_via = "via Select inner argument"
 "--------------------------------------------------------------------------------------------
 
 
-
 " exchange plugin
 "--------------------------------------------------------------------------------------------
 "   https://www.vim.org/scripts/script.php?script_id=2699 for details
@@ -85,7 +78,6 @@ let g:WhichKeyDesc_Exchange_cx = "cx Define the exchange"
 let g:WhichKeyDesc_Exchange_cxx = "cxx Exchange an entire line"
 let g:WhichKeyDesc_Exchange_X = "X Exchange in visual mode"
 "--------------------------------------------------------------------------------------------
-
 
 
 " easy motion plugin
@@ -106,7 +98,6 @@ let g:WhichKeyDesc_EasyMotion_s = "<leader>S Search backward with EasyMotion"
 "--------------------------------------------------------------------------------------------
 
 
-
 " commentary plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/tpope/vim-commentary
@@ -123,7 +114,6 @@ let g:WhichKeyDesc_Commentary_gcap = "gcap Comment out a paragraph"
 let g:WhichKeyDesc_Commentary_gc = "gc Comment out the selection in visual mode"
 let g:WhichKeyDesc_Commentary_gcu = "gcu Comment out a line"
 "--------------------------------------------------------------------------------------------
-
 
 
 " multiple-cursors plugin
@@ -155,8 +145,6 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 "--------------------------------------------------------------------------------------------
-
-
 
 
 " NERDTree plugin
@@ -195,8 +183,6 @@ let g:WhichKeyDesc_NERDTree_m = "m Display the NERDTree menu"
 "--------------------------------------------------------------------------------------------
 
 
-
-
 " ReplaceWithRegister plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/vim-scripts/ReplaceWithRegister
@@ -214,7 +200,6 @@ let g:WhichKeyDesc_ReplaceWithRegister_gr = "gr Replace the selection with the c
 "--------------------------------------------------------------------------------------------
 
 
-
 " vim-textobj-entire plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/kana/vim-textobj-entire
@@ -229,8 +214,6 @@ let g:WhichKeyDesc_TextobjEntire_ie = "ie Apply motion on entire text w/o traili
 "--------------------------------------------------------------------------------------------
 
 
-
-
 " vim-highlightedyank plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/machakann/vim-highlightedyank
@@ -238,8 +221,6 @@ Plug 'machakann/vim-highlightedyank'
 
 " This plugin doesn't provide any commands or mappings, but it automatically highlights yanked text.
 "--------------------------------------------------------------------------------------------
-
-
 
 
 " vim-indent-object plugin
@@ -258,8 +239,6 @@ let g:WhichKeyDesc_IndentObject_ii = "vii: Inner indentation level (no line abov
 let g:WhichKeyDesc_IndentObject_aI = "vaI: An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less."
 let g:WhichKeyDesc_IndentObject_iI = "viI: Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below."
 "--------------------------------------------------------------------------------------------
-
-
 
 
 "" Common settings -------------------------
@@ -303,7 +282,6 @@ nnoremap ,sm      :action MaximizeEditorInSplit<CR>
 let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editor in Split"
 
 
-
 nnoremap <TAB> :action PreviousTab<CR>
 nnoremap <s-TAB> :action NextTab<CR>
 
@@ -312,7 +290,6 @@ nnoremap <s-TAB> :action NextTab<CR>
 
 "sethandler <D-n> a:vim
 "nnoremap <D-n> :action NextWindow<CR>
-
 
 
 nnoremap ,q :action CloseContent<CR>
@@ -331,147 +308,146 @@ vnoremap > >gv
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
-" nnoremap zc :action CollapseRegion<CR>
-" let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
-"
-" nnoremap zo :action ExpandRegion<CR>
-" let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
-"
-" nnoremap <leader>zc :action CollapseAllRegions<CR>
-" let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
-"
-" nnoremap <leader>zo :action ExpandAllRegions<CR>
-" let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
-"
-" nnoremap <leader>c :action CommentByLineComment<CR>
-" let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
-"
-"
-" nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-" let g:WhichKeyDesc_QuickListPopupActions= "<leader>r Refactor This"
-"
-" nnoremap <leader>o :action OptimizeImports<CR>
-" let g:WhichKeyDesc_OptimizeImports= "<leader>o Optimize Imports"
-"
-" nnoremap <leader>l :action RecentLocations<CR>
-" let g:WhichKeyDesc_RecentLocations= "<leader>l Recent Locations"
-"
-" nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
-" let g:WhichKeyDesc_ShowHistory= "<leader>h Show History"
-"
-" nnoremap ge :action GotoNextError<CR>
-" let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-"
-" nnoremap gE :action GotoPreviousError<CR>
-" let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
-"
+nnoremap zc :action CollapseRegion<CR>
+let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
+
+nnoremap zo :action ExpandRegion<CR>
+let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
+
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
+
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
+
+nnoremap <leader>c :action CommentByLineComment<CR>
+let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
+
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= "<leader>r Refactor This"
+
+nnoremap <leader>o :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= "<leader>o Optimize Imports"
+
+nnoremap <leader>l :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations= "<leader>l Recent Locations"
+
+nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>h Show History"
+
+nnoremap ge :action GotoNextError<CR>
+let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
+
+nnoremap gE :action GotoPreviousError<CR>
+let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
+
 
 
 """ Searching and Source Code Navigation
 set incsearch
 
-" nnoremap <leader>gs :action GotoSymbol<CR>
-" let g:WhichKeyDesc_GotoSymbol= "<leader>gs Go to Symbol"
-"
-" nnoremap <leader>gc :action GotoClass<CR>
-" let g:WhichKeyDesc_GotoClass= "<leader>gc Go to Class"
-"
-" nnoremap <leader>gr :action RecentFiles<CR>
-" let g:WhichKeyDesc_RecentFiles= "<leader>gr Recent Files"
-"
-" nnoremap <leader>ga :action GotoAction<CR>
-" let g:WhichKeyDesc_GotoAction = "<leader>ga Go to Action"
-"
-" nnoremap <leader>gf :action GotoFile<CR>
-" let g:WhichKeyDesc_GotoFile = "<leader>gf Go to File"
-"
-" nnoremap <leader>fp :action FindInPath<CR>
-" let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
-"
-" nnoremap <leader>fu :action FindUsages<CR>
-" let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
-"
-" nnoremap <leader>fe :action SearchEverywhere<CR>
-" let g:WhichKeyDesc_SearchEverywhere= "<leader>fe Search Everywhere"
-"
-" nnoremap <leader>h :action CallHierarchy<CR>
-" let g:WhichKeyDesc_CallHierarchy = "<leader>h Call Hierarchy"
-"
-" nnoremap <leader>b :action ShowNavBar<CR>
-" let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
-"
-" " nnoremap <c-s> :action FileStructurePopup<CR>
-"
-" nnoremap gi :action GotoImplementation<CR>
-" let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
-"
-" nnoremap gd :action GotoDeclaration<CR>
-" let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
-"
-" nnoremap gp :action GotoSuperMethod<CR>
-" let g:WhichKeyDesc_GotoSuperMethod= "gp Go to Super Method"
-"
-" nnoremap gt :action GotoTest<CR>
-" let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-"
-" nnoremap gb :action Back<CR>
-" let g:WhichKeyDesc_Back= "gb Go Back"
-"
-" nnoremap gf :action Forward<CR>
-" let g:WhichKeyDesc_Forward= "gf Go Forward"
-"
+nnoremap <leader>gs :action GotoSymbol<CR>
+let g:WhichKeyDesc_GotoSymbol= "<leader>gs Go to Symbol"
+
+nnoremap <leader>gc :action GotoClass<CR>
+let g:WhichKeyDesc_GotoClass= "<leader>gc Go to Class"
+
+nnoremap <leader>gr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles= "<leader>gr Recent Files"
+
+nnoremap <leader>ga :action GotoAction<CR>
+let g:WhichKeyDesc_GotoAction = "<leader>ga Go to Action"
+
+nnoremap <leader>gf :action GotoFile<CR>
+let g:WhichKeyDesc_GotoFile = "<leader>gf Go to File"
+
+nnoremap <leader>fp :action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
+
+nnoremap <leader>fu :action FindUsages<CR>
+let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
+
+nnoremap <leader>fe :action SearchEverywhere<CR>
+let g:WhichKeyDesc_SearchEverywhere= "<leader>fe Search Everywhere"
+
+nnoremap <leader>h :action CallHierarchy<CR>
+let g:WhichKeyDesc_CallHierarchy = "<leader>h Call Hierarchy"
+
+nnoremap <leader>b :action ShowNavBar<CR>
+let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
+
+" nnoremap <c-s> :action FileStructurePopup<CR>
+
+nnoremap gi :action GotoImplementation<CR>
+let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
+
+nnoremap gd :action GotoDeclaration<CR>
+let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
+
+nnoremap gp :action GotoSuperMethod<CR>
+let g:WhichKeyDesc_GotoSuperMethod= "gp Go to Super Method"
+
+nnoremap gt :action GotoTest<CR>
+let g:WhichKeyDesc_GotoTest= "gt Go to Test"
+
+nnoremap gb :action Back<CR>
+let g:WhichKeyDesc_Back= "gb Go Back"
+
+nnoremap gf :action Forward<CR>
+let g:WhichKeyDesc_Forward= "gf Go Forward"
+
 
 
 
 """ Running and Debugging and Git
-" nnoremap ,gl :action Vcs.Show.Log<CR>
-" let g:WhichKeyDesc_ShowLog= ",gl Show Git Log"
-"
-" nnoremap ,gm :action Git.Menu<CR>
-" let g:WhichKeyDesc_GitMenu= ",gm Open Git Menu"
-"
-" nnoremap ,gu :action Vcs.UpdateProject<CR>
-" let g:WhichKeyDesc_UpdateProject= ",gu Update Project"
-"
-" nnoremap ,gc :action CheckinProject<CR>
-" let g:WhichKeyDesc_CheckinProject= ",gc Cheking Project"
-"
-" nnoremap ,gb :action Git.CompareWithBranch<CR>
-" let g:WhichKeyDesc_CompareWithBranch= ",gb Compare with Branch"
-"
-" nnoremap ,ga :action Annotate<CR>
-" let g:WhichKeyDesc_Annotate= ",ga Show Annotation (Blame)"
-"
-" nnoremap ,gr :action ChangesView.Revert<CR>
-" let g:WhichKeyDesc_ChangesViewRevert= ",gr Revert Changes"
-"
-" nnoremap ,R :action RunAnything<CR>
-" let g:WhichKeyDesc_RunAnything = ",R   Run Anything"
-"
-" nnoremap ,r :action ContextRun<CR>
-" let g:WhichKeyDesc_Prefix = ",r   Prefix"
-"
-" nnoremap ,c :action RunClass<CR>
-" let g:WhichKeyDesc_RunClass = ",c   Run Class"
-"
-" nnoremap ,F :action ChooseRunConfiguration<CR>
-" let g:WhichKeyDesc_ChooseRunConfiguration = ",F   Choose Run Configuration"
-"
-" nnoremap ,t :action ActivateRunToolWindow<CR>
-" let g:WhichKeyDesc_ActivateRunToolWindow = ",t   Activate Run Tool Window"
-"
-" nnoremap ,u :action Rerun<CR>
-" let g:WhichKeyDesc_Rerun = ",u   Rerun"
-"
-" nnoremap ,f :action RerunFailedTests<CR>
-" let g:WhichKeyDesc_RerunFailedTests = ",f   Rerun Failed Tests"
-"
-" nnoremap ,b :action ToggleLineBreakpoint<CR>
-" let g:WhichKeyDesc_ToggleLineBreakpoint = ",b   Toggle Line Breakpoint"
-"
-" nnoremap ,d :action ContextDebug<CR>
-" let g:WhichKeyDesc_ContextDebug = ",d   Context Debug"
-"
-" nnoremap ,n :action ActivateDebugToolWindow<CR>
-" let g:WhichKeyDesc_ActivateDebugToolWindow = ",n   Activate Debug Tool Window"
-"
+nnoremap ,gl :action Vcs.Show.Log<CR>
+let g:WhichKeyDesc_ShowLog= ",gl Show Git Log"
+
+nnoremap ,gm :action Git.Menu<CR>
+let g:WhichKeyDesc_GitMenu= ",gm Open Git Menu"
+
+nnoremap ,gu :action Vcs.UpdateProject<CR>
+let g:WhichKeyDesc_UpdateProject= ",gu Update Project"
+
+nnoremap ,gc :action CheckinProject<CR>
+let g:WhichKeyDesc_CheckinProject= ",gc Cheking Project"
+
+nnoremap ,gb :action Git.CompareWithBranch<CR>
+let g:WhichKeyDesc_CompareWithBranch= ",gb Compare with Branch"
+
+nnoremap ,ga :action Annotate<CR>
+let g:WhichKeyDesc_Annotate= ",ga Show Annotation (Blame)"
+
+nnoremap ,gr :action ChangesView.Revert<CR>
+let g:WhichKeyDesc_ChangesViewRevert= ",gr Revert Changes"
+
+nnoremap ,R :action RunAnything<CR>
+let g:WhichKeyDesc_RunAnything = ",R   Run Anything"
+
+nnoremap ,r :action ContextRun<CR>
+let g:WhichKeyDesc_Prefix = ",r   Prefix"
+
+nnoremap ,c :action RunClass<CR>
+let g:WhichKeyDesc_RunClass = ",c   Run Class"
+
+nnoremap ,F :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_ChooseRunConfiguration = ",F   Choose Run Configuration"
+
+nnoremap ,t :action ActivateRunToolWindow<CR>
+let g:WhichKeyDesc_ActivateRunToolWindow = ",t   Activate Run Tool Window"
+
+nnoremap ,u :action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",u   Rerun"
+
+nnoremap ,f :action RerunFailedTests<CR>
+let g:WhichKeyDesc_RerunFailedTests = ",f   Rerun Failed Tests"
+
+nnoremap ,b :action ToggleLineBreakpoint<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = ",b   Toggle Line Breakpoint"
+
+nnoremap ,d :action ContextDebug<CR>
+let g:WhichKeyDesc_ContextDebug = ",d   Context Debug"
+
+nnoremap ,n :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ActivateDebugToolWindow = ",n   Activate Debug Tool Window"
+
