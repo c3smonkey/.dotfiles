@@ -1,7 +1,19 @@
+"" Common settings -------------------------
+set clipboard+=unnamed " Clipboard sharing for Mac Os
+set clipboard+=ideaput
 set so=10 " Keep few lines visible when scrolling
-set incsearch
 set number relativenumber " Set relative line numbers
 set timeoutlen=400
+set incsearch " Highlight the searching string while typing
+set hlsearch "Keep Highlight"
+nnoremap <leader>nh :noh<CR>
+let g:WhichKeyDesc_clear_highlight = "<leader>nh Clear Highlight"
+
+""" The Escape button
+inoremap jj <Esc>
+
+""" The Leader Key
+let mapleader=" "
 
 """ Editing and Reloading the Config
 "--------------------------------------------------------------------------------------------
@@ -241,19 +253,6 @@ let g:WhichKeyDesc_IndentObject_iI = "viI: Inner indentation level (no lines abo
 "--------------------------------------------------------------------------------------------
 
 
-"" Common settings -------------------------
-set clipboard+=unnamed " Clipboard sharing for Mac Os
-set clipboard+=ideaput
-set so=10 " Keep few lines visible when scrolling
-set incsearch " Highlight the searching string while typing
-set relativenumber " Set relative line numbers
-
-""" The Escape button
-inoremap jj <Esc>
-
-""" The Leader Key
-let mapleader=" "
-
 """ Distraction Free Mode
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
@@ -344,8 +343,6 @@ let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
 
 """ Searching and Source Code Navigation
-set incsearch
-
 nnoremap <leader>gs :action GotoSymbol<CR>
 let g:WhichKeyDesc_GotoSymbol= "<leader>gs Go to Symbol"
 
@@ -375,6 +372,13 @@ let g:WhichKeyDesc_CallHierarchy = "<leader>h Call Hierarchy"
 
 nnoremap <leader>b :action ShowNavBar<CR>
 let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
+
+nnoremap <leader>t :action ViewToolButtons<CR>
+let g:WhichKeyDesc_ViewTooButtons = "<leader>t Show View Tool Buttons"
+
+nnoremap <leader>h :action HideAllWindows<CR>
+let g:WhichKeyDesc_HideAllWindows= "<leader>t Hide All Windows Show"
+
 
 " nnoremap <c-s> :action FileStructurePopup<CR>
 
