@@ -335,8 +335,6 @@ let g:WhichKeyDesc_HideAllWindows= "<leader>ha Hide All Windows Show"
 
 
 
-
-
 """ Jump to 
 nnoremap <leader>js :action GotoSymbol<CR>
 let g:WhichKeyDesc_GotoSymbol= "<leader>js Jump to Symbol"
@@ -357,14 +355,14 @@ nnoremap <leader>je :action SearchEverywhere<CR>
 let g:WhichKeyDesc_SearchEverywhere= "<leader>je Jump to Everywhere"
 
 
+
+
 """ Find
-nnoremap <leader>fp :action FindInPath<CR>
-let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
+nnoremap <leader>ff :action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "<leader>ff Find in Path"
 
 nnoremap <leader>fu :action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
-
-
 
 
 
@@ -392,50 +390,61 @@ nnoremap gE :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
 
+
 """ Code
-nnoremap <leader>c :action CommentByLineComment<CR>
-let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
+" nnoremap <leader>c :action CommentByLineComment<CR>
+" let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
 
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-let g:WhichKeyDesc_QuickListPopupActions= "<leader>r Refactor This"
+nnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= "<leader>cr Refactor This"
 
-nnoremap <leader>o :action OptimizeImports<CR>
-let g:WhichKeyDesc_OptimizeImports= "<leader>o Optimize Imports"
+nnnoremap <leader>co :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= "<leader>co Optimize Imports"
 
-nnoremap <leader>l :action RecentLocations<CR>
-let g:WhichKeyDesc_RecentLocations= "<leader>l Recent Locations"
+noremap <leader>cf :action ReformatCode<CR>
+let g:WhichKeyDesc_ReformatCode= "<leader>cf ReformatCode"
 
+nnoremap <leader>cl :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations= "<leader>cl Recent Locations"
 
+nnoremap <leader>ci :action QuickImplementations<CR>
+let g:WhichKeyDesc_QuickImplementations= "<leader>ci Quick Implementation"
 
-
-""" Git 
-nnoremap ,gl :action Vcs.Show.Log<CR>
-let g:WhichKeyDesc_ShowLog= ",gl Show Git Log"
-
-nnoremap ,gh  :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= ",gh Show History"
-
-nnoremap ,gm :action Git.Menu<CR>
-let g:WhichKeyDesc_GitMenu= ",gm Open Git Menu"
-
-nnoremap ,gu :action Vcs.UpdateProject<CR>
-let g:WhichKeyDesc_UpdateProject= ",gu Update Project"
-
-nnoremap ,gc :action CheckinProject<CR>
-let g:WhichKeyDesc_CheckinProject= ",gc Commit"
-
-nnoremap ,gb :action Git.CompareWithBranch<CR>
-let g:WhichKeyDesc_CompareWithBranch= ",gb Compare with Branch"
-
-nnoremap ,ga :action Annotate<CR>
-let g:WhichKeyDesc_Annotate= ",ga Show Annotation (Blame)"
-
-nnoremap ,gr :action ChangesView.Revert<CR>
-let g:WhichKeyDesc_ChangesViewRevert= ",gr Revert Changes"
+nnoremap <leader>cb :action CompileDirty<CR>
+let g:WhichKeyDesc_CompileDirty= "<leader>cb Build Project"
 
 
 
-""" Run
+
+
+""" Git  <leader> g
+nnoremap <leader>g :action Vcs.Show.Log<CR>
+let g:WhichKeyDesc_ShowLog= "<leader>g Show Git Log"
+
+nnoremap <leader>gh  :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>gh Show History"
+
+nnoremap <leader>gm :action Git.Menu<CR>
+let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
+
+nnoremap <leader>gu :action Vcs.UpdateProject<CR>
+let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
+
+nnoremap <leader>gc :action CheckinProject<CR>
+let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
+
+nnoremap <leader>gb :action Git.CompareWithBranch<CR>
+let g:WhichKeyDesc_CompareWithBranch= "<leader>gb Compare with Branch"
+
+nnoremap <leader>ga :action Annotate<CR>
+let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
+
+nnoremap <leader>gr :action ChangesView.Revert<CR>
+let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
+
+
+
+""" Run , r
 nnoremap ,R :action RunAnything<CR>
 let g:WhichKeyDesc_RunAnything = ",R Run Anything"
 
@@ -451,14 +460,11 @@ let g:WhichKeyDesc_ChooseRunConfiguration = ",F Choose Run Configuration"
 nnoremap ,t :action ActivateRunToolWindow<CR>
 let g:WhichKeyDesc_ActivateRunToolWindow = ",t Activate Run Tool Window"
 
-nnoremap ,u :action Rerun<CR>
-let g:WhichKeyDesc_Rerun = ",u Rerun"
+nnoremap ,rr :action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",rr Rerun"
 
-nnoremap ,f :action RerunFailedTests<CR>
-let g:WhichKeyDesc_RerunFailedTests = ",f Rerun Failed Tests"
-
-nnoremap ,b :action CompileDirty<CR>
-let g:WhichKeyDesc_CompileDirty= ",b Build Project"
+nnoremap ,rf :action RerunFailedTests<CR>
+let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 
 
 
