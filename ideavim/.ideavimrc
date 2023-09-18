@@ -307,6 +307,7 @@ vnoremap > >gv
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
+""" Region
 nnoremap zc :action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
 
@@ -319,6 +320,79 @@ let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
 nnoremap <leader>zo :action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
 
+
+
+""" Window (Navigation Bar, Tool Buttons)
+nnoremap <leader>b :action ShowNavBar<CR>
+let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
+
+nnoremap <leader>t :action ViewToolButtons<CR>
+let g:WhichKeyDesc_ViewTooButtons = "<leader>t Show View Tool Buttons"
+
+nnoremap <leader>ha :action HideAllWindows<CR>
+let g:WhichKeyDesc_HideAllWindows= "<leader>ha Hide All Windows Show"
+
+
+
+
+
+
+""" Jump to 
+nnoremap <leader>js :action GotoSymbol<CR>
+let g:WhichKeyDesc_GotoSymbol= "<leader>js Jump to Symbol"
+
+nnoremap <leader>jc :action GotoClass<CR>
+let g:WhichKeyDesc_GotoClass= "<leader>jc Jump to Class"
+
+nnoremap <leader>jr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles= "<leader>jr Jump to Recent Files"
+
+nnoremap <leader>ja :action GotoAction<CR>
+let g:WhichKeyDesc_GotoAction = "<leader>ja Jump to Action"
+
+nnoremap <leader>jf :action GotoFile<CR>
+let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to File"
+
+nnoremap <leader>je :action SearchEverywhere<CR>
+let g:WhichKeyDesc_SearchEverywhere= "<leader>je Jump to Everywhere"
+
+
+""" Find
+nnoremap <leader>fp :action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
+
+nnoremap <leader>fu :action FindUsages<CR>
+let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
+
+
+
+
+
+
+""" Go to 
+nnoremap gi :action GotoImplementation<CR>
+let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
+
+nnoremap gd :action GotoDeclaration<CR>
+let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
+
+nnoremap gt :action GotoTest<CR>
+let g:WhichKeyDesc_GotoTest= "gt Go to Test"
+
+nnoremap gb :action Back<CR>
+let g:WhichKeyDesc_Back= "gb Go Back"
+
+nnoremap gf :action Forward<CR>
+let g:WhichKeyDesc_Forward= "gf Go Forward"
+
+nnoremap ge :action GotoNextError<CR>
+let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
+
+nnoremap gE :action GotoPreviousError<CR>
+let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
+
+
+""" Code
 nnoremap <leader>c :action CommentByLineComment<CR>
 let g:WhichKeyDesc_CommentByLineComment= "<leader>c Comment Line"
 
@@ -331,81 +405,15 @@ let g:WhichKeyDesc_OptimizeImports= "<leader>o Optimize Imports"
 nnoremap <leader>l :action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations= "<leader>l Recent Locations"
 
-nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>h Show History"
-
-nnoremap ge :action GotoNextError<CR>
-let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-
-nnoremap gE :action GotoPreviousError<CR>
-let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
 
 
-""" Searching and Source Code Navigation
-nnoremap <leader>gs :action GotoSymbol<CR>
-let g:WhichKeyDesc_GotoSymbol= "<leader>gs Go to Symbol"
-
-nnoremap <leader>gc :action GotoClass<CR>
-let g:WhichKeyDesc_GotoClass= "<leader>gc Go to Class"
-
-nnoremap <leader>gr :action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles= "<leader>gr Recent Files"
-
-nnoremap <leader>ga :action GotoAction<CR>
-let g:WhichKeyDesc_GotoAction = "<leader>ga Go to Action"
-
-nnoremap <leader>gf :action GotoFile<CR>
-let g:WhichKeyDesc_GotoFile = "<leader>gf Go to File"
-
-nnoremap <leader>fp :action FindInPath<CR>
-let g:WhichKeyDesc_FindInPath = "<leader>fp Find in Path"
-
-nnoremap <leader>fu :action FindUsages<CR>
-let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
-
-nnoremap <leader>fe :action SearchEverywhere<CR>
-let g:WhichKeyDesc_SearchEverywhere= "<leader>fe Search Everywhere"
-
-nnoremap <leader>h :action CallHierarchy<CR>
-let g:WhichKeyDesc_CallHierarchy = "<leader>h Call Hierarchy"
-
-nnoremap <leader>b :action ShowNavBar<CR>
-let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
-
-nnoremap <leader>t :action ViewToolButtons<CR>
-let g:WhichKeyDesc_ViewTooButtons = "<leader>t Show View Tool Buttons"
-
-nnoremap <leader>h :action HideAllWindows<CR>
-let g:WhichKeyDesc_HideAllWindows= "<leader>t Hide All Windows Show"
-
-
-" nnoremap <c-s> :action FileStructurePopup<CR>
-
-nnoremap gi :action GotoImplementation<CR>
-let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
-
-nnoremap gd :action GotoDeclaration<CR>
-let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
-
-nnoremap gp :action GotoSuperMethod<CR>
-let g:WhichKeyDesc_GotoSuperMethod= "gp Go to Super Method"
-
-nnoremap gt :action GotoTest<CR>
-let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-
-nnoremap gb :action Back<CR>
-let g:WhichKeyDesc_Back= "gb Go Back"
-
-nnoremap gf :action Forward<CR>
-let g:WhichKeyDesc_Forward= "gf Go Forward"
-
-
-
-
-""" Running and Debugging and Git
+""" Git 
 nnoremap ,gl :action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= ",gl Show Git Log"
+
+nnoremap ,gh  :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= ",gh Show History"
 
 nnoremap ,gm :action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= ",gm Open Git Menu"
@@ -414,7 +422,7 @@ nnoremap ,gu :action Vcs.UpdateProject<CR>
 let g:WhichKeyDesc_UpdateProject= ",gu Update Project"
 
 nnoremap ,gc :action CheckinProject<CR>
-let g:WhichKeyDesc_CheckinProject= ",gc Cheking Project"
+let g:WhichKeyDesc_CheckinProject= ",gc Commit"
 
 nnoremap ,gb :action Git.CompareWithBranch<CR>
 let g:WhichKeyDesc_CompareWithBranch= ",gb Compare with Branch"
@@ -425,33 +433,43 @@ let g:WhichKeyDesc_Annotate= ",ga Show Annotation (Blame)"
 nnoremap ,gr :action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= ",gr Revert Changes"
 
+
+
+""" Run
 nnoremap ,R :action RunAnything<CR>
-let g:WhichKeyDesc_RunAnything = ",R   Run Anything"
+let g:WhichKeyDesc_RunAnything = ",R Run Anything"
 
 nnoremap ,r :action ContextRun<CR>
-let g:WhichKeyDesc_Prefix = ",r   Prefix"
+let g:WhichKeyDesc_Prefix = ",r Prefix"
 
 nnoremap ,c :action RunClass<CR>
-let g:WhichKeyDesc_RunClass = ",c   Run Class"
+let g:WhichKeyDesc_RunClass = ",c Run Class"
 
 nnoremap ,F :action ChooseRunConfiguration<CR>
-let g:WhichKeyDesc_ChooseRunConfiguration = ",F   Choose Run Configuration"
+let g:WhichKeyDesc_ChooseRunConfiguration = ",F Choose Run Configuration"
 
 nnoremap ,t :action ActivateRunToolWindow<CR>
-let g:WhichKeyDesc_ActivateRunToolWindow = ",t   Activate Run Tool Window"
+let g:WhichKeyDesc_ActivateRunToolWindow = ",t Activate Run Tool Window"
 
 nnoremap ,u :action Rerun<CR>
-let g:WhichKeyDesc_Rerun = ",u   Rerun"
+let g:WhichKeyDesc_Rerun = ",u Rerun"
 
 nnoremap ,f :action RerunFailedTests<CR>
-let g:WhichKeyDesc_RerunFailedTests = ",f   Rerun Failed Tests"
+let g:WhichKeyDesc_RerunFailedTests = ",f Rerun Failed Tests"
 
-nnoremap ,b :action ToggleLineBreakpoint<CR>
-let g:WhichKeyDesc_ToggleLineBreakpoint = ",b   Toggle Line Breakpoint"
+nnoremap ,b :action CompileDirty<CR>
+let g:WhichKeyDesc_CompileDirty= ",b Build Project"
 
-nnoremap ,d :action ContextDebug<CR>
-let g:WhichKeyDesc_ContextDebug = ",d   Context Debug"
 
-nnoremap ,n :action ActivateDebugToolWindow<CR>
-let g:WhichKeyDesc_ActivateDebugToolWindow = ",n   Activate Debug Tool Window"
+
+
+""" Debug
+nnoremap .b :action ToggleLineBreakpoint<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = ".b Toggle Line Breakpoint"
+
+nnoremap .d :action ContextDebug<CR>
+let g:WhichKeyDesc_ContextDebug = ".d Context Debug"
+
+nnoremap .n :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ActivateDebugToolWindow = ".n  Activate Debug Tool Window"
 
