@@ -401,36 +401,11 @@ let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
 
 nnoremap gE           :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
+
+nnoremap gl           :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations= "gl Recent Locations"
 "--------------------------------------------------------------------------------------------
 
-
-
-"""" <leader> c
-"--------------------------------------------------------------------------------------------
-"
-" vnoremap < <gv: This mapping is for shifting the selected block of text to the left
-"
-nvnoremap < <gv
-vnoremap > >gv
-
-noremap <leader>cr    :action Refactorings.QuickListPopupAction<CR>
-let g:WhichKeyDesc_QuickListPopupActions= "<leader>cr Refactor This"
-
-nnnoremap <leader>co  :action OptimizeImports<CR>
-let g:WhichKeyDesc_OptimizeImports= "<leader>co Optimize Imports"
-
-noremap <leader>cf    :action ReformatCode<CR>
-let g:WhichKeyDesc_ReformatCode= "<leader>cf ReformatCode"
-
-nnoremap <leader>cl   :action RecentLocations<CR>
-let g:WhichKeyDesc_RecentLocations= "<leader>cl Recent Locations"
-
-nnoremap <leader>ci   :action QuickImplementations<CR>
-let g:WhichKeyDesc_QuickImplementations= "<leader>ci Quick Implementation"
-
-nnoremap <leader>cb   :action CompileDirty<CR>
-let g:WhichKeyDesc_CompileDirty= "<leader>cb Build Project"
-"--------------------------------------------------------------------------------------------
 
 
 
@@ -438,7 +413,7 @@ let g:WhichKeyDesc_CompileDirty= "<leader>cb Build Project"
 """" <leader> g
 "--------------------------------------------------------------------------------------------
 "
-nnoremap <leader>g    :action Vcs.Show.Log<CR>
+nnoremap <leader>gl   :action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>g Show Git Log"
 
 nnoremap <leader>gh   :action LocalHistory.ShowHistory<CR>
@@ -464,23 +439,39 @@ let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
 "--------------------------------------------------------------------------------------------
 
 
-"""" Run ,
+
+
+"""" Run Code and Debug ,
 "--------------------------------------------------------------------------------------------
-"
+nnoremap ,b           :action ToggleLineBreakpoint<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = ",b Toggle Line Breakpoint"
+
+nnoremap ,d           :action ContextDebug<CR>
+let g:WhichKeyDesc_ContextDebug = ",d Context Debug"
+
+nnoremap ,n           :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ActivateDebugToolWindow = ",n  Activate Debug Tool Window"
+
+noremap ,r            :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= ",r Refactor This"
+
+noremap ,f            :action ReformatCode<CR>
+let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
+
+nnoremap ,qi          :action QuickImplementations<CR>
+let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
+
+nnoremap ,c           :action CompileDirty<CR>
+let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
+
 nnoremap ,R           :action RunAnything<CR>
 let g:WhichKeyDesc_RunAnything = ",R Run Anything"
 
-nnoremap ,r           :action ContextRun<CR>
-let g:WhichKeyDesc_Prefix = ",r Prefix"
+nnoremap ,cr           :action ContextRun<CR>
+let g:WhichKeyDesc_Prefix = ",r Contect Run"
 
-nnoremap ,c           :action RunClass<CR>
-let g:WhichKeyDesc_RunClass = ",c Run Class"
-
-nnoremap ,F           :action ChooseRunConfiguration<CR>
-let g:WhichKeyDesc_ChooseRunConfiguration = ",F Choose Run Configuration"
-
-nnoremap ,t           :action ActivateRunToolWindow<CR>
-let g:WhichKeyDesc_ActivateRunToolWindow = ",t Activate Run Tool Window"
+nnoremap ,rc           :action RunClass<CR>
+let g:WhichKeyDesc_RunClass = ",rc Run Class"
 
 nnoremap ,rr          :action Rerun<CR>
 let g:WhichKeyDesc_Rerun = ",rr Rerun"
@@ -488,18 +479,14 @@ let g:WhichKeyDesc_Rerun = ",rr Rerun"
 nnoremap ,rf          :action RerunFailedTests<CR>
 let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 
+nnoremap ,F           :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_ChooseRunConfiguration = ",F Choose Run Configuration"
+
+nnoremap ,t           :action ActivateRunToolWindow<CR>
+let g:WhichKeyDesc_ActivateRunToolWindow = ",t Activate Run Tool Window"
+
+" vnoremap < <gv: This mapping is for shifting the selected block of text to the left
+nvnoremap < <gv
+vnoremap > >gv
 "--------------------------------------------------------------------------------------------
 
-
-""" Debug .
-"--------------------------------------------------------------------------------------------
-"
-nnoremap .b           :action ToggleLineBreakpoint<CR>
-let g:WhichKeyDesc_ToggleLineBreakpoint = ".b Toggle Line Breakpoint"
-
-nnoremap .d           :action ContextDebug<CR>
-let g:WhichKeyDesc_ContextDebug = ".d Context Debug"
-
-nnoremap .n           :action ActivateDebugToolWindow<CR>
-let g:WhichKeyDesc_ActivateDebugToolWindow = ".n  Activate Debug Tool Window"
-"--------------------------------------------------------------------------------------------
