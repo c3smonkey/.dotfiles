@@ -368,10 +368,13 @@ let g:WhichKeyDesc_SearchEverywhere= "<leader>je Jump to Everywhere"
 """" Find <leader> f
 "--------------------------------------------------------------------------------------------
 "
-nnoremap <leader>ff   :action FindInPath<CR>
+noremap <leader>fr     :action ReplaceInPath<CR>
+let g:WhichKeyDesc_ReplaceInPath= "<leader>fr Replace in Path"
+
+noremap <leader>ff     :action FindInPath<CR>
 let g:WhichKeyDesc_FindInPath = "<leader>ff Find in Path"
 
-nnoremap <leader>fu   :action FindUsages<CR>
+nnoremap <leader>fu    :action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
 "--------------------------------------------------------------------------------------------
 
