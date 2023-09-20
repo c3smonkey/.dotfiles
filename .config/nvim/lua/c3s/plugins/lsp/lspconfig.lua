@@ -142,6 +142,14 @@ return {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
+    -- configure kotlin language server
+    lspconfig.kotlin_language_server.setup({
+      cmd = { "kotlin-language-server" }, -- replace with path to your kotlin-language-server if necessary
+      root_dir = lspconfig.util.root_pattern("pom.xml", "settings.gradle", "settings.gradle.kts"),
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
