@@ -42,8 +42,9 @@ yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="Raycast" manage=off
 yabai -m rule --add app="^Music$" manage=off
-#yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 yabai -m rule --add app="Toolbox$" manage=off
+yabai -m rule --add app="Simulator$" manage=off
+#yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 #yabai -m rule --add app="Teams$" manage=off
 #yabai -m rule --add app="Android Studio$" manage=off
 yabai -m rule --add app="^1Password 7$" manage=off
