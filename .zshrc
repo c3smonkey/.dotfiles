@@ -46,19 +46,11 @@ eval $(thefuck --alias)
 # Zoxide
 eval "$(zoxide init zsh)"
 
-
 # DOTFILES
 source ~/.variables
 source ~/.dotfiles/.aliasrc
+source ~/.dotfiles/.variablesrc
 
-# ssh agent 
-if [ -z "$SSH_AUTH_SOCK" ]; then
-   eval "$(ssh-agent -s)"
-   ssh-add ~/.ssh/marzelwidmer
-fi
 
-# Ruby
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
+
+
