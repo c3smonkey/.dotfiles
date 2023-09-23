@@ -45,3 +45,6 @@ opt.swapfile = false
 -- Multi-language Spell Checking
 opt.spelllang = "en_us,de,de_ch"
 opt.spell = true
+
+-- Syntax Highlighting
+vim.cmd("syntax on") -- enable syntax highlighting
