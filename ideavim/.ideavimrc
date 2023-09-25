@@ -444,7 +444,7 @@ let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
 
 
 
-"""" Run Code and Debug ,
+"""" Refactor, Run Code and Debug ,
 "--------------------------------------------------------------------------------------------
 nnoremap ,b           :action ToggleLineBreakpoint<CR>
 let g:WhichKeyDesc_ToggleLineBreakpoint = ",b Toggle Line Breakpoint"
@@ -455,11 +455,14 @@ let g:WhichKeyDesc_ContextDebug = ",d Context Debug"
 nnoremap ,n           :action ActivateDebugToolWindow<CR>
 let g:WhichKeyDesc_ActivateDebugToolWindow = ",n  Activate Debug Tool Window"
 
-noremap ,r            :action Refactorings.QuickListPopupAction<CR>
-let g:WhichKeyDesc_QuickListPopupActions= ",r Refactor This"
+noremap ,rm            :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor This"
 
 noremap ,f            :action ReformatCode<CR>
 let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
+
+nnoremap ,oi          :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= ",oi Optimize Import"
 
 nnoremap ,qi          :action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
