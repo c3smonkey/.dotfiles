@@ -29,6 +29,7 @@ plugins=(
 	gradle
 	helm
   kube-ps1
+  heroku
 )
 
 # OH-MY-ZSH
