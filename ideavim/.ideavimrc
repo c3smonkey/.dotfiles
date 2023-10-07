@@ -91,8 +91,8 @@ let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "
 nnoremap <leader>gl :action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
-nnoremap <leader>gh :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>gh Show History"
+nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>glh Show Local History"
 nnoremap <leader>gm :action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
 nnoremap <leader>gu :action Vcs.UpdateProject<CR>
@@ -105,6 +105,7 @@ nnoremap <leader>ga :action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
 nnoremap <leader>gr :action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
+
 "--------------------------------------------------------------------------------------------
 
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
@@ -174,7 +175,7 @@ let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
 nnoremap gE :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
-nnoremap gl           :action RecentLocations<CR>
+nnoremap gl :action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations= "gl Recent Locations"
 "--------------------------------------------------------------------------------------------
 
