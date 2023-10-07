@@ -274,73 +274,88 @@ nnoremap <C-S-j>      :action StretchSplitToBottom<CR>
 nnoremap <C-S-k>      :action StretchSplitToTop<CR>
 nnoremap <C-S-l>      :action StretchSplitToRight<CR>
 
-nnoremap ,so          :action ChangeSplitOrientation<CR>
+nnoremap ,so :action ChangeSplitOrientation<CR>
 let g:WhichKeyDesc_ChangeSplitOrientation= ",so Change Split Orientation"
-
-nnoremap ,sm          :action MaximizeEditorInSplit<CR>
+nnoremap ,sm :action MaximizeEditorInSplit<CR>
 let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editor in Split"
-
-
-nnoremap <TAB>        :action PreviousTab<CR>
-nnoremap <s-TAB>      :action NextTab<CR>
-
-nnoremap ,q           :action CloseContent<CR>
+nnoremap ,q :action CloseContent<CR>
 let g:WhichKeyDesc_CloseContent= ",q Close Content"
-
-nnoremap ,a           :action CloseAllEditors<CR>
+nnoremap ,a :action CloseAllEditors<CR>
 let g:WhichKeyDesc_CloseAllEditors= ",a Close All Content"
 
-
-"""" Window (Navigation Bar, Tool Buttons)
-"--------------------------------------------------------------------------------------------
-"
-nnoremap <leader>b    :action ShowNavBar<CR>
-let g:WhichKeyDesc_ShowNavBar = "<leader>b Show Navigation Bar"
-
-nnoremap <leader>t    :action ViewToolButtons<CR>
-let g:WhichKeyDesc_ViewTooButtons = "<leader>t Show View Tool Buttons"
-
-nnoremap <leader>ha   :action HideAllWindows<CR>
-let g:WhichKeyDesc_HideAllWindows= "<leader>ha Hide All Windows Show"
-
-" Distraction Free Mode
-nnoremap <c-z>        :action ToggleDistractionFreeMode<CR>
-"--------------------------------------------------------------------------------------------
-
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
 
 " nnoremap <Leader>e :action EditSourceInNewWindow<CR>
 " let g:WhichKeyDesc_EditSourceInNewWindow= "<Leader>e Edit Source in New Window"
 
 "sethandler <D-n> a:vim
 "nnoremap <D-n> :action NextWindow<CR>
-
 nnoremap [[           :action MethodUp<CR>
 nnoremap ]]           :action MethodDown<CR>
 
 
 
-"""" Region z
+"""" Region and Font Size                                                                    z 
 "--------------------------------------------------------------------------------------------
 "
-nnoremap zc           :action CollapseRegion<CR>
+nnoremap zc :action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
-
-nnoremap zo           :action ExpandRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
 let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
-
-nnoremap <leader>zc   :action CollapseAllRegions<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
 let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
-
-nnoremap <leader>zo   :action ExpandAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
+
+nnoremap zr :action EditorResetFontSize<CR>
+let g:WhichKeyDesc_EditorResetFontSize= "zr Editor Resent Font Size"
+nnoremap zi :action EditorIncreaseFontSize<CR>
+let g:WhichKeyDesc_EditorIncreaseFontSize= "zi Editor Increase Font Size"
+nnoremap zd :action EditorDecreaseFontSize<CR>
+let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
 
+""""  Git                                                                          <leader> g 
+"--------------------------------------------------------------------------------------------
+"
+nnoremap <leader>gl :action Vcs.Show.Log<CR>
+let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
+nnoremap <leader>gh :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>gh Show History"
+nnoremap <leader>gm :action Git.Menu<CR>
+let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
+nnoremap <leader>gu :action Vcs.UpdateProject<CR>
+let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
+nnoremap <leader>gc :action CheckinProject<CR>
+let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
+nnoremap <leader>gb :action Git.CompareWithBranch<CR>
+let g:WhichKeyDesc_CompareWithBranch= "<leader>gb Compare with Branch"
+nnoremap <leader>ga :action Annotate<CR>
+let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
+nnoremap <leader>gr :action ChangesView.Revert<CR>
+let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
+"--------------------------------------------------------------------------------------------
 
+"""" Window (Navigation Bar, Tool Buttons)                                         <leader> w
+"--------------------------------------------------------------------------------------------
+"
+nnoremap <leader>wb :action ShowNavBar<CR>
+let g:WhichKeyDesc_ShowNavBar = "<leader>wb Show Navigation Bar"
+nnoremap <leader>wt :action ViewToolButtons<CR>
+let g:WhichKeyDesc_ViewTooButtons = "<leader>wt Show View Tool Buttons"
+nnoremap <leader>wh :action HideAllWindows<CR>
+let g:WhichKeyDesc_HideAllWindows= "<leader>wh Hide All Windows Show"
+nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
+let g:WhichKeyDesc_ActivateDebugToolWindow = "<leader>wd  Activate Debug Tool Window"
+nnoremap <leader>wr :action ActivateRunToolWindow<CR>
+let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
 
+" Distraction Free Mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+"--------------------------------------------------------------------------------------------
 
-
-
-"""" Jump to <leader> j
+"""" Jump to                                                                       <leader> j
 "--------------------------------------------------------------------------------------------
 "
 nnoremap <leader>js   :action GotoSymbol<CR>
@@ -362,134 +377,83 @@ nnoremap <leader>je   :action SearchEverywhere<CR>
 let g:WhichKeyDesc_SearchEverywhere= "<leader>je Jump to Everywhere"
 "--------------------------------------------------------------------------------------------
 
-
-
-
-"""" Find <leader> f
+"""" Find                                                                                   f
 "--------------------------------------------------------------------------------------------
 "
-noremap <leader>fr     :action ReplaceInPath<CR>
-let g:WhichKeyDesc_ReplaceInPath= "<leader>fr Replace in Path"
-
-noremap <leader>ff     :action FindInPath<CR>
-let g:WhichKeyDesc_FindInPath = "<leader>ff Find in Path"
-
-nnoremap <leader>fu    :action FindUsages<CR>
-let g:WhichKeyDesc_FindUsages = "<leader>fu Find Usages"
+noremap ff :action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "ff Find in Path"
+nnoremap fu :action FindUsages<CR>
+let g:WhichKeyDesc_FindUsages = "fu Find Usages"
 "--------------------------------------------------------------------------------------------
 
-
-
-
-"""" Got to g 
+"""" Got to                                                                                 g
 "--------------------------------------------------------------------------------------------
 "
-nnoremap gi           :action GotoImplementation<CR>
+nnoremap gi :action GotoImplementation<CR>
 let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
-
-nnoremap gd           :action GotoDeclaration<CR>
+nnoremap gd :action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
-
-nnoremap gt           :action GotoTest<CR>
+nnoremap gt :action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-
-nnoremap gb           :action Back<CR>
+nnoremap gb :action Back<CR>
 let g:WhichKeyDesc_Back= "gb Go Back"
-
-nnoremap gf           :action Forward<CR>
+nnoremap gf :action Forward<CR>
 let g:WhichKeyDesc_Forward= "gf Go Forward"
-
-nnoremap ge           :action GotoNextError<CR>
+nnoremap ge :action GotoNextError<CR>
 let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-
-nnoremap gE           :action GotoPreviousError<CR>
+nnoremap gE :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 
 nnoremap gl           :action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations= "gl Recent Locations"
 "--------------------------------------------------------------------------------------------
 
-
-
-
-
-"""" <leader> g
+"""" Run Code and Debug and Code Formatting etc                                             ,
 "--------------------------------------------------------------------------------------------
-"
-nnoremap <leader>gl   :action Vcs.Show.Log<CR>
-let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
+nnoremap ,ra :action RunAnything<CR>
+let g:WhichKeyDesc_RunAnything = ",ra Run Anything"
 
-nnoremap <leader>gh   :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>gh Show History"
+nnoremap ,r :action Run<CR>
+let g:WhichKeyDesc_Run = ",r Run"
+nnoremap ,rr :action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",rr Rerun"
+nnoremap ,R :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
+nnoremap ,s :action Stop<CR>
+let g:WhichKeyDesc_Stop = ",s Stop"
 
-nnoremap <leader>gm   :action Git.Menu<CR>
-let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
-
-nnoremap <leader>gu   :action Vcs.UpdateProject<CR>
-let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
-
-nnoremap <leader>gc   :action CheckinProject<CR>
-let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
-
-nnoremap <leader>gb   :action Git.CompareWithBranch<CR>
-let g:WhichKeyDesc_CompareWithBranch= "<leader>gb Compare with Branch"
-
-nnoremap <leader>ga   :action Annotate<CR>
-let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
-
-nnoremap <leader>gr   :action ChangesView.Revert<CR>
-let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
-"--------------------------------------------------------------------------------------------
-
-
-
-
-"""" Refactor, Run Code and Debug ,
-"--------------------------------------------------------------------------------------------
-nnoremap ,b           :action ToggleLineBreakpoint<CR>
+" Debug
+nnoremap ,d :action Debug<CR>
+let g:WhichKeyDesc_Debug = ",d Debug"
+nnoremap ,D :action ChooseDebugConfiguration<CR>
+let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
+nnoremap ,b :action ToggleLineBreakpoint<CR>
 let g:WhichKeyDesc_ToggleLineBreakpoint = ",b Toggle Line Breakpoint"
 
-nnoremap ,d           :action ContextDebug<CR>
-let g:WhichKeyDesc_ContextDebug = ",d Context Debug"
-
-nnoremap ,n           :action ActivateDebugToolWindow<CR>
-let g:WhichKeyDesc_ActivateDebugToolWindow = ",n  Activate Debug Tool Window"
-
-noremap ,rm            :action Refactorings.QuickListPopupAction<CR>
-let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor This"
-
-noremap ,f            :action ReformatCode<CR>
-let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
-
-nnoremap ,oi          :action OptimizeImports<CR>
-let g:WhichKeyDesc_OptimizeImports= ",oi Optimize Import"
-
-nnoremap ,qi          :action QuickImplementations<CR>
-let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
-
-nnoremap ,c           :action CompileDirty<CR>
-let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
-
-nnoremap ,R           :action RunAnything<CR>
-let g:WhichKeyDesc_RunAnything = ",R Run Anything"
-
-nnoremap ,cr           :action ContextRun<CR>
-let g:WhichKeyDesc_Prefix = ",r Contect Run"
-
-nnoremap ,rc           :action RunClass<CR>
-let g:WhichKeyDesc_RunClass = ",rc Run Class"
-
-nnoremap ,rr          :action Rerun<CR>
-let g:WhichKeyDesc_Rerun = ",rr Rerun"
-
-nnoremap ,rf          :action RerunFailedTests<CR>
+" Test
+nnoremap ,t :action RunClass<CR>
+let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
+nnoremap ,T :action ContextRun<CR>
+let g:WhichKeyDesc_ContextRun= ",T Run current Test"
+nnoremap ,rf :action RerunFailedTests<CR>
 let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 
-nnoremap ,F           :action ChooseRunConfiguration<CR>
-let g:WhichKeyDesc_ChooseRunConfiguration = ",F Choose Run Configuration"
 
-nnoremap ,t           :action ActivateRunToolWindow<CR>
-let g:WhichKeyDesc_ActivateRunToolWindow = ",t Activate Run Tool Window"
+" Code
+noremap ,f :action ReformatCode<CR>
+let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
+nnoremap ,oi :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= ",oi Optimize Import"
+nnoremap ,c           :action CompileDirty<CR>
+let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
+noremap ,rf :action ReplaceInPath<CR>
+let g:WhichKeyDesc_ReplaceInPath= ",rf Replace in Path/File"
+noremap ,rm :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
+nnoremap ,qi :action QuickImplementations<CR>
+let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
+"--------------------------------------------------------------------------------------------
+
 
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
 nvnoremap < <gv
