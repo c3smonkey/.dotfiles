@@ -16,242 +16,12 @@ inoremap jj <Esc>
 """ The Leader Key
 let mapleader=" "
 
-
 """ Editing and Reloading the Config
 "--------------------------------------------------------------------------------------------
 set clipboard+=unnamed
 set clipboard+=ideaput
 nnoremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
-"--------------------------------------------------------------------------------------------
-
-
-""" Plugins
-"--------------------------------------------------------------------------------------------
-
-""" Wich-key Plugin
-"--------------------------------------------------------------------------------------------
-"  https://plugins.jetbrains.com/plugin/15976-which-key
-set which-key
-
-set notimeout
-let g:WhichKey_ShowVimActions = "false"
-let g:WhichKey_DefaultDelay = 300
-"--------------------------------------------------------------------------------------------
-
-
-""" Surround plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/tpope/vim-surround/blob/master/doc/surround.txt for details
-set surround
-
-" Basic Commands:
-"   cs   Change surroundings
-"   cst  Change surroundings tag
-"   ds   Delete surroundings
-"   dst  Delete surroundings tag
-"   ys   Surround text object
-
-let g:WhichKeyDesc_Surround_cs = "cs Change surroundings"
-let g:WhichKeyDesc_Surround_cst = "cst Change surroundings tag"
-let g:WhichKeyDesc_Surround_ds = "ds Delete surroundings"
-let g:WhichKeyDesc_Surround_dst = "dst Delete surroundings tag"
-let g:WhichKeyDesc_Surround_ys = "ys Surround text object"
-"--------------------------------------------------------------------------------------------
-
-
-""" argtextobj plugin
-"--------------------------------------------------------------------------------------------
-"   https://www.vim.org/scripts/script.php?script_id=2699 for details
-set argtextobj
-let g:argtextobj_pairs="[:],(:),<:>"
-
-" Text object commands:
-"   daa   Delete an argument
-"   cia   Change inner argument.
-"   via   Select inner argument.
-
-let g:WhichKeyDesc_ArgTextObj_daa = "daa Delete an argument"
-let g:WhichKeyDesc_ArgTextObj_cia = "cia Change inner argument"
-let g:WhichKeyDesc_ArgTextObj_via = "via Select inner argument"
-"--------------------------------------------------------------------------------------------
-
-
-""" exchange plugin
-"--------------------------------------------------------------------------------------------
-"   https://www.vim.org/scripts/script.php?script_id=2699 for details
-"   Emulates exchange.vim. Text exchange
-Plug 'tommcdo/vim-exchange'
-
-" Basic Commands:
-"   cx    First use to define the exchange, second use defines the second and exchange
-"   cxx   Like cx for an entire line
-"   X     Like cx for visual mode
-
-let g:WhichKeyDesc_Exchange_cx = "cx Define the exchange"
-let g:WhichKeyDesc_Exchange_cxx = "cxx Exchange an entire line"
-let g:WhichKeyDesc_Exchange_X = "X Exchange in visual mode"
-"--------------------------------------------------------------------------------------------
-
-
-""" easy motion plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands for details
-"   Emulates vim-easymotion
-"   Make sure to install IdeaVim-EasyMotion and AceJump Plugins
-Plug 'easymotion/vim-easymotion'
-
-" Basic Commands:
-"   easy-motion-s Search backward
-"   easy-motion-f Search forward
-map <leader>s <Plug>(easymotion-f)
-let g:WhichKeyDesc_EasyMotion_f = "<leader>s Search forward with EasyMotion"
-
-map <leader>S <Plug>(easymotion-s)
-let g:WhichKeyDesc_EasyMotion_s = "<leader>S Search backward with EasyMotion"
-"--------------------------------------------------------------------------------------------
-
-
-""" commentary plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/tpope/vim-commentary
-Plug 'tpope/vim-commentary'
-
-" Basic Commands:
-"   gcc     to comment out a line
-"   gcap    to comment out a paragraph
-"   gc      in visual mode to comment out the selection
-"   gcu     custom mapping to comment out a line
-
-let g:WhichKeyDesc_Commentary_gcc = "gcc Comment out a line"
-let g:WhichKeyDesc_Commentary_gcap = "gcap Comment out a paragraph"
-let g:WhichKeyDesc_Commentary_gc = "gc Comment out the selection in visual mode"
-let g:WhichKeyDesc_Commentary_gcu = "gcu Comment out a line"
-"--------------------------------------------------------------------------------------------
-
-
-""" multiple-cursors plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/terryma/vim-multiple-cursors
-Plug 'terryma/vim-multiple-cursors'
-
-" Basic Commands:
-"   <C-n> start multicursor / Select next match
-"   <C-x> Skip next match
-"   <C-p> Remove current match and go back to previous one
-
-let g:WhichKeyDesc_MultipleCursors_<C-n> = "<C-n> Start multicursor / Select next match"
-let g:WhichKeyDesc_MultipleCursors_<C-x> = "<C-x> Skip next match"
-let g:WhichKeyDesc_MultipleCursors_<C-p> = "<C-p> Remove current match and go back to previous one"
-
-" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
-nmap <C-n> <Plug>NextWholeOccurrence
-xmap <C-n> <Plug>NextWholeOccurrence
-nmap g<C-n> <Plug>NextOccurrence
-xmap g<C-n> <Plug>NextOccurrence
-xmap <C-x> <Plug>SkipOccurrence
-xmap <C-p> <Plug>RemoveOccurrence
-
-" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
-" <A-n> is used to enter accented text e.g. ñ
-nmap <S-C-n> <Plug>AllWholeOccurrences
-xmap <S-C-n> <Plug>AllWholeOccurrences
-nmap g<S-C-n> <Plug>AllOccurrences
-xmap g<S-C-n> <Plug>AllOccurrences
-"--------------------------------------------------------------------------------------------
-
-
-""" NERDTree plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/preservim/nerdtree
-Plug 'preservim/nerdtree'
-
-" Basic Commands:
-"   <leader>ee Open NERDTree (mapped below)
-"   q          Close the NERDTree window
-"   o          Open files, directories and bookmarks
-"   go         Open selected file, but leave cursor in the NERDTree
-"   i          Open selected file in a split window
-"   gi         Same as i, but leave the cursor on the NERDTree
-"   s          Open selected file in a new vsplit
-"   gs         Same as s, but leave the cursor on the NERDTree
-"   <C-J>      Jump down to next sibling of the current directory
-"   <C-K>      Jump up to previous sibling of the current directory
-"   R          Recursively refresh the current root
-"   m          Display the NERDTree menu
-
-map <leader>ee :NERDTreeToggle<CR>
-
-let g:WhichKeyDesc_NERDTreeToggle <leader>ee = "<leader>ee Open NERDTree"
-let g:WhichKeyDesc_NERDTree_q = "q Close the NERDTree window"
-let g:WhichKeyDesc_NERDTree_o = "o Open files, directories and bookmarks"
-let g:WhichKeyDesc_NERDTree_go = "go Open selected file, but leave cursor in the NERDTree"
-let g:WhichKeyDesc_NERDTree_i = "i Open selected file in a split window"
-let g:WhichKeyDesc_NERDTree_gi = "gi Same as i, but leave the cursor on the NERDTree"
-let g:WhichKeyDesc_NERDTree_s = "s Open selected file in a new vsplit"
-let g:WhichKeyDesc_NERDTree_gs = "gs Same as s, but leave the cursor on the NERDTree"
-let g:WhichKeyDesc_NERDTree_<C-J> = "<C-J> Jump down to next sibling of the current directory"
-let g:WhichKeyDesc_NERDTree_<C-K> = "<C-K> Jump up to previous sibling of the current directory"
-let g:WhichKeyDesc_NERDTree_R = "R Recursively refresh the current root"
-let g:WhichKeyDesc_NERDTree_m = "m Display the NERDTree menu"
-"--------------------------------------------------------------------------------------------
-
-
-""" ReplaceWithRegister plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/vim-scripts/ReplaceWithRegister
-Plug 'vim-scripts/ReplaceWithRegister'
-
-" Basic Commands:
-"   [count]["x]grr          Replace [count] lines with the contents of register x.
-"   {Visual}["x]gr          Replace the selection with the contents of register x.
-"
-" Build in 'vi' you can use the command "ayw should not put you into insert mode. It should yank (copy) the word under your cursor into the a
-" To paste the word that you’ve yanked into the a register, you can use the "ap command in normal mode. This will paste the word after your cursor.
-
-let g:WhichKeyDesc_ReplaceWithRegister_grr = "grr Replace [count] lines with the contents of register x"
-let g:WhichKeyDesc_ReplaceWithRegister_gr = "gr Replace the selection with the contents of register x (Visual)"
-"--------------------------------------------------------------------------------------------
-
-
-""" vim-textobj-entire plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/kana/vim-textobj-entire
-Plug 'kana/vim-textobj-entire'
-
-" Basic Commands:
-"   {motion}ae    Apply motion on entire text (targets the entire content of the current buffer)
-"   {motion}ie    Apply motion on entire text w/o trailing and leading empty lines
-
-let g:WhichKeyDesc_TextobjEntire_ae = "ae Apply motion on entire text"
-let g:WhichKeyDesc_TextobjEntire_ie = "ie Apply motion on entire text w/o trailing and leading empty lines"
-"--------------------------------------------------------------------------------------------
-
-
-""" vim-highlightedyank plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/machakann/vim-highlightedyank
-Plug 'machakann/vim-highlightedyank'
-
-" This plugin doesn't provide any commands or mappings, but it automatically highlights yanked text.
-"--------------------------------------------------------------------------------------------
-
-
-""" vim-indent-object plugin
-"--------------------------------------------------------------------------------------------
-"   https://github.com/michaeljsmith/vim-indent-object
-Plug 'michaeljsmith/vim-indent-object'
-
-" Basic Commands:
-"   vai    An indentation level and line above. This text object includes the current line, all lines below it that are indented more or the same amount, and the nearest line above that is indented less.
-"   vii    Inner indentation level (no line above). This is similar to 'ai', but it doesn't include the line above.
-"   vaI    An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less.
-"   viI    Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below.
-
-let g:WhichKeyDesc_IndentObject_ai = "vai: An indentation level and line above. This text object includes the current line, all lines below it that are indented more or the same amount, and the nearest line above that is indented less."
-let g:WhichKeyDesc_IndentObject_ii = "vii: Inner indentation level (no line above). This is similar to 'ai', but it doesn't include the line above."
-let g:WhichKeyDesc_IndentObject_aI = "vaI: An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less."
-let g:WhichKeyDesc_IndentObject_iI = "viI: Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below."
 "--------------------------------------------------------------------------------------------
 
 
@@ -438,7 +208,6 @@ let g:WhichKeyDesc_ContextRun= ",T Run current Test"
 nnoremap ,rf :action RerunFailedTests<CR>
 let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 
-
 " Code
 noremap ,f :action ReformatCode<CR>
 let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
@@ -454,9 +223,228 @@ nnoremap ,qi :action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
 "--------------------------------------------------------------------------------------------
 
-
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
 nvnoremap < <gv
 vnoremap > >gv
+"--------------------------------------------------------------------------------------------
+
+
+
+
+""" Plugins
+"--------------------------------------------------------------------------------------------
+
+""" Wich-key Plugin
+"--------------------------------------------------------------------------------------------
+"  https://plugins.jetbrains.com/plugin/15976-which-key
+set which-key
+
+set notimeout
+let g:WhichKey_ShowVimActions = "false"
+let g:WhichKey_DefaultDelay = 300
+"--------------------------------------------------------------------------------------------
+
+""" Surround plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/tpope/vim-surround/blob/master/doc/surround.txt for details
+set surround
+
+" Basic Commands:
+"   cs   Change surroundings
+"   cst  Change surroundings tag
+"   ds   Delete surroundings
+"   dst  Delete surroundings tag
+"   ys   Surround text object
+
+let g:WhichKeyDesc_Surround_cs = "cs Change surroundings"
+let g:WhichKeyDesc_Surround_cst = "cst Change surroundings tag"
+let g:WhichKeyDesc_Surround_ds = "ds Delete surroundings"
+let g:WhichKeyDesc_Surround_dst = "dst Delete surroundings tag"
+let g:WhichKeyDesc_Surround_ys = "ys Surround text object"
+"--------------------------------------------------------------------------------------------
+
+""" argtextobj plugin
+"--------------------------------------------------------------------------------------------
+"   https://www.vim.org/scripts/script.php?script_id=2699 for details
+set argtextobj
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" Text object commands:
+"   daa   Delete an argument
+"   cia   Change inner argument.
+"   via   Select inner argument.
+
+let g:WhichKeyDesc_ArgTextObj_daa = "daa Delete an argument"
+let g:WhichKeyDesc_ArgTextObj_cia = "cia Change inner argument"
+let g:WhichKeyDesc_ArgTextObj_via = "via Select inner argument"
+"--------------------------------------------------------------------------------------------
+
+""" exchange plugin
+"--------------------------------------------------------------------------------------------
+"   https://www.vim.org/scripts/script.php?script_id=2699 for details
+"   Emulates exchange.vim. Text exchange
+Plug 'tommcdo/vim-exchange'
+
+" Basic Commands:
+"   cx    First use to define the exchange, second use defines the second and exchange
+"   cxx   Like cx for an entire line
+"   X     Like cx for visual mode
+
+let g:WhichKeyDesc_Exchange_cx = "cx Define the exchange"
+let g:WhichKeyDesc_Exchange_cxx = "cxx Exchange an entire line"
+let g:WhichKeyDesc_Exchange_X = "X Exchange in visual mode"
+"--------------------------------------------------------------------------------------------
+
+""" easy motion plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands for details
+"   Emulates vim-easymotion
+"   Make sure to install IdeaVim-EasyMotion and AceJump Plugins
+Plug 'easymotion/vim-easymotion'
+
+" Basic Commands:
+"   easy-motion-s Search backward
+"   easy-motion-f Search forward
+map <leader>s <Plug>(easymotion-f)
+let g:WhichKeyDesc_EasyMotion_f = "<leader>s Search forward with EasyMotion"
+
+map <leader>S <Plug>(easymotion-s)
+let g:WhichKeyDesc_EasyMotion_s = "<leader>S Search backward with EasyMotion"
+"--------------------------------------------------------------------------------------------
+
+""" commentary plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+" Basic Commands:
+"   gcc     to comment out a line
+"   gcap    to comment out a paragraph
+"   gc      in visual mode to comment out the selection
+"   gcu     custom mapping to comment out a line
+
+let g:WhichKeyDesc_Commentary_gcc = "gcc Comment out a line"
+let g:WhichKeyDesc_Commentary_gcap = "gcap Comment out a paragraph"
+let g:WhichKeyDesc_Commentary_gc = "gc Comment out the selection in visual mode"
+let g:WhichKeyDesc_Commentary_gcu = "gcu Comment out a line"
+"--------------------------------------------------------------------------------------------
+
+""" multiple-cursors plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" Basic Commands:
+"   <C-n> start multicursor / Select next match
+"   <C-x> Skip next match
+"   <C-p> Remove current match and go back to previous one
+
+let g:WhichKeyDesc_MultipleCursors_<C-n> = "<C-n> Start multicursor / Select next match"
+let g:WhichKeyDesc_MultipleCursors_<C-x> = "<C-x> Skip next match"
+let g:WhichKeyDesc_MultipleCursors_<C-p> = "<C-p> Remove current match and go back to previous one"
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
+"--------------------------------------------------------------------------------------------
+
+""" NERDTree plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/preservim/nerdtree
+Plug 'preservim/nerdtree'
+
+" Basic Commands:
+"   <leader>ee Open NERDTree (mapped below)
+"   q          Close the NERDTree window
+"   o          Open files, directories and bookmarks
+"   go         Open selected file, but leave cursor in the NERDTree
+"   i          Open selected file in a split window
+"   gi         Same as i, but leave the cursor on the NERDTree
+"   s          Open selected file in a new vsplit
+"   gs         Same as s, but leave the cursor on the NERDTree
+"   <C-J>      Jump down to next sibling of the current directory
+"   <C-K>      Jump up to previous sibling of the current directory
+"   R          Recursively refresh the current root
+"   m          Display the NERDTree menu
+
+map <leader>ee :NERDTreeToggle<CR>
+
+let g:WhichKeyDesc_NERDTreeToggle <leader>ee = "<leader>ee Open NERDTree"
+let g:WhichKeyDesc_NERDTree_q = "q Close the NERDTree window"
+let g:WhichKeyDesc_NERDTree_o = "o Open files, directories and bookmarks"
+let g:WhichKeyDesc_NERDTree_go = "go Open selected file, but leave cursor in the NERDTree"
+let g:WhichKeyDesc_NERDTree_i = "i Open selected file in a split window"
+let g:WhichKeyDesc_NERDTree_gi = "gi Same as i, but leave the cursor on the NERDTree"
+let g:WhichKeyDesc_NERDTree_s = "s Open selected file in a new vsplit"
+let g:WhichKeyDesc_NERDTree_gs = "gs Same as s, but leave the cursor on the NERDTree"
+let g:WhichKeyDesc_NERDTree_<C-J> = "<C-J> Jump down to next sibling of the current directory"
+let g:WhichKeyDesc_NERDTree_<C-K> = "<C-K> Jump up to previous sibling of the current directory"
+let g:WhichKeyDesc_NERDTree_R = "R Recursively refresh the current root"
+let g:WhichKeyDesc_NERDTree_m = "m Display the NERDTree menu"
+"--------------------------------------------------------------------------------------------
+
+""" ReplaceWithRegister plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/vim-scripts/ReplaceWithRegister
+Plug 'vim-scripts/ReplaceWithRegister'
+
+" Basic Commands:
+"   [count]["x]grr          Replace [count] lines with the contents of register x.
+"   {Visual}["x]gr          Replace the selection with the contents of register x.
+"
+" Build in 'vi' you can use the command "ayw should not put you into insert mode. It should yank (copy) the word under your cursor into the a
+" To paste the word that you’ve yanked into the a register, you can use the "ap command in normal mode. This will paste the word after your cursor.
+
+let g:WhichKeyDesc_ReplaceWithRegister_grr = "grr Replace [count] lines with the contents of register x"
+let g:WhichKeyDesc_ReplaceWithRegister_gr = "gr Replace the selection with the contents of register x (Visual)"
+"--------------------------------------------------------------------------------------------
+
+""" vim-textobj-entire plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/kana/vim-textobj-entire
+Plug 'kana/vim-textobj-entire'
+
+" Basic Commands:
+"   {motion}ae    Apply motion on entire text (targets the entire content of the current buffer)
+"   {motion}ie    Apply motion on entire text w/o trailing and leading empty lines
+
+let g:WhichKeyDesc_TextobjEntire_ae = "ae Apply motion on entire text"
+let g:WhichKeyDesc_TextobjEntire_ie = "ie Apply motion on entire text w/o trailing and leading empty lines"
+"--------------------------------------------------------------------------------------------
+
+""" vim-highlightedyank plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/machakann/vim-highlightedyank
+Plug 'machakann/vim-highlightedyank'
+
+" This plugin doesn't provide any commands or mappings, but it automatically highlights yanked text.
+"--------------------------------------------------------------------------------------------
+
+""" vim-indent-object plugin
+"--------------------------------------------------------------------------------------------
+"   https://github.com/michaeljsmith/vim-indent-object
+Plug 'michaeljsmith/vim-indent-object'
+
+" Basic Commands:
+"   vai    An indentation level and line above. This text object includes the current line, all lines below it that are indented more or the same amount, and the nearest line above that is indented less.
+"   vii    Inner indentation level (no line above). This is similar to 'ai', but it doesn't include the line above.
+"   vaI    An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less.
+"   viI    Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below.
+
+let g:WhichKeyDesc_IndentObject_ai = "vai: An indentation level and line above. This text object includes the current line, all lines below it that are indented more or the same amount, and the nearest line above that is indented less."
+let g:WhichKeyDesc_IndentObject_ii = "vii: Inner indentation level (no line above). This is similar to 'ai', but it doesn't include the line above."
+let g:WhichKeyDesc_IndentObject_aI = "vaI: An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less."
+let g:WhichKeyDesc_IndentObject_iI = "viI: Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below."
 "--------------------------------------------------------------------------------------------
 
