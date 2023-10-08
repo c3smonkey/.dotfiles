@@ -121,6 +121,8 @@ nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
 let g:WhichKeyDesc_ActivateDebugToolWindow = "<leader>wd  Activate Debug Tool Window"
 nnoremap <leader>wr :action ActivateRunToolWindow<CR>
 let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
+nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
+let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
 
 " Distraction Free Mode
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
@@ -229,6 +231,11 @@ noremap ,rm :action Refactorings.QuickListPopupAction<CR>
 let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
 nnoremap ,qi :action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
+
+nnoremap ,mr :action Maven.Reimport<CR>
+let g:WhichKeyDesc_Maven.Reimport= ",mr Maven reimport"
+
+
 "--------------------------------------------------------------------------------------------
 
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
