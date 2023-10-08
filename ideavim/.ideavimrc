@@ -135,26 +135,30 @@ let g:WhichKeyDesc_GotoSymbol= "<leader>js Jump to Symbol"
 nnoremap <leader>jc   :action GotoClass<CR>
 let g:WhichKeyDesc_GotoClass= "<leader>jc Jump to Class"
 
-nnoremap <leader>jr   :action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles= "<leader>jr Jump to Recent Files"
-
 nnoremap <leader>ja   :action GotoAction<CR>
 let g:WhichKeyDesc_GotoAction = "<leader>ja Jump to Action"
 
 nnoremap <leader>jf   :action GotoFile<CR>
 let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to File"
 
-nnoremap <leader>je   :action SearchEverywhere<CR>
-let g:WhichKeyDesc_SearchEverywhere= "<leader>je Jump to Everywhere"
 "--------------------------------------------------------------------------------------------
 
-"""" Find                                                                                   f
+"""" Find                                                                          <leader> f
 "--------------------------------------------------------------------------------------------
 "
-noremap ff :action FindInPath<CR>
-let g:WhichKeyDesc_FindInPath = "ff Find in Path"
-nnoremap fu :action FindUsages<CR>
-let g:WhichKeyDesc_FindUsages = "fu Find Usages"
+nnoremap <leader>fr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles= "<leader>fr Fuzzy find recent"
+
+noremap <leader>fs :action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "<leader>fs find string"
+
+nnoremap <leader>fl :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations= "<leader>fl Recent Locations"
+
+nnoremap <leader>ff :action SearchEverywhere<CR>
+let g:WhichKeyDesc_SearchEverywhere= "<leader>ff Fuzzy find"
+
+
 "--------------------------------------------------------------------------------------------
 
 """" Got to                                                                                 g
@@ -174,9 +178,10 @@ nnoremap ge :action GotoNextError<CR>
 let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
 nnoremap gE :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
+nnoremap gu :action FindUsages<CR>
+let g:WhichKeyDesc_FindUsages = "gu Go to Usages"
 
-nnoremap gl :action RecentLocations<CR>
-let g:WhichKeyDesc_RecentLocations= "gl Recent Locations"
+
 "--------------------------------------------------------------------------------------------
 
 """" Run Code and Debug and Code Formatting etc                                             ,
@@ -200,6 +205,8 @@ nnoremap ,D :action ChooseDebugConfiguration<CR>
 let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
 nnoremap ,b :action ToggleLineBreakpoint<CR>
 let g:WhichKeyDesc_ToggleLineBreakpoint = ",b Toggle Line Breakpoint"
+nnoremap ,o :action StepOver<CR>
+let g:WhichKeyDesc_StepOver= ",o StepOver"
 
 " Test
 nnoremap ,t :action RunClass<CR>
@@ -234,6 +241,14 @@ vnoremap > >gv
 
 """ Plugins
 "--------------------------------------------------------------------------------------------
+
+""" Harpoon
+"--------------------------------------------------------------------------------------------
+" https://plugins.jetbrains.com/plugin/20782-harpoonij
+nnoremap <leader>hm :action HarpoonerAddFile<CR>
+let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm Mark File with harpoon"
+nnoremap <leader>hf :action ShowHarpoon<CR>
+let g:WhichKeyDesc_ShowHarpoon= "<leader>hf Show harpoon mark"
 
 """ Wich-key Plugin
 "--------------------------------------------------------------------------------------------
