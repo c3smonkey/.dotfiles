@@ -233,7 +233,7 @@ nnoremap ,qi :action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
 
 nnoremap ,mr :action Maven.Reimport<CR>
-let g:WhichKeyDesc_Maven.Reimport= ",mr Maven reimport"
+let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
 
 
 "--------------------------------------------------------------------------------------------
