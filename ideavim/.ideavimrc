@@ -197,8 +197,8 @@ nnoremap ,rr :action Rerun<CR>
 let g:WhichKeyDesc_Rerun = ",rr Rerun"
 nnoremap ,R :action ChooseRunConfiguration<CR>
 let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
-nnoremap ,s :action Stop<CR>
-let g:WhichKeyDesc_Stop = ",s Stop"
+nnoremap ,rs :action Stop<CR>
+let g:WhichKeyDesc_Stop = ",rs Stop"
 
 " Debug
 nnoremap ,d :action Debug<CR>
