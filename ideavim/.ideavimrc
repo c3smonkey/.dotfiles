@@ -221,8 +221,8 @@ let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 " Code
 noremap ,f :action ReformatCode<CR>
 let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
-nnoremap ,oi :action OptimizeImports<CR>
-let g:WhichKeyDesc_OptimizeImports= ",oi Optimize Import"
+nnoremap ,i :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= ",i Optimize Import"
 nnoremap ,c           :action CompileDirty<CR>
 let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
 noremap ,rf :action ReplaceInPath<CR>
