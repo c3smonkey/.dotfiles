@@ -36,7 +36,7 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
 "
 nnoremap <D-d>        :action SplitVertically<CR>
-nnoremap <D-S-d>      :action SplitHorizontally<CR>
+nnnoremap <D-S-d>      :action SplitHorizontally<CR>
 nnoremap <D-[>        :action PrevSplitter<CR>
 nnoremap <D-]>        :action NextSplitter<CR>
 nnoremap <C-S-h>      :action StretchSplitToLeft<CR>
@@ -124,6 +124,11 @@ let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
 nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
 let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
 
+nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
+let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window "
+
+" ActivateTerminalToolWindow
+"
 " Distraction Free Mode
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
