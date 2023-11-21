@@ -52,6 +52,5 @@ source ~/.variables
 source ~/.dotfiles/.aliasrc
 source ~/.dotfiles/.variablesrc
 
-
-
-
+# Load Angular CLI autocompletion.
+source <(ng completion script)

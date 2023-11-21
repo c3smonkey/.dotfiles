@@ -2,7 +2,7 @@
 set clipboard+=unnamed " Clipboard sharing for Mac Os
 set clipboard+=ideaput
 set so=10 " Keep few lines visible when scrolling
-set number relativenumber " Set relative line numbers
+set number norelativenumber " Set relative line numbers
 set timeoutlen=400
 set incsearch " Highlight the searching string while typing
 set hlsearch "Keep Highlight"
@@ -66,7 +66,7 @@ nnoremap ]]           :action MethodDown<CR>
 
 
 
-"""" Region and Font Size                                                                    z 
+"""" Region and Font Size                                                                    z
 "--------------------------------------------------------------------------------------------
 "
 nnoremap zc :action CollapseRegion<CR>
@@ -86,7 +86,7 @@ nnoremap zd :action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
 
-""""  Git                                                                          <leader> g 
+""""  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
 "
 nnoremap <leader>gl :action Vcs.Show.Log<CR>

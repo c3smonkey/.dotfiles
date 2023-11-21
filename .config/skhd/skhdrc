@@ -34,6 +34,12 @@ ctrl + shift - 2 : osascript -e "tell application \"Warp\" to activate"
 # Start Safari
 ctrl + shift - 3 : osascript -e "tell application \"Safari\" to activate"
 
+# Ignore IntelliJ IDEA
+ctrl + alt - i : yabai -m rule --add app='^IntelliJ IDEA$' manage=off
+
+# Manage IntelliJ IDEA
+# Restart Yabai service to remove all rules and manage IntelliJ IDEA again
+ctrl + alt - u : yabai --restart-service
 
 # === Navigation ===
 # move window to space #
