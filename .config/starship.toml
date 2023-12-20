@@ -1,5 +1,5 @@
 add_newline = false
-command_timeout = 1000
+command_timeout = 10000
 
 format = """\
 [](bg:#030B16 fg:#7DF9AA)\

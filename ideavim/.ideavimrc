@@ -36,7 +36,7 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
 "
 nnoremap <D-d>        :action SplitVertically<CR>
-nnnoremap <D-S-d>      :action SplitHorizontally<CR>
+nnoremap <D-S-d>      :action SplitHorizontally<CR>
 nnoremap <D-[>        :action PrevSplitter<CR>
 nnoremap <D-]>        :action NextSplitter<CR>
 nnoremap <C-S-h>      :action StretchSplitToLeft<CR>
