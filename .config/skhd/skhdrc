@@ -24,15 +24,26 @@
 #############################################################################
 
 
-# === Launch Commands ===
-# Start IntelliJ IDEA Ultimate
-ctrl + shift - 1 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
+#!/bin/bash
 
-# Start Warp
-ctrl + shift - 2 : osascript -e "tell application \"Warp\" to activate"
+# Space 1: Outlook und Teams
+# Space 2: Browser
+# Space 3: Intellij
+# Space 4: Terminal/tmux
+# Space 5: nix
+#
+# === Launch Commands ===
+ctrl + shift - 1 : osascript -e "tell application \"Microsoft Outlook\" to activate"
 
 # Start Safari
-ctrl + shift - 3 : osascript -e "tell application \"Safari\" to activate"
+ctrl + shift - 2 : osascript -e "tell application \"Safari\" to activate"
+
+# Start IntelliJ IDEA Ultimate
+ctrl + shift - 3 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
+
+# Start Warp
+ctrl + shift - 4 : osascript -e "tell application \"Warp\" to activate"
+
 
 # Ignore IntelliJ IDEA
 ctrl + alt - i : yabai -m rule --add app='^IntelliJ IDEA$' manage=off
@@ -40,6 +51,7 @@ ctrl + alt - i : yabai -m rule --add app='^IntelliJ IDEA$' manage=off
 # Manage IntelliJ IDEA
 # Restart Yabai service to remove all rules and manage IntelliJ IDEA again
 ctrl + alt - u : yabai --restart-service
+
 
 # === Navigation ===
 # move window to space #
