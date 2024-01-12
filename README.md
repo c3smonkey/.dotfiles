@@ -45,3 +45,9 @@ ln -s  ~/.dotfiles/.ideavimrc ~/.ideavimrc
 ```
 ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
+
+#### sketchybar
+
+```
+ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
+```
