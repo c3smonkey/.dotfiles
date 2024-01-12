@@ -48,6 +48,21 @@ ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 
 #### sketchybar
 
+install the following. (see also https://www.josean.com/posts/sketchybar-setup)
+
+```
+brew tap FelixKratz/formulae
+brew install sketchybar
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+brew install font-sf-pro
+brew install --cask sf-symbols
+```
+
+```
+brew services start sketchybar
+```
+
 ```
 ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
 ```
