@@ -2,12 +2,12 @@
 alias kctx=kubectx
 alias mon=bpytop
 alias cd=z
-alias ll='ls -alF'
 alias g="lazygit"
 alias vi='nvim'
 alias f='fuck'
 alias python="/opt/homebrew/bin/python3"
 alias pip="/opt/homebrew/bin/pip3"
+alias ls='colorls'
 
 # Kubernetes
 # brew install dty1er/tap/kubecolor
