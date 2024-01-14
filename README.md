@@ -66,3 +66,9 @@ brew services start sketchybar
 ```
 ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
 ```
+
+#### svim
+
+```
+ln -s  ~/.dotfiles/.config/svim ~/.config/svim
+```
