@@ -53,6 +53,7 @@ yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 
 yabai -m config external_bar all:32:0
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 
 echo "yabai configuration loaded.."
 
