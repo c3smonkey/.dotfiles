@@ -2,4 +2,6 @@
 
 sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change 
+                                 label.color=$ACCENT_COLOR \
+                                 icon.color=$ACCENT_COLOR \
+           --subscribe volume volume_change
