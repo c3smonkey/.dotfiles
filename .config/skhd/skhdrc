@@ -74,13 +74,13 @@ alt + shift - x : yabai -m space --mirror x-axis
 alt + shift - y : yabai -m space --mirror y-axis
 
 # float 
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:20:20
+alt + shift - t : yabai -m window --toggle float --grid 4:4:1:1:20:20
 # padding and gap
-alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+alt + shift - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 # maximize
-alt - m : yabai -m window --toggle zoom-fullscreen
+alt + shift - m : yabai -m window --toggle zoom-fullscreen
 # balance 
-alt - b : yabai -m space --balance
+alt + shift - b : yabai -m space --balance
 
 # change window sizes
 :: resize @
@@ -99,13 +99,13 @@ resize < up   : yabai -m window --resize top:0:-50; yabai -m window --resize bot
 resize < right : yabai -m window --resize right:50:0; yabai -m window --resize left:50:0
 
 # === Launch Commands ===
-ctrl + shift - 1 : osascript -e "tell application \"Microsoft Outlook\" to activate"
+alt + cmd - 1 : osascript -e "tell application \"Microsoft Outlook\" to activate"
 # Start Safari
-ctrl + shift - 2 : osascript -e "tell application \"Safari\" to activate"
+alt + cmd - 2 : osascript -e "tell application \"Safari\" to activate"
 # Start IntelliJ IDEA Ultimate
-ctrl + shift - 3 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
+alt + cmd - 3 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
 # Start Warp
-ctrl + shift - 4 : osascript -e "tell application \"Warp\" to activate"
+alt + cmd - 4 : osascript -e "tell application \"Warp\" to activate"
 # Ignore IntelliJ IDEA
 ctrl + alt - i : yabai -m rule --add app='^IntelliJ IDEA$' manage=off
 # Manage IntelliJ IDEA
@@ -115,11 +115,11 @@ ctrl + alt - u : yabai --restart-service
 
 # === Manage ===
 # stop yabai
-cmd + alt - q : yabai --stop-service
+alt + cmd - q : yabai --stop-service
 # start yabai
-cmd + alt - s : yabai --start-service
+alt + cmd - s : yabai --start-service
 # restart yabai
-cmd + alt - r : yabai --restart-service
+alt + cmd - r : yabai --restart-service
 # disable osx hide window
 cmd - h : :
 # disable osx minimize window
