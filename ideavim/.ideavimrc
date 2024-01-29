@@ -247,7 +247,7 @@ let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
 "--------------------------------------------------------------------------------------------
 
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
-nvnoremap < <gv
+vnoremap < <gv
 vnoremap > >gv
 "--------------------------------------------------------------------------------------------
 
