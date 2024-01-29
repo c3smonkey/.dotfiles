@@ -91,8 +91,8 @@ let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "
 nnoremap <leader>gl :action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
-nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>glh Show Local History"
+nnoremap <leader>ghl :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>ghl Show Local History"
 nnoremap <leader>gm :action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
 nnoremap <leader>gu :action Vcs.UpdateProject<CR>
