@@ -111,10 +111,14 @@ let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
 "--------------------------------------------------------------------------------------------
 "
-nnoremap <leader>wb :action ShowNavBar<CR>
-let g:WhichKeyDesc_ShowNavBar = "<leader>wb Show Navigation Bar"
-nnoremap <leader>wt :action ViewToolButtons<CR>
-let g:WhichKeyDesc_ViewTooButtons = "<leader>wt Show View Tool Buttons"
+nnoremap <leader>wc :action CloseContent<CR>
+let g:WhichKeyDesc_CloseContent = "<leader>wc Close Content"
+nnoremap <leader>wn :action ShowNavBar<CR>
+let g:WhichKeyDesc_ShowNavBar = "<leader>wn Show Navigation Bar"
+nnoremap <leader>wb :action ViewToolButtons<CR>
+let g:WhichKeyDesc_ViewTooButtons = "<leader>wb Show View Tool Buttons"
+nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
+let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window "
 
 nnoremap <leader>wh :action HideAllWindows<CR>
 let g:WhichKeyDesc_HideAllWindows= "<leader>wh Hide All Windows Show"
@@ -124,12 +128,9 @@ nnoremap <leader>wr :action ActivateRunToolWindow<CR>
 let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
 nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
 let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
-
 nnoremap <leader>ws :action ActivateServicesToolWindow<CR>
 let g:WhichKeyDesc_ActivateServicesToolWindow = "<leader>ws Activate Services Tool Window"
 
-"nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
-"let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window "
 
 "
 " Distraction Free Mode
