@@ -64,9 +64,15 @@ nnoremap <s-TAB> :action NextTab<CR>
 nnoremap [[           :action MethodUp<CR>
 nnoremap ]]           :action MethodDown<CR>
 
+"--------------------------------------------------------------------------------------------
 
+"""" Project 								                                       <leader> p
+"--------------------------------------------------------------------------------------------
+"
+nnoremap <leader>pc :action CloseProject<CR>
+let g:WhichKeyDesc_CloseProject = "<leader>pc Close Project"
 
-"""" Region and Font Size                                                                    z
+"""" Region and Font Size                                                                   z
 "--------------------------------------------------------------------------------------------
 "
 nnoremap zc :action CollapseRegion<CR>
