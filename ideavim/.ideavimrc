@@ -158,23 +158,22 @@ let g:WhichKeyDesc_GotoAction = "<leader>ja Jump to Action"
 nnoremap <leader>jf   :action GotoFile<CR>
 let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to File"
 
+nnoremap <leader>jr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles= "<leader>jr Recent Files"
+
+nnoremap <leader>jl :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations= "<leader>jl Recent Locations"
+
 "--------------------------------------------------------------------------------------------
 
 """" Find                                                                          <leader> f
 "--------------------------------------------------------------------------------------------
 "
-nnoremap <leader>fr :action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles= "<leader>fr Fuzzy find recent"
-
 noremap <leader>fs :action FindInPath<CR>
 let g:WhichKeyDesc_FindInPath = "<leader>fs find string"
 
-nnoremap <leader>fl :action RecentLocations<CR>
-let g:WhichKeyDesc_RecentLocations= "<leader>fl Recent Locations"
-
 nnoremap <leader>ff :action SearchEverywhere<CR>
 let g:WhichKeyDesc_SearchEverywhere= "<leader>ff Fuzzy find"
-
 
 "--------------------------------------------------------------------------------------------
 
