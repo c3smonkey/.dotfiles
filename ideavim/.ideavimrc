@@ -24,7 +24,10 @@ nnoremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
 
-
+"
+" Distraction Free Mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+"--------------------------------------------------------------------------------------------
 
 """ Navigation
 " Split
@@ -33,8 +36,8 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 " Activate Panes
 "   Next Pane       cmd+]
 "   Previous Pane   cmd+[
+" Idea default keymap is : opt+tab
 "--------------------------------------------------------------------------------------------
-"
 nnoremap <D-d>        :action SplitVertically<CR>
 nnoremap <D-S-d>      :action SplitHorizontally<CR>
 nnoremap <D-[>        :action PrevSplitter<CR>
@@ -47,20 +50,11 @@ nnoremap <C-S-l>      :action StretchSplitToRight<CR>
 nnoremap ,so :action ChangeSplitOrientation<CR>
 let g:WhichKeyDesc_ChangeSplitOrientation= ",so Change Split Orientation"
 nnoremap ,sm :action MaximizeEditorInSplit<CR>
-let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editor in Split"
-nnoremap ,q :action CloseContent<CR>
-let g:WhichKeyDesc_CloseContent= ",q Close Content"
-nnoremap ,a :action CloseAllEditors<CR>
-let g:WhichKeyDesc_CloseAllEditors= ",a Close All Content"
+let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editoroin Split"
 
-nnoremap <TAB> :action PreviousTab<CR>
-nnoremap <s-TAB> :action NextTab<CR>
+nnoremap <TAB> 		  :action PreviousTab<CR>
+nnoremap <s-TAB> 	  :action NextTab<CR>
 
-" nnoremap <Leader>e :action EditSourceInNewWindow<CR>
-" let g:WhichKeyDesc_EditSourceInNewWindow= "<Leader>e Edit Source in New Window"
-
-"sethandler <D-n> a:vim
-"nnoremap <D-n> :action NextWindow<CR>
 nnoremap [[           :action MethodUp<CR>
 nnoremap ]]           :action MethodDown<CR>
 
@@ -124,12 +118,11 @@ let g:WhichKeyDesc_ShowNavBar = "<leader>wn Show Navigation Bar"
 nnoremap <leader>wb :action ViewToolButtons<CR>
 let g:WhichKeyDesc_ViewTooButtons = "<leader>wb Show View Tool Buttons"
 nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
-let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window "
-
+let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window"
 nnoremap <leader>wh :action HideAllWindows<CR>
 let g:WhichKeyDesc_HideAllWindows= "<leader>wh Hide All Windows Show"
 nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
-let g:WhichKeyDesc_ActivateDebugToolWindow = "<leader>wd  Activate Debug Tool Window"
+let g:WhichKeyDesc_ActivateDebugToolWindow = "<leader>wd Activate Debug Tool Window"
 nnoremap <leader>wr :action ActivateRunToolWindow<CR>
 let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
 nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
@@ -137,31 +130,31 @@ let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Windo
 nnoremap <leader>ws :action ActivateServicesToolWindow<CR>
 let g:WhichKeyDesc_ActivateServicesToolWindow = "<leader>ws Activate Services Tool Window"
 
+nnoremap <leader>wso :action ChangeSplitOrientation<CR>
+let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>wso Change Split Orientation"
+nnoremap <leader>wsm :action MaximizeEditorInSplit<CR>
+let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>wsm Maximize Editor in Split"
 
-"
-" Distraction Free Mode
-nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
-"--------------------------------------------------------------------------------------------
 
 """" Jump to                                                                       <leader> j
 "--------------------------------------------------------------------------------------------
 "
-nnoremap <leader>js   :action GotoSymbol<CR>
+nnoremap <leader>js		:action GotoSymbol<CR>
 let g:WhichKeyDesc_GotoSymbol= "<leader>js Jump to Symbol"
 
-nnoremap <leader>jc   :action GotoClass<CR>
+nnoremap <leader>jc		:action GotoClass<CR>
 let g:WhichKeyDesc_GotoClass= "<leader>jc Jump to Class"
 
-nnoremap <leader>ja   :action GotoAction<CR>
+nnoremap <leader>ja		:action GotoAction<CR>
 let g:WhichKeyDesc_GotoAction = "<leader>ja Jump to Action"
 
-nnoremap <leader>jf   :action GotoFile<CR>
+nnoremap <leader>jf		:action GotoFile<CR>
 let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to File"
 
-nnoremap <leader>jr :action RecentFiles<CR>
+nnoremap <leader>jr		:action RecentFiles<CR>
 let g:WhichKeyDesc_RecentFiles= "<leader>jr Recent Files"
 
-nnoremap <leader>jl :action RecentLocations<CR>
+nnoremap <leader>jl		:action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations= "<leader>jl Recent Locations"
 
 "--------------------------------------------------------------------------------------------
@@ -196,8 +189,6 @@ nnoremap gE :action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 nnoremap gu :action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "gu Go to Usages"
-
-
 "--------------------------------------------------------------------------------------------
 
 """" Run Code and Debug and Code Formatting etc                                             ,
@@ -219,10 +210,20 @@ nnoremap ,d :action Debug<CR>
 let g:WhichKeyDesc_Debug = ",d Debug"
 nnoremap ,D :action ChooseDebugConfiguration<CR>
 let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
-nnoremap ,b :action ToggleLineBreakpoint<CR>
-let g:WhichKeyDesc_ToggleLineBreakpoint = ",b Toggle Line Breakpoint"
-nnoremap ,o :action StepOver<CR>
-let g:WhichKeyDesc_StepOver= ",o StepOver"
+"""" Debug		    						                                        OPT + CMD
+"--------------------------------------------------------------------------------------------
+nnoremap <A-D-b> :action ToggleLineBreakpoint<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = "OPT + CMD b Toggle Line Breakpoint"
+nnoremap <A-D-o> :action StepOver<CR>
+let g:WhichKeyDesc_StepOver= "OPT + CMD o StepOver"
+nnoremap <A-D-r> :action Resume<CR>
+let g:WhichKeyDesc_Resume= "OPT + CMD r Resume"
+nnoremap <A-D-i> :action StepInto<CR>
+let g:WhichKeyDesc_StepInto= "OPT + CMD i StepInto"
+nnoremap <A-D-u> :action StepOut<CR>
+let g:WhichKeyDesc_StepOut= "OPT + CMD u StepOut"
+nnoremap <A-D-s> :action Stop<CR>
+let g:WhichKeyDesc_Stop= "OPT + CMD s Stop"
 
 " Test
 nnoremap ,t :action RunClass<CR>
