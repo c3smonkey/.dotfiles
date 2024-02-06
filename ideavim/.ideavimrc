@@ -15,7 +15,6 @@ set idearefactormode=keep
 inoremap jj <Esc>
 """ The Leader Key
 let mapleader=" "
-
 """ Editing and Reloading the Config
 "--------------------------------------------------------------------------------------------
 set clipboard+=unnamed
@@ -23,12 +22,10 @@ set clipboard+=ideaput
 nnoremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
-
 "
 " Distraction Free Mode
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
-
 """ Navigation
 " Split
 "   Vertically      cmd+d
@@ -46,10 +43,9 @@ nnoremap <C-S-h>      :action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      :action StretchSplitToBottom<CR>
 nnoremap <C-S-k>      :action StretchSplitToTop<CR>
 nnoremap <C-S-l>      :action StretchSplitToRight<CR>
-
-nnoremap ,so :action ChangeSplitOrientation<CR>
+nnoremap ,so 		  :action ChangeSplitOrientation<CR>
 let g:WhichKeyDesc_ChangeSplitOrientation= ",so Change Split Orientation"
-nnoremap ,sm :action MaximizeEditorInSplit<CR>
+nnoremap ,sm 		  :action MaximizeEditorInSplit<CR>
 let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editoroin Split"
 
 nnoremap <TAB> 		  :action PreviousTab<CR>
@@ -57,18 +53,14 @@ nnoremap <s-TAB> 	  :action NextTab<CR>
 
 nnoremap [[           :action MethodUp<CR>
 nnoremap ]]           :action MethodDown<CR>
-
 "--------------------------------------------------------------------------------------------
-
 """" Project 								                                       <leader> p
 "--------------------------------------------------------------------------------------------
-"
 nnoremap <leader>pc :action CloseProject<CR>
 let g:WhichKeyDesc_CloseProject = "<leader>pc Close Project"
-
+"--------------------------------------------------------------------------------------------
 """" Region and Font Size                                                                   z
 "--------------------------------------------------------------------------------------------
-"
 nnoremap zc :action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
 nnoremap zo :action ExpandRegion<CR>
@@ -77,7 +69,6 @@ nnoremap <leader>zc :action CollapseAllRegions<CR>
 let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
 nnoremap <leader>zo :action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
-
 nnoremap zr :action EditorResetFontSize<CR>
 let g:WhichKeyDesc_EditorResetFontSize= "zr Editor Resent Font Size"
 nnoremap zi :action EditorIncreaseFontSize<CR>
@@ -85,14 +76,12 @@ let g:WhichKeyDesc_EditorIncreaseFontSize= "zi Editor Increase Font Size"
 nnoremap zd :action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
-
 """"  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
-"
 nnoremap <leader>gl :action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
-nnoremap <leader>ghl :action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>ghl Show Local History"
+nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>glh Show Local History"
 nnoremap <leader>gm :action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
 nnoremap <leader>gu :action Vcs.UpdateProject<CR>
@@ -105,12 +94,9 @@ nnoremap <leader>ga :action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
 nnoremap <leader>gr :action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
-
 "--------------------------------------------------------------------------------------------
-
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
 "--------------------------------------------------------------------------------------------
-"
 nnoremap <leader>wc :action CloseContent<CR>
 let g:WhichKeyDesc_CloseContent = "<leader>wc Close Content"
 nnoremap <leader>wn :action ShowNavBar<CR>
@@ -129,50 +115,36 @@ nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
 let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
 nnoremap <leader>ws :action ActivateServicesToolWindow<CR>
 let g:WhichKeyDesc_ActivateServicesToolWindow = "<leader>ws Activate Services Tool Window"
-
 nnoremap <leader>wso :action ChangeSplitOrientation<CR>
 let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>wso Change Split Orientation"
 nnoremap <leader>wsm :action MaximizeEditorInSplit<CR>
 let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>wsm Maximize Editor in Split"
-
-
+"--------------------------------------------------------------------------------------------
 """" Jump to                                                                       <leader> j
 "--------------------------------------------------------------------------------------------
-"
-nnoremap <leader>js		:action GotoSymbol<CR>
-let g:WhichKeyDesc_GotoSymbol= "<leader>js Jump to Symbol"
-
-nnoremap <leader>jc		:action GotoClass<CR>
-let g:WhichKeyDesc_GotoClass= "<leader>jc Jump to Class"
-
-nnoremap <leader>ja		:action GotoAction<CR>
-let g:WhichKeyDesc_GotoAction = "<leader>ja Jump to Action"
-
-nnoremap <leader>jf		:action GotoFile<CR>
-let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to File"
-
-nnoremap <leader>jr		:action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles= "<leader>jr Recent Files"
-
-nnoremap <leader>jl		:action RecentLocations<CR>
-let g:WhichKeyDesc_RecentLocations= "<leader>jl Recent Locations"
+noremap <leader>js :action GotoSymbol<CR>
+let g:WhichKeyDesc_GotoSymbol = "<leader>js Jump to Symbol"
+noremap <leader>jc :action GotoClass<CR>
+let g:WhichKeyDesc_GotoClass = "<leader>jc Jump to Class"
+noremap <leader>ja :action GotoAction<CR>
+let g:WhichKeyDesc_GotoActions = "<leader>ja Jump to GotoAction"
+noremap <leader>jf :action GotoFile<CR>
+let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to GotoFile"
+noremap <leader>jr :action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles = "<leader>jr Jump to RecentFiles"
+noremap <leader>jl :action RecentLocations<CR>
+let g:WhichKeyDesc_RecentLocations = "<leader>jl Jump to RecentLocations"
 
 "--------------------------------------------------------------------------------------------
-
 """" Find                                                                          <leader> f
 "--------------------------------------------------------------------------------------------
-"
 noremap <leader>fs :action FindInPath<CR>
 let g:WhichKeyDesc_FindInPath = "<leader>fs find string"
-
 nnoremap <leader>ff :action SearchEverywhere<CR>
 let g:WhichKeyDesc_SearchEverywhere= "<leader>ff Fuzzy find"
-
 "--------------------------------------------------------------------------------------------
-
 """" Got to                                                                                 g
 "--------------------------------------------------------------------------------------------
-"
 nnoremap gi :action GotoImplementation<CR>
 let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
 nnoremap gd :action GotoDeclaration<CR>
@@ -190,12 +162,10 @@ let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
 nnoremap gu :action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "gu Go to Usages"
 "--------------------------------------------------------------------------------------------
-
 """" Run Code and Debug and Code Formatting etc                                             ,
 "--------------------------------------------------------------------------------------------
 nnoremap ,ra :action RunAnything<CR>
 let g:WhichKeyDesc_RunAnything = ",ra Run Anything"
-
 nnoremap ,r :action Run<CR>
 let g:WhichKeyDesc_Run = ",r Run"
 nnoremap ,rr :action Rerun<CR>
@@ -204,12 +174,34 @@ nnoremap ,R :action ChooseRunConfiguration<CR>
 let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
 nnoremap ,rs :action Stop<CR>
 let g:WhichKeyDesc_Stop = ",rs Stop"
-
 " Debug
 nnoremap ,d :action Debug<CR>
 let g:WhichKeyDesc_Debug = ",d Debug"
 nnoremap ,D :action ChooseDebugConfiguration<CR>
 let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
+" Test
+nnoremap ,t :action RunClass<CR>
+let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
+nnoremap ,T :action ContextRun<CR>
+let g:WhichKeyDesc_ContextRun= ",T Run current Test"
+nnoremap ,rf :action RerunFailedTests<CR>
+let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
+" Code
+noremap ,f :action ReformatCode<CR>
+let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
+nnoremap ,i :action OptimizeImports<CR>
+let g:WhichKeyDesc_OptimizeImports= ",i Optimize Import"
+nnoremap ,c           :action CompileDirty<CR>
+let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
+noremap ,rf :action ReplaceInPath<CR>
+let g:WhichKeyDesc_ReplaceInPath= ",rf Replace in Path/File"
+noremap ,rm :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
+nnoremap ,qi :action QuickImplementations<CR>
+let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
+nnoremap ,mr :action Maven.Reimport<CR>
+let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
+"--------------------------------------------------------------------------------------------
 """" Debug		    						                                        OPT + CMD
 "--------------------------------------------------------------------------------------------
 nnoremap <A-D-b> :action ToggleLineBreakpoint<CR>
@@ -224,43 +216,13 @@ nnoremap <A-D-u> :action StepOut<CR>
 let g:WhichKeyDesc_StepOut= "OPT + CMD u StepOut"
 nnoremap <A-D-s> :action Stop<CR>
 let g:WhichKeyDesc_Stop= "OPT + CMD s Stop"
-
-" Test
-nnoremap ,t :action RunClass<CR>
-let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
-nnoremap ,T :action ContextRun<CR>
-let g:WhichKeyDesc_ContextRun= ",T Run current Test"
-nnoremap ,rf :action RerunFailedTests<CR>
-let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
-
-" Code
-noremap ,f :action ReformatCode<CR>
-let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
-nnoremap ,i :action OptimizeImports<CR>
-let g:WhichKeyDesc_OptimizeImports= ",i Optimize Import"
-nnoremap ,c           :action CompileDirty<CR>
-let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
-noremap ,rf :action ReplaceInPath<CR>
-let g:WhichKeyDesc_ReplaceInPath= ",rf Replace in Path/File"
-noremap ,rm :action Refactorings.QuickListPopupAction<CR>
-let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
-nnoremap ,qi :action QuickImplementations<CR>
-let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
-
-nnoremap ,mr :action Maven.Reimport<CR>
-let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
-
-
 "--------------------------------------------------------------------------------------------
-
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
 vnoremap < <gv
 vnoremap > >gv
 "--------------------------------------------------------------------------------------------
 
-
-
-
+"--------------------------------------------------------------------------------------------
 """ Plugins
 "--------------------------------------------------------------------------------------------
 
@@ -332,7 +294,6 @@ let g:WhichKeyDesc_Exchange_cx = "cx Define the exchange"
 let g:WhichKeyDesc_Exchange_cxx = "cxx Exchange an entire line"
 let g:WhichKeyDesc_Exchange_X = "X Exchange in visual mode"
 "--------------------------------------------------------------------------------------------
-
 """ easy motion plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands for details
@@ -349,7 +310,6 @@ let g:WhichKeyDesc_EasyMotion_f = "<leader>s Search forward with EasyMotion"
 map <leader>S <Plug>(easymotion-s)
 let g:WhichKeyDesc_EasyMotion_s = "<leader>S Search backward with EasyMotion"
 "--------------------------------------------------------------------------------------------
-
 """ commentary plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/tpope/vim-commentary
@@ -396,7 +356,6 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 "--------------------------------------------------------------------------------------------
-
 """ NERDTree plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/preservim/nerdtree
@@ -431,7 +390,6 @@ let g:WhichKeyDesc_NERDTree_<C-K> = "<C-K> Jump up to previous sibling of the cu
 let g:WhichKeyDesc_NERDTree_R = "R Recursively refresh the current root"
 let g:WhichKeyDesc_NERDTree_m = "m Display the NERDTree menu"
 "--------------------------------------------------------------------------------------------
-
 """ ReplaceWithRegister plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/vim-scripts/ReplaceWithRegister
@@ -447,7 +405,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 let g:WhichKeyDesc_ReplaceWithRegister_grr = "grr Replace [count] lines with the contents of register x"
 let g:WhichKeyDesc_ReplaceWithRegister_gr = "gr Replace the selection with the contents of register x (Visual)"
 "--------------------------------------------------------------------------------------------
-
 """ vim-textobj-entire plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/kana/vim-textobj-entire
@@ -460,7 +417,6 @@ Plug 'kana/vim-textobj-entire'
 let g:WhichKeyDesc_TextobjEntire_ae = "ae Apply motion on entire text"
 let g:WhichKeyDesc_TextobjEntire_ie = "ie Apply motion on entire text w/o trailing and leading empty lines"
 "--------------------------------------------------------------------------------------------
-
 """ vim-highlightedyank plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/machakann/vim-highlightedyank
@@ -468,7 +424,6 @@ Plug 'machakann/vim-highlightedyank'
 
 " This plugin doesn't provide any commands or mappings, but it automatically highlights yanked text.
 "--------------------------------------------------------------------------------------------
-
 """ vim-indent-object plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/michaeljsmith/vim-indent-object
@@ -485,4 +440,3 @@ let g:WhichKeyDesc_IndentObject_ii = "vii: Inner indentation level (no line abov
 let g:WhichKeyDesc_IndentObject_aI = "vaI: An indentation level and lines above/below. This text object includes the current line, all lines below it that are indented more or the same amount, and all lines above and below that are indented less."
 let g:WhichKeyDesc_IndentObject_iI = "viI: Inner indentation level (no lines above/below). This is similar to 'aI', but it doesn't include the lines above and below."
 "--------------------------------------------------------------------------------------------
-
