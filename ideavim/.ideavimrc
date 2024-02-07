@@ -202,20 +202,20 @@ let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
 nnoremap ,mr :action Maven.Reimport<CR>
 let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
 "--------------------------------------------------------------------------------------------
-"""" Debug		    						                                        OPT + CMD
+"""" Debug		    						                                       <leader> d
 "--------------------------------------------------------------------------------------------
-nnoremap <A-D-b> :action ToggleLineBreakpoint<CR>
-let g:WhichKeyDesc_ToggleLineBreakpoint = "OPT + CMD b Toggle Line Breakpoint"
-nnoremap <A-D-o> :action StepOver<CR>
-let g:WhichKeyDesc_StepOver= "OPT + CMD o StepOver"
-nnoremap <A-D-r> :action Resume<CR>
-let g:WhichKeyDesc_Resume= "OPT + CMD r Resume"
-nnoremap <A-D-i> :action StepInto<CR>
-let g:WhichKeyDesc_StepInto= "OPT + CMD i StepInto"
-nnoremap <A-D-u> :action StepOut<CR>
-let g:WhichKeyDesc_StepOut= "OPT + CMD u StepOut"
-nnoremap <A-D-s> :action Stop<CR>
-let g:WhichKeyDesc_Stop= "OPT + CMD s Stop"
+noremap <leader>db 			:action ToggleLineBreakpoint<CR>
+let g:WhichKeyDesc_ToggleLineBreakpoint = "<leader>db Toggle Line Breakpoint"
+noremap <leader>do 			:action StepOver<CR>
+let g:WhichKeyDesc_StepOver= "<leader>do StepOver"
+noremap <leader>dr 			:action Resume<CR>
+let g:WhichKeyDesc_Resume= "<leader>dr Resume"
+noremap <leader>di 			:action StepInto<CR>
+let g:WhichKeyDesc_StepInto= "<leader>di StepInto"
+noremap <leader>dt			:action StepOut<CR>
+let g:WhichKeyDesc_StepOut= "<leader>dt StepOut"
+noremap <leader>ds			:action Stop<CR>
+let g:WhichKeyDesc_Stop= "<leader>ds Stop"
 "--------------------------------------------------------------------------------------------
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
 vnoremap < <gv
