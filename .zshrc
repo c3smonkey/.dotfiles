@@ -38,9 +38,6 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Starship
-eval "$(starship init zsh)"
-
 # TheFuck
 eval $(thefuck --alias)
 
@@ -54,3 +51,11 @@ source ~/.dotfiles/.variablesrc
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Starship
+#eval "$(starship init zsh)"
+
+# p10k
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
