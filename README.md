@@ -22,6 +22,12 @@ ln -s  ~/.dotfiles/.zshrc ~/.zshrc
 ln -s  ~/.dotfiles/.config/starship.toml ~/.config/starship.toml
 ```
 
+#### .p10k.zsh
+
+```
+ln -s  ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
+```
+
 #### yabai
 
 ```
