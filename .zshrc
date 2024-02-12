@@ -5,10 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Node
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
 # PLUGINS
 plugins=(
 	git
@@ -25,27 +21,32 @@ plugins=(
 	history
 	gradle
 	helm
-  kube-ps1
-  heroku
+    kube-ps1
+    heroku
+    web-search
 )
 
 # OH-MY-ZSH
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
+# Docker Desktop
+source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
+
 # SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# TheFuck
+# thefuck
 eval $(thefuck --alias)
 
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# DOTFILES
-source ~/.variables
+## DOTFILES
 source ~/.dotfiles/.aliasrc
 source ~/.dotfiles/.variablesrc
-source ~/.helsana_variables
+source ~/.variables
+# Helsana
+source ~/.helsanarc
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
