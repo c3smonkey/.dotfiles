@@ -43,7 +43,9 @@ source ~/.dotfiles/.aliasrc
 source ~/.dotfiles/.variablesrc
 source ~/.variables
 # Helsana
-source ~/.helsanarc
+if [ -f ~/.helsanarc ]; then
+    source ~/.helsanarc
+fi
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
