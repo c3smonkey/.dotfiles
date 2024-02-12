@@ -29,9 +29,6 @@ plugins=(
 # OH-MY-ZSH
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
-# Docker Desktop
-source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
-
 # SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
