@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Helsana
-source ~/.helsana_variables
-
 # Node
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -48,6 +45,7 @@ eval "$(zoxide init zsh)"
 source ~/.variables
 source ~/.dotfiles/.aliasrc
 source ~/.dotfiles/.variablesrc
+source ~/.helsana_variables
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
@@ -59,3 +57,4 @@ source <(ng completion script)
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
