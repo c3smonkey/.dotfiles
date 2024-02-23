@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+ZSH_THEME="powerlevel10k/powerlevel10k" 
+
+
 # PLUGINS
 plugins=(
 	git
@@ -14,17 +17,15 @@ plugins=(
 	oc
 	kubectl
 	brew
-	minikube
-	spring
 	colored-man-pages
 	httpie
 	history
 	gradle
 	helm
-    kube-ps1
-    heroku
-    web-search
+  kube-ps1
+  web-search
 )
+
 
 # OH-MY-ZSH
 source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -58,7 +59,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Chruby
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.1.3
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
