@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Git version checking
 autoload -Uz is-at-least
 git_version="${${(As: :)$(git version 2>/dev/null)}[3]}"
@@ -103,7 +101,7 @@ function ggpnp() {
 compdef _git ggpnp=git-checkout
 
 alias ggpur='ggu'
-alias g='git'
+# alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
@@ -421,4 +419,3 @@ for old_alias new_alias (
     $new_alias"
 done
 unset old_alias new_alias
-

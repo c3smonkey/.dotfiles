@@ -1,39 +1,24 @@
-#!/bin/zsh
-#
-# # PLUGINS
-# plugins=(
-# 	git
-# 	zsh-autosuggestions
-# 	zsh-syntax-highlighting
-# 	zsh-navigation-tools
-# 	oc
-# 	kubectl
-# 	brew
-# 	colored-man-pages
-# 	httpie
-# 	history
-# 	gradle
-# 	helm
-#   kube-ps1
-#   web-search
-# )
-#
+#!/usr/bin/env zsh
+# Check if a file exists and source it
+# usage: check_and_source_file FILE
+check_and_source_file() {
+    local file="$1"
+    if [ -f "$file" ]; then
+        source "$file"
+    else
+        echo "$file does not exist."
+    fi
+}
 
 # SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# thefuck
-eval $(thefuck --alias)
-
-# Zoxide
+eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 
 ## DOTFILES
-source ~/.dotfiles/.aliasrc
-source ~/.dotfiles/.variablesrc
-source ~/.variables
-# Helsana
-if [ -f ~/.helsanarc ]; then
-    source ~/.helsanarc
-fi
+check_and_source_file ~/.dotfiles/.aliasrc
+check_and_source_file ~/.dotfiles/.variablesrc
+check_and_source_file ~/.variables
+## HELSANA
+check_and_source_file ~/.helsanarc
 
