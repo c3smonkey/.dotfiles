@@ -9,7 +9,7 @@ check_and_alias() {
         echo "Binary '$binary' not found. Alias '$alias_name' not created."
     fi
 }
-# reload alias 
+# reload alias
 reload_aliases() {
     source "$HOME/.dotfiles/.aliasrc"
 }
@@ -33,9 +33,6 @@ source $HOME/.dotfiles/zsh/git/git.plugin.zsh
 source $HOME/.dotfiles/zsh/git-commit/git-commit.plugin.zsh
 source $HOME/.dotfiles/zsh/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 source $HOME/.dotfiles/zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-
-
 # load kubectl alias
 source $HOME/.dotfiles/zsh/.aliasrc_kubectl
-
 
