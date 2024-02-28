@@ -101,6 +101,7 @@ function ggpnp() {
 }
 compdef _git ggpnp=git-checkout
 
+alias gcap='git commit -a --amend --no-edit && git push --force-with-lease'
 alias ggpur='ggu'
 # alias g='git'
 alias ga='git add'
