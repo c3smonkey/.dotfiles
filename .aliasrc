@@ -24,6 +24,7 @@ check_and_alias "python3" "python"
 check_and_alias "pip3" "pip"
 check_and_alias "bpytop" "mon"
 check_and_alias "mvnd" "m"
+check_and_alias "docker" "d"
 
 alias l="lsd -a"
 alias ll="lsd -l"
