@@ -23,6 +23,7 @@ check_and_alias "lazygit" "g"
 check_and_alias "python3" "python"
 check_and_alias "pip3" "pip"
 check_and_alias "bpytop" "mon"
+check_and_alias "mvnd" "m"
 
 alias l="lsd -a"
 alias ll="lsd -l"
