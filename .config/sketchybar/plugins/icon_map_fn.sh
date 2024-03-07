@@ -1,4 +1,3 @@
-#!/bin/bash
 
 function icon_map() {
   case "$1" in
@@ -11,7 +10,7 @@ function icon_map() {
   "VMware Fusion")
     icon_result=":vmware_fusion:"
     ;;
-  "Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm" | "Warp")
+  "Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
     icon_result=":terminal:"
     ;;
   "Microsoft To Do" | "Things")
@@ -431,6 +430,3 @@ function icon_map() {
   esac
 }
 
-icon_map "$1"
-
-echo "$icon_result"

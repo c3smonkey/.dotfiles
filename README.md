@@ -72,3 +72,7 @@ brew services start sketchybar
 ```
 ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
 ```
+
+```
+ln -s  ~/.dotfiles/Library/Fonts/sketchybar-app-font.ttf $HOME/Library/Fonts/sketchybar-app-font.ttf
+```
