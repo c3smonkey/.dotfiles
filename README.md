@@ -43,7 +43,7 @@ ln -s  ~/.dotfiles/.config/skhd ~/.config/skhd
 #### ideavimrc
 
 ```
-ln -s  ~/.dotfiles/.ideavimrc ~/.ideavimrc
+ln -s  ~/.dotfiles/ideavim/.ideavimrc ~/.ideavimrc
 ```
 
 #### nvim
