@@ -4,9 +4,19 @@ function Build.build_project()
   local project_type = Build.detect_project_type()
   if project_type == "maven" then
     local mvn_command = Build.check_for_mvnd() or "mvn"
-    vim.cmd("! " .. mvn_command .. " clean package")
+    vim.cmd("! " .. mvn_command .. " package")
   else
     vim.cmd("! ./gradlew build")
+  end
+end
+
+function Build.run_project()
+  local project_type = Build.detect_project_type()
+  if project_type == "maven" then
+    local mvn_command = Build.check_for_mvnd() or "mvn"
+    vim.cmd("! " .. mvn_command .. " spring-boot:run")
+  else
+    vim.cmd("! ./gradlew bootRun")
   end
 end
 

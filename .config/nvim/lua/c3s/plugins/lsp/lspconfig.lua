@@ -111,11 +111,10 @@ return {
         -- Add gd keybinding for definition
         keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
 
-        -- Add keymap for building Kotlin files
-        -- keymap.set("n", ",c", ":!kotlinc % && kotlin -classpath %:p:h %:t:r\n", opts)
-        -- keymap.set("n", ",c", ":!mvn clean install || ./gradlew build<CR>", opts)
-        keymap.set("n", ",c", ":lua require('build-maven-gradle').build_project()<CR>", opts)
-
+        -- Add ,c keymap for building
+        keymap.set("n", ",c", ":lua require('maven-gradle').build_project()<CR>", opts)
+        -- Add ,R run spring boot app
+        keymap.set("n", ",R", ":lua require('maven-gradle').run_project()<CR>", opts)
       end,
     })
 
