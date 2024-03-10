@@ -28,8 +28,6 @@ return {
       -- set keybinds
       opts.desc = "Show LSP references"
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-      opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -112,6 +110,12 @@ return {
 
         -- Add gd keybinding for definition
         keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
+
+        -- Add keymap for building Kotlin files
+        -- keymap.set("n", ",c", ":!kotlinc % && kotlin -classpath %:p:h %:t:r\n", opts)
+        -- keymap.set("n", ",c", ":!mvn clean install || ./gradlew build<CR>", opts)
+        keymap.set("n", ",c", ":lua require('build-maven-gradle').build_project()<CR>", opts)
+
       end,
     })
 
