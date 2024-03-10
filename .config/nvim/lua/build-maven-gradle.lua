@@ -1,15 +1,15 @@
-local M = {}
+local Build = {}
 
-function M.build_project()
-  local project_type = M.detect_project_type()
+function Build.build_project()
+  local project_type = Build.detect_project_type()
   if project_type == "maven" then
-    vim.cmd("!mvn clean install")
+    vim.cmd("!mvn clean package")
   else
     vim.cmd("!./gradlew build")
   end
 end
 
-function M.detect_project_type()
+function Build.detect_project_type()
   local maven_exists = vim.fn.filereadable("pom.xml") == 1
   local gradle_exists = vim.fn.filereadable("settings.gradle") == 1
   local gradle_kts_exists = vim.fn.filereadable("settings.gradle.kts") == 1
@@ -23,4 +23,4 @@ function M.detect_project_type()
   end
 end
 
-return M
+return Build
