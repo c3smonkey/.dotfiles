@@ -26,10 +26,12 @@ check_and_source_file ~/.dotfiles/.aliasrc
 check_and_source_file ~/.dotfiles/.variablesrc
 check_and_source_file ~/.variables
 check_and_source_file ~/.helsanarc
+
+# Rust
+source "$HOME/.cargo/env"
 # SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-
+# p10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
