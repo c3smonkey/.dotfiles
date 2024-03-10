@@ -3,9 +3,10 @@ local Build = {}
 function Build.build_project()
   local project_type = Build.detect_project_type()
   if project_type == "maven" then
-    vim.cmd("!mvn clean package")
+    local mvn_command = Build.check_for_mvnd() or "mvn"
+    vim.cmd("! " .. mvn_command .. " clean package")
   else
-    vim.cmd("!./gradlew build")
+    vim.cmd("! ./gradlew build")
   end
 end
 
@@ -20,6 +21,16 @@ function Build.detect_project_type()
     return "gradle"
   else
     return "unknown"
+  end
+end
+
+function Build.check_for_mvnd()
+  -- Check if mvnd is available in the system
+  local mvnd_exists = vim.fn.executable("mvnd") == 1
+  if mvnd_exists then
+    return "mvnd"
+  else
+    return nil
   end
 end
 
