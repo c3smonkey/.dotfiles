@@ -8,7 +8,7 @@ return {
     },
     config = function()
       -- import nvim-treesitter plugin
-      local treesitter = require("ts_context_commentstring")
+      local treesitter = require("nvim-treesitter.configs")
 
       -- configure treesitter
       treesitter.setup({ -- enable syntax highlighting
@@ -38,6 +38,9 @@ return {
           "vim",
           "dockerfile",
           "gitignore",
+          "kotlin",
+          "go",
+          "python",
         },
         -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
         context_commentstring = {
