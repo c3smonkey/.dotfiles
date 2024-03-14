@@ -23,7 +23,6 @@ check_and_alias "lazygit" "g"
 check_and_alias "python3" "python"
 check_and_alias "pip3" "pip"
 check_and_alias "bpytop" "mon"
-check_and_alias "mvnd" "m"
 check_and_alias "docker" "d"
 
 alias l="lsd -a"
@@ -40,4 +39,6 @@ source $HOME/.dotfiles/zsh/kubectx/kubectx.plugin.zsh
 source $HOME/.dotfiles/zsh/kube-ps1/kube-ps1.plugin.zsh
 # load kubectl alias
 source $HOME/.dotfiles/zsh/.aliasrc_kubectl
+# load mvnd alias
+source $HOME/.dotfiles/zsh/.aliasrc_mvnd
 
