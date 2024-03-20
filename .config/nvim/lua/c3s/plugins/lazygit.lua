@@ -9,7 +9,7 @@ return {
     require("telescope").load_extension("lazygit")
 
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap
 
     keymap.set("n", "<leader>g", "<cmd>LazyGit<cr>", { silent = true, desc = "Open LazyGit" })
   end,

@@ -1,10 +1,19 @@
 return {
   {
-    "bluz71/vim-nightfly-guicolors",
-    priority = 1000, -- make sure to load this before all the other start plugins
+    "catppuccin/nvim", -- Add the Catppuccin plugin
+    lazy = false,
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme nightfly]])
+      vim.cmd.colorscheme("catppuccin-mocha") -- Set the Catppuccin flavor to "mocha"
+    end,
+  },
+  {
+    "bluz71/vim-nightfly-guicolors",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("nightfly")
     end,
   },
 }
