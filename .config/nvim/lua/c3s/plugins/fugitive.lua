@@ -8,7 +8,9 @@ return {
       augroup END
     ]])
 
-    -- Add key mapping for <leader>ga to run :Git blame
-    vim.api.nvim_set_keymap("n", "<leader>ga", ":Git blame<CR>", { noremap = true, silent = true })
+    -- set keymaps
+    local keymap = vim.keymap
+    keymap.set("n", "<leader>ga", "<cmd>Git blame<cr>", { silent = true, desc = "Git blame" })
+    keymap.set("n", "gq", "<cmd>Git blame quite<cr>", { silent = true, desc = "Git blame quite" })
   end,
 }
