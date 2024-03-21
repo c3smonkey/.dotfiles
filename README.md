@@ -16,6 +16,16 @@ git clone git@github.com:c3smonkey/.dotfiles.git
 ln -s  ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
+### tmux
+
+```
+ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+```
+ln -s ~/.dotfiles/.tmux ~/.tmux
+```
+
 #### starship.toml
 
 ```
