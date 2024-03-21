@@ -34,6 +34,7 @@ source $HOME/.dotfiles/zsh/git/git.plugin.zsh
 source $HOME/.dotfiles/zsh/git-commit/git-commit.plugin.zsh
 source $HOME/.dotfiles/zsh/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 source $HOME/.dotfiles/zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+source $HOME/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $HOME/.dotfiles/zsh/kubectl/kubectl.plugin.zsh
 source $HOME/.dotfiles/zsh/kubectx/kubectx.plugin.zsh
 source $HOME/.dotfiles/zsh/kube-ps1/kube-ps1.plugin.zsh
