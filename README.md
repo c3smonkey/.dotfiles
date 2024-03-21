@@ -22,8 +22,10 @@ ln -s  ~/.dotfiles/.zshrc ~/.zshrc
 ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
+#### Install Tmux Plugin Manager
+
 ```
-ln -s ~/.dotfiles/.tmux ~/.tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 #### starship.toml
