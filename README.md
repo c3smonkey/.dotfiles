@@ -1,72 +1,58 @@
 # .dotfiles
 
-## Clone .dotfiles
-
 Clone _.dotfiles_ repository in your _$HOME_ directory
 
 ```
 git clone git@github.com:c3smonkey/.dotfiles.git
 ```
 
-### Create Symlink
+# Create Symlink
 
-### .zshrc
+## .zshrc
 
 ```
 ln -s  ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
-### tmux
-
-```
-ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
-```
-
-#### Install Tmux Plugin Manager
-
-```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-#### starship.toml
+## starship.toml
 
 ```
 ln -s  ~/.dotfiles/.config/starship.toml ~/.config/starship.toml
 ```
 
-#### .p10k.zsh
+## .p10k.zsh
 
 ```
 ln -s  ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 ```
 
-#### yabai
+## yabai
 
 ```
 ln -s  ~/.dotfiles/.config/yabai ~/.config/yabai
 ```
 
-#### skhd
+## skhd
 
 ```
 ln -s  ~/.dotfiles/.config/skhd ~/.config/skhd
 ```
 
-#### ideavimrc
+## ideavimrc
 
 ```
 ln -s  ~/.dotfiles/ideavim/.ideavimrc ~/.ideavimrc
 ```
 
-#### nvim
+## nvim
 
 ```
 ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 
-#### sketchybar
+## sketchybar
 
-install the following. (see also https://www.josean.com/posts/sketchybar-setup)
+install the following. see also https://www.josean.com/posts/sketchybar-setup
 
 ```
 brew tap FelixKratz/formulae
@@ -88,3 +74,21 @@ ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
 ```
 ln -s  ~/.dotfiles/Library/Fonts/sketchybar-app-font.ttf $HOME/Library/Fonts/sketchybar-app-font.ttf
 ```
+
+## tmux
+
+```
+ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+### Install tmux plugin manager
+
+https://github.com/tmux-plugins/tpm
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+### Install tmux catppuccino
+
+https://github.com/catppuccin/tmux
