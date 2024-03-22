@@ -14,6 +14,12 @@ git clone git@github.com:c3smonkey/.dotfiles.git
 ln -s  ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
+## .warp
+
+```
+ln -s  ~/.dotfiles/.warp ~/.warp
+```
+
 ## starship.toml
 
 ```

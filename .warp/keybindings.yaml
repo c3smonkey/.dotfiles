@@ -1,0 +1,4 @@
+---
+"terminal:scroll_down_one_line": cmd-down
+"terminal:select_previous_block": cmd-k
+"terminal:scroll_up_one_line": cmd-up
