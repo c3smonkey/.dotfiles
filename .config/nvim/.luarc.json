@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "neotree_open"
+    ]
+}
