@@ -3,20 +3,19 @@ return {
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", 
+    "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
 
   config = function()
-    vim.keymap.set('n', '<leader>ee', function()
+    vim.keymap.set("n", "<leader>ee", function()
       if neotree_open then
-        vim.cmd(':Neotree close')
+        vim.cmd(":Neotree close")
         neotree_open = false
       else
-        vim.cmd(':Neotree filesystem reveal left')
+        vim.cmd(":Neotree filesystem reveal left")
         neotree_open = true
       end
     end)
-  end
+  end,
 }
-
