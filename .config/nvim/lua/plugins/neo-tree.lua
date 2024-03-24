@@ -25,7 +25,7 @@ return {
                 vim.cmd(":Neotree close")
                 neotree_open = false
             else
-                vim.cmd(":Neotree filesystem reveal left")
+                vim.cmd(":Neotree current filesystem reveal left")
                 neotree_open = true
             end
         end)

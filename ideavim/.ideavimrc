@@ -1,4 +1,4 @@
-"" Common settings -------------------------
+ "" Common settings -------------------------
 set clipboard+=unnamed " Clipboard sharing for Mac Os
 set clipboard+=ideaput
 set so=10 " Keep few lines visible when scrolling
@@ -27,182 +27,191 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
 """ Navigation
-" Split
-"   Vertically      cmd+d
-"   Horizontally    cmd+shift+d
 " Activate Panes
 "   Next Pane       cmd+]
-"   Previous Pane   cmd+[
+"   revious Pane   cmd+[
 " Idea default keymap is : opt+tab
-"--------------------------------------------------------------------------------------------
-nnoremap <D-d>        :action SplitVertically<CR>
-nnoremap <D-S-d>      :action SplitHorizontally<CR>
-nnoremap <D-[>        :action PrevSplitter<CR>
-nnoremap <D-]>        :action NextSplitter<CR>
-nnoremap <C-S-h>      :action StretchSplitToLeft<CR>
-nnoremap <C-S-j>      :action StretchSplitToBottom<CR>
-nnoremap <C-S-k>      :action StretchSplitToTop<CR>
-nnoremap <C-S-l>      :action StretchSplitToRight<CR>
-nnoremap ,so 		  :action ChangeSplitOrientation<CR>
-let g:WhichKeyDesc_ChangeSplitOrientation= ",so Change Split Orientation"
-nnoremap ,sm 		  :action MaximizeEditorInSplit<CR>
-let g:WhichKeyDesc_MaximizeEditorInSplit= ",sm Maximize Editoroin Split"
+"-------------------------------------------------------------------------------------------
+"   Vertically      cmd+d
+"   Vertically      cmd+d
+nnoremap <D-d>        		:action SplitVertically<CR>
+"   Horizontally    cmd+shift+d
+nnoremap <D-S-d>      		:action SplitHorizontally<CR>
 
-nnoremap <TAB> 		  :action PreviousTab<CR>
-nnoremap <s-TAB> 	  :action NextTab<CR>
+nnoremap <leader>so 		:action ChangeSplitOrientation<CR>
+let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>so Change Split Orientation"
 
-nnoremap [[           :action MethodUp<CR>
-nnoremap ]]           :action MethodDown<CR>
+nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
+let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
+
+nnoremap <leader>sc 		:action CloseContent<CR>
+let g:WhichKeyDesc_CloseContent = "<leader>sc Close Content"
+
+
+"nnoremap <D-[>        		:action PrevSplitter<CR>
+"nnoremap <D-]>        		:action NextSplitter<CR>
+nnoremap <C-h>        		:action PrevSplitter<CR>
+nnoremap <C-l>        		:action NextSplitter<CR>
+
+nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
+nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
+nnoremap <C-S-k>      		:action StretchSplitToTop<CR>
+nnoremap <C-S-l>      		:action StretchSplitToRight<CR>
+
+nnoremap <TAB> 		  		:action PreviousTab<CR>
+nnoremap <s-TAB> 	  		:action NextTab<CR>
+
+nnoremap [[           		:action MethodUp<CR>
+nnoremap ]]           		:action MethodDown<CR>
 "--------------------------------------------------------------------------------------------
 """" Project 								                                       <leader> p
 "--------------------------------------------------------------------------------------------
-nnoremap <leader>pc :action CloseProject<CR>
+nnoremap <leader>pc 		:action CloseProject<CR>
 let g:WhichKeyDesc_CloseProject = "<leader>pc Close Project"
 "--------------------------------------------------------------------------------------------
 """" Region and Font Size                                                                   z
 "--------------------------------------------------------------------------------------------
-nnoremap zc :action CollapseRegion<CR>
+nnoremap zc 				:action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
-nnoremap zo :action ExpandRegion<CR>
+nnoremap zo 				:action ExpandRegion<CR>
 let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
-nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zc 		:action CollapseAllRegions<CR>
 let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
-nnoremap <leader>zo :action ExpandAllRegions<CR>
+nnoremap <leader>zo 		:action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
-nnoremap zr :action EditorResetFontSize<CR>
+nnoremap zr 				:action EditorResetFontSize<CR>
 let g:WhichKeyDesc_EditorResetFontSize= "zr Editor Resent Font Size"
-nnoremap zi :action EditorIncreaseFontSize<CR>
+nnoremap zi 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize= "zi Editor Increase Font Size"
-nnoremap zd :action EditorDecreaseFontSize<CR>
+nnoremap zd 				:action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
 """"  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
-nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>gh 		:action Vcs.ShowTabbedFileHistory<CR>
 let g:WhichKeyDesc_ShowTabbedFileHistory= "<leader>gh Git History"
-nnoremap <leader>gl :action Vcs.Show.Log<CR>
+nnoremap <leader>gl 		:action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
-nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
+nnoremap <leader>glh 		:action LocalHistory.ShowHistory<CR>
 let g:WhichKeyDesc_ShowHistory= "<leader>glh Show Local History"
-nnoremap <leader>gm :action Git.Menu<CR>
+nnoremap <leader>gm 		:action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
-nnoremap <leader>gu :action Vcs.UpdateProject<CR>
+nnoremap <leader>gu 		:action Vcs.UpdateProject<CR>
 let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
-nnoremap <leader>gc :action CheckinProject<CR>
+nnoremap <leader>gc 		:action CheckinProject<CR>
 let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
-nnoremap <leader>gb :action Git.CompareWithBranch<CR>
+nnoremap <leader>gb 		:action Git.CompareWithBranch<CR>
 let g:WhichKeyDesc_CompareWithBranch= "<leader>gb Compare with Branch"
-nnoremap <leader>ga :action Annotate<CR>
+nnoremap <leader>ga 		:action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
-nnoremap <leader>gr :action ChangesView.Revert<CR>
+nnoremap <leader>gr 		:action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
 "--------------------------------------------------------------------------------------------
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
 "--------------------------------------------------------------------------------------------
-nnoremap <leader>wc :action CloseContent<CR>
-let g:WhichKeyDesc_CloseContent = "<leader>wc Close Content"
-nnoremap <leader>wn :action ShowNavBar<CR>
+nnoremap <leader>wn 		:action ShowNavBar<CR>
 let g:WhichKeyDesc_ShowNavBar = "<leader>wn Show Navigation Bar"
-nnoremap <leader>wb :action ViewToolButtons<CR>
+nnoremap <leader>wb 		:action ViewToolButtons<CR>
 let g:WhichKeyDesc_ViewTooButtons = "<leader>wb Show View Tool Buttons"
-nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>wt 		:action ActivateTerminalToolWindow<CR>
 let g:WhichKeyDesc_ActivateTerminalToolWindow= "<leader>wt Activate Terminal Tool Window"
-nnoremap <leader>wh :action HideAllWindows<CR>
+nnoremap <leader>wh 		:action HideAllWindows<CR>
 let g:WhichKeyDesc_HideAllWindows= "<leader>wh Hide All Windows Show"
-nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
+nnoremap <leader>wd 		:action ActivateDebugToolWindow<CR>
 let g:WhichKeyDesc_ActivateDebugToolWindow = "<leader>wd Activate Debug Tool Window"
-nnoremap <leader>wr :action ActivateRunToolWindow<CR>
+nnoremap <leader>wr 		:action ActivateRunToolWindow<CR>
 let g:WhichKeyDesc_ActivateRunToolWindow = "<leader>wr Activate Run Tool Window"
-nnoremap <leader>wm :action ActivateMavenToolWindow<CR>
+nnoremap <leader>wm 		:action ActivateMavenToolWindow<CR>
 let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
-nnoremap <leader>ws :action ActivateServicesToolWindow<CR>
+nnoremap <leader>ws 		:action ActivateServicesToolWindow<CR>
 let g:WhichKeyDesc_ActivateServicesToolWindow = "<leader>ws Activate Services Tool Window"
-nnoremap <leader>wso :action ChangeSplitOrientation<CR>
-let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>wso Change Split Orientation"
-nnoremap <leader>wsm :action MaximizeEditorInSplit<CR>
-let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>wsm Maximize Editor in Split"
-"--------------------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------------
 """" Jump to                                                                       <leader> j
 "--------------------------------------------------------------------------------------------
-noremap <leader>js :action GotoSymbol<CR>
+noremap <leader>js 			:action GotoSymbol<CR>
 let g:WhichKeyDesc_GotoSymbol = "<leader>js Jump to Symbol"
-noremap <leader>jc :action GotoClass<CR>
+noremap <leader>jc 			:action GotoClass<CR>
 let g:WhichKeyDesc_GotoClass = "<leader>jc Jump to Class"
-noremap <leader>ja :action GotoAction<CR>
+noremap <leader>ja 			:action GotoAction<CR>
 let g:WhichKeyDesc_GotoActions = "<leader>ja Jump to GotoAction"
-noremap <leader>jf :action GotoFile<CR>
+noremap <leader>jf 			:action GotoFile<CR>
 let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to GotoFile"
-noremap <leader>jr :action RecentFiles<CR>
+noremap <leader>jr 			:action RecentFiles<CR>
 let g:WhichKeyDesc_RecentFiles = "<leader>jr Jump to RecentFiles"
-noremap <leader>jl :action RecentLocations<CR>
+noremap <leader>jl 			:action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations = "<leader>jl Jump to RecentLocations"
 
 "--------------------------------------------------------------------------------------------
 """" Find                                                                          <leader> f
 "--------------------------------------------------------------------------------------------
-noremap <leader>fs :action FindInPath<CR>
+noremap <leader>fs 			:action FindInPath<CR>
 let g:WhichKeyDesc_FindInPath = "<leader>fs find string"
-nnoremap <leader>ff :action SearchEverywhere<CR>
+nnoremap <leader>ff 		:action SearchEverywhere<CR>
 let g:WhichKeyDesc_SearchEverywhere= "<leader>ff Fuzzy find"
-noremap <leader>fr :action ReplaceInPath<CR>
+noremap <leader>fr 			:action ReplaceInPath<CR>
 let g:WhichKeyDesc_ReplaceInPath= "<leader>fr Replace in Path/File"
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
 "--------------------------------------------------------------------------------------------
-nnoremap gi :action GotoImplementation<CR>
+nnoremap gi 				:action GotoImplementation<CR>
 let g:WhichKeyDesc_GotoImplementation= "gi Go to Implementation"
-nnoremap gd :action GotoDeclaration<CR>
+nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
-nnoremap gt :action GotoTest<CR>
+nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-nnoremap gb :action Back<CR>
+nnoremap gb 				:action Back<CR>
 let g:WhichKeyDesc_Back= "gb Go Back"
-nnoremap gf :action Forward<CR>
+nnoremap gf 				:action Forward<CR>
 let g:WhichKeyDesc_Forward= "gf Go Forward"
-nnoremap ge :action GotoNextError<CR>
+nnoremap ge 				:action GotoNextError<CR>
 let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-nnoremap gE :action GotoPreviousError<CR>
+nnoremap gE 				:action GotoPreviousError<CR>
 let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
-nnoremap gu :action FindUsages<CR>
+nnoremap gu 				:action FindUsages<CR>
 let g:WhichKeyDesc_FindUsages = "gu Go to Usages"
 "--------------------------------------------------------------------------------------------
 """" Run Code and Debug and Code Formatting etc                                             ,
-"--------------------------------------------------------------------------------------------
-nnoremap ,ra :action RunAnything<CR>
+:"--------------------------------------------------------------------------------------------
+nnoremap ,ra 				:action RunAnything<CR>
 let g:WhichKeyDesc_RunAnything = ",ra Run Anything"
-nnoremap ,r :action Run<CR>
+nnoremap ,r 				:action Run<CR>
 let g:WhichKeyDesc_Run = ",r Run"
-nnoremap ,rr :action Rerun<CR>
+nnoremap ,rr 				:action Rerun<CR>
 let g:WhichKeyDesc_Rerun = ",rr Rerun"
-nnoremap ,R :action ChooseRunConfiguration<CR>
+nnoremap ,R 				:action ChooseRunConfiguration<CR>
 let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
-nnoremap ,rs :action Stop<CR>
+nnoremap ,rs 				:action Stop<CR>
 let g:WhichKeyDesc_Stop = ",rs Stop"
 " Debug
-nnoremap ,d :action Debug<CR>
+nnoremap ,d 				:action Debug<CR>
 let g:WhichKeyDesc_Debug = ",d Debug"
-nnoremap ,D :action ChooseDebugConfiguration<CR>
+nnoremap ,D 				:action ChooseDebugConfiguration<CR>
 let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
 " Test
-nnoremap ,t :action RunClass<CR>
+nnoremap ,t 				:action RunClass<CR>
 let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
-nnoremap ,T :action ContextRun<CR>
+nnoremap ,T 				:action ContextRun<CR>
 let g:WhichKeyDesc_ContextRun= ",T Run current Test"
-nnoremap ,rf :action RerunFailedTests<CR>
+nnoremap ,rf 				:action RerunFailedTests<CR>
 let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 " Code
-noremap ,f :action ReformatCode<CR>
+noremap ,f 					:action ReformatCode<CR>
 let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
-nnoremap ,i :action OptimizeImports<CR>
+nnoremap ,i 				:action OptimizeImports<CR>
 let g:WhichKeyDesc_OptimizeImports= ",i Optimize Import"
-nnoremap ,c           :action CompileDirty<CR>
+nnoremap ,c           		:action CompileDirty<CR>
 let g:WhichKeyDesc_CompileDirty= ",c Compile Project"
-noremap ,rm :action Refactorings.QuickListPopupAction<CR>
+noremap ,rm 				:action Refactorings.QuickListPopupAction<CR>
 let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
-nnoremap ,qi :action QuickImplementations<CR>
+nnoremap ,qi 				:action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
-nnoremap ,mr :action Maven.Reimport<CR>
+nnoremap ,mr 				:action Maven.Reimport<CR>
 let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
+
+
 "--------------------------------------------------------------------------------------------
 """" Debug		    						                                       <leader> d
 "--------------------------------------------------------------------------------------------
@@ -231,9 +240,9 @@ vnoremap > >gv
 """ Harpoon
 "--------------------------------------------------------------------------------------------
 " https://plugins.jetbrains.com/plugin/20782-harpoonij
-nnoremap <leader>hm :action HarpoonerAddFile<CR>
+nnoremap <leader>hm 		:action HarpoonerAddFile<CR>
 let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm Mark File with harpoon"
-nnoremap <leader>hf :action ShowHarpoon<CR>
+nnoremap <leader>hf 		:action ShowHarpoon<CR>
 let g:WhichKeyDesc_ShowHarpoon= "<leader>hf Show harpoon mark"
 
 """ Wich-key Plugin
