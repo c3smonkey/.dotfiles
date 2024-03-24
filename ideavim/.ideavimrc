@@ -26,27 +26,16 @@ nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 " Distraction Free Mode
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
-""" Navigation
-" Activate Panes
-"   Next Pane       cmd+]
-"   revious Pane   cmd+[
-" Idea default keymap is : opt+tab
-"-------------------------------------------------------------------------------------------
-"   Vertically      cmd+d
-"   Vertically      cmd+d
-nnoremap <D-d>        		:action SplitVertically<CR>
-"   Horizontally    cmd+shift+d
-nnoremap <D-S-d>      		:action SplitHorizontally<CR>
+""" Split Windows
+nnoremap <C-v>        		:action SplitVertically<CR>
+nnoremap <C-s>      		:action SplitHorizontally<CR>
+nnoremap <C-c>      		:action CloseContent<CR>
 
 nnoremap <leader>so 		:action ChangeSplitOrientation<CR>
 let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>so Change Split Orientation"
 
 nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
 let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
-
-nnoremap <leader>sc 		:action CloseContent<CR>
-let g:WhichKeyDesc_CloseContent = "<leader>sc Close Content"
-
 
 "nnoremap <D-[>        		:action PrevSplitter<CR>
 "nnoremap <D-]>        		:action NextSplitter<CR>

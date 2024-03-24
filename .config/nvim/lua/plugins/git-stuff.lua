@@ -13,7 +13,6 @@ return {
 			vim.keymap.set("n", "<leader>g", "<cmd>LazyGit<cr>", { silent = true, desc = "Open LazyGit" })
 		end,
 	},
-
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
