@@ -51,9 +51,23 @@ ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 
 ## tmux
-
+### Install tmux plugin manager
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+### Symbolic link to .tmux.conf
 ```
 ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+### Install tmux plugins
+```
+tmux
+
+# Press prefix + I (capital i, as in Install) to fetch the plugin.
+# ctrl + s + I
+```
+
 ```
 
 ### Install tmux plugin manager
