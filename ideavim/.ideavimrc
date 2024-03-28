@@ -1,4 +1,4 @@
- "" Common settings -------------------------
+ " Common settings -------------------------
 set clipboard+=unnamed " Clipboard sharing for Mac Os
 set clipboard+=ideaput
 set so=10 " Keep few lines visible when scrolling
@@ -19,33 +19,31 @@ let mapleader=" "
 "--------------------------------------------------------------------------------------------
 set clipboard+=unnamed
 set clipboard+=ideaput
-nnoremap \e :e ~/.ideavimrc<CR>
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap \e 				:e ~/.ideavimrc<CR>
+nnoremap \r 				:action IdeaVim.ReloadVimRc.reload<CR>
 "--------------------------------------------------------------------------------------------
 "
 " Distraction Free Mode
-nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <c-z> 				:action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
-""" Split Windows
-nnoremap <C-v>        		:action SplitVertically<CR>
-nnoremap <C-s>      		:action SplitHorizontally<CR>
+""" Split Windows like Warp
+nnoremap <D-D>        		:action SplitVertically<CR>
+nnoremap <D-S-D>        	:action SplitHorizontally<CR>
 nnoremap <C-c>      		:action CloseContent<CR>
-
-nnoremap <leader>so 		:action ChangeSplitOrientation<CR>
-let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>so Change Split Orientation"
-
-nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
-let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
-
-"nnoremap <D-[>        		:action PrevSplitter<CR>
-"nnoremap <D-]>        		:action NextSplitter<CR>
-nnoremap <C-h>        		:action PrevSplitter<CR>
-nnoremap <C-l>        		:action NextSplitter<CR>
+nnoremap <D-[>        		:action PrevSplitter<CR>
+nnoremap <D-]>        		:action NextSplitter<CR>
+"nnoremap <C-h>        		:action PrevSplitter<CR>
+"nnoremap <C-l>        		:action NextSplitter<CR>
 
 nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
 nnoremap <C-S-k>      		:action StretchSplitToTop<CR>
 nnoremap <C-S-l>      		:action StretchSplitToRight<CR>
+nnoremap <leader>so 		:action ChangeSplitOrientation<CR>
+
+let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>so Change Split Orientation"
+nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
+let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
 
 nnoremap <TAB> 		  		:action PreviousTab<CR>
 nnoremap <s-TAB> 	  		:action NextTab<CR>
@@ -221,6 +219,9 @@ let g:WhichKeyDesc_Stop= "<leader>ds Stop"
 vnoremap < <gv
 vnoremap > >gv
 "--------------------------------------------------------------------------------------------
+
+
+
 
 "--------------------------------------------------------------------------------------------
 """ Plugins
