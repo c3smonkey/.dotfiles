@@ -16,7 +16,6 @@ reload_aliases() {
 
 check_and_alias "kubectx" "kctx"
 check_and_alias "nvim" "vi"
-check_and_alias "lsd" "ls"
 check_and_alias "fuck" "f"
 check_and_alias "z" "cd"
 check_and_alias "lazygit" "g"
@@ -24,11 +23,27 @@ check_and_alias "python3" "python"
 check_and_alias "pip3" "pip"
 check_and_alias "bpytop" "mon"
 check_and_alias "docker" "d"
-check_and_alias "tmux" "t"
 
+
+# TMUX
+check_and_alias "tmux" "t"
+alias tatd="tmux a -t dotfiles"
+
+
+# LSD 
+check_and_alias "lsd" "ls"
 alias l="lsd -a"
 alias ll="lsd -l"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+
+# Reload alias
 alias ra="reload_aliases"
+# Expand alias in tmux (Ctrl + X, a)
+# autoload -Uz compinit; compinit; bindkey "^Xa" _expand_alias
 
 # Load Plugins from ohmyzsh fork  https://github.com/c3smonkey/ohmyzsh
 source $HOME/.dotfiles/zsh/git/git.plugin.zsh
