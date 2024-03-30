@@ -7,7 +7,7 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
-        vim.keymap.set("n", "<C-n>", function()
+        vim.keymap.set("n", "<leader>ee", function()
             if neotree_open then
                 vim.cmd(":Neotree close")
                 neotree_open = false
