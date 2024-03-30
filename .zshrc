@@ -18,6 +18,10 @@ check_and_source_file() {
     fi
 }
 
+# Expand alias in tmux (Ctrl + X, a)
+autoload -Uz compinit; compinit; bindkey "^Xa" _expand_alias
+
+
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 
