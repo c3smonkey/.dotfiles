@@ -25,4 +25,3 @@ opt.cursorline = true
 opt.scrolloff = 10
 
 
-
