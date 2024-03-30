@@ -32,8 +32,8 @@ alias tatd="tmux a -t dotfiles"
 
 # LSD 
 check_and_alias "lsd" "ls"
-alias l="lsd -a"
-alias ll="lsd -l"
+alias l="ls -a"
+alias ll="ls -l"
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -42,8 +42,8 @@ alias lt='ls --tree'
 
 # Reload alias
 alias ra="reload_aliases"
-# Expand alias in tmux (Ctrl + X, a)
-# autoload -Uz compinit; compinit; bindkey "^Xa" _expand_alias
+# Source .zshrc file
+alias so="source ~/.zshrc"
 
 # Load Plugins from ohmyzsh fork  https://github.com/c3smonkey/ohmyzsh
 source $HOME/.dotfiles/zsh/git/git.plugin.zsh
