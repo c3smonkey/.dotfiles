@@ -1,3 +1,14 @@
+-- VimWik
+vim.cmd("set nocompatible")
+vim.cmd("filetype plugin on")
+vim.cmd("syntax on")
+-- Configure Vimwiki paths
+vim.g.vimwiki_list = {
+    { path = '~/git/vimwiki', syntax = 'markdown', ext = '.md' },
+    -- Add more paths as needed
+}
+
+-- General
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
 
@@ -23,5 +34,4 @@ opt.smartcase = true
 
 opt.cursorline = true
 opt.scrolloff = 10
-
 
