@@ -27,7 +27,7 @@ check_and_alias "taskell" "task"
 
 # TMUX
 check_and_alias "tmux" "t"
-alias tatd="tmux a -t dotfiles"
+alias tad="tmux a -t dotfiles"
 
 
 # LSD 
