@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+# Load Plugins from ohmyzsh fork https://github.com/c3smonkey/ohmyzsh
+autoload -Uz compinit
+compinit
+source "$HOME/.dotfiles/zsh/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh"
+source "$HOME/.dotfiles/zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
+source "$HOME/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+source "$HOME/.dotfiles/zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+source "$HOME/.dotfiles/zsh/k8s/kubectx.plugin.zsh"
+source "$HOME/.dotfiles/zsh/k8s/kube-ps1.plugin.zsh"
+source "$HOME/.dotfiles/zsh/git/git.plugin.zsh"
+source "$HOME/.dotfiles/zsh/git/git-commit.plugin.zsh"
+
+
+# function to check if a binary exists and create an alias, with autocompletion
+# space will expand the alias if alias defined with alias, ialias will not expand (inkonkito alias)
+source "$HOME/.dotfiles/zsh/aliases/alias-companion.zsh"
+
+# Source aliases
+eval "$(zoxide init zsh)"
+eval "$(thefuck --alias)"
+source "$HOME/.dotfiles/zsh/aliases/aliases.zsh"
+
+
+

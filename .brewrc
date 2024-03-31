@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+binaryExist() {
+    local binary="$1"
+    if command -v "$binary" &>/dev/null; then
+    else
+        echo "Binary '$binary' not found."
+    fi
+}
+
+binaryExist "kubecolor"
+binaryExist "kubectx"
+binaryExist "nvim"
+binaryExist "lazygit"
+binaryExist "python3"
+binaryExist "pip3"
+binaryExist "bpytop"
+binaryExist "docker"
+binaryExist "taskell"
+binaryExist "tmux"
+binaryExist "lsd"
+binaryExist "fuck"
+binaryExist "z"
+
+
