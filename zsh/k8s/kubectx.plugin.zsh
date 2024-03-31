@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 typeset -g -A kubectx_mapping
 
 function kubectx_prompt_info() {

@@ -5,20 +5,10 @@
 # enables to define
 # - normal aliases (completed with trailing space)
 # - blank aliases (completed without space)
-# - inkongnito  aliases (not completed)
-
-# Check if a binary exists
-check_if_binary_exist() {
-    local binary="$1"
-    if command -v "$binary" &>/dev/null; then
-    else
-        echo "Binary '$binary' not found."
-    fi
-}
+# - inkognito aliases (not completed)
 
 
-
-# ignored aliases
+# inkognito aliases
 typeset -a ialiases
 ialiases=()
 
@@ -72,12 +62,11 @@ bindkey -M isearch " " magic-space
 zstyle ':completion:*:*:vim:*' file-patterns '^*.(pdf|odt|ods|doc|docx|xls|xlsx|odp|ppt|pptx|mp4|mkv|aux):source-files' '*:all-files'
 zstyle ':completion:*:*:(build-workshop|build-document):*' file-patterns '*.adoc'
 
-
 sourceIfExists() {
   if [ -e $1 ]; then
     source $1;
   fi
 }
 
-# sourceIfExists  ~/.dotfiles/.aliasrc
+
 

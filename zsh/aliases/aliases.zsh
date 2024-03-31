@@ -1,9 +1,80 @@
 #!/bin/zsh
 
+alias vi="nvim"
+alias g="lazygit"
+alias so="source ~/.zshrc"
+alias f="fuck"
+alias python="python3"
+alias pip3="pip"
+alias mon="bpytop"
+alias task="taskell"
+alias t="tmux"
+
+
+# maven
+alias m=mvnd
+alias mci='mvnd clean install'
+alias mvv='mvnd -v'
+alias mci='mvnd clean install'
+alias mciT='mvnd clean install -DskipTests'
+alias mciTT='mvnd clean install -Dmaven.test.skip'
+alias mcd='mvnd clean deploy'
+alias mcdT='mvnd clean deploy -DskipTests'
+alias mcdTT='mvnd clean deploy -Dmaven.test.skip'
+alias mp='mvnd package'
+alias mpT='mvnd package -DskipTests'
+alias mpTT='mvnd package -Dmaven.test.skip'
+alias mve='mvnd verify'
+alias mcv='mvnd clean verify'
+alias mcve='mvnd clean verify'
+alias mpld='mvnd package liberty:dev'
+alias mpldT='mvnd package liberty:dev -DhotTests'
+alias mcpld='mvnd clean package liberty:dev'
+alias mcpldT='mvnd clean package liberty:dev -DhotTests'
+alias mld='mvnd liberty:dev'
+alias mldT='mvnd liberty:dev -DhotTests'
+alias mcp='mvnd clean package'
+alias mcpT='mvnd clean package -DskipTests'
+alias mcpTT='mvnd clean package -Dmaven.test.skip'
+alias mqd='mvnd compile quarkus:dev'
+alias mcqd='mvnd compile quarkus:dev'
+alias mccqd='mvnd clean compile quarkus:dev'
+alias mit='mvnd test-compile failsafe:integration-test failsafe:verify'
+alias mc='mvnd clean'
+alias mct='mvnd clean test'
+alias mgs='mvnd generate-sources'
+alias mrr='mvnd release:prepare release:perform -DperformRelease=true -DignoreSnapshots=false'
+alias mgat='mvnd io.gatling:gatling-maven-plugin:execute'
+
+
+
+# TMUX
+alias tad="tmux a -t dotfiles"
+
+
+# Docker
+alias d="docker"
+alias dp='docker ps'
+
+
+# Zoxide
+ialias cd="z"
+
+
+# LSD 
+alias ls="lsd"
+alias l="ls -a"
+alias ll="ls -l"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+
+
 # Kubernetes
-# brew install dty1er/tap/kubecolor
-# Check if kubecolor binary exists in the PATH
-alias k=kubecolor
+alias kctx="kubectx"
+ialias k="kubecolor"
 alias kaf='k apply -f'
 alias kca='_kca(){ k "$@" --all-namespaces;  unset -f _kca; }; _kca'
 alias kccc='k config current-context'

@@ -1,4 +1,0 @@
-#!/bin/zsh
-alias m=mvnd
-alias mci='m clean install'
-

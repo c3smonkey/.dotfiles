@@ -9,32 +9,24 @@ fi
 # HOMEBREW
 export PATH="/opt/homebrew/bin:${PATH}"
 
-# Check if a file exists and source it
-# usage: check_and_source_file FILE
-check_and_source_file() {
-    local file="$1"
-    if [ -f "$file" ]; then
-        source "$file"
-    fi
+sourceIfExists() {
+  if [ -e $1 ]; then
+    source $1;
+  fi
 }
 
-# Expand alias in tmux (Ctrl + X, a)
-autoload -Uz compinit; compinit; bindkey "^Xa" _expand_alias
-
-
-eval "$(thefuck --alias)"
-eval "$(zoxide init zsh)"
 
 ## DOTFILES
-check_and_source_file ~/.dotfiles/.aliasrc
-check_and_source_file ~/.dotfiles/.variablesrc
-check_and_source_file ~/.variables
-check_and_source_file ~/.helsanarc
+sourceIfExists ~/.dotfiles/zsh/checkBrewBinary.zsh
+sourceIfExists ~/.dotfiles/zsh/aliases/.aliasrc
+sourceIfExists ~/.dotfiles/.variablesrc
+sourceIfExists ~/.variables
+sourceIfExists ~/.helsanarc
 
 # Rust
-source "$HOME/.cargo/env"
+source  ~/.cargo/env
 # SDKMAN
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+source ~/.sdkman/bin/sdkman-init.sh
 # p10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
