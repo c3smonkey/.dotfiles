@@ -1,9 +1,4 @@
 #!/bin/zsh
-
-# brew install mvndaemon/homebrew-mvnd/mvnd
-# Check if mvnd binary exists in the PATH
-if command -v mvnd &>/dev/null; then
-    alias m=mvnd
-    alias mci='m clean install'
-fi
+alias m=mvnd
+alias mci='m clean install'
 

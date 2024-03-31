@@ -1,51 +1,6 @@
 #!/bin/zsh
-# Check if a binary exists and create an alias if it does
-check_and_alias() {
-    local binary="$1"
-    local alias_name="$2"
-    if command -v "$binary" &>/dev/null; then
-        alias "$alias_name"="$binary"
-    else
-        echo "Binary '$binary' not found. Alias '$alias_name' not created."
-    fi
-}
-# reload alias
-reload_aliases() {
-    source "$HOME/.dotfiles/.aliasrc"
-}
 
-check_and_alias "kubectx" "kctx"
-check_and_alias "nvim" "vi"
-check_and_alias "fuck" "f"
-check_and_alias "z" "cd"
-check_and_alias "lazygit" "g"
-check_and_alias "python3" "python"
-check_and_alias "pip3" "pip"
-check_and_alias "bpytop" "mon"
-check_and_alias "docker" "d"
-check_and_alias "taskell" "task"
-
-# TMUX
-check_and_alias "tmux" "t"
-alias tad="tmux a -t dotfiles"
-
-
-# LSD 
-check_and_alias "lsd" "ls"
-alias l="ls -a"
-alias ll="ls -l"
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-
-
-# Reload alias
-alias ra="reload_aliases"
-# Source .zshrc file
-alias so="source ~/.zshrc"
-
-# Load Plugins from ohmyzsh fork  https://github.com/c3smonkey/ohmyzsh
+# Load Plugins from ohmyzsh fork https://github.com/c3smonkey/ohmyzsh
 source $HOME/.dotfiles/zsh/git/git.plugin.zsh
 source $HOME/.dotfiles/zsh/git-commit/git-commit.plugin.zsh
 source $HOME/.dotfiles/zsh/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
@@ -54,8 +9,52 @@ source $HOME/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $HOME/.dotfiles/zsh/kubectl/kubectl.plugin.zsh
 source $HOME/.dotfiles/zsh/kubectx/kubectx.plugin.zsh
 source $HOME/.dotfiles/zsh/kube-ps1/kube-ps1.plugin.zsh
+source $HOME/.dotfiles/zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# function to check if a binary exists and create an alias, with autocompletion
+# space will expand the alias if alias defined with alias, ialias will not expand (inkonkito alias)
+source $HOME/.dotfiles/zsh/.alias_autocompletion
+
+# Check if binary exists and create alias
+check_if_binary_exist "kubectx" "kctx"
+check_if_binary_exist "kubecolor" "k"
+check_if_binary_exist "nvim" "vi"
+check_if_binary_exist "fuck" "f"
+check_if_binary_exist "z" "cd"
+check_if_binary_exist "lazygit" "g"
+check_if_binary_exist "python3" "python"
+check_if_binary_exist "pip3" "pip"
+check_if_binary_exist "bpytop" "mon"
+check_if_binary_exist "docker" "d"
+check_if_binary_exist "taskell" "task"
+check_if_binary_exist "tmux" "t"
+check_if_binary_exist "lsd" "ls"
+
+
 # load kubectl alias
 source $HOME/.dotfiles/zsh/.aliasrc_kubectl
 # load mvnd alias
 source $HOME/.dotfiles/zsh/.aliasrc_mvnd
+
+# LazyGit
+alias g="lazygit"
+
+# TMUX
+alias tad="tmux a -t dotfiles"
+
+# Zoxide
+ialias cd="z"
+
+# LSD 
+alias ls="lsd"
+alias l="ls -a"
+alias ll="ls -l"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+
+# Source .zshrc file
+alias so="source ~/.zshrc"
 
