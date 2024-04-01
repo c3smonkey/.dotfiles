@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-# unix
+# Unix
+alias so="source ~/.zshrc"
+ialias cd="z" # ZOXIDE
 alias c='cat'
 alias le='less -j4'
 alias chex='chmod +x'
@@ -10,6 +12,7 @@ alias mn='mv -vn'
 alias txf='tar -xf'
 alias ttf='tar -tf'
 alias v='nvim'
+alias vim='nvim'
 alias v.='nvim .'
 ialias vi='nvim'
 alias uz='unzip'
@@ -33,19 +36,74 @@ alias rp='realpath'
 alias CC='$(fc -l -n -1) | clipcopy'
 alias pwdc='pwd | clipcopy'
 alias psj='ps aux | grep "[j]ava"'
+alias -g md='mkdir -p'
+alias -g wh='which'
+alias -g wt='while true; do'
+alias -g s1='sleep 1'
+alias -g s2='sleep 2'
+alias -g s01='sleep 0.1'
+alias -g s05='sleep 0.5'
+ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias -g A1="| awk '{print \$1}'"
+alias -g L='| less'
+alias -g H='| head'
+alias -g H2='| head -n 20'
+alias -g G='| grep'
+alias -g Gi='| grep -i'
+alias -g GH='| grep HTTP'
+alias -g X='| xargs -I@'
+alias -g C='| clipcopy'
+alias -g Fj='| jq .'
+alias -g Fy='| yq .'
+alias -g Fx='| xmllint --format -'
+alias -g V='| vim -'
 
 
+
+# arguments
+alias -g cpjson="-XPOST -H 'Content-Type: application/json' -d '{}'"
+alias -g cptext="-XPOST -H 'Content-Type: text/plain' -d"
+alias -g On="--output name"
+alias -g Oj="--output json"
+alias -g Oy="--output yaml"
+alias -g Ow="--output wide"
+alias -g Ot="--template"
+
+
+
+# Tools
 alias g="lazygit"
-alias so="source ~/.zshrc"
 alias f="fuck"
 alias python="python3"
 alias pip3="pip"
 alias mon="bpytop"
 alias task="taskell"
+
+
+
+# LSD
+alias ls="lsd"
+alias l="ls -a"
+alias ll="ls -l"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias lt2='ls --tree --depth 2'
+alias lt3='ls --tree --depth 3'
+
+
+
+# TMUX
 alias t="tmux"
+alias tad="tmux a -t dotfiles"
+alias tls="tmux ls"
+alias tn="tmux new -s $1"
+alias tks="tmux kill-session -t $1"
+alias tka="tmux kill-server"
 
 
-# maven
+# Maven
 alias m=mvnd
 alias mci='mvnd clean install'
 alias mvv='mvnd -v'
@@ -81,30 +139,44 @@ alias mrr='mvnd release:prepare release:perform -DperformRelease=true -DignoreSn
 alias mgat='mvnd io.gatling:gatling-maven-plugin:execute'
 
 
-
-# TMUX
-alias tad="tmux a -t dotfiles"
+# Java
+alias -g j='java'
+alias -g jc='javac'
+alias -g jj='java -jar'
+alias -g jv='java -version'
+alias -g jcv='javac -version'
+alias -g jp='javap -v -l -p -c -s'
 
 
 # Docker
-alias d="docker"
-alias dp='docker ps'
-
-
-# Zoxide
-ialias cd="z"
-
-
-# LSD 
-alias ls="lsd"
-alias l="ls -a"
-alias ll="ls -l"
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-alias lt2='ls --tree --depth 2'
-alias lt3='ls --tree --depth 3'
+alias dk='docker'
+alias dkp='docker ps'
+alias dkpa='docker ps -a'
+alias dkpaq='docker ps -a -q'
+alias dkb='docker build -t'
+alias dkbnc='docker build --no-cache -t'
+alias dkr='docker run --rm'
+alias dkrti='docker run --rm -ti'
+alias dkrd='docker run -d'
+alias dkrp8='docker run --rm -p 8080:8080'
+alias dkrp9='docker run --rm -p 9080:9080'
+alias dks='docker start'
+alias dkt='docker stop'
+alias dktt='docker stop $(docker ps -q)'
+alias dkk='docker kill'
+alias dkkk='docker kill $(docker ps -q)'
+alias dkrm='docker rm'
+alias dkri='docker rmi'
+alias dke='docker exec -ti'
+alias dkl='docker logs -f'
+alias dki='docker images'
+alias dkpu='docker pull'
+alias dkph='docker push'
+alias dkin='docker inspect'
+alias dkn='docker network'
+alias dkc='docker-compose'
+alias dkcu='docker-compose up'
+alias dkclean='docker ps -q -a -f status=exited | xargs -r docker rm && docker images -q -f dangling=true | xargs -r docker rmi'
 
 
 # Kubernetes
