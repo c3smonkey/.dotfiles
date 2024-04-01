@@ -7,6 +7,37 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
+        local neo_tree = require("neo-tree")
+
+        neo_tree.setup({
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = true,
+                    hide_gitignored = true,
+                    hide_hidden = false,
+                    hide_by_name = {
+                        ".DS_Store",
+                        --"node_modules",
+                    },
+                    hide_by_pattern = {
+                        --"*.meta",
+                        --"*/src/*/tsconfig.json",
+                    },
+                    always_show = { -- remains visible even if other settings would normally hide it
+                        --".gitignored",
+                    },
+                    never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+                        --".DS_Store",
+                        --"thumbs.db",
+                    },
+                    never_show_by_pattern = { -- uses glob style patterns
+                        --".null-ls_*",
+                    },
+                },
+            },
+        })
+
         vim.keymap.set("n", "<leader>ee", function()
             if neotree_open then
                 vim.cmd(":Neotree close")
@@ -15,7 +46,6 @@ return {
                 vim.cmd(":Neotree current filesystem reveal left")
                 neotree_open = true
             end
-
         end)
         vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
     end,

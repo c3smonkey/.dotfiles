@@ -19,9 +19,7 @@ return {
 		config = function()
 			require("gitsigns").setup()
 
-			-- set keymaps
 			local keymap = vim.keymap
-
 			keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true, desc = "Git preview hunk" })
 			keymap.set(
 				"n",
