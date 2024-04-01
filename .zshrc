@@ -9,25 +9,40 @@ fi
 # HOMEBREW
 export PATH="/opt/homebrew/bin:${PATH}"
 
+
+
+
+# Load Plugins
+source "$HOME/.dotfiles/zsh/zsh-plugins.zsh"
+
+# Aliases
+source ~/.dotfiles/.aliases
+
+# Variables
+source ~/.dotfiles/.variablesrc
+
+# Rust
+source  ~/.cargo/env
+
+# SDKMAN
+source ~/.sdkman/bin/sdkman-init.sh
+
+# p10k
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+
 sourceIfExists() {
   if [ -e $1 ]; then
     source $1;
   fi
 }
 
-
-## DOTFILES
-sourceIfExists ~/.dotfiles/zsh/checkBrewBinary.zsh
-sourceIfExists ~/.dotfiles/zsh/aliases/.aliasrc
-sourceIfExists ~/.dotfiles/.variablesrc
 sourceIfExists ~/.variables
 sourceIfExists ~/.helsanarc
 
-# Rust
-source  ~/.cargo/env
-# SDKMAN
-source ~/.sdkman/bin/sdkman-init.sh
-# p10k
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# TheFuck
+eval "$(thefuck --alias)"
+# Zoxide
+eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
