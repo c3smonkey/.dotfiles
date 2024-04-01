@@ -7,7 +7,7 @@ return {
             local builtin = require("telescope.builtin")
 
             vim.keymap.set("n", "<leader>jr", "<cmd>Telescope oldfiles<cr>", { desc = "jr Jump to RecentFiles" }) -- find previously opened files
-            vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "ff Fuzzy find" })    -- find files within current working directory, respects .gitignore
+            vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { desc = "ff Fuzzy find" })    -- find files within current working directory, respects .gitignore
             vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string" })       -- find string in current working directory as you type
             vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" }) -- find string under cursor in current working directory
             vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Show open buffers" })   -- list open buffers in current neovim instance
