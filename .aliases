@@ -97,7 +97,7 @@ alias lt3='ls --tree --depth 3'
 
 # TMUX
 alias t="tmux"
-alias tad="tmux a -t dotfiles"
+alias ta="tmux a -t $1"
 alias tls="tmux ls"
 alias tn="tmux new -s $1"
 alias tks="tmux kill-session -t $1"
