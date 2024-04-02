@@ -1,4 +1,5 @@
 return {
+    { "hrsh7th/cmp-nvim-lsp" },
     {
         "williamboman/mason.nvim",
         config = function()
@@ -23,6 +24,7 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
+            local capabilities = require("cmp_nvim_lsp").default_capabilities
 
             lspconfig.lua_ls.setup({})
             lspconfig.tsserver.setup({})
@@ -36,12 +38,12 @@ return {
                     -- Set keybinds
                     -- Show definition, references
                     opts.desc = "Show LSP references"
-                    keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+                    vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
                     -- Go to declaration
                     opts.desc = "Go to declaration"
-                    keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
                     -- Go to definition
-                    keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
+                    vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
                 end,
             })
 

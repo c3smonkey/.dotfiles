@@ -81,3 +81,42 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ### Install tmux catppuccino
 
 https://github.com/catppuccin/tmux
+
+
+# Toilet
+```bash
+brew install toilet
+```
+
+## Symlink fonts to installation directory
+
+```bash
+ln -s ~/.dotfiles/fonts/toilet/small.flf /opt/homebrew/share/figlet/small.flf
+ln -s ~/.dotfiles/fonts/toilet/standard.flf /opt/homebrew/share/figlet/standard.flf
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
