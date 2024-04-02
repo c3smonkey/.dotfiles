@@ -1,16 +1,7 @@
--- VimWik
-vim.cmd("set nocompatible")
-vim.cmd("filetype plugin on")
-vim.cmd("syntax on")
--- Configure Vimwiki paths
-vim.g.vimwiki_list = {
-    { path = '~/git/vimwiki', syntax = 'markdown', ext = '.md' },
-    -- Add more paths as needed
-}
-
 -- General
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
+vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 local opt = vim.opt
 opt.encoding = "utf-8"
