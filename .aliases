@@ -73,10 +73,10 @@ alias -g Ot="--template"
 
 
 # Tools
-alias g="lazygit"
+alias gg="lazygit"
 alias f="fuck"
 alias python="python3"
-alias pip3="pip"
+alias pip="pip3"
 alias mon="bpytop"
 alias task="taskell"
 
