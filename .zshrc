@@ -10,17 +10,18 @@ export PATH="/opt/homebrew/bin:${PATH}"
 source ~/.dotfiles/zsh/zsh-plugins.zsh
 source ~/.dotfiles/.aliases
 source ~/.dotfiles/.variablesrc
+# Source the local files
+sourceIfExists ~/.variables
+sourceIfExists ~/.helsanarc
 
 # Source other files
 source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# Source the local files
-sourceIfExists ~/.variables
-sourceIfExists ~/.helsanarc
 
 # Setup other stuff
+eval "$(pyenv init -)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

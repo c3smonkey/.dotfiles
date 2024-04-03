@@ -143,11 +143,5 @@ vim.api.nvim_set_keymap(
 	":.!toilet -w 200 -f term -F border<CR>",
 	{ noremap = true, desc = "Create Ascii border" }
 )
-vim.api.nvim_set_keymap("n", "<leader>c", ":.!capitalize-title -<CR>", { noremap = true, desc = "Capitalize titles" })
-vim.api.nvim_set_keymap(
-	"v",
-	"<leader>c",
-	":.!capitalize-title -<CR>",
-	{ noremap = true, desc = "Capitalize titles (visual mode)" }
-)
+
 

@@ -5,11 +5,6 @@ g.mapleader = " "
 g.netrw_banner = 0
 g.python3_host_prog = "/opt/homebrew/bin/python3"
 
-g.UltiSnipsExpandTrigger = '<tab>'
-g.UltiSnipsJumpForwardTrigger = '<c-j>'
-g.UltiSnipsJumpBackwardTrigger = '<c-k>'
-g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
-
 local opt = vim.opt
 opt.encoding = "utf-8"
 opt.clipboard = "unnamedplus"
