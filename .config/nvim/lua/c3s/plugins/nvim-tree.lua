@@ -13,8 +13,20 @@ return {
 
     -- configure nvim-tree
     nvimtree.setup({
+      auto_reload_on_write = true,
+      disable_netrw = true,
+      hijack_netrw = true,
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
       view = {
         width = 45,
+      },
+      sort = {
+        sorter = "name",
+        folders_first = true,
+        files_first = false,
       },
       -- change folder arrow icons
       renderer = {

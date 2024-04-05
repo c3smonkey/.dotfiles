@@ -112,6 +112,6 @@ return {
     end,
 
     -- Keybind to open the color scheme picker
-    vim.keymap.set("n", "<leader>sc", "<CMD>Telescope colorscheme<CR>", { desc = "[S] Switch [C]olorscheme" }),
+    vim.keymap.set("n", "<leader>sc", "<CMD>Telescope colorscheme<CR>", { desc = "[S]witch [C]olorscheme" }),
   },
 }
