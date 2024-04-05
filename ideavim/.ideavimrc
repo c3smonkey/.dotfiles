@@ -75,12 +75,14 @@ let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
 """"  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
+nnoremap <leader>gg			:action ActivateVersionControlToolWindow<CR>
+let g:WhichKeyDesc_ActivateVersionControlToolWindow= "<leader>gg Activate Version Control Tool Window"
 nnoremap <leader>gh 		:action Vcs.ShowTabbedFileHistory<CR>
 let g:WhichKeyDesc_ShowTabbedFileHistory= "<leader>gh Git History"
 nnoremap <leader>gl 		:action Vcs.Show.Log<CR>
 let g:WhichKeyDesc_ShowLog= "<leader>gl Show Git Log"
-nnoremap <leader>glh 		:action LocalHistory.ShowHistory<CR>
-let g:WhichKeyDesc_ShowHistory= "<leader>glh Show Local History"
+nnoremap <leader>gh 		:action LocalHistory.ShowHistory<CR>
+let g:WhichKeyDesc_ShowHistory= "<leader>gh Show Local History"
 nnoremap <leader>gm 		:action Git.Menu<CR>
 let g:WhichKeyDesc_GitMenu= "<leader>gm Open Git Menu"
 nnoremap <leader>gu 		:action Vcs.UpdateProject<CR>
@@ -245,7 +247,7 @@ let g:WhichKeyDesc_ShowHarpoon= "<leader>hf Show harpoon mark"
 set which-key
 
 set notimeout
-let g:WhichKey_ShowVimActions = "false"
+let g:WhichKey_ShowVimActions = "true"
 let g:WhichKey_DefaultDelay = 300
 "--------------------------------------------------------------------------------------------
 
