@@ -6,7 +6,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        -- INFO: For more themes see: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+        -- NOTE: For more themes see: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
         -- theme = "dracula",
         -- theme = "gruvbox",
         -- theme = "gruvbox",

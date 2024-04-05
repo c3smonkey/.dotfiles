@@ -109,7 +109,7 @@ return {
           map("K", vim.lsp.buf.hover, "Hover Documentation")
 
           -- mapping to restart lsp if necessary
-          map("<leader>rs", ":LspRestart<CR>", "Restart LSP")
+          map("<leader>rs", ":LspRestart<CR>", "[R]estart L[S]P")
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
