@@ -29,7 +29,8 @@ return {
     -- Set menu
     dashboard.section.buttons.val = {
       dashboard.button("e", " > New File", "<cmd>ene<CR>"),
-      dashboard.button("ee", " > Toggle file [E]xplor[e]r", "<CMD>Neotree current filesystem reveal left<CR>"),
+      -- dashboard.button("ee", " > Toggle file [E]xplor[e]r", "<CMD>Neotree current filesystem reveal left<CR>"),
+      dashboard.button("ee", " > Toggle file [E]xplor[e]r", "<CMD>NvimTreeToggle<CR>"),
       dashboard.button("sf", "󰱼 > [S]earch [F]ile", "<cmd>Telescope find_files<CR>"),
       dashboard.button("sw", " > [S]earch [W]ord", "<cmd>Telescope live_grep<CR>"),
       dashboard.button(";wr", "󰁯 > [Workspace] [R]estore For Current Directory", "<cmd>SessionRestore<CR>"),
