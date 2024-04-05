@@ -40,7 +40,7 @@ return {
       },
       indent = { enable = true, disable = { "ruby" } },
     },
-    dipendencies = {
+    dependencies = {
       -- 1. nvim-treesitter-textobjects:
       --    Provides syntax-aware text objects for precise selections.
       --    Allows custom mappings for selecting, moving, and manipulating code blocks.
@@ -61,7 +61,7 @@ return {
 
       -- 4. nvim-treesitter-completion:
       --    Enhances autocompletion using treesitter-based context.
-      "nvim-treesitter/nvim-treesitter-completion",
+      "nvim-treesitter/completion-treesitter",
 
       -- 5. nvim-ts-autotag:
       --    Automatically closes and renames HTML and JSX tags.
