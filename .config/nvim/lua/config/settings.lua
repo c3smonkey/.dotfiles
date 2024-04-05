@@ -9,6 +9,8 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
 -- Disable netrw banner
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_banner = 0
 -- Set netrw liststyle
 vim.g.netrw_liststyle = 3
