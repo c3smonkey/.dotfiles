@@ -27,6 +27,7 @@ vim.g.have_nerd_font = true
 vim.cmd("filetype plugin on")
 -- Enable wildmenu
 vim.cmd("set wildmenu")
+vim.cmd("set path+=**")
 
 -- ----------------------------------------------------------------------------------------------------
 -- Options
