@@ -58,7 +58,7 @@ alias -g Fj='| jq .'
 alias -g Fy='| yq .'
 alias -g Fx='| xmllint --format -'
 alias -g V='| vim -'
-
+alias acd='asciidoctor'
 
 
 # arguments
@@ -104,6 +104,7 @@ alias tks="tmux kill-session -t $1"
 alias tka="tmux kill-server"
 
 
+
 # Maven
 alias m=mvnd
 alias mci='mvnd clean install'
@@ -140,6 +141,7 @@ alias mrr='mvnd release:prepare release:perform -DperformRelease=true -DignoreSn
 alias mgat='mvnd io.gatling:gatling-maven-plugin:execute'
 
 
+
 # Java
 alias -g j='java'
 alias -g jc='javac'
@@ -147,6 +149,7 @@ alias -g jj='java -jar'
 alias -g jv='java -version'
 alias -g jcv='javac -version'
 alias -g jp='javap -v -l -p -c -s'
+
 
 
 # Docker
