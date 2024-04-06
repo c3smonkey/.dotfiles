@@ -1,21 +1,18 @@
 [window]
 opacity = 0.9
-
 padding.x = 5
 padding.y = 5
-
 decorations = "Buttonless"
 # decorations = "Full"
 decorations_theme_variant = "Dark"
 
-
 [cursor]
-style = "Beam"
+# style = "Beam"
+style = "Underline"
 
 [colors.cursor]
 text = "CellBackground"
 cursor = "CellForeground"
-
 
 [font]
 normal.family = "FiraCode Nerd Font Mono"
@@ -23,3 +20,5 @@ bold.family = "FiraCode Nerd Font Mono"
 italic.family = "FiraCode Nerd Font Mono"
 bold_italic.family ="FiraCode Nerd Font Mono"
 size = 12.0
+
+
