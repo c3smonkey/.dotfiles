@@ -104,8 +104,10 @@ alt + shift + cmd - 1 : osascript -e "tell application \"Warp\" to activate"
 alt + shift + cmd - 2 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
 # Safari
 alt + shift + cmd - 3 : osascript -e "tell application \"Safari\" to activate"
-# Mail
-alt + shift + cmd - 4 : osascript -e "tell application \"Microsoft Outlook\" to activate"
+## Firefow
+alt + shift + cmd - 4 : osascript -e "tell application \"Firefow\" to activate"
+ # Mail
+alt + shift + cmd - 5 : osascript -e "tell application \"Microsoft Outlook\" to activate"
 
 # Ignore IntelliJ IDEA
 alt + shift + cmd - i : yabai -m rule --add app='^IntelliJ IDEA$' manage=off
