@@ -51,16 +51,21 @@ ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 
 ## tmux
+
 ### Install tmux plugin manager
+
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
 ### Symbolic link to .tmux.conf
+
 ```
 ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
 ### Install tmux plugins
+
 ```
 tmux
 
@@ -75,8 +80,10 @@ tmux
 https://github.com/tmux-plugins/tpm
 
 ```
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
+
+````
 
 ### Install tmux catppuccino
 
@@ -86,7 +93,7 @@ https://github.com/catppuccin/tmux
 # Toilet
 ```bash
 brew install toilet
-```
+````
 
 ## Symlink fonts to installation directory
 
@@ -95,28 +102,8 @@ ln -s ~/.dotfiles/fonts/toilet/small.flf /opt/homebrew/share/figlet/small.flf
 ln -s ~/.dotfiles/fonts/toilet/standard.flf /opt/homebrew/share/figlet/standard.flf
 ```
 
+# Alacritty
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```bash
+ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
+```
