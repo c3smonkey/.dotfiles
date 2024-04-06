@@ -10,16 +10,30 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = false
 -- Disable netrw banner
 vim.g.loaded_netrw = 1
+-- Disable netrw plugin
 vim.g.loaded_netrwPlugin = 1
+-- Disable netrw settings
 vim.g.netrw_banner = 0
+-- Set netrw to open in the same window
+vim.g.netrw_altv = 1
 -- Set netrw liststyle
 vim.g.netrw_liststyle = 3
 -- Set Nerd Font availability to true
 vim.g.have_nerd_font = true
 -- ----------------------------------------------------------------------------------------------------
+-- Commands
+-- ----------------------------------------------------------------------------------------------------
+-- Enable filetype detection
+vim.cmd("filetype plugin on")
+-- Enable wildmenu
+vim.cmd("set wildmenu")
+
+-- ----------------------------------------------------------------------------------------------------
 -- Options
 -- ----------------------------------------------------------------------------------------------------
+vim.opt.fileencoding = "utf-8" -- set file encoding to UTF-8
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
+vim.opt.guifont = "FiraCode Nerd Font:h17" -- set the font
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
@@ -32,7 +46,7 @@ vim.opt.relativenumber = true
 -- shows absolute line number on cursor line (when relative number is on)
 vim.opt.number = true
 -- tabs & indentation
-vim.opt.tabstop = 2 --  spaces for tabs (prettier default)
+vim.opt.tabstop = 4 --  spaces for tabs (prettier default)
 vim.opt.shiftwidth = 4 --  spaces for indent width
 vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
@@ -67,6 +81,8 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+-- Minimal number of screen columns to keep to the left and to the right of the cursor.
+vim.opt.sidescrolloff = 10
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 -- Decrease update time
