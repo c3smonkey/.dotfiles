@@ -37,7 +37,7 @@ if [ -t 0 ]; then
         list=( `"$@"` )
     done
 
-    # TODO: $? doesn't reach user
+    # todo: $? doesn't reach user
     [ "$?" -eq 127 ] && return $?
 else
     # Check if can reattach to terminal
