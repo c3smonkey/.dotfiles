@@ -99,9 +99,9 @@ alias lt3='ls --tree --depth 3'
 alias t="tmux"
 alias ta="tmux a -t $1"
 alias tls="tmux ls"
-alias tn="tmux new -s $1"
+alias tnew="tmux new -s $1"
 alias tks="tmux kill-session -t $1"
-alias tka="tmux kill-server"
+alias tkserver="tmux kill-server"
 
 
 # Maven
