@@ -22,11 +22,11 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          -- NOTE: Incremental selection CRTL-N, CRTL-S, CRTL-R
+          -- NOTE: Incremental selection CRTL-N (next), CRTL-S (section), CRTL-P (previous)
           init_selection = "<C-n>",
           node_incremental = "<C-n>",
           scope_incremental = "<C-s>",
-          node_decremental = "<C-r>",
+          node_decremental = "<C-p>",
         },
       },
       -- Autoinstall languages that are not installed
