@@ -107,3 +107,25 @@ ln -s ~/.dotfiles/fonts/toilet/standard.flf /opt/homebrew/share/figlet/standard.
 ```bash
 ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
 ```
+
+# OSW Settings
+
+[25 Mac Settings You Have to Change](https://www.youtube.com/watch?v=psPgSN1bPLY&t=1059)
+
+## Faster Dock
+
+```bash
+defaults write com.apple.dock autohide-delay -float 0.2; defaults write com.apple.dock autohide-time-modifier -int 0.2 ;killall Dock
+```
+
+## Add Spacer to Dock (Half Size)
+
+```bash
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}' && killall Dock
+```
+
+## Add Spacer to Dock (Full Size)
+
+```bash
+defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}' && killall Dock
+```
