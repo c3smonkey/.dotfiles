@@ -35,11 +35,11 @@ alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 # support also arrows
-alt - left : yabai -m window --focus west
-alt - down : yabai -m window --focus south
-alt - up : yabai -m window --focus north
-alt - right : yabai -m window --focus east
-
+# alt - left : yabai -m window --focus west
+# alt - down : yabai -m window --focus south
+# alt - up : yabai -m window --focus north
+# alt - right : yabai -m window --focus east
+#
 # -- Moving Windows Around --
 # swap windows
 alt + shift - j : yabai -m window --swap south
