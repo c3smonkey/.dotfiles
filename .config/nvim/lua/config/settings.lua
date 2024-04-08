@@ -20,6 +20,7 @@ vim.g.netrw_altv = 1
 vim.g.netrw_liststyle = 3
 -- Set Nerd Font availability to true
 vim.g.have_nerd_font = true
+vim.g.loadet_matchit = 0
 -- ----------------------------------------------------------------------------------------------------
 -- Commands
 -- ----------------------------------------------------------------------------------------------------
