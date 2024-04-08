@@ -50,7 +50,7 @@ yabai -m rule --add app="Simulator$" manage=off
 yabai -m rule --add app="^1Password 7$" manage=off
 #yabai -m rule --add app="^Messages$" manage=off
 #yabai -m rule --add app="^Finder$" manage=off
-# yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop$" manage=on
 
 # yabai -m config external_bar all:32:0
 
