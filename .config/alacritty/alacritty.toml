@@ -1,4 +1,4 @@
-## based on https://github.com/BrodieRobertson/dotfiles/blob/master/config/alacritty/alacritty.toml
+# based on https://github.com/BrodieRobertson/dotfiles/blob/master/config/alacritty/alacritty.toml
 live_config_reload = true
 working_directory = "None"
 
@@ -9,11 +9,6 @@ padding.y = 5
 decorations = "Buttonless"
 # decorations = "Full"
 decorations_theme_variant = "Dark"
-
-[bell]
-animation = "EaseOutExpo"
-color = "#ffffff"
-duration = 0
 
 [colors]
 draw_bold_text_with_bright_colors = false
@@ -69,12 +64,6 @@ style = "Underline"
 unfocused_hollow = true
 vi_mode_style = "Block"
 
-[debug]
-log_level = "Warn"
-persistent_logging = false
-print_events = false
-render_timer = false
-
 [env]
 TERM = "xterm-256color"
 
@@ -94,6 +83,48 @@ style = "Regular"
 x = -1
 y = -1
 
+#############################################
+#
+#  Keyboard Bindings
+#
+#############################################
+
+# create a new tmux window (command + t)
+[[keyboard.bindings]]
+key = "T"
+mods = "command"
+chars = "\u000a\u0063"
+
+# close tmux window (command + w)
+[[keyboard.bindings]]
+key = "X"
+mods = "command"
+chars = "\u000ax"
+
+# save vim buffer (command + s)
+[[keyboard.bindings]]
+key = "S"
+mods = "command"
+chars = """
+\u001b:w
+"""
+
+
+# open Lazygit (command + g)
+[[keyboard.bindings]]
+key = "G"
+mods = "Command"
+chars = """
+\u001b:Lazygit
+"""
+
+
+#############################################
+#   
+#   VI mode
+#
+#############################################
+
 [[keyboard.bindings]]
 action = "Paste"
 key = "P"
@@ -102,27 +133,6 @@ mods = "Control"
 [[keyboard.bindings]]
 action = "Copy"
 key = "Y"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "gg"
-key = "Slash"
-mods = "Control"
-
-
-[[keyboard.bindings]]
-action = "ResetFontSize"
-key = "Key0"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Plus"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "DecreaseFontSize"
-key = "Minus"
 mods = "Control"
 
 [[keyboard.bindings]]
@@ -268,59 +278,6 @@ action = "Right"
 key = "L"
 mode = "Vi"
 
-[[keyboard.bindings]]
-action = "Up"
-key = "Up"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Down"
-key = "Down"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Left"
-key = "Left"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Right"
-key = "Right"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "First"
-key = "Key0"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Last"
-key = "Key4"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "FirstOccupied"
-key = "Key6"
-mode = "Vi"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "High"
-key = "H"
-mode = "Vi"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "Middle"
-key = "M"
-mode = "Vi"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "Low"
-key = "L"
-mode = "Vi"
-mods = "Shift"
 
 [[keyboard.bindings]]
 action = "SemanticLeft"
@@ -355,11 +312,6 @@ key = "E"
 mode = "Vi"
 mods = "Shift"
 
-[[keyboard.bindings]]
-action = "Bracket"
-key = "Key5"
-mode = "Vi"
-mods = "Shift"
 
 [[keyboard.bindings]]
 action = "SearchForward"
@@ -383,15 +335,6 @@ key = "N"
 mode = "Vi"
 mods = "Shift"
 
-[[mouse.bindings]]
-action = "Copy"
-mouse = "Middle"
-
-# [mouse.double_click]
-# threshold = 300
-
-# [mouse.triple_click]
-# threshold = 300
 
 [scrolling]
 history = 10000
