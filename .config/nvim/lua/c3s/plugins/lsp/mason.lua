@@ -27,15 +27,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
         "lua_ls",
-        "emmet_ls",
-        "prismals",
-        "pyright",
         "kotlin_language_server",
       },
     })
@@ -44,14 +36,9 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint",
-        "eslint_d",
         "ktlint",
         "detekt",
       },
     })
   end,
 }
-

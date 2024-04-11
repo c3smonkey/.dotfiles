@@ -93,15 +93,5 @@ return {
     -- Install golang specific config
     require("dap-go").setup()
     require("dap").defaults.kotlin.auto_continue_if_many_stopped = false
-
-    -- dap.configurations.kotlin = {
-    --   {
-    --     type = "kotlin",
-    --     request = "launch",
-    --     name = "Launch kotlin program",
-    --     projectRoot = "${workspaceFolder}/app",
-    --     mainClass = "AppKt",
-    --   },
-    -- }
   end,
 }
