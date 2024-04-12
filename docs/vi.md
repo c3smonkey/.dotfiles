@@ -1,0 +1,40 @@
+# VI - Notes
+
+## Spelling
+
+ - :set spell spelllang=en_us
+ - :set nospell
+ - ]s
+ - [s
+ - z=
+ - zg
+ - zG
+ - zw
+
+## Window Management
+
+Default key bindings:
+
+ - <C-w>s: split window horizontally
+ - <C-w>v: split window vertically
+ - <C-w>c: close window
+ - <C-w>o: close all windows except the current one
+ - <C-w>h: move to the window on the left
+ - <C-w>j: move to the window below
+ - <C-w>k: move to the window above
+ - <C-w>l: move to the window on the right
+ - <C-w>w: move to the next window
+ - <C-w>p: move to the previous window
+ - <C-w>=: make all windows equal height and width
+ - <C-w>_: maximize height
+ - <C-w>|: maximize width
+ - <C-w>?: display a list of window commands
+ - <C-w>r: rotate windows downwards/rightwards
+ - <C-w>R: rotate windows upwards/leftwards
+ - <C-w>T: convert the window into a new tab
+ - <C-w>K: move the current window to a new tab
+ - <C-w>H: move the current window to the far left
+ - <C-w>J: move the current window to the bottom
+ - <C-w>K: move the current window to the top
+ - <C-w>L: move the current window to the far right
+
