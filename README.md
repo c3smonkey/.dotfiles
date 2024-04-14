@@ -1,6 +1,7 @@
 # .dotfiles
+		vim.keymap.set("n", "<leader>mp", vim.cmd.MarkdownPreview, { desc = "[M]arkdown [P]review" })
 
-Clone _.dotfiles_ repository in your _$HOME_ directory
+Clone _.dotfiles_ repository in your _$HOME_ directory.
 
 ```
 git clone git@github.com:c3smonkey/.dotfiles.git
