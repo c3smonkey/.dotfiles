@@ -38,7 +38,7 @@ return {
         "stylua", -- lua formatter
         "ktlint",
         "detekt",
-        "xmlformatter",
+        --"xmlformatter",
       },
     })
   end,
