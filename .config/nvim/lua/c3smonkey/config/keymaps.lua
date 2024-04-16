@@ -63,7 +63,7 @@ vim.api.nvim_set_keymap("n", "<leader><F5>", ":set relativenumber!  number!  sho
 
 -- Buffer management
 -- jump to slides
-vim.api.nvim_set_keymap("n", "<leader>t", ":enew<CR>", { noremap = true, desc = "Open a new empty buffer" })
+vim.api.nvim_set_keymap("n", "<leader>n", ":enew<CR>", { noremap = true, desc = "Open a [n]ew empty buffer" })
 vim.api.nvim_set_keymap("n", "<leader>l", ":bnext<CR>", { noremap = true, desc = "Move to the next buffer" })
 vim.api.nvim_set_keymap("n", "<leader>h", ":bprevious<CR>", { noremap = true, desc = "Move to the previous buffer" })
 vim.api.nvim_set_keymap("n", "<leader><leader>", "<C-^>", { noremap = true, desc = "Open the last buffer" })
