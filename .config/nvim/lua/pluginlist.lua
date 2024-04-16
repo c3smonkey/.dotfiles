@@ -13,5 +13,9 @@ return {
 				config = function()
 						vim.cmd("colorscheme gruvbox")
 				end
-		}
+		},
+		{
+				"dstein64/vim-startuptime",
+				cmd = "StartupTime"
+		},
 }
