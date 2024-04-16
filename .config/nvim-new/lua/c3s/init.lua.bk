@@ -1,0 +1,7 @@
+-- init.lua
+-- load settings before lazy
+require("c3s.settings")
+require("c3s.keymaps")
+--require("c3s.lazy_init")
+
+
