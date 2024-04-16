@@ -1,5 +1,4 @@
 -- nvim/init.lua
+require("c3smonkey")
 
-require "options"
-require "keymaps"
-require "plugins"
+
