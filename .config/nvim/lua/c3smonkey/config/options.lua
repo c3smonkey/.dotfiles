@@ -36,7 +36,6 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
 
 
-vim.opt.guicursor = ""
 vim.opt.termguicolors = true
 vim.opt.guifont = "FiraCode Nerd Font:h17"
 

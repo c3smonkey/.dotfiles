@@ -3,8 +3,8 @@
 -- Set leader key
 vim.g.mapleader = " "
 
-
--- vim.g.netrw_browse_split = 0
+-- open netrw in the current window
+vim.g.netrw_browse_split = 0
 -- Disable netrw banner
 vim.g.netrw_banner = 0
 -- Open netrw in a vertical split
