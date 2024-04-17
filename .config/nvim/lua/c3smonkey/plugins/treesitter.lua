@@ -38,7 +38,7 @@ return {
             highlight = {
                 enable = true,
             },
-            indent = { enable = true },
+             indent = { enable = true },
         },
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
