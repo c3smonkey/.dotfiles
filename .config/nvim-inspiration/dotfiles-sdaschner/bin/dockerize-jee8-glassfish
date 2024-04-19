@@ -1,0 +1,13 @@
+#!/bin/bash
+
+warFile=$(ls target/*.war)
+
+if [ "$warFile" == "" ]; then
+    warFile=target/*.war
+fi
+
+cat > Dockerfile << EOM
+FROM airhacks/glassfish:v5.0
+
+COPY $warFile \$GLASSFISH_HOME/glassfish/domains/domain1/autodeploy/
+EOM

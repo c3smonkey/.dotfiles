@@ -1,0 +1,13 @@
+#!/bin/bash
+
+warFile=$(ls target/*.war)
+
+if [ "$warFile" == "" ]; then
+    warFile=target/*.war
+fi
+
+cat > Dockerfile << EOM
+FROM jboss/wildfly:12.0.0.Final
+
+COPY $warFile /opt/jboss/wildfly/standalone/deployments/
+EOM

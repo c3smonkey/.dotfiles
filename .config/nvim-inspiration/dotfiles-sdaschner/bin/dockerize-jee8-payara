@@ -1,0 +1,13 @@
+#!/bin/bash
+
+warFile=$(ls target/*.war)
+
+if [ "$warFile" == "" ]; then
+    warFile=target/*.war
+fi
+
+cat > Dockerfile << EOM
+FROM payara/server-full:5-SNAPSHOT
+
+COPY $warFile \$DEPLOY_DIR
+EOM

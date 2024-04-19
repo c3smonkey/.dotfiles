@@ -1,0 +1,11 @@
+.tmp/
+
+# jenv
+.java-version
+
+# PIDs
+.attach_pid*
+
+# IntelliJ
+.idea
+*.iml
