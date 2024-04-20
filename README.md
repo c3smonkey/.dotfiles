@@ -130,3 +130,9 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-sp
 ```bash
 defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}' && killall Dock
 ```
+# Keyboard
+```bash
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+```
+
