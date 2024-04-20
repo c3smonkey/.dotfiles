@@ -1,76 +1,25 @@
 #!/bin/zsh
 
 # Unix
-alias so="source ~/.zshrc"
 ialias cd="z"
 ialias cdi="zi"
-alias c='cat'
-alias le='less -j4'
-alias chex='chmod +x'
-alias cpr='cp -r'
-alias rr='rm -Rf'
-alias mn='mv -vn'
-alias txf='tar -xf'
-alias ttf='tar -tf'
+alias so="source ~/.zshrc"
 alias v='nvim'
 ialias vi='nvim'
 alias vim='nvim'
 ialias v.='nvim .'
 ialias vi.='nvim .'
-alias uz='unzip'
-alias uzl='unzip -l'
-ialias tree='tree -a -I ".svn|.git|.hg|.idea"'
-ialias diff='diff --color'
-alias tree2='tree -L 2'
-alias tree3='tree -L 3'
-alias grepr='grep -r'
-alias grepi='grep -i'
-alias grepri='grep -ri'
-alias fn='find . -name "*'
-alias ff='find . -name "*.'
-alias h='hash -rf'
-alias sz='source ~/.zshrc'
-alias hx='hexdump -C'
-alias k9='kill -9'
-alias k15='kill -15'
-alias w1='watch -n 1'
 alias rp='realpath'
-alias CC='$(fc -l -n -1) | clipcopy'
-alias pwdc='pwd | clipcopy'
+alias pwdc='pwd | pbcopy'
 alias psj='ps aux | grep "[j]ava"'
 alias -g md='mkdir -p'
-alias -g wh='which'
-alias -g wt='while true; do'
 alias -g s1='sleep 1'
 alias -g s2='sleep 2'
 alias -g s01='sleep 0.1'
 alias -g s05='sleep 0.5'
 ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias -g A1="| awk '{print \$1}'"
-alias -g L='| less'
-alias -g H='| head'
-alias -g H2='| head -n 20'
-alias -g G='| grep'
-alias -g Gi='| grep -i'
-alias -g GH='| grep HTTP'
-alias -g X='| xargs -I@'
-alias -g C='| clipcopy'
-alias -g Fj='| jq .'
-alias -g Fy='| yq .'
-alias -g Fx='| xmllint --format -'
 alias -g V='| vim -'
 alias acd='asciidoctor'
-
-
-# arguments
-alias -g cpjson="-XPOST -H 'Content-Type: application/json' -d '{}'"
-alias -g cptext="-XPOST -H 'Content-Type: text/plain' -d"
-alias -g On="--output name"
-alias -g Oj="--output json"
-alias -g Oy="--output yaml"
-alias -g Ow="--output wide"
-alias -g Ot="--template"
-
 
 
 # Tools
@@ -81,7 +30,6 @@ alias pip="pip3"
 alias mon="bpytop"
 alias task="taskell"
 alias i="idea"
-
 
 
 # LSD
@@ -114,44 +62,6 @@ alias mvv='mvnd -v'
 alias mci='mvnd clean install'
 alias mciT='mvnd clean install -DskipTests'
 alias mciTT='mvnd clean install -Dmaven.test.skip'
-alias mcd='mvnd clean deploy'
-alias mcdT='mvnd clean deploy -DskipTests'
-alias mcdTT='mvnd clean deploy -Dmaven.test.skip'
-alias mp='mvnd package'
-alias mpT='mvnd package -DskipTests'
-alias mpTT='mvnd package -Dmaven.test.skip'
-alias mve='mvnd verify'
-alias mcv='mvnd clean verify'
-alias mcve='mvnd clean verify'
-alias mpld='mvnd package liberty:dev'
-alias mpldT='mvnd package liberty:dev -DhotTests'
-alias mcpld='mvnd clean package liberty:dev'
-alias mcpldT='mvnd clean package liberty:dev -DhotTests'
-alias mld='mvnd liberty:dev'
-alias mldT='mvnd liberty:dev -DhotTests'
-alias mcp='mvnd clean package'
-alias mcpT='mvnd clean package -DskipTests'
-alias mcpTT='mvnd clean package -Dmaven.test.skip'
-alias mqd='mvnd compile quarkus:dev'
-alias mcqd='mvnd compile quarkus:dev'
-alias mccqd='mvnd clean compile quarkus:dev'
-alias mit='mvnd test-compile failsafe:integration-test failsafe:verify'
-alias mc='mvnd clean'
-alias mct='mvnd clean test'
-alias mgs='mvnd generate-sources'
-alias mrr='mvnd release:prepare release:perform -DperformRelease=true -DignoreSnapshots=false'
-alias mgat='mvnd io.gatling:gatling-maven-plugin:execute'
-
-
-
-# Java
-alias -g j='java'
-alias -g jc='javac'
-alias -g jj='java -jar'
-alias -g jv='java -version'
-alias -g jcv='javac -version'
-alias -g jp='javap -v -l -p -c -s'
-
 
 
 # Docker
