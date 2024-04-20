@@ -52,7 +52,7 @@ alias tls="tmux ls"
 alias tn="tmux new -s $1"
 alias tks="tmux kill-session -t $1"
 alias tka="tmux kill-server"
-
+alias tn="tmux new -s \$(pwd | sed 's/.*\///g')"
 
 
 # Maven

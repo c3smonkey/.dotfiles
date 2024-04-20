@@ -7,6 +7,24 @@ Clone _.dotfiles_ repository in your _$HOME_ directory.
 git clone git@github.com:c3smonkey/.dotfiles.git
 ```
 
+# Brew 
+```bash
+brew install joshmedeski/sesh/sesh
+brew install tmux
+brew install neovim
+brew install zoxide
+brew install lazygit
+brew install fzf
+brew install bat
+brew install exa
+brew install ripgrep
+brew install fd
+brew install alacritty
+brew install koekeishiya/formulae/skhd
+brew install koekeishiya/formulae/yabai
+```
+
+
 # Create Symlink
 
 ## .zshrc
