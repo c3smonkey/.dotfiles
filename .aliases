@@ -2,7 +2,8 @@
 
 # Unix
 alias so="source ~/.zshrc"
-ialias cd="z" # ZOXIDE
+ialias cd="z"
+ialias cdi="zi"
 alias c='cat'
 alias le='less -j4'
 alias chex='chmod +x'
