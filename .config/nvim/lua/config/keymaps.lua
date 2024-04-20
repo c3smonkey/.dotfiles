@@ -6,7 +6,7 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Re-sele
 vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true, desc = "Re-select next visual selection [>]" })						-- re-select next visual selection
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight [ESC]" })											-- clear search highlight
 vim.keymap.set("t", "<Esc><Esc>", "<C-D><C-C>", { desc = "Exit terminal mode" })														-- exit terminal mode
-vim.api.nvim_set_keymap("n", ",f", ":normal gg=G<CR>", { noremap = true, silent = true }) 												-- format the whole file
+-- vim.api.nvim_set_keymap("n", ",f", ":normal gg=G<CR>", { noremap = true, silent = true }) 												-- format the whole file
 
 -- NOTE: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')																		-- disable left arrow key
