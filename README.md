@@ -128,6 +128,14 @@ ln -s ~/.dotfiles/fonts/toilet/standard.flf /opt/homebrew/share/figlet/standard.
 ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
 ```
 
+# Wezterm
+
+```bash
+ln -s ~/.dotfiles/.config/wezterm ~/.config/wezterm
+```
+
+
+
 # OSW Settings
 
 [25 Mac Settings You Have to Change](https://www.youtube.com/watch?v=psPgSN1bPLY&t=1059)
