@@ -22,6 +22,7 @@ brew install fd
 brew install alacritty
 brew install koekeishiya/formulae/skhd
 brew install koekeishiya/formulae/yabai
+brew install toilet
 ```
 
 
