@@ -1,9 +1,3 @@
--- return {
---     "lmburns/lf.nvim",
---     cmd = "Lf",
---     dependencies = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
--- }
-
 return {
   "lmburns/lf.nvim",
   cmd = "Lf",

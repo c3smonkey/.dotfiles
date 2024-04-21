@@ -1,6 +1,36 @@
-set hidden
-set icons
-set number
-set relativenumber
-set shell fish
+# Basic Settings
+set LF_ICONS ~/.dotfiles/lf/icons
+set hidden true
+set ignorecase true
+set icons true
 set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+set scrolloff 10
+set autoquit true
+set shell 'zsh'
+set ifs "\n"
+set previewer bat
+
+# https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
+# define a custom 'open' command
+# This command is called when current file is not a directory. You may want to
+# use either file extensions and/or mime types here. Below uses an editor for
+# text files and a file opener for the rest.
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+
+cmd mkdir $mkdir -p "$@"
+
+
+# Bindings
+map . set hidden!
+map <c-n> push :mkdir<space>""<left>
+map DD delete
+map x cut
+map <enter> open
+map R reload
+

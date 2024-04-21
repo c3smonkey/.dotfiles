@@ -1,0 +1,23 @@
+#!/bin/zsh
+# This script is used to generate backup file with the current command bk {filename} {filename}.bk
+# Generated with Github Copilot.
+if [ -f $1 ]; then
+	cp $1 $1.bk
+	echo "Backup file $1.bk created"
+elif [ -d $1 ]; then
+	echo "The file is a directory, not a file. Please backup the directory"
+	## add prompt to backup the directory with y/n
+	if [ -d $1 ]; then
+		echo "Do you want to backup the directory? (y/n)"
+		read answer
+		if [ $answer = "y" ]; then
+			cp -r $1 $1.bk
+			echo "Backup directory $1.bk created"
+		else
+			echo "No backup created"
+		fi
+	fi
+else
+	echo "The file does not exist"
+fi
+

@@ -30,6 +30,7 @@ alias pip="pip3"
 alias mon="bpytop"
 alias task="taskell"
 alias i="idea"
+ialias bk="~/.dotfiles/bin/bk"
 
 
 # LSD

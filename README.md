@@ -137,6 +137,13 @@ ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/.config/wezterm ~/.config/wezterm
 ```
 
+# LF
+
+```bash
+ln -s ~/.dotfiles/.config/lf ~/.config/lf
+```
+
+
 
 
 # OSW Settings
