@@ -11,6 +11,7 @@ git clone git@github.com:c3smonkey/.dotfiles.git
 ```bash
 brew install joshmedeski/sesh/sesh
 brew install tmux
+brew install reattach-to-user-namespace
 brew install neovim
 brew install zoxide
 brew install lazygit
@@ -20,9 +21,11 @@ brew install exa
 brew install ripgrep
 brew install fd
 brew install alacritty
+brwe install --cask weztermt 
 brew install koekeishiya/formulae/skhd
 brew install koekeishiya/formulae/yabai
 brew install toilet
+brew install lf
 ```
 
 
