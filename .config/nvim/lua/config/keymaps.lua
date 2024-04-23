@@ -66,9 +66,9 @@ vim.api.nvim_set_keymap("n", "<leader><leader>", "<C-^>", { noremap = true, desc
 vim.api.nvim_set_keymap("n","<leader>bd",":bd<CR>",{ noremap = true, desc = "[D]elete The Current [B]uffer And Move To The previous One" })
 vim.api.nvim_set_keymap("n", "<leader>bD", ":bd!<CR>", { noremap = true, desc = "Force [B]uffer [D]elete" })
 vim.api.nvim_set_keymap("n","<leader>bl",":ls<CR>",{ noremap = true, desc = "[L]ist All Open [B]uffers And Their Status" })
-vim.api.nvim_set_keymap("n", "<C-p>", ":set paste!<CR>", { noremap = true, desc = "Toggle paste mode" })
+-- vim.api.nvim_set_keymap("n", "<C-p>", ":set paste!<CR>", { noremap = true, desc = "Toggle paste mode" })
 vim.api.nvim_set_keymap("n", "<leader>w", ":set wrap! linebreak<CR>", { noremap = true, desc = "Toggle word wrap" })
-vim.api.nvim_set_keymap("n","<C-]>",":set spell! spelllang=en_us<CR>",{ noremap = true, desc = "Toggle spell checking" })
+-- vim.api.nvim_set_keymap("n","<C-]>",":set spell! spelllang=en_us<CR>",{ noremap = true, desc = "Toggle spell checking" })
 
 
 --- toilet
