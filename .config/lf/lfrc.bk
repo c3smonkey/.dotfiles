@@ -7,8 +7,9 @@ set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
 set cursorpreviewfmt "\033[7;2m"
 set scrolloff 10
 set autoquit true
-set shell /bin/zsh
+set shell 'zsh'
 set ifs "\n"
+
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
