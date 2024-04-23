@@ -1,18 +1,20 @@
 -- keymaps.lua
-
-vim.keymap.set("n", "<leader>so", "<cmd>so $MYVIMRC<CR>", { desc = "Source [O]ptional Configuration" })									-- source optional configuration
-vim.keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })																-- exit insert mode with jj
+-- NOTE: Basic Keymaps configuration
+vim.keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })																-- exit insert mode with jk
 vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Re-select previous visual selection [<]" })					-- re-select previous visual selection
 vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true, desc = "Re-select next visual selection [>]" })						-- re-select next visual selection
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight [ESC]" })											-- clear search highlight
+vim.keymap.set("n", "<Esc>", "<CMD>nohlsearch<CR>", { desc = "Clear search highlight [ESC]" })											-- clear search highlight
 vim.keymap.set("t", "<Esc><Esc>", "<C-D><C-C>", { desc = "Exit terminal mode" })														-- exit terminal mode
+vim.keymap.set('n', "<Leader>P", '<CMD>execute "normal! \\"0p"<CR>', { noremap = true, silent = true, desc = "[p]aste from register 0" }) -- paste from register 0
+
 -- vim.api.nvim_set_keymap("n", ",f", ":normal gg=G<CR>", { noremap = true, silent = true }) 												-- format the whole file
+
 
 -- NOTE: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')																		-- disable left arrow key
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')																		-- disable right arrow key
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')																			-- disable up arrow key
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')																		-- disable down arrow key
+vim.keymap.set("n", "<down>", '<cmd>echo "Use k to move!!"<CR>')																		-- disable down arrow key
 
 --- NOTE:IntelliJ IDEA style - with Alt + Shift + Arrow keys to move current line or selected lines
 vim.api.nvim_set_keymap("n","<A-S-Down>",":m +1<CR>",{ noremap = true, silent = true, desc = "Move current line down" })				-- move current line down
@@ -59,7 +61,7 @@ vim.api.nvim_set_keymap("n", "<leader><F5>", ":set relativenumber!  number!  sho
 
 -- Buffer management
 -- jump to slides
-vim.api.nvim_set_keymap("n", "<leader>t", ":enew<CR>", { noremap = true, desc = "Open a new empty buffer" })
+vim.api.nvim_set_keymap("n", "<leader>nb", ":enew<CR>", { noremap = true, desc = "Open a [n]ew empty [b]uffer" })
 vim.api.nvim_set_keymap("n", "<leader>l", ":bnext<CR>", { noremap = true, desc = "Move to the next buffer" })
 vim.api.nvim_set_keymap("n", "<leader>h", ":bprevious<CR>", { noremap = true, desc = "Move to the previous buffer" })
 vim.api.nvim_set_keymap("n", "<leader><leader>", "<C-^>", { noremap = true, desc = "Open the last buffer" })
