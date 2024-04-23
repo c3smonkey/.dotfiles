@@ -9,6 +9,6 @@ return {
     escape_quit = true,
   },
   keys = {
-    { "<leader>ff", "<cmd>Lf<cr>", desc = "NvimTree" },
+    { "<leader>lf", "<cmd>Lf<cr>", desc = "[l][f]" },
   },
 }
