@@ -7,7 +7,6 @@ set scrolloff 10
 set autoquit true
 set shell 'zsh'
 set ifs "\n"
-set previewer bat
 
 # https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
 # define a custom 'open' command
@@ -32,4 +31,6 @@ map DD delete
 map x cut
 map <enter> open
 map R reload
+
+
 
