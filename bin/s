@@ -1,0 +1,4 @@
+#!/bin/zsh
+# https://github.com/joshmedeski/sesh
+
+sesh connect $(sesh list | fzf)

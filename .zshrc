@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 # Homebrew
 export PATH="/opt/homebrew/bin:${PATH}"
+# .dotfiles/bin
+export PATH="$HOME/.dotfiles/bin:${PATH}"
 
 # Source the dotfiles
 source ~/.dotfiles/zsh/zsh-plugins.zsh

@@ -143,6 +143,11 @@ ln -s ~/.dotfiles/.config/wezterm ~/.config/wezterm
 ln -s ~/.dotfiles/.config/lf ~/.config/lf
 ```
 
+# Sesh
+
+```bash
+ln -s ~/.dotfiles/.config/sesh ~/.config/sesh
+```
 
 
 

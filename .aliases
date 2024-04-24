@@ -19,7 +19,6 @@ alias -g s01='sleep 0.1'
 alias -g s05='sleep 0.5'
 ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias -g V='| vim -'
-alias acd='asciidoctor'
 
 
 # Tools
@@ -30,8 +29,6 @@ alias pip="pip3"
 alias mon="bpytop"
 alias task="taskell"
 alias i="idea"
-ialias bk="~/.dotfiles/bin/bk"
-
 
 # LSD
 alias ls="lsd"
