@@ -1,29 +1,21 @@
 return {
-    { -- Autoformat
-        "stevearc/conform.nvim",
-        lazy = false,
-        keys = {
-            {
-                ",f",
-                function()
-                    require("conform").format({ async = true, lsp_fallback = true })
-                end,
-                mode = "",
-                desc = "[F]ormat buffer",
-            },
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+        {
+            ",f",
+            function()
+                require("conform").format({ async = true, lsp_fallback = true })
+            end,
+            mode = "",
+            desc = "[f]ormat buffer",
         },
-        opts = {
-            notify_on_error = false,
-            tab = true,
-            use_tabs = true,
-            tab_size = 4,
-            ignore = {
-                "markdown",
-                -- "lua",
-            },
+    },
+    config = function()
+        local conform = require("conform")
 
+        conform.setup({
             formatters_by_ft = {
-                lua = { "stylua" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
                 javascriptreact = { "prettier" },
@@ -33,12 +25,17 @@ return {
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
+                markdown = { "prettier" },
+                graphql = { "prettier" },
+                liquid = { "prettier" },
+                lua = { "stylua" },
                 python = { "isort", "black" },
-                go = { "gofmt" },
-                kotlin = { "ktlint" },
-                xml = { "xmllint --format --encode utf-8 --nsclean --noblanks --nocdata --nsclean --pretty 2" },
-                rust = { "rustfmt" },
             },
-        },
-    },
+            format_on_save = {
+                lsp_fallback = true,
+                async = false,
+                timeout_ms = 1000,
+            },
+        })
+    end,
 }

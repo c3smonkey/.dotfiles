@@ -1,7 +1,9 @@
 -- init.lua
 -- load settings before lazy
-require("config.settings")
+require("config.globals")
+require("config.commands")
 require("config.keymaps")
+require("config.options")
 require("config.lazy")
 
 -- set colorscheme
