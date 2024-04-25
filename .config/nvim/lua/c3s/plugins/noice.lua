@@ -13,6 +13,9 @@ return {
         end
 
         noice.setup({
+            cmdline = {
+                view = "cmdline",
+            },
             lsp = {
                 -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
                 override = {
@@ -38,9 +41,6 @@ return {
             messages = {
                 enabled = false,
             },
-            -- popupmenu = {
-            --     enabled = false
-            -- }
         })
 
         require("notify").setup({
