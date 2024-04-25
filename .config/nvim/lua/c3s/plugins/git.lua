@@ -10,7 +10,7 @@ return {
     },
     config = function()
       require("telescope").load_extension("lazygit")
-      vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { silent = true, desc = "Lazy[G]it [G]it" })
+      vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { silent = true, desc = "Lazy[g]it [g]it" })
     end,
   },
   -- TODO learn how to use this
@@ -19,7 +19,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("diffview").setup()
-      vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true, desc = "[G}it [D]iffview" })
+      vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true, desc = "[g]it [d]iffview" })
     end,
   },
   {
@@ -29,12 +29,12 @@ return {
 
       local keymap = vim.keymap
 
-      keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true, desc = "[G]it [P]review Hunk" })
+      keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true, desc = "[g]it [p]review Hunk" })
       keymap.set(
         "n",
         "<leader>gt",
         ":Gitsigns toggle_current_line_blame<CR>",
-        { silent = true, desc = "[G]it [T]oggle Current Line Blame" }
+        { silent = true, desc = "[g]it [t]oggle Current Line Blame" }
       )
     end,
   },

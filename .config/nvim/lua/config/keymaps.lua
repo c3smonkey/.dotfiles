@@ -12,7 +12,7 @@ vim.keymap.set('n', "<Leader>P", '<CMD>execute "normal! \\"0p"<CR>', { noremap =
 
 -- NOTE: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')																		-- disable left arrow key
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')																		-- disable right arrow key
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')																		-- disable right arrow keykey
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')																			-- disable up arrow key
 vim.keymap.set("n", "<down>", '<cmd>echo "Use k to move!!"<CR>')																		-- disable down arrow key
 
@@ -34,8 +34,8 @@ vim.keymap.set("n", "<C-S-left>", "<CMD>vertical resize +3<CR>", { desc = "Ctrl+
 vim.keymap.set("n", "<C-S-Right>", "<CMD>vertical resize -3<CR>", { desc = "Ctrl+Shift+Right Resize Vertical Split" })					-- Resize windows with Ctrl + Arrow keys
 vim.keymap.set("n", "<C-S-Up>", "<CMD>resize +3<CR>", { desc = "Ctrl+Shift+Up Resize Horizontal Split" })								-- Resize windows with Ctrl + Arrow keys
 vim.keymap.set("n", "<C-S-Down>", "<CMD>resize -3<CR>", { desc = "Ctrl+Shift+Down Resize Horizontal Split" })							-- Resize windows with Ctrl + Arrow keys
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll [U]p Center Cursor" })															-- scroll up
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll [D]own Centter Cursor" })														-- scroll down
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll [u]p Center Cursor" })															-- scroll up
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll [d]own Centter Cursor" })														-- scroll down
 --- NOTE: The following keymaps are for moving between windows
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })													-- Move focus to the left window  [h]
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })													-- Move focus to the right window [l]
@@ -46,6 +46,18 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "[S]plit Window [H]orizontally" }) -- split window horizontally
 -- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make [S]plits [E]qual Size" }) -- make split windows equal width & height
 -- vim.keymap.set("n", "<leader>sx", "<CMD>close<CR>", { desc = "Close[X] Current [S]plit" }) -- close current split window
+
+-------------------------------------------------------------------------------------------
+--
+--  Writing 
+--
+--------------------------------------------------------------------------------------------
+vim.api.nvim_set_keymap("n","<leader>wl",":Limelight!!<CR>",{ noremap = true, desc = "[w]riting - toggle [l]imelight" })							-- toggle limelight
+-- :Goyo
+vim.api.nvim_set_keymap("n","<leader>wg",":Goyo<CR>",{ noremap = true, desc = "[w]riting - toggle [g]oyo" })										-- toggle goyo
+
+
+
 
 
 -------------------------------------------------------------------------------------------
