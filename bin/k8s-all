@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+    echo "Usage: ${0##*/} <operation> <app-label> <namespace>"
+    exit 2
+fi
+
 kubecolor $1 svc,po,configmaps,deployments,secrets,ObjectBucketClaim,pvc,cronjobs,PrometheusRules -l "app in ($2)" -n $3
 
 
