@@ -1,0 +1,8 @@
+#!/bin/bash
+
+kubecolor $1 svc,po,configmaps,deployments,secrets,ObjectBucketClaim,pvc,cronjobs,PrometheusRules -l "app in ($2)" -n $3
+
+
+
+
+
