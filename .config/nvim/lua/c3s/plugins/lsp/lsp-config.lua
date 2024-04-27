@@ -113,18 +113,21 @@ return {
             -- Change the Diagnostic symbols in the sign column (gutter)
             -- (not in youtube nvim video)
             local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
 
             mason_lspconfig.setup_handlers({
+
                 -- default handler for installed servers
                 function(server_name)
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
                     })
                 end,
+
                 ["kotlin_language_server"] = function()
                     -- configure kotlin language server
                     lspconfig["kotlin_language_server"].setup({
@@ -132,7 +135,7 @@ return {
                         cmd = { "kotlin-language-server" },
                         root_dir = lspconfig.util.root_pattern("pom.xml", "settings.gradle", "settings.gradle.kts"),
                         filetypes = { "kotlin" },
-                        on_attach = function(client, bufnr)
+                        on_attach = function(bufnr)
                             local opts = { noremap = true, silent = true, buffer = bufnr }
                         end,
                     })
@@ -150,6 +153,44 @@ return {
                                 },
                                 completion = {
                                     callSnippet = "Replace",
+                                },
+                            },
+                        },
+                    })
+                end,
+
+                ["golps"] = function()
+                    -- configure lua server (with special settings)
+                    lspconfig["kotlin_language_server"].setup({
+                        capabilities = capabilities,
+                        cmd = { "golps" },
+                        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+                        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+                        on_attach = function(bufnr)
+                            local opts = { noremap = true, silent = true, buffer = bufnr }
+                        end,
+                        settings = {
+                            gopls = {
+                                completionDocumentation = true,
+                                usePlaceholders = true,
+                                staticcheck = true,
+                                analyses = {
+                                    unusedparams = true,
+                                    shadow = true,
+                                    unusedwrite = true,
+                                    misspell = true,
+                                    unusedresult = true,
+                                    undeclaredname = true,
+                                    unusedexports = true,
+                                    nonewvars = true,
+                                    unusedconsts = true,
+                                    unusedstructfield = true,
+                                    unusedvar = true,
+                                    unusedtype = true,
+                                    unusedfuncs = true,
+                                    unusedmethods = true,
+                                    unusedfields = true,
+                                    unusedcomposites = true,
                                 },
                             },
                         },
