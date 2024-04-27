@@ -44,7 +44,8 @@ return {
         })
 
         require("notify").setup({
-            background_color = "#ff0000",
+            -- background_color = "#ff0000",
+            background_colour = "#000000",
         })
 
         vim.keymap.set("n", "<leader>nd", "<CMD>NoiceDismiss<CR>", { desc = "[n]oice [d]ismiss" })
