@@ -11,6 +11,11 @@ set ifs "\n"
 set preview
 set previewer ~/.config/lf/preview.sh
 
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
@@ -98,7 +103,8 @@ map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
 # mkdir command. See wiki if you want it to select created dir
-map a :push %mkdir<space>
+map A :push %mkdir<space>
+map a mkfile
 map r push :rename<space>
 
 
