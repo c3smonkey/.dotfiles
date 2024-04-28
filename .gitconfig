@@ -1,6 +1,8 @@
 [user]
-	name = c3smonkey
-	email = c3smonkey@gmail.com
+	name = monkey
+	email = marzelwidmer@gmail.com
+	; name = c3smonkey
+	; email = c3smonkey@gmail.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
