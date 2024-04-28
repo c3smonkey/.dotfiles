@@ -30,4 +30,11 @@ return {
       vim.cmd.colorscheme("monokai-pro-spectrum")
     end,
   },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 998,
+    init = function()
+      vim.cmd.colorscheme("nightfox")
+    end,
+  },
 }

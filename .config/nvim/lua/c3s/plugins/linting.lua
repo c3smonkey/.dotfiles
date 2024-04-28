@@ -20,6 +20,6 @@ return {
         -- l open file
         vim.keymap.set("n", "<leader>l", function()
             lint.try_lint()
-        end, { desc = "Trigger linting for current file" })
+        end, { desc = "Trigger [l]inting for current file" })
     end,
 }
