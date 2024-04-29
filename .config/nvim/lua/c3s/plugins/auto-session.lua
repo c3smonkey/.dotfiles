@@ -7,8 +7,19 @@ return {
             auto_restore_enabled = false,
             auto_session_suppress_dirs = { "~/", "~/git/", "~/dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
         })
+		session_lens = {
+			-- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
+			buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
+			load_on_setup = true,
+			theme_conf = { border = true },
+			previewer = false,
+		},
 
-        vim.keymap.set("n", ";ws", "<cmd>SessionSave<CR>", { desc = "[s]ave [w]orkspace For Current Directory" }) -- save workspace session for current working directory
-        vim.keymap.set("n", ";wr", "<cmd>SessionRestore<CR>", { desc = "[r]estore [w]orkspace For Current Directory" }) -- restore last workspace session for current directory
+		vim.keymap.set("n", "<leader>ls", require("auto-session.session-lens").search_session, {
+			noremap = true, desc = "search [l]oaded [s]essions",
+		})
     end,
 }
+
+
+
