@@ -21,9 +21,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- TODO recheck these keybindings once Neovim 0.10 is out as it
     -- will have some proper defaults (see https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#configuration)
-    keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[g]o to [i]mplementation", buffer = buf })
-    keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition", buffer = buf })
-    keymap.set("n", "gu", vim.lsp.buf.references, { desc = "Show [u]sages (references)", buffer = buf })
+    keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[g]oto [i]mplementation", buffer = buf })
+    keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[g]oto [d]efinition", buffer = buf })
+    keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[g]oto [D]eclaration", buffer = buf })
+    keymap.set("n", "gu", vim.lsp.buf.references, { desc = "[g]oto [r]eferences", buffer = buf })
+
+
     keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "[L]SP -> [h]over", buffer = buf })
     keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover", buffer = buf })
     keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, { desc = "[L]SP -> [s]ignature", buffer = buf })
@@ -31,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, { desc = "[L]SP -> set [q]uickfix list", buffer = buf })
     keymap.set("n", "<leader>ld", vim.lsp.buf.type_definition, { desc = "[L]SP -> type [d]efinition", buffer = buf })
     keymap.set("n", "<leader>lc", vim.lsp.buf.incoming_calls, { desc = "[L]SP -> show incoming [c]alls", buffer = buf })
+
   end
 })
 
@@ -40,9 +44,30 @@ vim.diagnostic.config({
 })
 
 local mason = require("mason")
+mason.setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗",
+    },
+  },
+})
+
 local mason_lspconfig = require("mason-lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lspconfig = require("lspconfig")
+
+local mason_tool_installer = require("mason-tool-installer")
+mason_tool_installer.setup({
+  ensure_installed = {
+    "prettier", -- prettier formatter
+    "stylua", -- lua formatter
+    "ktlint",
+    "detekt",
+    "xmlformatter",
+  },
+})
 
 local normal_capabilities = vim.lsp.protocol.make_client_capabilities()
 local lsp_capabilities = cmp_nvim_lsp.default_capabilities(normal_capabilities)
@@ -61,7 +86,6 @@ mason_lspconfig.setup({
     'gopls',
     'tsserver',
     'pylsp',
-    'elixirls',
     'kotlin_language_server',
     'astro',
     'lemminx',
@@ -94,5 +118,3 @@ mason_lspconfig.setup({
     end,
   },
 })
-
---require("neptoon.lsp.cmp") -- load cmp.lua in neptoon/lsp directory
