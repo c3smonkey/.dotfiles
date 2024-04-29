@@ -67,8 +67,8 @@ mason_lspconfig.setup({
     'lemminx',
     'taplo',
     'emmet_language_server',
-    'lua_ls'
-    "yaml-language-server",
+    'lua_ls',
+    "yamlls",
   },
   handlers = { -- automatically setup LSPs installed via Mason
     default_setup, -- default configuration for most server, unless overriden below
