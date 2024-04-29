@@ -18,9 +18,6 @@ require("lazy").setup({
   {
     import = "c3s.plugins",
   },
-  {
-    import = "c3s.plugins.lsp",
-  },
 }, {
   checker = {
     enabled = true,
