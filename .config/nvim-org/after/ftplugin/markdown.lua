@@ -9,8 +9,7 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
 -- Spell check
-vim.opt.spelllang = "en_us,de,de_ch"
-
+vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
 -- line numbers

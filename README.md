@@ -1,5 +1,5 @@
 # .dotfiles
-		vim.keymap.set("n", "<leader>mp", vim.cmd.MarkdownPreview, { desc = "[M]arkdown [P]review" })
+
 
 Clone _.dotfiles_ repository in your _$HOME_ directory.
 
@@ -26,6 +26,9 @@ brew install koekeishiya/formulae/skhd
 brew install koekeishiya/formulae/yabai
 brew install toilet
 brew install lf
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
 ```
 
 

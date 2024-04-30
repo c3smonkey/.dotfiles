@@ -1,13 +1,12 @@
--- init.lua
--- load settings before lazy
-require("config.globals")
-require("config.commands")
-require("config.keymaps")
-require("config.options")
+-- NOTE:
+-- Thanks to https://github.com/Traap/nvim/
+--
+vim.g.mapleader = [[ ]]
+vim.g.maplocalleader = [[,]]
+
+-- Bootstrap using lazy.nvim package manager.
+require("config.c3s.bootstrap")
 require("config.lazy")
 
--- set colorscheme
--- INFO: colorscheme must be set after lazy loading, otherwise it will be overwritten
--- normally it should be set in the plugin colorscheme. Sometinge it is not working so it is set here
-vim.cmd("colorscheme catppuccin-mocha")
--- vim.cmd("colorscheme monokai-pro-spectrum")
+-- Apply  customizations.
+require("config.customize")

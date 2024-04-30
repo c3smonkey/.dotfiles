@@ -1,6 +1,6 @@
-# VI - Notes
+= VI - Notes
 
-## Spelling
+== Spelling
 
  - :set spell spelllang=en_us
  - :set nospell
@@ -11,7 +11,7 @@
  - zG
  - zw
 
-## Window Management
+== Window Management
 
 Default key bindings:
 
@@ -38,3 +38,6 @@ Default key bindings:
  - <C-w>K: move the current window to the top
  - <C-w>L: move the current window to the far right
 
+== Navigate Between Tabs:
+ - gt - next active tab
+ - gT - previous active tab
