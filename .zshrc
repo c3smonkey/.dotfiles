@@ -21,7 +21,6 @@ source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-
 # Setup other stuff
 eval "$(pyenv init -)"
 eval "$(thefuck --alias)"
