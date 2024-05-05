@@ -1,2 +1,2 @@
-[default_session]
-startup_command = "nvim -c ':Telescope find_files'"
+# The default session to start when no session is specified
+# https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script

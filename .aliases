@@ -44,18 +44,13 @@ alias lt='ls --tree'
 alias lt2='ls --tree --depth 2'
 alias lt3='ls --tree --depth 3'
 
-
-
 # TMUX
-alias t="tmux"
+alias t="tmux new -s \$(pwd | sed 's/.*\///g')"
+alias tn="tmux new -s $1"
 alias ta="tmux a -t $1"
 alias tls="tmux ls"
-# alias tn="tmux new -s $1"
-alias tn="tmux new -s \$(pwd | sed 's/.*\///g')"
 alias tks="tmux kill-session -t $1"
 alias tka="tmux kill-server"
-alias tn="tmux new -s \$(pwd | sed 's/.*\///g')"
-
 
 # Maven
 alias m=mvnd
@@ -64,7 +59,6 @@ alias mvv='mvnd -v'
 alias mci='mvnd clean install'
 alias mciT='mvnd clean install -DskipTests'
 alias mciTT='mvnd clean install -Dmaven.test.skip'
-
 
 # Docker
 alias dk='docker'
@@ -95,7 +89,6 @@ alias dkn='docker network'
 alias dkc='docker-compose'
 alias dkcu='docker-compose up'
 alias dkclean='docker ps -q -a -f status=exited | xargs -r docker rm && docker images -q -f dangling=true | xargs -r docker rmi'
-
 
 # Kubernetes
 alias kctx="kubectx"
