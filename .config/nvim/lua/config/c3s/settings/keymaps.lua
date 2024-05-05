@@ -23,6 +23,7 @@ Keymap("n", "<localleader>f", ":normal gg=G<CR>", { desc = "e[f]ormat entire buf
 Keymap("n", "<localleader>fp", "gqap", { desc = "[f]ormat [p]aragraphs" })
 Keymap("x", "<localleader>fp", "gqa", { desc = "[f]ormat [p]aragraphs" })
 Keymap("n", "<leader>ww", ":set wrap! linebreak<CR>", { noremap = true, desc = "toggle [w]ord [w]rap" })
+Keymap("n", "<leader>so", [[<cmd>luafile %<cr><cmd>echo "Sourced " . @%<cr>]])
 
 -- INFO: Select entire buffer
 Keymap("n", "vaa", "ggvGg_", { desc = "Select entire buffer" })
@@ -68,27 +69,19 @@ Keymap("n", "<leader>pv",  "<cmd>Lexplore<cr>", { desc = "[p]roject [v]iew" })
 Keymap("n", "<leader>ee",  "<cmd>Ex<cr>", { desc = "[e]xplor[e]r" })
 
 -- INFO: b - Buffer adjustments.
-Keymap("n", "<leader>bh", "<cmd>vertical resize -1<cr>")
-Keymap("n", "<leader>bl", "<cmd>vertical resize +1<cr>")
-Keymap("n", "<leader>bj", "<cmd>resize +1<cr>")
-Keymap("n", "<leader>bk", "<cmd>resize -1<cr>")
-Keymap("n", "<leader>bx", [[<cmd>luafile %<cr><cmd>echo "Sourced " . @%<cr>]])
-Keymap("n","<Left>",":silent bp<CR> :redraw!<CR>",{ noremap = true, desc = "Move to the previous buffer" })
-Keymap("n","<Right>",":silent bn<CR> :redraw!<CR>",{ noremap = true, desc = "Move to the next buffer" })
+Keymap("n", "<leader>bc", "<cmd>bd<cr>", { desc = "[b]uffer [c]lose" })
+Keymap("n", "<Right>",":silent bn<CR> :redraw!<CR>",{ desc = "[b]uffer [n]next" })
+Keymap("n", "<Left>",":silent bp<CR> :redraw!<CR>",{ desc = "[b]uffer [p]revious" })
+Keymap("n", "<leader>bh", "<cmd>vertical resize -1<cr>", { desc = "[b]uffer resize - h" })
+Keymap("n", "<leader>bl", "<cmd>vertical resize +1<cr>", { desc = "[b]uffer resize - l" })
+Keymap("n", "<leader>bj", "<cmd>resize +1<cr>", { desc = "[b]uffer resize - j" })
+Keymap("n", "<leader>bk", "<cmd>resize -1<cr>", { desc = "[b]uffer resize - k" })
 Keymap("n", "<leader><F5>", ":set relativenumber!  number!  showmode!  showcmd!  hidden!  ruler! <CR>", {
     noremap = true,desc = "Toggle [P]resentatin  [M]ode - display of relative line numbers, line numbers, mode, command, and hidden status",
 })
 
 -- INFO: toilet
-Keymap("n","<leader>1",":.!toilet -w 200 -f term -F border<CR>",{ noremap = true, desc = "Create Ascii border" })
-Keymap("n","<leader>2",":.!toilet -w 200 -f standard<CR>",{ noremap = true, desc = "Create Ascii art font (standard)" })
-Keymap("n","<leader>3",":.!toilet -w 200 -f small<CR>",{ noremap = true, desc = "Create Ascii art font (small)" })
-
-
-
-
-
-
-
-
+Keymap("n","<leader>1",":.!toilet -w 200 -f term -F border<CR>",{ desc = "Create Ascii border" })
+Keymap("n","<leader>2",":.!toilet -w 200 -f standard<CR>",{ desc = "Create Ascii art font (standard)" })
+Keymap("n","<leader>3",":.!toilet -w 200 -f small<CR>",{ desc = "Create Ascii art font (small)" })
 
