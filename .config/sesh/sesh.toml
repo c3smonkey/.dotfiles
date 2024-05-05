@@ -1,2 +1,9 @@
 # The default session to start when no session is specified
 # https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script
+[[session]]
+name = "_dotfiles"
+path = "~/.dotfiles"
+startup_command = "$HOME/.config/sesh/startup.sh"
+
+
+
