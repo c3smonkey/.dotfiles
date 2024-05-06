@@ -4,9 +4,9 @@ wezterm.enable_osc8_hyperlink = true
 
 local config = {}
 
-config.font = wezterm.font("FiraMono Nerd Font Mono")
-config.font_size = 12.0
-config.line_height = 1.2
+config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font_size = 11.0
+config.line_height = 1.1
 
 -- config.color_scheme = "Dracula"
 config.color_scheme = "Catppuccin Mocha"
