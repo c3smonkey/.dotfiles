@@ -19,7 +19,7 @@ return {
             opts = {}
         end
         if not Use_Default_Keys(plugin) then
-            Keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", { silent = true, desc = "Lazy[g]it [g]it" })
+            Keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Lazy[g]it [g]it" })
         end
     end,
 
