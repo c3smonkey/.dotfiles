@@ -3,13 +3,11 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-# Homebrew
-export PATH="/opt/homebrew/bin:${PATH}"
 # .dotfiles/bin
 export PATH="$HOME/.dotfiles/bin:${PATH}"
 
 # Source the dotfiles
-source ~/.dotfiles/zsh/zsh-plugins.zsh
+source ~/.dotfiles/zsh/custom-zsh-plugins.zsh
 source ~/.dotfiles/.aliases
 source ~/.dotfiles/.variablesrc
 # Source the local files
@@ -25,5 +23,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(pyenv init -)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
+# Homebrew
+export PATH="/opt/homebrew/bin:${PATH}"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
