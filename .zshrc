@@ -18,12 +18,12 @@ sourceIfExists ~/.helsanarc
 source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+# Homebrew
+export PATH="/opt/homebrew/bin:${PATH}"
 
 # Setup other stuff
 eval "$(pyenv init -)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
-# Homebrew
-export PATH="/opt/homebrew/bin:${PATH}"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
