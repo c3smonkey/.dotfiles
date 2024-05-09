@@ -13,7 +13,7 @@ if Is_Enabled(plugin) and not Use_Default_Keys(plugin) then
     Keymap("n", "<leader><leader>", cmdT .. "buffers<cr>", { desc = "[ ] Find existing buffers" })
     Keymap("n", "<leader>sk", cmdT .. "keymaps<cr>", { desc = "[s]earch [k]eymaps" })
     Keymap("n", "<leader>sf", cmdT .. "find_files<cr>", { desc = "[s]earch [f]iles" })
-    Keymap("n", "<leader>ss", cmdT .. "builtin<cr>", { desc = "[s]earch [s]elect Telescope" })
+	Keymap("n", "<leader>ss", cmdT .. "builtin<cr>", { desc = "[s]earch [s]elect Telescope" })
     Keymap("n", "<leader>sg", cmdT .. "live_grep<cr>", { desc = "[s]earch by [g]rep" })
     Keymap("n", "<leader>sd", cmdT .. "diagnostics<cr>", { desc = "[s]earch [d]iagnostics" })
     Keymap("n", "<leader>sr", cmdT .. "resume<cr>", { desc = "[s]earch [r]esume" })
@@ -81,6 +81,11 @@ return {
                 winblend = 0,
             }
             opts.pickers = {
+				find_files= {
+					hidden = true,
+					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+				},
                 colorscheme = {
                     enable_preview = true
                 },

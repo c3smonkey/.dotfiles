@@ -27,7 +27,7 @@ local options = {
     splitright = true,
     splitbelow = true,
     inccommand = "split",
-    list = true,
+    list = false,
     listchars = { tab = '» ', trail = '·', nbsp = '␣' },
     spelllang = "en_us,de,de_ch",
     spell = true,
