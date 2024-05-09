@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+
+note() {
+    echo "# date: $(date)" >> $HOME/drafts.md
+    echo "$@" >> $HOME/drafts.md
+    echo "" >> $HOME/drafts.md
+}

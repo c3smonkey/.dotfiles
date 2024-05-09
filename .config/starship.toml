@@ -1,61 +1,77 @@
 add_newline = false
-command_timeout = 10000
+command_timeout = 1000
+continuation_prompt = '▶▶ '
 
 format = """\
-[](bg:#030B16 fg:#7DF9AA)\
-[󰀵 ](bg:#7DF9AA fg:#090c0c)\
-[](fg:#7DF9AA bg:#1C3A5E)\
-$time\
-[](fg:#1C3A5E bg:#3B76F0)\
+[󰀵 ](fg:#897EE3)\
 $directory\
-[](fg:#3B76F0 bg:#FCF392)\
-$git_branch\
-$git_status\
-$git_metrics\
-[](fg:#FCF392 bg:#030B16)\
 $character\
 """
 
-[directory]
-format = "[  $path ]($style)"
-style = "fg:#E4E4E4 bg:#3B76F0"
+right_format = """
+$kubernetes\
+$battery\
+"""
 
-[git_branch]
-format = '[ $symbol$branch(:$remote_branch) ]($style)'
-symbol = "  "
-style = "fg:#1C3A5E bg:#FCF392"
 
-[git_status]
-format = '[$all_status]($style)'
-style = "fg:#1C3A5E bg:#FCF392"
-
-[git_metrics]
-format = "([+$added]($added_style))[]($added_style)"
-added_style = "fg:#1C3A5E bg:#FCF392"
-deleted_style = "fg:bright-red bg:235"
+[kubernetes]
+format = '[☸ $context \($namespace\)](#524B88) '
 disabled = false
 
-[hg_branch]
-format = "[ $symbol$branch ]($style)"
-symbol = " "
+[[battery.display]]
+threshold = 5
+style = 'bold red'
 
-[cmd_duration]
-format = "[  $duration ]($style)"
-style = "fg:bright-white bg:18"
+[[battery.display]]
+threshold = 20
+style = 'bold yellow'
 
 [character]
-success_symbol = '[ ➜](bold green) '
-error_symbol = '[ ✗](#E84D44) '
+# vicmd_symbol = "[](bold green)"
+vimcmd_symbol = '[V](bold green) '
+success_symbol = "[❯](fg:#03DAC6)"
+error_symbol = "[❯](fg:#FF3A39)"
 
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
+[directory]
+truncation_length = 2
+# truncation_symbol = " ~/…/"
+fish_style_pwd_dir_length=3
+read_only_style = '197'
+read_only = '  '
+style = "blue bold"
+home_symbol = " ~"
+truncate_to_repo = false
 
 
-# Shows kubernetes context and namespace
-[kubernetes]
-format = ' | [☸ ($cluster)](fg:#86BBD8) [| ⛵$namespace](bold purple) | '
-disabled = false
+[package]
+disabled = true
 
+[username]
+disabled = true
+
+[hostname]
+disabled = true
+
+[aws]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[git_branch]
+disabled = true
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = true
+
+[vagrant]
+disabled = true

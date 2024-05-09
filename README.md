@@ -32,6 +32,7 @@ brew install zsh-autosuggestions
 brew tap arl/arl
 brew install gitmux
 brew install starship
+brew install jsonpp
 ```
 
 
