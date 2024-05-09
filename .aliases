@@ -33,7 +33,9 @@ alias -g Fj='| jq .'
 alias -g Fy='| yq .'
 alias -g b64d='| base64 -d'
 alias -g b64='| base64'
-alias jj='pbpaste | jsonpp | pbcopy'
+
+alias jf='pbpaste | jsonpp | pbcopy' # Json formatter and clipboard
+alias jfp='pbpaste | jsonpp' # Json formatter and print it out
 
 
 # Tools
