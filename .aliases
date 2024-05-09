@@ -1,29 +1,39 @@
 #!/bin/zsh
+alias so="source ~/.zshrc"
 
 # Unix
 ialias cd="z"
 ialias cdi="zi"
-alias so="source ~/.zshrc"
+
 alias v='nvim'
 ialias vi='nvim'
 alias vim='nvim'
 ialias v.='nvim .'
 ialias vi.='nvim .'
+alias -g V='| vim -'
+
 alias rp='realpath'
 alias pwdc='pwd | pbcopy'
 alias psj='ps aux | grep "[j]ava"'
+
+ialias mdf="createDirAndFollow"
 alias -g md='mkdir -p'
+alias -g rd='rm -r'
+
+ialias zet='note' # zettelkasten see zsh/plugins/custom/note.zsh
+
 alias -g s1='sleep 1'
 alias -g s2='sleep 2'
 alias -g s01='sleep 0.1'
 alias -g s05='sleep 0.5'
 ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias -g V='| vim -'
+
+
 alias -g Fj='| jq .'
 alias -g Fy='| yq .'
 alias -g b64d='| base64 -d'
 alias -g b64='| base64'
-#alias jj='pbpaste | jsonpp | pbcopy'
+alias jj='pbpaste | jsonpp | pbcopy'
 
 
 # Tools
