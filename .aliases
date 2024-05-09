@@ -51,9 +51,9 @@ alias i="idea"
 alias ls="lsd"
 alias l="ls -a"
 alias ll="ls -l"
-alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
+# Tree
 alias lt='ls --tree'
 alias lt2='ls --tree --depth 2'
 alias lt3='ls --tree --depth 3'
