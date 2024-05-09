@@ -13,6 +13,8 @@ vim.cmd [[set termguicolors]]
 -- enable filetype detection, plugins, and indentation
 vim.cmd([[filetype plugin indent on]])
 
+vim.cmd([[hi Normal guifg=#bbbbbb guibg=NONE gui=NONE]])
+
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
