@@ -74,6 +74,9 @@ alias mci='mvnd clean install'
 alias mciT='mvnd clean install -DskipTests'
 alias mciTT='mvnd clean install -Dmaven.test.skip'
 
+# Git
+alias gcapf='git commit -a --amend --no-edit && git push --force-with-lease'
+
 # Docker
 alias dk='docker'
 alias dkp='docker ps'
