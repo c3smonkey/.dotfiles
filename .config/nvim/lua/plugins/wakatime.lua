@@ -1,9 +1,5 @@
-require("config.c3s.globals")
-
-local plugin = "vim-wakatime"
-
 return {
-    "wakatime/" .. plugin,
+    "wakatime/vim-wakatime",
     event = "VeryLazy",
-    enabled = Is_Enabled(plugin),
+    enabled = true,
 }

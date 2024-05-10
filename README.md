@@ -34,6 +34,7 @@ brew install gitmux
 brew install starship
 brew install esonpp
 brew install trash
+brew install yazi
 ```
 
 
@@ -43,7 +44,7 @@ brew install trash
 
 ```
 ln -s  ~/.dotfiles/.zshrc ~/.zshrc
-```
+``` 
 
 ## .warp
 
