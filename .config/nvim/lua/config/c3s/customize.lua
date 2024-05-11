@@ -38,6 +38,7 @@ Customize                           = {
     ["zen-mode.nvim"]               = { enabled = true,  default     = { opts = true,  config = true ,keys = true  }},
     ["copilot.vim"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     ["twilight.nvim"]               = { enabled = true,  default     = { opts = true,  config = true ,keys = true  }},
+    ["yazi.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true ,keys = true  }},
     ["goyo.vim"]                    = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
     ["limelight.vim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
   },
