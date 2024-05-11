@@ -18,8 +18,9 @@ return {
     direction = "horizontal",
   },
   keys = {
-    {"<leader>Tg", "<cmd>lua ToggleTerm.lazygit()<cr>", "LazyGit"},
-    {"<leader>Tb", "<cmd>lua ToggleTerm.bpytop()<cr>", "bpytop"},
-    {"<leader>Tlf", "<cmd>lua ToggleTerm.lf()<cr>", "lf"},
+    {"<leader>Tt", "<cmd>lua ToggleTerm.terminal()<cr>", "Terminal", desc = "Open [t]erminal" },
+    {"<leader>Tg", "<cmd>lua ToggleTerm.lazygit()<cr>", "LazyGit", desc = "Open Lazy[g]it"},
+    {"<leader>Tb", "<cmd>lua ToggleTerm.bpytop()<cr>", "bpytop", desc = "Open [b]pytop"},
+    {"<leader>Tl", "<cmd>lua ToggleTerm.lf()<cr>", "lf", desc = "Open [l]f"},
   },
 }

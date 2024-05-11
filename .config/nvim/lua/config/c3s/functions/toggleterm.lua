@@ -8,6 +8,13 @@ ToggleTerm = {
     return t:toggle()
   end,
 
+  terminal = function()
+    local Terminal = require("toggleterm.terminal").Terminal
+    local t = Terminal:new({ direction = "float" })
+    return t:toggle()
+  end,
+
+
   lazygit = function()
     local Terminal = require("toggleterm.terminal").Terminal
     local t = Terminal:new({ cmd = "lazygit", direction = "float" })
