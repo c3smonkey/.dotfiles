@@ -130,7 +130,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ### Symbolic link to .tmux.conf
 
 ```
-ln -s  ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -s  ~/.dotfiles/.config/tmux/.tmux.conf ~/.tmux.conf
 ```
 
 ### Install tmux plugins
