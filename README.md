@@ -34,6 +34,7 @@ brew install gitmux
 brew install starship
 brew install esonpp
 brew install trash
+brew install gum
 ```
 
 
