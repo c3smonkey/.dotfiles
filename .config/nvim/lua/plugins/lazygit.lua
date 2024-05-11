@@ -20,6 +20,7 @@ return {
         end
         if not Use_Default_Keys(plugin) then
             Keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Lazy[g]it [g]it" })
+            Keymap("n", "<leader>gf", "<cmd>LazyGitFilterCurrentFile<cr>", { desc = "Lazy[g]it current [f]ile" })
         end
     end,
 
