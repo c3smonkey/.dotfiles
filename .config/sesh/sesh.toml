@@ -2,8 +2,8 @@
 # https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script
 # Icons : https://www.nerdfonts.com/cheat-sheet
 
-#[default_session]
-#startup_command = "nvim -c ':Telescope find_files'"
+[default_session]
+startup_command = "nvim -c ':Telescope find_files'"
 #startup_command = "yazi"
 #startup_command = "lla"
 
