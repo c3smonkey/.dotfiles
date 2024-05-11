@@ -1,10 +1,13 @@
 #!/bin/zsh
 alias so="source ~/.zshrc"
 
-# Unix
+# Zoxide
 ialias cd="z"
 ialias cdi="zi"
+ialias zrd="zoxide remove $1"
+ialias ze="zoxide edit"
 
+# Unix
 alias v='nvim'
 ialias vi='nvim'
 alias vim='nvim'
