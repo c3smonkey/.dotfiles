@@ -1,4 +1,6 @@
 #!/bin/zsh
 # https://github.com/joshmedeski/sesh
 
-sesh connect $(sesh list | fzf)
+#sesh connect $(sesh list | fzf)
+
+sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')"

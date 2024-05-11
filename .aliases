@@ -6,8 +6,9 @@ ialias cd="z"
 ialias cdi="zi"
 ialias zrd="zoxide remove $1"
 ialias ze="zoxide edit"
+ialias zad="/bin/ls -d */ | xargs -I {} zoxide add {}"
 
-# Unix
+# Unixk
 alias v='nvim'
 ialias vi='nvim'
 alias vim='nvim'
@@ -52,14 +53,14 @@ alias i="idea"
 
 # LSD
 alias ls="lsd"
-alias l="ls -a"
-alias ll="ls -l"
-alias la='ls -a'
-alias lla='ls -la'
+alias l="lsd -a"
+alias ll="lsd -l"
+alias la='lsd -a'
+alias lla='lsd -la'
 # Tree
-alias lt='ls --tree'
-alias lt2='ls --tree --depth 2'
-alias lt3='ls --tree --depth 3'
+alias lt='lsd --tree'
+alias lt2='lsd --tree --depth 2'
+alias lt3='lsd --tree --depth 3'
 
 # TMUX
 alias t="tmux new -s \$(pwd | sed 's/.*\///g')"
