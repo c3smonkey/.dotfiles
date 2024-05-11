@@ -1,47 +1,49 @@
 # The default session to start when no session is specified
 # https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script
+# Icons : https://www.nerdfonts.com/cheat-sheet
+#
 [[session]]
-name = "_dotfiles"
+name = " _dotfiles "
 path = "~/.dotfiles"
 startup_command = "~/.config/sesh/startup.sh"
 
 [[session]]
-name = "Home 🏡"
-path = "~"
+name = "󰋜 Home 󰋜"
+path = "~/"
 startup_command = "l"
 
 [[session]]
-name = "Code 💻"
+name = "󰘦 Code / Git "
 path = "~/git"
 startup_command = "l"
 
 [[session]]
-name = "tmux config 🚀"
+name = " tmux config  "
 path = "~/.dotfiles/.config/tmux"
 startup_command = "vi .tmux.conf"
 
 [[session]]
-name = "gitmux config 🚀"
+name = " gitmux config "
 path = "~/.dotfiles/.config/tmux"
 startup_command = "vi gitmux.yml"
 
 [[session]]
-name = "sesh config 🚀"
+name = " sesh config "
 path = "~/.dotfiles/.config/sesh"
 startup_command = "vi sesh.toml"
 
 [[session]]
-name = "nvim config 📝"
+name = "󰛓 nvim config 󰛓"
 path = "~/.dotfiles/.config/nvim"
 startup_command = "vi +Explor"
 #startup_command = "lla"
 
 [[session]]
-name = "zettelkasten 📚"
+name = "󰧑 zettelkasten "
 path = "~/git/zettelkasten"
 startup_command = "vi +Explor"
 
 [[session]]
-name = "Downloads 📥"
+name = " Downloads "
 path = "~/Downloads"
 startup_command = "yazi"

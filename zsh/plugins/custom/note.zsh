@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-ZET="$HOME/git/notes/zettelkasten/$(date +%Y-%m-%d).md"
+ZET="$HOME/git/zettelkasten/$(date +%Y-%m-%d).md"
 
 note() {
     echo "# $(date)" >> $ZET
