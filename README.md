@@ -87,6 +87,13 @@ ln -s  ~/.dotfiles/ideavim/.ideavimrc ~/.ideavimrc
 ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 
+## bat
+
+```
+ln -s  ~/.dotfiles/.config/bat ~/.config/bat
+```
+
+
 ## sketchybar
 
 install the following. see also https://www.josean.com/posts/sketchybar-setup
