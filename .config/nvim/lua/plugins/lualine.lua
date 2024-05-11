@@ -51,55 +51,59 @@ return {
                 end,
             }
 
-            local mode = {
-                "mode",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
-            }
-            local encoding = {
-                "encoding",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
-            }
 
-            local filesize = {
-                "filesize",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
-            }
-            local filetype = {
-                "filetype",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
-            }
-            local fileformat = {
-                "fileformat",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
-            }
             local progress = {
                 "progress",
-                symbols = {
-                },
-                colored = true,
-                always_visible = false,
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
             }
             local location = {
                 "location",
-                symbols = {
-                },
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
+            }
+            local fileformat = {
+                "fileformat",
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
+            }
+            local filetype = {
+                "filetype",
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
+            }
+            local encoding = {
+                "encoding",
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
+            }
+            local filename = {
+                "filename",
+                color = {
+                    fg = '#524B88',
+                    bg = 'none',
+                }
+            }
+            local mode = {
+                "mode",
                 colored = true,
+                fmt = string.upper,
                 always_visible = false,
+                color = {
+                    gui = 'none',
+                    fg = '#524B88',
+                    bg = 'none',
+                },
             }
 
             return {
@@ -107,15 +111,16 @@ return {
                     theme = "auto",
                     globalstatus = true,
                     component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
                     disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
                 },
                 sections = {
                     lualine_a = {},
                     lualine_b = {},
                     lualine_c = { diff, diagnostics },
-                    lualine_x = { progress, location, fileformat, filetype, encoding,  mode },
-                    lualine_y = {},
-                    lualine_z = {},
+                    lualine_x = { filename, progress, location, fileformat, encoding },
+                    lualine_y = { filetype },
+                    lualine_z = { mode },
                 },
             }
 
