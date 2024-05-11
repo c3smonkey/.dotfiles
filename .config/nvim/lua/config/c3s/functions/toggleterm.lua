@@ -27,6 +27,12 @@ ToggleTerm = {
     return t:toggle()
   end,
 
+  k9s = function()
+    local Terminal = require("toggleterm.terminal").Terminal
+    local t = Terminal:new({ cmd = "k9s", direction = "float" })
+    return t:toggle()
+  end,
+
 }
 
 return ToggleTerm

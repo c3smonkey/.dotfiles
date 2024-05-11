@@ -22,5 +22,6 @@ return {
     {"<leader>Tg", "<cmd>lua ToggleTerm.lazygit()<cr>", "LazyGit", desc = "Open Lazy[g]it"},
     {"<leader>Tb", "<cmd>lua ToggleTerm.bpytop()<cr>", "bpytop", desc = "Open [b]pytop"},
     {"<leader>Tl", "<cmd>lua ToggleTerm.lf()<cr>", "lf", desc = "Open [l]f"},
+    {"<leader>Tk", "<cmd>lua ToggleTerm.k9s()<cr>", "lf", desc = "Open [k]9s"},
   },
 }
