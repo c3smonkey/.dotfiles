@@ -5,9 +5,9 @@ require("config.c3s.globals")
 
 -- INFO: Edit and Exit Modes
 Keymap("i", "jj", "<ESC>", { desc = "Exit insert mode with [j][j]" })
-Keymap("n", "<Esc>", "<CMD>nohlsearch<CR>", { desc = "Clear search highlight [ESC]" })
+Keymap("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight [ESC]" })
 Keymap("t", "<Esc><Esc>", "<C-D><C-C>", { desc = "Exit terminal mode [ESC][ESC]" })
-Keymap('n', "<leader>P", '<CMD>execute "normal! \\"0p"<CR>', { desc = "[p]aste from register 0" })
+Keymap('n', "<leader>P", '<cmD>execute "normal! \\"0p"<CR>', { desc = "[p]aste from register 0" })
 Keymap("n", "<leader>i", "<cmd>set list!<cr>", { desc = "Toggle [i]nvisible characters" })
 
 -- INFO: Execute the current line of text as a shell command.
@@ -24,6 +24,8 @@ Keymap("n", "<localleader>fp", "gqap", { desc = "[f]ormat [p]aragraphs" })
 Keymap("x", "<localleader>fp", "gqa", { desc = "[f]ormat [p]aragraphs" })
 Keymap("n", "<leader>ww", ":set wrap! linebreak<CR>", { noremap = true, desc = "toggle [w]ord [w]rap" })
 Keymap("n", "<leader>so", [[<cmd>luafile %<cr><cmd>echo "Sourced " . @%<cr>]])
+Keymap("n", "<leader>l", "<cmd>set number!<cr> <cmd>set relativenumber!<cr>", { desc = "toggle [l]ine number" })
+
 
 -- INFO: Select entire buffer
 Keymap("n", "vaa", "ggvGg_", { desc = "Select entire buffer" })
