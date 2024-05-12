@@ -1,0 +1,15 @@
+
+[[session]]
+name = "alacritty config  "
+path = "~/.dotfiles/.config/alacritty"
+startup_command = "vi alacritty.toml"
+
+
+[[session]]
+name = "wezterm config  "
+path = "~/.dotfiles/.config/wezterm"
+startup_command = "vi wezterm.lua"
+
+
+
+

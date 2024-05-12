@@ -1,6 +1,7 @@
 # The default session to start when no session is specified
 # https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script
 # Icons : https://www.nerdfonts.com/cheat-sheet
+import = ["~/.dotfiles/.config/sesh/.sesh_terminal.toml"]
 
 [default_session]
 startup_command = "nvim -c ':Telescope find_files'"
@@ -21,13 +22,6 @@ startup_command = "yazi"
 name = "git  "
 path = "~/git"
 startup_command = "nvim -c ':Telescope find_files'"
-
-
-[[session]]
-name = "alacritty config  "
-path = "~/.dotfiles/.config/alacritty"
-startup_command = "vi alacritty.toml"
-
 
 [[session]]
 name = "tmux config  "
