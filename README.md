@@ -35,6 +35,7 @@ brew install starship
 brew install esonpp
 brew install trash
 brew install gum
+brew install yazi
 ```
 
 
@@ -94,6 +95,11 @@ ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ln -s  ~/.dotfiles/.config/bat ~/.config/bat
 ```
 
+## yazi
+```
+rm -rf ~/.config/yazi
+ln -s  ~/.dotfiles/.config/yazi ~/.config/yazi
+```
 
 ## sketchybar
 
