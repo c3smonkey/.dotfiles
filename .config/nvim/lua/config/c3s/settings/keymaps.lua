@@ -26,7 +26,6 @@ Keymap("n", "<leader>ww", ":set wrap! linebreak<CR>", { noremap = true, desc = "
 Keymap("n", "<leader>so", [[<cmd>luafile %<cr><cmd>echo "Sourced " . @%<cr>]])
 Keymap("n", "<leader>l", "<cmd>set number!<cr> <cmd>set relativenumber!<cr>", { desc = "toggle [l]ine number" })
 
-
 -- INFO: Select entire buffer
 Keymap("n", "vaa", "ggvGg_", { desc = "Select entire buffer" })
 Keymap("n", "Vaa", "ggVG", { desc = "Select entire buffer" })
@@ -60,15 +59,15 @@ Keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 Keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 Keymap("n", "<down>", '<cmd>echo "Use k to move!!"<CR>')
 
--- INFO: The following keymaps are for moving between windows
+-- INFO:  Windows management - Move focus to the window in the specified direction.
 Keymap("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 Keymap("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 Keymap("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 Keymap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- INFO: split windows
+Keymap("n", "<leader>-", "<cmd>split<cr>", { desc = "Split window horizontally" })
+Keymap("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split window vertically" })
 
--- INFO: Explorer / Project View
-Keymap("n", "<leader>pv",  "<cmd>Lexplore<cr>", { desc = "[p]roject [v]iew" })
-Keymap("n", "<leader>ee",  "<cmd>Ex<cr>", { desc = "[e]xplor[e]r" })
 
 -- INFO: b - Buffer adjustments.
 Keymap("n", "<leader>bc", "<cmd>bd<cr>", { desc = "[b]uffer [c]lose" })
@@ -84,6 +83,11 @@ Keymap("n", "<leader>bk", "<cmd>resize -1<cr>", { desc = "[b]uffer resize - k" }
 Keymap("n", "<leader><F5>", ":set relativenumber!  number!  showmode!  showcmd!  hidden!  ruler! <CR>", {
 	noremap = true,desc = "Toggle [P]resentatin  [M]ode - display of relative line numbers, line numbers, mode, command, and hidden status",
 })
+
+-- INFO: Explorer / Project View
+Keymap("n", "<leader>pv",  "<cmd>Lexplore<cr>", { desc = "[p]roject [v]iew" })
+Keymap("n", "<leader>ee",  "<cmd>Ex<cr>", { desc = "[e]xplor[e]r" })
+
 
 -- INFO: toilet
 Keymap("n","<leader>1",":.!toilet -w 200 -f term -F border<CR>",{ desc = "Create Ascii border" })
