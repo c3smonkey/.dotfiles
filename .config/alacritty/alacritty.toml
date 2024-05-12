@@ -3,7 +3,7 @@ live_config_reload = true
 working_directory = "None"
 
 [window]
-opacity = 0.9
+opacity = 0.6
 padding.x = 5
 padding.y = 5
 decorations = "Buttonless"
