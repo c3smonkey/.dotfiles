@@ -3,6 +3,9 @@
 # .dotfiles/bin
 export PATH="$HOME/.dotfiles/bin:${PATH}"
 
+# Homebrew
+export PATH="/opt/homebrew/bin:${PATH}"
+
 # Source the dotfiles
 source ~/.dotfiles/zsh/init-zsh-plugins.zsh
 source ~/.dotfiles/.aliases
@@ -14,7 +17,4 @@ sourceIfExists ~/.helsanarc
 # Source other files
 source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
-
-# Homebrew
-export PATH="/opt/homebrew/bin:${PATH}"
 

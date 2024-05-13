@@ -26,7 +26,7 @@ startup_command = "nvim -c ':Telescope find_files'"
 [[session]]
 name = "tmux config  "
 path = "~/.dotfiles/.config/tmux"
-startup_command = "vi .tmux.conf"
+startup_command = "vi tmux.conf"
 
 [[session]]
 name = "gitmux config "
