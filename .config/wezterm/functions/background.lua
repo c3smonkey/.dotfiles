@@ -1,12 +1,17 @@
 local wallpapers = {
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpg/background.jpg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpg/1_background.jpg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpg/2_background.jpg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/1_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/2_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/3_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/4_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/5_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/6_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/7_background.jpeg" },
 }
 
 function getImageNumber(imagePath)
 	local imageName = imagePath:match(".*/([^/]+)$")
-	local imageNumber = tonumber(imageName:match("(%d+)_background%.jpg$"))
+	local imageNumber = tonumber(imageName:match("(%d+)_background%.jpeg$"))
 	return imageNumber
 end
 
@@ -30,6 +35,7 @@ function getRandomImage()
 	end
 end
 
+local selectedImage = getRandomImage()
 
-return getRandomImage()
 
+return selectedImage

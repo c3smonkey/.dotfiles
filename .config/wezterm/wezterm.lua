@@ -37,5 +37,4 @@ config.window_decorations = "RESIZE"
 -- config.window_close_confirmation = "AlwaysPrompt"
 config.window_close_confirmation = 'NeverPrompt'
 
-
 return config
