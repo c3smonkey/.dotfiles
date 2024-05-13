@@ -7,6 +7,7 @@ local wallpapers = {
     { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/5_background.jpeg" },
     { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/6_background.jpeg" },
     { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/7_background.jpeg" },
+    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/8_background.jpeg" },
 }
 
 function getImageNumber(imagePath)
