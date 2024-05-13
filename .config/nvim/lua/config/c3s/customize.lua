@@ -22,6 +22,7 @@ Customize                           = {
     ["lazygit.nvim"]                = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
     ["lualine.nvim"]                = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
     ["LuaSnip"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+    ["neo-tree.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true }},
     ["markdown-preview.nvim"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
     ["noice.nvim"]                  = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
     ["nvim-treesitter"]             = { enabled = true,  default     = { opts = false, config = true, keys = true  }},

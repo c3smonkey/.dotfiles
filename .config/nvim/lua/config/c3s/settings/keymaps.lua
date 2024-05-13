@@ -86,7 +86,7 @@ Keymap("n", "<leader><F5>", ":set relativenumber!  number!  showmode!  showcmd! 
 
 -- INFO: Explorer / Project View
 Keymap("n", "<leader>pv",  "<cmd>Lexplore<cr>", { desc = "[p]roject [v]iew" })
-Keymap("n", "<leader>ee",  "<cmd>Ex<cr>", { desc = "[e]xplor[e]r" })
+Keymap("n", "<leader>ex",  "<cmd>Ex<cr>", { desc = "[e][x]plorer" })
 
 
 -- INFO: toilet

@@ -4,7 +4,8 @@ local plugin = "markdown-preview.nvim"
 
 return {
     {
-        "iamcco/markdown-preview.nvim",
+        "iamcco/" .. plugin,
+        enabled = Is_Enabled(plugin),
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function()
