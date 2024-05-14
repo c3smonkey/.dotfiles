@@ -76,8 +76,8 @@ Keymap("n", "<Left>",":silent bp<CR> :redraw!<cr>",{ desc = "[b]uffer [p]revious
 Keymap("n", "<Tab>","<cmd>bn<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<S-Tab>","<cmd>bp<cr>",{ desc = "[b]uffer [p]revious" })
 -- NOTE: Resize windows (CTR-OPT + hjkl)
-Keymap("n", "<C-A-h>", "<cmd>vertical resize -5<cr>", { desc = "[b]uffer resize - h" })
-Keymap("n", "<C-A-l>", "<cmd>vertical resize +5<cr>", { desc = "[b]uffer resize - l" })
+Keymap("n", "<C-A-h>", "<cmd>vertical resize +5<cr>", { desc = "[b]uffer resize - h" })
+Keymap("n", "<C-A-l>", "<cmd>vertical resize -5<cr>", { desc = "[b]uffer resize - l" })
 Keymap("n", "<C-A-j>", "<cmd>resize -5<cr>", { desc = "[b]uffer resize - j" })
 Keymap("n", "<C-A-k>", "<cmd>resize +5<cr>", { desc = "[b]uffer resize - k" })
 
