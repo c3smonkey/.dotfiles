@@ -5,8 +5,6 @@ import = ["~/.dotfiles/.config/sesh/.sesh_terminal.toml"]
 
 [default_session]
 startup_command = "nvim -c ':Telescope find_files'"
-#startup_command = "yazi"
-#startup_command = "lla"
 
 [[session]]
 name = "dotfiles  "
@@ -42,6 +40,17 @@ startup_command = "vi sesh.toml"
 name = "nvim config 󰛓"
 path = "~/.dotfiles/.config/nvim"
 startup_command = "vi +Explor"
+
+[[session]]
+name = "skhd config 󰛓"
+path = "~/.dotfiles/.config/skhd"
+startup_command = "vi skhdrc"
+
+[[session]]
+name = "yabai config 󰛓"
+path = "~/.dotfiles/.config/yabai"
+startup_command = "vi yabairc"
+
 
 
 [[session]]
