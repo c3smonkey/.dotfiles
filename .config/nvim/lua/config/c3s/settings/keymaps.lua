@@ -70,16 +70,17 @@ Keymap("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split window vertically" }
 
 
 -- INFO: b - Buffer adjustments.
-Keymap("n", "<leader>bc", "<cmd>bd<cr>", { desc = "[b]uffer [c]lose" })
+Keymap("n", "<leader>bx", "<cmd>bd<cr>", { desc = "[b]uffer close[x]" })
 Keymap("n", "<Right>",":silent bn<CR> :redraw!<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<Left>",":silent bp<CR> :redraw!<cr>",{ desc = "[b]uffer [p]revious" })
 Keymap("n", "<Tab>","<cmd>bn<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<S-Tab>","<cmd>bp<cr>",{ desc = "[b]uffer [p]revious" })
+-- NOTE: Resize windows (CTR-OPT + hjkl)
+Keymap("n", "<C-A-h>", "<cmd>vertical resize -5<cr>", { desc = "[b]uffer resize - h" })
+Keymap("n", "<C-A-l>", "<cmd>vertical resize +5<cr>", { desc = "[b]uffer resize - l" })
+Keymap("n", "<C-A-j>", "<cmd>resize -5<cr>", { desc = "[b]uffer resize - j" })
+Keymap("n", "<C-A-k>", "<cmd>resize +5<cr>", { desc = "[b]uffer resize - k" })
 
-Keymap("n", "<leader>bh", "<cmd>vertical resize -1<cr>", { desc = "[b]uffer resize - h" })
-Keymap("n", "<leader>bl", "<cmd>vertical resize +1<cr>", { desc = "[b]uffer resize - l" })
-Keymap("n", "<leader>bj", "<cmd>resize +1<cr>", { desc = "[b]uffer resize - j" })
-Keymap("n", "<leader>bk", "<cmd>resize -1<cr>", { desc = "[b]uffer resize - k" })
 Keymap("n", "<leader><F5>", ":set relativenumber!  number!  showmode!  showcmd!  hidden!  ruler! <CR>", {
 	noremap = true,desc = "Toggle [P]resentatin  [M]ode - display of relative line numbers, line numbers, mode, command, and hidden status",
 })
