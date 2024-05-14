@@ -9,7 +9,7 @@ startup_command = "nvim -c ':Telescope find_files'"
 [[session]]
 name = "dotfiles  "
 path = "~/.dotfiles"
-startup_command = "~/.config/sesh/startup.sh"
+# startup_command = "~/.config/sesh/startup.sh"
 
 [[session]]
 name = "Home 󰋜 "
@@ -50,7 +50,6 @@ startup_command = "vi skhdrc"
 name = "yabai config 󰛓"
 path = "~/.dotfiles/.config/yabai"
 startup_command = "vi yabairc"
-
 
 
 [[session]]
