@@ -32,7 +32,6 @@ alias -g s01='sleep 0.1'
 alias -g s05='sleep 0.5'
 ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
-
 alias -g Fj='| jq .'
 alias -g Fy='| yq .'
 alias -g b64d='| base64 -d'
@@ -40,7 +39,6 @@ alias -g b64='| base64'
 
 alias jf='pbpaste | jsonpp | pbcopy' # Json formatter and clipboard
 alias jfp='pbpaste | jsonpp' # Json formatter and print it out
-
 
 # Tools
 alias gg="lazygit"
