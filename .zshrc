@@ -5,6 +5,13 @@ export PATH="$HOME/.dotfiles/bin:${PATH}"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:${PATH}"
+# Go path
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOBIN
+
+
 
 # Source the dotfiles
 source ~/.dotfiles/zsh/init-zsh-plugins.zsh

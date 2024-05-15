@@ -8,6 +8,9 @@ ialias zrd="zoxide remove $1"
 ialias ze="zoxide edit"
 ialias zad="/bin/ls -d */ | xargs -I {} zoxide add {}"
 
+# Go
+alias cobra="cobra-cli"
+
 # Unixk
 alias v='nvim'
 ialias vi='nvim'
