@@ -22,6 +22,7 @@ source "$HOME/.dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plug
 source "$HOME/.dotfiles/zsh/plugins/k8s/kubectx.plugin.zsh"
 source "$HOME/.dotfiles/zsh/plugins/git/git.plugin.zsh"
 source "$HOME/.dotfiles/zsh/plugins/git/git-commit.plugin.zsh"
+source "$HOME/.dotfiles/zsh/plugins/github/copilot-plugin.zsh"
 
 # INFO: Custom Plugins
 source "$HOME/.dotfiles/zsh/plugins/custom/alias.zsh"

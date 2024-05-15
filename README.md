@@ -36,6 +36,7 @@ brew install esonpp
 brew install trash
 brew install gum
 brew install yazi
+brew install gh
 ```
 
 
@@ -101,7 +102,15 @@ rm -rf ~/.config/yazi
 ln -s  ~/.dotfiles/.config/yazi ~/.config/yazi
 ```
 
-## sketchybar
+# GitHup CLI
+
+```bash
+gh auth login
+gh extension install github/gh-copilot
+```
+
+
+# sketchybar
 
 install the following. see also https://www.josean.com/posts/sketchybar-setup
 
@@ -126,7 +135,7 @@ ln -s  ~/.dotfiles/.config/sketchybar ~/.config/sketchybar
 ln -s  ~/.dotfiles/Library/Fonts/sketchybar-app-font.ttf $HOME/Library/Fonts/sketchybar-app-font.ttf
 ```
 
-## tmux
+# tmux
 
 ### Install tmux plugin manager
 
@@ -159,7 +168,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ````
 
-### Install tmux catppuccino
+## Install tmux catppuccino
 
 https://github.com/catppuccin/tmux
 
