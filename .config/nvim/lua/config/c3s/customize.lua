@@ -40,8 +40,10 @@ Customize                           = {
     ["copilot.vim"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     ["twilight.nvim"]               = { enabled = true,  default     = { opts = true,  config = true ,keys = true  }},
     ["yazi.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true ,keys = true  }},
-    ["goyo.vim"]                    = { enabled = true, default     = { opts = true,  config = true, keys = true  }},
-    ["limelight.vim"]               = { enabled = true, default     = { opts = true,  config = true, keys = true  }},
+    ["goyo.vim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+    ["limelight.vim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+    ["mini.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+    ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
   },
 }
 
