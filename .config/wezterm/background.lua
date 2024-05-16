@@ -1,21 +1,17 @@
-local wezterm = require('wezterm')
+local backgroundImage = require("functions.background")
 --
-local fonts = {}
+local background = {}
 
-function fonts.setup(config)
--- config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular", italic = false })
--- config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular", italic = false })
--- config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold", italic = false })
--- config.font = wezterm.font("MesloLGS NF", { weight = "Regular", italic = false })
--- config.font = wezterm.font("ComicShannsMono", { weight = "Regular", italic = false })
--- config.font = wezterm.font("CommitMono Nerd Font", { weight = "Regular", italic = false })
--- config.font = wezterm.font("Geist-Thin", { weight = "Regular", italic = false })
--- config.font = wezterm.font("Monoid Nerd Font Mono", { weight = "Regular", italic = false })
-    config.font = wezterm.font("JetBrainsMono Nerd Font Mono", {
-        weight = "Bold", italic = false
-    })
-    config.font_size = 12.0
-    config.line_height = 1.1
+function background.setup(config)
+
+    config.window_background_image = backgroundImage
+    config.window_background_image_hsb = {
+        brightness = 0.01,
+        hue = 1.0,
+        saturation = 1.0,
+    }
+    config.window_background_opacity = 0.8
+
 end
 
-return fonts
+return background

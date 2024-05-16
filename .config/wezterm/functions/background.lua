@@ -1,3 +1,10 @@
+-- TODO: animated gif support
+-- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/wavy-lines.gif"
+-- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/ai-speech.gif"
+-- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/lines.gif"
+-- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/blob_blue.gif"
+
+
 local wallpapers = {
     { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/background.jpeg" },
     { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/1_background.jpeg" },
@@ -11,32 +18,29 @@ local wallpapers = {
 }
 
 function getImageNumber(imagePath)
-	local imageName = imagePath:match(".*/([^/]+)$")
-	local imageNumber = tonumber(imageName:match("(%d+)_background%.jpeg$"))
-	return imageNumber
+    local imageName = imagePath:match(".*/([^/]+)$")
+    local imageNumber = tonumber(imageName:match("(%d+)_background%.jpeg$"))
+    return imageNumber
 end
 
 -- Function to select a random image
 function getRandomImage()
-	math.randomseed(os.time())
+    math.randomseed(os.time())
 
-	local random = math.random(1, #wallpapers)
-	local imagePath = wallpapers[random].path
+    local random = math.random(1, #wallpapers)
+    local imagePath = wallpapers[random].path
 
-	local imageNumber = getImageNumber(imagePath)
+    local imageNumber = getImageNumber(imagePath)
 
-	print("Selected image index:", random)
-	print("Image path:", imagePath)
-	print("Image number:", imageNumber)
+    print("Selected image index:", random)
+    print("Image path:", imagePath)
+    print("Image number:", imageNumber)
 
-	if imageNumber then
-		return imagePath
-	else
-		return wallpapers[1].path
-	end
+    if imageNumber then
+        return imagePath
+    else
+        return wallpapers[1].path
+    end
 end
 
-local selectedImage = getRandomImage()
-
-
-return selectedImage
+return getRandomImage()

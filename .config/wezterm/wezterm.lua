@@ -5,32 +5,9 @@ wezterm.enable_osc8_hyperlink = true
 
 local config = {}
 
--- TODO: animated gif support
--- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/wavy-lines.gif"
--- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/ai-speech.gif"
--- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/lines.gif"
--- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/blob_blue.gif"
-config.window_background_image = require("functions.background")
-config.window_background_image_hsb = {
-	brightness = 0.01,
-	hue = 1.0,
-	saturation = 1.0,
-}
-config.window_background_opacity = 0.8
+require("fonts").setup(config)
+require("background").setup(config)
 
-
--- Font configuration
--- config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular", italic = false })
--- config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular", italic = false })
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold", italic = false })
-
--- config.font = wezterm.font("MesloLGS NF", { weight = "Regular", italic = false })
--- config.font = wezterm.font("ComicShannsMono", { weight = "Regular", italic = false })
--- config.font = wezterm.font("CommitMono Nerd Font", { weight = "Regular", italic = false })
--- config.font = wezterm.font("Geist-Thin", { weight = "Regular", italic = false })
--- config.font = wezterm.font("Monoid Nerd Font Mono", { weight = "Regular", italic = false })
-config.font_size = 13.0
-config.line_height = 1.1
 
 -- config.color_scheme = "Dracula"
 config.color_scheme = "Catppuccin Mocha"

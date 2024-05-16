@@ -1,0 +1,22 @@
+local wezterm = require('wezterm')
+--
+local fonts = {}
+
+font_size = 12.0
+line_height = 1.2
+weight = "Bold"
+fontName = "JetBrainsMono Nerd Font Mono"
+--fontName = "FiraCode Nerd Font Mono"
+--fontName = "MesloLGS NF"
+--fontName = "ComicShannsMono"
+--fontName = "CommitMono Nerd Font"
+--fontName = "Geist-Thin"
+--fontName = "Monoid Nerd Font Mono"
+
+function fonts.setup(config)
+    config.font = wezterm.font(fontName, { weight = weight })
+    config.font_size = font_size
+    config.line_height = line_height
+end
+
+return fonts
