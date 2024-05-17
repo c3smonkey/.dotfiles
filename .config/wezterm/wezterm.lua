@@ -8,6 +8,7 @@ local config = {}
 require("fonts").setup(config)
 require("background").setup(config)
 
+config.term = "screen-256color"
 
 -- config.color_scheme = "Dracula"
 config.color_scheme = "Catppuccin Mocha"
