@@ -44,6 +44,7 @@ Customize                           = {
     ["limelight.vim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     ["mini.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+    ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
   },
 }
 
