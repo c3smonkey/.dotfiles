@@ -99,7 +99,7 @@ resize < right : yabai -m window --resize right:50:0; yabai -m window --resize l
 
 # === Launch Commands ===
 # Warp
-alt + shift + cmd - 1 : osascript -e "tell application \"Warp\" to activate"
+alt + shift + cmd - 1 : osascript -e "tell application \"Wezterm\" to activate"
 # Intellij
 alt + shift + cmd - 2 : osascript -e "tell application \"/Users/$USER/Applications/IntelliJ IDEA Ultimate.app\" to activate"
 # Safari
