@@ -161,7 +161,7 @@ return {
 
                 ["golps"] = function()
                     -- configure lua server (with special settings)
-                    lspconfig["kotlin_language_server"].setup({
+                    lspconfig["golps"].setup({
                         capabilities = capabilities,
                         cmd = { "golps" },
                         filetypes = { "go", "gomod", "gowork", "gotmpl" },
