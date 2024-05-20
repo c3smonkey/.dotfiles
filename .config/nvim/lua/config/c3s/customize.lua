@@ -14,14 +14,12 @@ Customize                           = {
         ["Comment.nvim"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["diffview.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["dressing.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["friendly-snippets"]           = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["fzf.vim"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["gitsigns.nvim"]               = { enabled = true,  default     = { opts = false, config = true, keys = false }},
         ["harpoon"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["indent-blankline"]            = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
         ["lazygit.nvim"]                = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["lualine.nvim"]                = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
-        ["LuaSnip"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["neo-tree.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true }},
         ["markdown-preview.nvim"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["noice.nvim"]                  = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
@@ -46,6 +44,7 @@ Customize                           = {
         ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-autopairs"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
