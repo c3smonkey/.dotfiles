@@ -11,7 +11,6 @@ Customize                           = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
         ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
         ["nvim-asciidoc-preview"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
-        ["Comment.nvim"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["diffview.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["dressing.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["fzf.vim"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
