@@ -13,6 +13,7 @@ return {
         "saadparwaiz1/cmp_luasnip", -- for autocompletion
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "rafamadriz/friendly-snippets", -- useful snippets
+        { "roobert/tailwindcss-colorizer-cmp.nvim", config = true }, --  vs-code-style TailwindCSS color hints t
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
@@ -20,6 +21,11 @@ return {
         },
     },
     config = function()
+        -- configure tailwindcss-colorizer-cmp
+        require("tailwindcss-colorizer-cmp").setup({
+            color_square_width = 2,
+        })
+
         local luasnip = require("luasnip")
         local cmp = require("cmp")
         local lspkind = require("lspkind")
@@ -52,7 +58,6 @@ return {
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
             }),
-
             -- configure lspkind for vs-code like pictograms in completion menu
             formatting = {
                 format = lspkind.cmp_format({

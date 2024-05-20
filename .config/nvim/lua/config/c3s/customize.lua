@@ -42,8 +42,11 @@ Customize                           = {
         ["mini.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-autopairs"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
