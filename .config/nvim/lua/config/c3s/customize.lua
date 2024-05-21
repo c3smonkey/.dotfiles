@@ -8,7 +8,7 @@ local Customize = {}
 --      keys:       keybindings for the plugin
 Customize                           = {
     plugins                           = {
-        ["catppuccin"]                  = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
+        ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
         ["nvim-asciidoc-preview"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["diffview.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = false }},

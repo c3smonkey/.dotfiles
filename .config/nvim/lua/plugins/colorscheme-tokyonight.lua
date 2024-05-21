@@ -24,10 +24,6 @@ return {
             local fg_gutter = "#627E97"
             local border = "#547998"
 
-
-
-
-
             require("tokyonight").setup({
                 style = "night",
                 transparent = transparent,

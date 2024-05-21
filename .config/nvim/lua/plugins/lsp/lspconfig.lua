@@ -59,14 +59,13 @@ return {
         end
 
         mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,
                 })
             end,
+
             ["kotlin_language_server"] = function()
-                -- configure kotlin language server
                 lspconfig["kotlin_language_server"].setup({
                     capabilities = capabilities,
                     cmd = { "kotlin-language-server" },
@@ -79,12 +78,10 @@ return {
             end,
 
             ["lua_ls"] = function()
-                -- configure lua server (with special settings)
                 lspconfig["lua_ls"].setup({
                     capabilities = capabilities,
                     settings = {
                         Lua = {
-                            -- make the language server recognize "vim" global
                             diagnostics = {
                                 globals = { "vim" },
                             },
@@ -96,7 +93,6 @@ return {
                 })
             end,
 
-
             ["golps"] = function()
                 lspconfig["golps"].setup({
                     capabilities = capabilities,
@@ -106,31 +102,7 @@ return {
                     on_attach = function(bufnr)
                         local opts = { noremap = true, silent = true, buffer = bufnr }
                     end,
-                    settings = {
-                        gopls = {
-                            completionDocumentation = true,
-                            usePlaceholders = true,
-                            staticcheck = true,
-                            analyses = {
-                                unusedparams = true,
-                                shadow = true,
-                                unusedwrite = true,
-                                misspell = true,
-                                unusedresult = true,
-                                undeclaredname = true,
-                                unusedexports = true,
-                                nonewvars = true,
-                                unusedconsts = true,
-                                unusedstructfield = true,
-                                unusedvar = true,
-                                unusedtype = true,
-                                unusedfuncs = true,
-                                unusedmethods = true,
-                                unusedfields = true,
-                                unusedcomposites = true,
-                            },
-                        },
-                    },
+                    settings = {},
                 })
             end,
         })
