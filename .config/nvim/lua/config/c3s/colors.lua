@@ -1,4 +1,3 @@
---return {}
  return {
    rosewater = "#f9555f",
    flamingo = "#fa8c8f",

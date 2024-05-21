@@ -12,6 +12,4 @@ return {
     "BufEnter *.ts",
     "BufEnter *.kt",
   },
-
 }
-
