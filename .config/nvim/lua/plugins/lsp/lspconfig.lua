@@ -93,18 +93,26 @@ return {
                 })
             end,
 
+
             ["golps"] = function()
                 lspconfig["golps"].setup({
                     capabilities = capabilities,
                     cmd = { "golps" },
                     filetypes = { "go", "gomod", "gowork", "gotmpl" },
                     root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-                    on_attach = function(bufnr)
-                        local opts = { noremap = true, silent = true, buffer = bufnr }
-                    end,
-                    settings = {},
+                    settings = {
+                        gopls = {
+                            codelenses = {
+                                generate = true,
+                                gc_details = true,
+                                test = true,
+                                tidy = true,
+                            },
+                        },
+                    },
                 })
             end,
+
         })
     end,
 }

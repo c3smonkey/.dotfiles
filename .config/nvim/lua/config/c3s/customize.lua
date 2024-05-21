@@ -48,8 +48,8 @@ Customize                           = {
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["vim-test"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["lsp-zero.nvim"]               = { enabled = false,  default    = { opts = true,  config = true, keys = true  }},
-        ["go.nvim"]                      = { enabled = true,  default    = { opts = true,  config = true, keys = true  }},
+        ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["go.nvim"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
     }
 }
 

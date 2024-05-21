@@ -62,7 +62,6 @@ return {
         if Use_Default_Opts(plugin) then
             opts = opts
         else
-            -- {{{ Cmdline
             opts.cmdline = {
                 enabled = true,
                 --view = "cmdline",
@@ -85,9 +84,6 @@ return {
                     input = {},
                 },
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Commands
             opts.commands = {
                 all = {
                     view = "split",
@@ -95,9 +91,6 @@ return {
                     filter = {},
                 },
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ LSP
             opts.lsp = {
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -105,9 +98,6 @@ return {
                     ["cmp.entry.get_documentation"] = true,
                 },
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Messages
             opts.messages = {
                 enabled = true,
                 view = "mini",
@@ -116,25 +106,16 @@ return {
                 view_history = "messages",
                 view_search = "virtualtext",
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Notify
             opts.notify = {
                 enabled = true,
                 view = "notify"
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Popupmenu
             opts.popupmenu = {
                 enabled = true,
                 backend = "nui",
                 scrollbar = false,
                 -- kind_icons = {},
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Presets
             opts.presets = {
                 bottom_search = false,
                 command_palette = false,
@@ -142,16 +123,10 @@ return {
                 inc_rename = true,
                 lsp_doc_border = true,
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Redirect
             opts.redirect = {
                 view = "mini",
                 filter = { event = "msg_show" },
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Routes
             opts.routes = {
                 {
                     filter = {
@@ -166,7 +141,6 @@ return {
                     },
                     opts = { skip = true },
                 },
-
                 {
                     filter = {
                         event = "msg_show",
@@ -178,7 +152,6 @@ return {
                     },
                     opts = { skip = true },
                 },
-
                 {
                     filter = {
                         event = "msg_show",
@@ -186,7 +159,6 @@ return {
                     },
                     opts = { skip = true },
                 },
-
                 {
                     filter = {
                         event = "notify",
@@ -194,7 +166,6 @@ return {
                     },
                     opts = { skip = true },
                 },
-
                 {
                     filter = {
                         event = "notify",
@@ -204,16 +175,13 @@ return {
                 },
 
             }
-
-            -- --------------------------------------------------------------------- }}}
-            -- {{{ Views
             opts.views = {
-                -- cmdline_popup = {
-                --   win_options = {
-                --     winblend = 0,
-                --   },
-                --   scrollbar = false,
-                -- },
+                cmdline_popup = {
+                  win_options = {
+                    winblend = 0,
+                  },
+                  scrollbar = false,
+                },
 
                 mini = {
                     win_options = {
