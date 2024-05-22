@@ -8,8 +8,21 @@ return {
     enabled = Is_Enabled(plugin),
 
     dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
+        { "MunifTanjim/nui.nvim" },
+        {
+            "rcarriga/nvim-notify",
+            opts = {
+                timeout = 5000,
+                background_colour = "#000000",
+                render = "wrapped-compact",
+                icons = {
+                    ERROR = "",
+                    WARN = "",
+                    INFO = "",
+                    DEBUG = "",
+                },
+            },
+        },
     },
 
     ---@class NoiceConfig
@@ -31,6 +44,12 @@ return {
                         },
                     },
                     cmdline_popupmenu = {
+                        position = {
+                            row = 7,
+                            col = "55%",
+                        },
+                    },
+                    cmdline_popupmenu_filter = {
                         position = {
                             row = 7,
                             col = "55%",
