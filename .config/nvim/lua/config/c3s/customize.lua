@@ -52,7 +52,6 @@ Customize                           = {
         ["go.nvim"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
         ["nvim-spectre"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["vim-maximizer"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["LuaSnip"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
