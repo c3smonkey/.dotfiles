@@ -9,6 +9,6 @@ return {
 		event = "VeryLazy",
 		enabled = Is_Enabled(plugin),
 	}
--- TODO> add copilot keybindings and chat
+-- TODO: add copilot keybindings and chat
 }
 
