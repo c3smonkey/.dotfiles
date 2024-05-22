@@ -50,6 +50,7 @@ Customize                           = {
         ["vim-test"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
         ["go.nvim"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-spectre"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
