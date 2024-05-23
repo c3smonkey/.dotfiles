@@ -4,7 +4,6 @@ local plugin = "nvim-cmp"
 
 return {
     {
-
         "hrsh7th/" .. plugin,
         enabled = Is_Enabled(plugin),
         event = "InsertEnter",
@@ -16,13 +15,6 @@ return {
             { "onsails/lspkind.nvim" }, -- vs-code like pictograms
             { "rafamadriz/friendly-snippets" }, -- useful snippets
             { "roobert/tailwindcss-colorizer-cmp.nvim", config = true }, --  vs-code-style TailwindCSS color hints t
-           --[[
-            {
-                "L3MON4D3/LuaSnip",
-                version = "v2.*",
-                build = "make install_jsregexp",
-            },
-            ]]
         },
 
         config = function()
@@ -83,14 +75,14 @@ return {
         dependencies = { "saadparwaiz1/cmp_luasnip" },
         keys = {
             {
-                "<leader><leader>;",
+                "<c-l>",
                 function() require("luasnip").jump(1) end,
                 desc = "Jump forward a snippet placement",
                 mode = "i",
                 noremap = true,
                 silent = true
             }, {
-                "<leader><leader>,",
+                "<c-h>",
                 function() require("luasnip").jump(-1) end,
                 desc = "Jump backward a snippet placement",
                 mode = "i",
@@ -99,7 +91,7 @@ return {
             }
         },
         config = function()
-            require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})
-        end
+            require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
+         end
     }
 }
