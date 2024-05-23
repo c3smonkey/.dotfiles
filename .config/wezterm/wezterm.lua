@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 
-
 wezterm.enable_osc8_hyperlink = true
 
 local config = {}
@@ -22,6 +21,12 @@ config.default_cursor_style = "SteadyUnderline"
 config.window_decorations = "RESIZE"
 -- config.window_close_confirmation = "AlwaysPrompt"
 config.window_close_confirmation = 'NeverPrompt'
+config.window_padding = {
+	left = 20,
+	right = 20,
+	top = 20,
+	bottom = 20,
+}
 
 
 return config
