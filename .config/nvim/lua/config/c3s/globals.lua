@@ -1,5 +1,5 @@
 Constants = require("config.c3s.constants")
-Customize = require("config.c3s.customize")
+Customize = require("config.c3s.configure-plugin")
 
 Keymap = require("config.c3s.functions.keymap").keymap
 In_Tmux = require("config.c3s.functions.plugins").in_tmux

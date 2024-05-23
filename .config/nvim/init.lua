@@ -9,4 +9,4 @@ require("config.c3s.bootstrap")
 require("config.lazy")
 
 -- Apply  customizations.
-require("config.customize")
+require("config.configure")

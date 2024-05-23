@@ -1,5 +1,5 @@
 --TODO: RENAME ME
-local Customize = {}
+local ConfigurePlugin = {}
 
 -- @formatter:off
 -- enabled:         enable or disable the plugin
@@ -7,7 +7,7 @@ local Customize = {}
 --      opts:       options for the plugin
 --      config:     configuration for the plugin
 --      keys:       keybindings for the plugin
-Customize                           = {
+ConfigurePlugin                           = {
     plugins                           = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
@@ -56,30 +56,4 @@ Customize                           = {
     }
 }
 
--- @formatter:on
-function Customize.in_tmux()
-    return os.getenv("TMUX") ~= nil
-end
-
-function Customize.use_default_opts(plugin)
-    return Customize.plugins[plugin].default.opts or false
-end
-
-function Customize.use_default_config(plugin)
-    return Customize.plugins[plugin].default.config or false
-end
-
-function Customize.use_default_keys(plugin)
-    return Customize.plugins[plugin].default.keys or false
-end
-
-function Customize.is_enabled(plugin)
-    local status = Customize.plugins[plugin]
-    if status and status.enabled then
-        return true
-    else
-        return false
-    end
-end
-
-return Customize
+return ConfigurePlugin
