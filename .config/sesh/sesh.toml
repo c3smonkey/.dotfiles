@@ -39,7 +39,7 @@ startup_command = "vi sesh.toml"
 [[session]]
 name = "nvim config 󰛓"
 path = "~/.dotfiles/.config/nvim"
-startup_command = "vi +Explor"
+startup_command = "vi init.lua"
 
 [[session]]
 name = "skhd config 󰛓"
