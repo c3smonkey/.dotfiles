@@ -71,10 +71,16 @@ Keymap("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split window vertically" }
 
 -- INFO: b - Buffer adjustments.
 Keymap("n", "<leader>bx", "<cmd>bd<cr>", { desc = "[b]uffer close[x]" })
+
+Keymap("n", "<leader>bb", "<cmd>silent bn<cr>", { desc = "[b]uffer [b]ack" })
+Keymap("n", "<leader>bn", "<cmd>silent bp<cr>", { desc = "[b]uffer [n]next" })
+
 Keymap("n", "<Right>",":silent bn<CR> :redraw!<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<Left>",":silent bp<CR> :redraw!<cr>",{ desc = "[b]uffer [p]revious" })
+
 Keymap("n", "<Tab>","<cmd>bn<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<S-Tab>","<cmd>bp<cr>",{ desc = "[b]uffer [p]revious" })
+
 -- NOTE: Resize windows (CTR-OPT + hjkl)
 Keymap("n", "<C-A-h>", "<cmd>vertical resize +5<cr>", { desc = "[b]uffer resize - h" })
 Keymap("n", "<C-A-l>", "<cmd>vertical resize -5<cr>", { desc = "[b]uffer resize - l" })
