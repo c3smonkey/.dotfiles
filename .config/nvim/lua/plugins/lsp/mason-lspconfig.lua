@@ -17,6 +17,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "kotlin_language_server",
+				"marksman",
                 "gopls",
             },
         })
