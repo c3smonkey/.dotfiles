@@ -16,6 +16,11 @@ config.hide_tab_bar_if_only_one_tab = true
 config.hide_mouse_cursor_when_typing = true
 
 config.default_cursor_style = "SteadyUnderline"
+config.default_cursor_style = "BlinkingBlock"
+config.default_cursor_style = "BlinkingUnderline"
+config.default_cursor_style = "SteadyBar"
+config.default_cursor_style = "SteadyBlock"
+config.default_cursor_style = "BlinkingBar"
 
 -- config.window_decorations = "NONE"
 config.window_decorations = "RESIZE"
