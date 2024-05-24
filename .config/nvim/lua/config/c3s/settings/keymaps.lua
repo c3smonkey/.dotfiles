@@ -95,3 +95,14 @@ Keymap("n","<leader>1",":.!toilet -w 200 -f term -F border<CR>",{ desc = "Create
 Keymap("n","<leader>2",":.!toilet -w 200 -f standard<CR>",{ desc = "Create Ascii art font (standard)" })
 Keymap("n","<leader>3",":.!toilet -w 200 -f small<CR>",{ desc = "Create Ascii art font (small)" })
 
+-- INFO: spell keymaps - https://neovim.io/doc/user/spell.html
+Keymap("n", "z=", "<cmd>z=<cr>",  { desc = "Spell - Finding suggestions" })
+Keymap("n", "zW", "<cmd>zW'<cr>", { desc = "Spell - Mark word as bad in internal word list" })
+Keymap("n", "zG", "<cmd>zG'<cr>", { desc = "Spell - Add word to internal word list" })
+Keymap("n", "zw", "<cmd>zw'<cr>", { desc = "Spell - Mark word under cursor as bad" })
+Keymap("n", "zg", "<cmd>zg'<cr>", { desc = "Spell - Add word under cursor to good word list" })
+Keymap("n", "[r", "<cmd>[r'<cr>", { desc = "Spell - Move to previous rare word" })
+Keymap("n", "]r", "<cmd>]r'<cr>", { desc = "Spell - Move to next rare word" })
+Keymap("n", "[s", "<cmd>[s'<cr>", { desc = "Spell - Move to previous misspelled word" })
+Keymap("n", "]s", "<cmd>]s'<cr>", { desc = "Spell - Move to next misspelled word" })
+
