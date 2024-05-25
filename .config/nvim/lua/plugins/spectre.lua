@@ -11,7 +11,6 @@ return {
 		cmd = { "Spectre" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"catppuccin/nvim",
 		},
 		config = function()
 
