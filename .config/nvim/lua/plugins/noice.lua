@@ -8,24 +8,9 @@ return {
 	enabled = Is_Enabled(plugin),
 
 	dependencies = {
-		{ "MunifTanjim/nui.nvim" },
-		-- {
-		-- 	"rcarriga/nvim-notify",
-		-- 	opts = {
-		-- 		timeout = 5000,
-		-- 		background_colour = "#000000",
-		-- 		render = "wrapped-compact",
-		-- 		icons = {
-		-- 			ERROR = "",
-		-- 			WARN = "",
-		-- 			INFO = "",
-		-- 			DEBUG = "",
-		-- 		},
-		-- 	},
-		-- },
+		 "MunifTanjim/nui.nvim"
 	},
 
-	---@class NoiceConfig
 	opts = function(_, opts)
 		if Use_Default_Opts(plugin) then
 			opts = opts
