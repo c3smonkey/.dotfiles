@@ -50,7 +50,7 @@ return {
                     vim.cmd(":Neotree close")
                     neotree_open = false
                 else
-                    vim.cmd(":Neotree current filesystem reveal left")
+                    vim.cmd(":Neotree current filesystem reveal right")
                     neotree_open = true
                 end
             end, { desc = "[E]xplor[e]r" })
