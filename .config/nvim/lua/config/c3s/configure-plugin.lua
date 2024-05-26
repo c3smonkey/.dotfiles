@@ -8,7 +8,7 @@ local ConfigurePlugin = {}
 --      config:     configuration for the plugin
 --      keys:       keybindings for the plugin
 ConfigurePlugin                           = {
-    plugins                           = {
+    plugins                             = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
         ["nvim-asciidoc-preview"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
@@ -43,19 +43,20 @@ ConfigurePlugin                           = {
         ["limelight.vim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mini.nvim"]                   = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-spectre"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["vim-maximizer"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["LuaSnip"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-autopairs"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["vim-test"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
         ["go.nvim"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["nvim-spectre"]                = { enabled = false, default     = { opts = true,  config = true, keys = true  }}, -- TODO: some strange styling issues
-        ["vim-maximizer"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["neotest"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
-        ["LuaSnip"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["vim-go"]                      = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["neotest"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
     }
 }
 

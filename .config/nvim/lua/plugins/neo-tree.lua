@@ -50,11 +50,11 @@ return {
                     vim.cmd(":Neotree close")
                     neotree_open = false
                 else
-                    vim.cmd(":Neotree current filesystem reveal right")
+                    vim.cmd(":Neotree current filesystem reveal left")
                     neotree_open = true
                 end
-            end, { desc = "[E]xplor[e]r" })
-            vim.keymap.set("n", "<leader>eb", ":Neotree buffers reveal float<CR>", { desc = "[E]xplorer [B]uffers" })
+            end, { desc = "[e]xplor[e]r" })
+            vim.keymap.set("n", "<leader>eb", ":Neotree buffers reveal float<CR>", { desc = "[e]xplorer [b]uffers" })
         end,
     }
 }
