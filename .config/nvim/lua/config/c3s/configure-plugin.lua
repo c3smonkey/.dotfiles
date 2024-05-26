@@ -55,6 +55,7 @@ ConfigurePlugin                           = {
         ["nvim-spectre"]                = { enabled = false, default     = { opts = true,  config = true, keys = true  }}, -- TODO: some strange styling issues
         ["vim-maximizer"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["neotest"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["LuaSnip"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
