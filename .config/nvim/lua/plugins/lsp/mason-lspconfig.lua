@@ -17,9 +17,10 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "kotlin_language_server",
-				"marksman",
+                "marksman",
                 "gopls",
             },
+            automatic_installation = true,
         })
 
         mason_tool_installer.setup({
@@ -37,7 +38,8 @@ return {
                 "goimports",
                 "goimports-reviser",
                 "gomodifytags",
-            }
+            },
+            automatic_installation = true,
         })
     end,
 }

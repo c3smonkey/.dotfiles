@@ -7,7 +7,7 @@ local ConfigurePlugin = {}
 --      opts:       options for the plugin
 --      config:     configuration for the plugin
 --      keys:       keybindings for the plugin
-ConfigurePlugin                           = {
+ConfigurePlugin                         = {
     plugins                             = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
@@ -45,18 +45,19 @@ ConfigurePlugin                           = {
         ["oil.nvim"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-spectre"]                = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["vim-maximizer"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["LuaSnip"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-autopairs"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["refactoring"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["plantuml-syntax"]             = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["vim-test"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["go.nvim"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["vim-go"]                      = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["neotest"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
-        ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["vim-test"]                    = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["go.nvim"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["vim-go"]                      = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["neotest"]                     = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
