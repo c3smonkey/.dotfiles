@@ -8,10 +8,7 @@ ialias zrd="zoxide remove $1"
 ialias ze="zoxide edit"
 ialias zad="/bin/ls -d */ | xargs -I {} zoxide add {}"
 
-# Go
-alias cobra="cobra-cli"
-
-# Unixk
+# Unix
 alias v='nvim'
 ialias vi='nvim'
 alias vim='nvim'
@@ -19,8 +16,6 @@ ialias v.='nvim .'
 ialias vi.='nvim .'
 alias -g V='| vim -'
 alias vf='nvim -c ":Telescope find_files"'
-
-
 
 alias rp='realpath'
 alias pwdc='pwd | pbcopy'
@@ -54,6 +49,7 @@ alias pip="pip3"
 alias mon="bpytop"
 alias task="taskell"
 alias i="idea"
+alias i.="idea ."
 
 # LSD
 alias ls="lsd"
@@ -226,6 +222,8 @@ alias kru='k rollout undo'
 alias ksd='k scale deployment'
 alias ksss='k scale statefulset'
 
+# Go
+alias cobra="cobra-cli"
 
 ## completion
 compctl -g "*.go" gofmt # standard go tools
