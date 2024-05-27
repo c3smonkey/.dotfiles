@@ -10,7 +10,7 @@ local ConfigurePlugin = {}
 ConfigurePlugin                         = {
     plugins                             = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["tokyonight.nvim"]             = { enabled = true,  default     = { opts = false, config = false,keys = true  }},
+        ["tokyonight.nvim"]             = { enabled = false,  default     = { opts = false, config = false,keys = true  }},
         ["nvim-asciidoc-preview"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["diffview.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["dressing.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
@@ -23,7 +23,7 @@ ConfigurePlugin                         = {
         ["neo-tree.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["markdown-preview.nvim"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["noice.nvim"]                  = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
-        ["nvim-notify"]                 = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["nvim-notify"]                 = { enabled = false, default     = { opts = true,  config = true, keys = true  }}, -- disable to enable mini noice
         ["nvim-treesitter"]             = { enabled = true,  default     = { opts = false, config = true, keys = true  }},
         ["nvim-surround"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["telescope.nvim"]              = { enabled = true,  default     = { opts = false, config = false,keys = false }},
