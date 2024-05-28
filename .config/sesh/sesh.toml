@@ -54,7 +54,7 @@ startup_command = "vi yabairc"
 
 [[session]]
 name = "zettelkasten "
-path = "~/git/zettelkasten"
+path = "~/git/github/marzelwidmer/zettelkasten"
 startup_command = "vi +Explor"
 
 [[session]]
