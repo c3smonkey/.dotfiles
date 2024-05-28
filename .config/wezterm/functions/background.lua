@@ -4,18 +4,13 @@
 -- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/lines.gif"
 -- config.window_background_image = os.getenv("HOME") .. "/.config/wezterm/gif/blob_blue.gif"
 
+local wallpapers = {}
+local numWallpapers = 12 -- Total number of wallpapers
 
-local wallpapers = {
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/1_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/2_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/3_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/4_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/5_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/6_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/7_background.jpeg" },
-    { path = os.getenv("HOME") .. "/.config/wezterm/jpeg/8_background.jpeg" },
-}
+for i = 1, numWallpapers do
+    local imagePath = os.getenv("HOME") .. "/.config/wezterm/jpeg/" .. i .. "_background.jpeg"
+    wallpapers[i] = { path = imagePath }
+end
 
 function getImageNumber(imagePath)
     local imageName = imagePath:match(".*/([^/]+)$")
@@ -23,7 +18,6 @@ function getImageNumber(imagePath)
     return imageNumber
 end
 
--- Function to select a random image
 function getRandomImage()
     math.randomseed(os.time())
 
@@ -44,3 +38,4 @@ function getRandomImage()
 end
 
 return getRandomImage()
+

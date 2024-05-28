@@ -33,5 +33,4 @@ config.window_padding = {
 	bottom = 20,
 }
 
-
 return config
