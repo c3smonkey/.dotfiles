@@ -17,6 +17,8 @@ ialias vi.='nvim .'
 alias -g V='| vim -'
 alias vf='nvim -c ":Telescope find_files"'
 
+alias lp='lsof -ti'
+
 alias rp='realpath'
 alias pwdc='pwd | pbcopy'
 alias psj='ps aux | grep "[j]ava"'
