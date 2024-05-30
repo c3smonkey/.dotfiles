@@ -9,6 +9,7 @@ startup_command = "nvim -c ':Telescope find_files'"
 [[session]]
 name = "dotfiles  "
 path = "~/.dotfiles"
+startup_command = "lla"
 # startup_command = "~/.config/sesh/startup.sh"
 
 [[session]]
@@ -19,7 +20,8 @@ startup_command = "yazi"
 [[session]]
 name = "git  "
 path = "~/git"
-startup_command = "lla"
+startup_command = "vi +Explor"
+
 
 [[session]]
 name = "tmux config  "
@@ -55,7 +57,8 @@ startup_command = "vi yabairc"
 [[session]]
 name = "zettelkasten "
 path = "~/git/github/marzelwidmer/zettelkasten"
-startup_command = "vi +Explor"
+startup_command = "nvim -c ':Telescope grep_string'"
+# startup_command = "vi +Explor"
 
 [[session]]
 name = "Downloads "
