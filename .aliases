@@ -16,9 +16,7 @@ ialias v.='nvim .'
 ialias vi.='nvim .'
 alias -g V='| vim -'
 alias vf='nvim -c ":Telescope find_files"'
-
 alias lp='lsof -ti'
-
 alias rp='realpath'
 alias pwdc='pwd | pbcopy'
 alias psj='ps aux | grep "[j]ava"'
@@ -28,7 +26,7 @@ alias -g md='mkdir -p'
 alias -g rd='rm -r'
 alias -g rdf='rm -rf'
 
-ialias zet='note' # zettelkasten see zsh/plugins/custom/note.zsh
+ialias zet='zettelkasten' # zettelkasten see zsh/plugins/custom/note.zsh
 
 alias -g s1='sleep 1'
 alias -g s2='sleep 2'

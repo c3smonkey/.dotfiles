@@ -26,8 +26,8 @@ source "$HOME/.dotfiles/zsh/plugins/github/copilot-plugin.zsh"
 
 # INFO: Custom Plugins
 source "$HOME/.dotfiles/zsh/plugins/custom/alias.zsh"
-source "$HOME/.dotfiles/zsh/plugins/custom/note.zsh"
-source "$HOME/.dotfiles/zsh/plugins/custom/take.zsh"
+source "$HOME/.dotfiles/zsh/plugins/custom/zettelkasten.zsh"
+source "$HOME/.dotfiles/zsh/plugins/custom/createDirAndFollow.zsh"
 source "$HOME/.dotfiles/zsh/plugins/custom/sourceIfExists.zsh"
 source "$HOME/.dotfiles/zsh/plugins/custom/vi-mode.zsh"
 
