@@ -26,6 +26,7 @@ alias psj='ps aux | grep "[j]ava"'
 ialias mdf="createDirAndFollow"
 alias -g md='mkdir -p'
 alias -g rd='rm -r'
+alias -g rdf='rm -rf'
 
 ialias zet='note' # zettelkasten see zsh/plugins/custom/note.zsh
 
@@ -35,6 +36,7 @@ alias -g s01='sleep 0.1'
 alias -g s05='sleep 0.5'
 ialias -g grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
+alias -g G='| grep'
 alias -g Fj='| jq .'
 alias -g Fy='| yq .'
 alias -g b64d='| base64 -d'
