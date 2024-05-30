@@ -20,7 +20,7 @@ startup_command = "yazi"
 [[session]]
 name = "git  "
 path = "~/git"
-startup_command = "vi +Explor"
+startup_command = "nvim -c ':Lexplore'"
 
 
 [[session]]
