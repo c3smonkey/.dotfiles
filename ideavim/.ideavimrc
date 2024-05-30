@@ -39,11 +39,7 @@ nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
 nnoremap <C-S-k>      		:action StretchSplitToTop<CR>
 nnoremap <C-S-l>      		:action StretchSplitToRight<CR>
-nnoremap <leader>so 		:action ChangeSplitOrientation<CR>
 
-let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>so Change Split Orientation"
-nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
-let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
 
 nnoremap <TAB> 		  		:action PreviousTab<CR>
 nnoremap <s-TAB> 	  		:action NextTab<CR>
@@ -95,6 +91,8 @@ nnoremap <leader>ga 		:action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
 nnoremap <leader>gr 		:action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
+
+
 "--------------------------------------------------------------------------------------------
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
 "--------------------------------------------------------------------------------------------
@@ -114,33 +112,41 @@ nnoremap <leader>wm 		:action ActivateMavenToolWindow<CR>
 let g:WhichKeyDesc_ActivateMavenToolWindow= "<leader>wm Activate Run Maven Window"
 nnoremap <leader>ws 		:action ActivateServicesToolWindow<CR>
 let g:WhichKeyDesc_ActivateServicesToolWindow = "<leader>ws Activate Services Tool Window"
-
+nnoremap <leader>wo 		:action ChangeSplitOrientation<CR>
+let g:WhichKeyDesc_ChangeSplitOrientation= "<leader>wo Change Split Orientation"
+nnoremap <leader>sm 		:action MaximizeEditorInSplit<CR>
+let g:WhichKeyDesc_MaximizeEditorInSplit= "<leader>sm Maximize Editor in Split"
 
 "--------------------------------------------------------------------------------------------
 """" Jump to                                                                       <leader> j
 "--------------------------------------------------------------------------------------------
-noremap <leader>js 			:action GotoSymbol<CR>
-let g:WhichKeyDesc_GotoSymbol = "<leader>js Jump to Symbol"
-noremap <leader>jc 			:action GotoClass<CR>
-let g:WhichKeyDesc_GotoClass = "<leader>jc Jump to Class"
-noremap <leader>ja 			:action GotoAction<CR>
-let g:WhichKeyDesc_GotoActions = "<leader>ja Jump to GotoAction"
-noremap <leader>jf 			:action GotoFile<CR>
-let g:WhichKeyDesc_GotoFile = "<leader>jf Jump to GotoFile"
-noremap <leader>jr 			:action RecentFiles<CR>
-let g:WhichKeyDesc_RecentFiles = "<leader>jr Jump to RecentFiles"
 noremap <leader>jl 			:action RecentLocations<CR>
 let g:WhichKeyDesc_RecentLocations = "<leader>jl Jump to RecentLocations"
 
+--------------------------------------------------------------------------------------------
+"""" Search                                                                        <leader> s
 "--------------------------------------------------------------------------------------------
-"""" Find                                                                          <leader> f
+noremap <leader>sg 			:action FindInPath<CR>
+let g:WhichKeyDesc_FindInPath = "<leader>sg [s]earch by [g]rep"
+nnoremap <leader>sa 		:action SearchEverywhere<CR>
+let g:WhichKeyDesc_SearchEverywhere= "<leader>sa [s]earch [a]ll"
+noremap <leader>ss 			:action GotoSymbol<CR>
+let g:WhichKeyDesc_GotoSymbol = "<leader>ss [s]earch [s]ymbol"
+noremap <leader>sc 			:action GotoClass<CR>
+let g:WhichKeyDesc_GotoClass = "<leader>sc [s]earch [c]lass"
+noremap <leader>sa 			:action GotoAction<CR>
+let g:WhichKeyDesc_GotoActions = "<leader>sa [s]earch [a]ction"
+noremap <leader>sf 			:action GotoFile<CR>
+let g:WhichKeyDesc_GotoFile = "<leader>sf [s]earch [f]ile"
+noremap <leader>sr 			:action RecentFiles<CR>
+let g:WhichKeyDesc_RecentFiles = "<leader>sr [s]earch [r]ecent files"
+
 "--------------------------------------------------------------------------------------------
-noremap <leader>fs 			:action FindInPath<CR>
-let g:WhichKeyDesc_FindInPath = "<leader>fs find string"
-nnoremap <leader>ff 		:action SearchEverywhere<CR>
-let g:WhichKeyDesc_SearchEverywhere= "<leader>ff Fuzzy find"
-noremap <leader>fr 			:action ReplaceInPath<CR>
-let g:WhichKeyDesc_ReplaceInPath= "<leader>fr Replace in Path/File"
+"""" Search                                                                        <leader> r
+"--------------------------------------------------------------------------------------------
+noremap <leader>rf 			:action ReplaceInPath<CR>
+let g:WhichKeyDesc_ReplaceInPath= "<leader>[r]eplace in [f]iles"
+
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
 "--------------------------------------------------------------------------------------------
@@ -150,24 +156,6 @@ nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
 nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-nnoremap gb 				:action Back<CR>
-let g:WhichKeyDesc_Back= "gb Go Back"
-nnoremap gf 				:action Forward<CR>
-let g:WhichKeyDesc_Forward= "gf Go Forward"
-nnoremap ge 				:action GotoNextError<CR>
-let g:WhichKeyDesc_GotoNextError= "ge Go to Next Error"
-nnoremap gE 				:action GotoPreviousError<CR>
-let g:WhichKeyDesc_GotoPreviousError= "gE Go to Previous Error"
-nnoremap gu 				:action FindUsages<CR>
-let g:WhichKeyDesc_FindUsages = "gu Go to Usages"
-"--------------------------------------------------------------------------------------------
-"""" Run Code and Debug and Code Formatting etc                                             ,
-:"--------------------------------------------------------------------------------------------
-nnoremap ,ra 				:action RunAnything<CR>
-let g:WhichKeyDesc_RunAnything = ",ra Run Anything"
-nnoremap ,r 				:action Run<CR>
-let g:WhichKeyDesc_Run = ",r Run"
-nnoremap ,rr 				:action Rerun<CR>
 let g:WhichKeyDesc_Rerun = ",rr Rerun"
 nnoremap ,R 				:action ChooseRunConfiguration<CR>
 let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
@@ -303,11 +291,11 @@ Plug 'easymotion/vim-easymotion'
 " Basic Commands:
 "   easy-motion-s Search backward
 "   easy-motion-f Search forward
-map <leader>s <Plug>(easymotion-f)
-let g:WhichKeyDesc_EasyMotion_f = "<leader>s Search forward with EasyMotion"
+map ,s <Plug>(easymotion-f)
+let g:WhichKeyDesc_EasyMotion_f = ",s [s]earch forward"
 
-map <leader>S <Plug>(easymotion-s)
-let g:WhichKeyDesc_EasyMotion_s = "<leader>S Search backward with EasyMotion"
+map ,S <Plug>(easymotion-s)
+let g:WhichKeyDesc_EasyMotion_s = ",S [S]earch backward"
 
 
 
