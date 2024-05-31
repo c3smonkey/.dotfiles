@@ -156,12 +156,19 @@ nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
 nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-let g:WhichKeyDesc_Rerun = ",rr Rerun"
+
+
+"--------------------------------------------------------------------------------------------
+"""" Code                                                                                   ,
+"--------------------------------------------------------------------------------------------
+nnoremap ,rr 				:action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",rr [r]e[r]un"
 nnoremap ,R 				:action ChooseRunConfiguration<CR>
 let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
 nnoremap ,rs 				:action Stop<CR>
 let g:WhichKeyDesc_Stop = ",rs Stop"
 " Debug
+
 nnoremap ,d 				:action Debug<CR>
 let g:WhichKeyDesc_Debug = ",d Debug"
 nnoremap ,D 				:action ChooseDebugConfiguration<CR>
@@ -203,6 +210,8 @@ noremap <leader>dt			:action StepOut<CR>
 let g:WhichKeyDesc_StepOut= "<leader>dt StepOut"
 noremap <leader>ds			:action Stop<CR>
 let g:WhichKeyDesc_Stop= "<leader>ds Stop"
+nnoremap <leader>dc 				:action ChooseDebugConfiguration<CR>
+let g:WhichKeyDesc_ChooseDebugConfiguration= "<leader>dc Choose Debug Configuration"
 "--------------------------------------------------------------------------------------------
 " vnoremap < <gv: This mapping is for shifting the selected block of text to the left
 vnoremap < <gv
