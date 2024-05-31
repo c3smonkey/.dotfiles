@@ -145,7 +145,7 @@ let g:WhichKeyDesc_RecentFiles = "<leader>sr [s]earch [r]ecent files"
 """" Search                                                                        <leader> r
 "--------------------------------------------------------------------------------------------
 noremap <leader>rf 			:action ReplaceInPath<CR>
-let g:WhichKeyDesc_ReplaceInPath= "<leader>[r]eplace in [f]iles"
+let g:WhichKeyDesc_ReplaceInPath= "<leader>rf [r]eplace in [f]iles"
 
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
@@ -253,8 +253,6 @@ set surround
 "   dst  Delete surroundings tag
 "   ys   Surround text object
 
-
-
 "--------------------------------------------------------------------------------------------
 """ argtextobj plugin
 "--------------------------------------------------------------------------------------------
@@ -266,8 +264,6 @@ let g:argtextobj_pairs="[:],(:),<:>"
 "   cia   Change inner argument.
 "   via   Select inner argument.
 
-
-
 "--------------------------------------------------------------------------------------------
 """ exchange plugin
 "--------------------------------------------------------------------------------------------
@@ -278,8 +274,6 @@ Plug 'tommcdo/vim-exchange'
 "   cx    First use to define the exchange, second use defines the second and exchange
 "   cxx   Like cx for an entire line
 "   X     Like cx for visual mode
-
-
 
 "--------------------------------------------------------------------------------------------
 """ easy motion plugin
@@ -297,8 +291,6 @@ let g:WhichKeyDesc_EasyMotion_f = ",s [s]earch forward"
 map ,S <Plug>(easymotion-s)
 let g:WhichKeyDesc_EasyMotion_s = ",S [S]earch backward"
 
-
-
 "--------------------------------------------------------------------------------------------
 """ commentary plugin
 "--------------------------------------------------------------------------------------------
@@ -310,8 +302,6 @@ Plug 'tpope/vim-commentary'
 "   gc      in visual mode to comment out the selection
 "   gcu     custom mapping to comment out a line
 "--------------------------------------------------------------------------------------------
-
-
 
 "--------------------------------------------------------------------------------------------
 """ multiple-cursors plugin
@@ -336,8 +326,6 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 
-
-
 "--------------------------------------------------------------------------------------------
 """ NERDTree plugin
 "--------------------------------------------------------------------------------------------
@@ -359,17 +347,12 @@ Plug 'preservim/nerdtree'
 map <leader>ee :NERDTreeToggle<CR>
 nmap <C-h> :NERDTreeFocus<CR>
 
-
-
 "--------------------------------------------------------------------------------------------
 """ vim-highlightedyank plugin
 "--------------------------------------------------------------------------------------------
 "   https://github.com/machakann/vim-highlightedyank
 Plug 'machakann/vim-highlightedyank'
 " This plugin doesn't provide any commands or mappings, but it automatically highlights yanked text.
-
-
-
 
 "--------------------------------------------------------------------------------------------
 """ vim-indent-object plugin
