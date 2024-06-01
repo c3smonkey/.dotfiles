@@ -1,10 +1,8 @@
--- local backgroundImage = 
-
 local background = {}
 
 function background.setup(config)
 
-	config.window_background_image =require("functions.background")
+	-- config.window_background_image = require("functions.background")
 	config.window_background_image_hsb = {
 		brightness = 0.01,
 		hue = 1.0,
