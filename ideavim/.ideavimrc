@@ -27,13 +27,21 @@ nnoremap \r 				:action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <c-z> 				:action ToggleDistractionFreeMode<CR>
 "--------------------------------------------------------------------------------------------
 """ Split Windows like Warp
-nnoremap <D-D>        		:action SplitVertically<CR>
-nnoremap <D-S-D>        	:action SplitHorizontally<CR>
+"nnoremap <D-D>        		:action SplitVertically<CR>
+"nnoremap <D-S-D>        	:action SplitHorizontally<CR>
+nnoremap <leader>\| 				:action SplitVertically<CR>
+let g:WhichKeyDesc_SplitVertically= "<leader>| Split Vertically"
+nnoremap <leader>- 				:action SplitHorizontally<CR>
+let g:WhichKeyDesc_SplitHorizontally= "<leader>- Split Horizontally"
+
 nnoremap <C-c>      		:action CloseContent<CR>
-nnoremap <D-[>        		:action PrevSplitter<CR>
-nnoremap <D-]>        		:action NextSplitter<CR>
-"nnoremap <C-h>        		:action PrevSplitter<CR>
-"nnoremap <C-l>        		:action NextSplitter<CR>
+nnoremap <leader>bc      		:action CloseContent<CR>
+let g:WhichKeyDesc_CloseContent= "<leader>bc [b]uffer [c]lose"
+
+"nnoremap <D-[>        		:action PrevSplitter<CR>
+"nnoremap <D-]>        		:action NextSplitter<CR>
+nnoremap <C-j>        		:action PrevSplitter<CR>
+nnoremap <C-k>        		:action NextSplitter<CR>
 
 nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
@@ -142,10 +150,14 @@ noremap <leader>sr 			:action RecentFiles<CR>
 let g:WhichKeyDesc_RecentFiles = "<leader>sr [s]earch [r]ecent files"
 
 "--------------------------------------------------------------------------------------------
-"""" Search                                                                        <leader> r
+"""" Replace                                                                       <leader> r
 "--------------------------------------------------------------------------------------------
 noremap <leader>rf 			:action ReplaceInPath<CR>
 let g:WhichKeyDesc_ReplaceInPath= "<leader>rf [r]eplace in [f]iles"
+nnoremap <leader>rn 				:action RenameElement<CR>
+let g:WhichKeyDesc_RenameElement= "<leader>rn [r]ename"
+
+
 
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
