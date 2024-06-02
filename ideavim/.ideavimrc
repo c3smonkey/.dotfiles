@@ -156,30 +156,9 @@ nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
 nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-
-
 "--------------------------------------------------------------------------------------------
 """" Code                                                                                   ,
 "--------------------------------------------------------------------------------------------
-nnoremap ,rr 				:action Rerun<CR>
-let g:WhichKeyDesc_Rerun = ",rr [r]e[r]un"
-nnoremap ,R 				:action ChooseRunConfiguration<CR>
-let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
-nnoremap ,rs 				:action Stop<CR>
-let g:WhichKeyDesc_Stop = ",rs Stop"
-" Debug
-
-nnoremap ,d 				:action Debug<CR>
-let g:WhichKeyDesc_Debug = ",d Debug"
-nnoremap ,D 				:action ChooseDebugConfiguration<CR>
-let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
-" Test
-nnoremap ,t 				:action RunClass<CR>
-let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
-nnoremap ,T 				:action ContextRun<CR>
-let g:WhichKeyDesc_ContextRun= ",T Run current Test"
-nnoremap ,rf 				:action RerunFailedTests<CR>
-let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 " Code
 noremap ,f 					:action ReformatCode<CR>
 let g:WhichKeyDesc_ReformatCode= ",f ReformatCode"
@@ -191,6 +170,32 @@ noremap ,rm 				:action Refactorings.QuickListPopupAction<CR>
 let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
 nnoremap ,qi 				:action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
+
+nnoremap K :action QuickJavaDoc<CR>
+let g:WhichKeyDesc_Rerun = "K Quick JavaDoc"
+
+nnoremap ,rr 				:action Rerun<CR>
+let g:WhichKeyDesc_Rerun = ",rr [r]e[r]un"
+nnoremap ,R 				:action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_ChooseRunConfiguration= ",R Choose Run Configuration"
+nnoremap ,rs 				:action Stop<CR>
+let g:WhichKeyDesc_Stop = ",rs Stop"
+
+" Debug
+nnoremap ,d 				:action Debug<CR>
+let g:WhichKeyDesc_Debug = ",d Debug"
+nnoremap ,D 				:action ChooseDebugConfiguration<CR>
+let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
+" Test
+nnoremap ,t 				:action RunClass<CR>
+let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
+nnoremap ,T 				:action ContextRun<CR>
+let g:WhichKeyDesc_ContextRun= ",T Run current Test"
+nnoremap ,rf 				:action RerunFailedTests<CR>
+let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
+
+"--------------------------------------------------------------------------------------------
+"""" Maven                                                                                   m
 nnoremap ,mr 				:action Maven.Reimport<CR>
 let g:WhichKeyDesc_MavenReimport= ",mr Maven reimport"
 
