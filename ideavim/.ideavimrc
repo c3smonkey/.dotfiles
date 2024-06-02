@@ -168,6 +168,14 @@ nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
 nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
+
+
+
+"--------------------------------------------------------------------------------------------
+"""" Code                                                                                   c
+"--------------------------------------------------------------------------------------------
+noremap <leader>ca 					:action CodeCompletion<CR>
+let g:WhichKeyDesc_CodeCompletion= "<leader>ca [c]ode [a]ction "
 "--------------------------------------------------------------------------------------------
 """" Code                                                                                   ,
 "--------------------------------------------------------------------------------------------
