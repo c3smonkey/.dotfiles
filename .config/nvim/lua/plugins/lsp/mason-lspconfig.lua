@@ -26,6 +26,7 @@ return {
         mason_tool_installer.setup({
             ensure_installed = {
                 "prettier",
+                "prettierd",
                 "stylua",
                 "ktlint",
                 "checkstyle",
@@ -38,6 +39,9 @@ return {
                 "goimports",
                 "goimports-reviser",
                 "gomodifytags",
+                "yamlfix",
+                "shellcheck",
+                "google-java-format",
             },
             automatic_installation = true,
         })
