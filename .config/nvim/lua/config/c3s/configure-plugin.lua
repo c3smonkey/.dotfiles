@@ -50,6 +50,7 @@ ConfigurePlugin                         = {
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["refactoring"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["plantuml-syntax"]             = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
