@@ -79,8 +79,6 @@ let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
 "--------------------------------------------------------------------------------------------
 """"  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
-nnoremap <leader>gg			:action ActivateVersionControlToolWindow<CR>
-let g:WhichKeyDesc_ActivateVersionControlToolWindow= "<leader>gg Activate Version Control Tool Window"
 nnoremap <leader>gh 		:action Vcs.ShowTabbedFileHistory<CR>
 let g:WhichKeyDesc_ShowTabbedFileHistory= "<leader>gh Git History"
 nnoremap <leader>gl 		:action Vcs.Show.Log<CR>
@@ -99,6 +97,8 @@ nnoremap <leader>ga 		:action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
 nnoremap <leader>gr 		:action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
+
+
 
 
 "--------------------------------------------------------------------------------------------
