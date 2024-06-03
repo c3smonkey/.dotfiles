@@ -34,9 +34,25 @@ let g:WhichKeyDesc_SplitVertically= "<leader>| Split Vertically"
 nnoremap <leader>- 				:action SplitHorizontally<CR>
 let g:WhichKeyDesc_SplitHorizontally= "<leader>- Split Horizontally"
 
-nnoremap <C-c>      		:action CloseContent<CR>
-nnoremap <leader>bc      		:action CloseContent<CR>
+
+" next and previous buffers
+nnoremap <leader>bb :bp<CR>
+let g:WhichKeyDesc_BufferBack= "<leader>bb [b]uffer [b]ack"
+nnoremap <leader>bn :bn<CR>
+let g:WhichKeyDesc_BufferNext= "<leader>bn [b]uffer [n]ext"
+
+nnoremap <C-c>      			:action CloseContent<CR>
+nnoremap <leader>bc :bd<CR>
 let g:WhichKeyDesc_CloseContent= "<leader>bc [b]uffer [c]lose"
+" switch to alternative buffer
+nnoremap <BS> <C-^>
+
+" next and previous buffers
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bd :bd<CR>
+
+
 
 "nnoremap <D-[>        		:action PrevSplitter<CR>
 "nnoremap <D-]>        		:action NextSplitter<CR>
@@ -76,6 +92,7 @@ nnoremap zi 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize= "zi Editor Increase Font Size"
 nnoremap zd 				:action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
+
 "--------------------------------------------------------------------------------------------
 """"  Git                                                                          <leader> g
 "--------------------------------------------------------------------------------------------
@@ -97,9 +114,6 @@ nnoremap <leader>ga 		:action Annotate<CR>
 let g:WhichKeyDesc_Annotate= "<leader>ga Show Annotation (Blame)"
 nnoremap <leader>gr 		:action ChangesView.Revert<CR>
 let g:WhichKeyDesc_ChangesViewRevert= "<leader>gr Revert Changes"
-
-
-
 
 "--------------------------------------------------------------------------------------------
 """" Window (Navigation Bar, Tool Buttons)                                         <leader> w
@@ -157,8 +171,6 @@ let g:WhichKeyDesc_ReplaceInPath= "<leader>rf [r]eplace in [f]iles"
 nnoremap <leader>rn 				:action RenameElement<CR>
 let g:WhichKeyDesc_RenameElement= "<leader>rn [r]ename"
 
-
-
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
 "--------------------------------------------------------------------------------------------
@@ -168,8 +180,6 @@ nnoremap gd 				:action GotoDeclaration<CR>
 let g:WhichKeyDesc_GotoDeclaration= "gd Go to Declaration"
 nnoremap gt 				:action GotoTest<CR>
 let g:WhichKeyDesc_GotoTest= "gt Go to Test"
-
-
 
 "--------------------------------------------------------------------------------------------
 """" Code                                                                                   c
