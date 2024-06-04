@@ -266,3 +266,8 @@ alias gotofx='go tool fix'
 alias gov='go vet'
 alias gove='go version'
 alias gow='go work'
+
+# Zscaler
+alias kz=launchctl kickstart -kp system/com.zscaler.tunnel
+
+

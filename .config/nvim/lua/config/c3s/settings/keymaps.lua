@@ -70,9 +70,11 @@ Keymap("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split window vertically" }
 
 
 -- INFO: b - Buffer adjustments.
+Keymap("n", "<leader>bd", "<cmd>bd<cr>", { desc = "[b]uffer [d]elete" })
 Keymap("n", "<leader>bc", "<cmd>bd<cr>", { desc = "[b]uffer [c]lose" })
 Keymap("n", "<leader>bb", "<cmd>silent bn<cr>", { desc = "[b]uffer [b]ack" })
 Keymap("n", "<leader>bn", "<cmd>silent bp<cr>", { desc = "[b]uffer [n]next" })
+Keymap("n", "<BS>", "<C-^>", { desc = "buffer switcher" })
 
 Keymap("n", "<Right>",":silent bn<CR> :redraw!<cr>",{ desc = "[b]uffer [n]next" })
 Keymap("n", "<Left>",":silent bp<CR> :redraw!<cr>",{ desc = "[b]uffer [p]revious" })
