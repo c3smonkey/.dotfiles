@@ -7,7 +7,7 @@ require("config.c3s.globals")
 Keymap("i", "jj", "<ESC>", { desc = "Exit insert mode with [j][j]" })
 Keymap("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight [ESC]" })
 Keymap("t", "<Esc><Esc>", "<C-D><C-C>", { desc = "Exit terminal mode [ESC][ESC]" })
-Keymap('n', "<leader>P", '<cmD>execute "normal! \\"0p"<CR>', { desc = "[p]aste from register 0" })
+Keymap('n', "<leader>P", '<cmd>execute "normal! \\"0p"<CR>', { desc = "[p]aste from register 0" })
 Keymap("n", "<leader>i", "<cmd>set list!<cr>", { desc = "Toggle [i]nvisible characters" })
 
 -- INFO: Execute the current line of text as a shell command.

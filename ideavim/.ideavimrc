@@ -71,10 +71,15 @@ nnoremap <s-TAB> 	  		:action NextTab<CR>
 nnoremap [[           		:action MethodUp<CR>
 nnoremap ]]           		:action MethodDown<CR>
 "--------------------------------------------------------------------------------------------
-"""" Project 								                                       <leader> p
+""""  										                                       <leader> p
 "--------------------------------------------------------------------------------------------
 nnoremap <leader>pc 		:action CloseProject<CR>
 let g:WhichKeyDesc_CloseProject = "<leader>pc Close Project"
+
+nnoremap <leader>P \\"0p
+let g:WhichKeyDesc_PasteFromRegisteZero = "<leader>P [P]aste from register 0"
+
+
 "--------------------------------------------------------------------------------------------
 """" Region and Font Size                                                                   z
 "--------------------------------------------------------------------------------------------
