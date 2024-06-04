@@ -34,7 +34,6 @@ let g:WhichKeyDesc_SplitVertically= "<leader>| Split Vertically"
 nnoremap <leader>- 				:action SplitHorizontally<CR>
 let g:WhichKeyDesc_SplitHorizontally= "<leader>- Split Horizontally"
 
-
 " next and previous buffers
 nnoremap <leader>bb :bp<CR>
 let g:WhichKeyDesc_BufferBack= "<leader>bb [b]uffer [b]ack"
@@ -52,8 +51,6 @@ nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bd :bd<CR>
 
-
-
 "nnoremap <D-[>        		:action PrevSplitter<CR>
 "nnoremap <D-]>        		:action NextSplitter<CR>
 nnoremap <C-j>        		:action PrevSplitter<CR>
@@ -63,7 +60,6 @@ nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
 nnoremap <C-S-k>      		:action StretchSplitToTop<CR>
 nnoremap <C-S-l>      		:action StretchSplitToRight<CR>
-
 
 nnoremap <TAB> 		  		:action PreviousTab<CR>
 nnoremap <s-TAB> 	  		:action NextTab<CR>
@@ -113,6 +109,10 @@ nnoremap <leader>gu 		:action Vcs.UpdateProject<CR>
 let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
 nnoremap <leader>gc 		:action CheckinProject<CR>
 let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
+
+nnoremap <leader>gg 		:action CheckinProject<CR>
+let g:WhichKeyDesc_Git= "<leader>gg Git Commit"
+
 nnoremap <leader>gb 		:action Git.CompareWithBranch<CR>
 let g:WhichKeyDesc_CompareWithBranch= "<leader>gb Compare with Branch"
 nnoremap <leader>ga 		:action Annotate<CR>
