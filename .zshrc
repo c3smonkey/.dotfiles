@@ -11,8 +11,6 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 
-
-
 # Source the dotfiles
 source ~/.dotfiles/zsh/init-zsh-plugins.zsh
 source ~/.dotfiles/.aliases
