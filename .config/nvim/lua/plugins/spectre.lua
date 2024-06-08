@@ -14,11 +14,11 @@ return {
 		},
 		keys = {
 			{
-				"<leader>sr",
+				"<leader>Sr",
 				function()
 					require("spectre").open()
 				end,
-				desc = "Replace in files (Spectre)",
+				desc = "[S]pectre [r]eplace in files",
 			},
 		},
 		config = function()
