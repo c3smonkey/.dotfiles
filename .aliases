@@ -76,6 +76,8 @@ alias tka="tmux kill-server"
 # Maven
 alias m=mvnd
 alias mci='mvnd clean install'
+alias mcp='mvnd clean package'
+alias mp='mvnd package'
 alias mvv='mvnd -v'
 alias mci='mvnd clean install'
 alias mciT='mvnd clean install -DskipTests'
