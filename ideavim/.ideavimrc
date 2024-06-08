@@ -1,37 +1,45 @@
  " Common settings -------------------------
 set clipboard+=unnamed " Clipboard sharing for Mac Os
 set clipboard+=ideaput
-set so=10 " Keep few lines visible when scrolling
+set so=20 " Keep few lines visible when scrolling
 set number relativenumber " Set relative line numbers
 set timeoutlen=400
 set incsearch " Highlight the searching string while typing
 set hlsearch "Keep Highlight"
-nnoremap <leader>nh :noh<CR>
-let g:WhichKeyDesc_clear_highlight = "<leader>nh Clear Highlight"
-""" Editing source code
 set ideajoin
 set idearefactormode=keep
-""" The Escape button
-inoremap jj <Esc>
-""" The Leader Key
-let mapleader=" "
-""" Editing and Reloading the Config
-"--------------------------------------------------------------------------------------------
 set clipboard+=unnamed
 set clipboard+=ideaput
+
+nnoremap <leader>nh :noh<CR>
+nnoremap <ESC> :noh<CR>
+let g:WhichKeyDesc_clear_highlight = "<leader>nh [n]o [h]ighlight"
+
+inoremap jj <Esc>
+let mapleader=" "
+
+noremap <leader>l 			:action EditorGutterToggleGlobalLineNumbers<CR>
+let g:WhichKeyDesc_ToggleEditorGutterGlobalLineNumbers= "<leader>l toggle [l]ine numbers"
+
+
+""" Editing and Reloading the Config
+"--------------------------------------------------------------------------------------------
 nnoremap \e 				:e ~/.ideavimrc<CR>
 nnoremap \r 				:action IdeaVim.ReloadVimRc.reload<CR>
+
+
 "--------------------------------------------------------------------------------------------
 "
 " Distraction Free Mode
 nnoremap <c-z> 				:action ToggleDistractionFreeMode<CR>
+
 "--------------------------------------------------------------------------------------------
 """ Split Windows like Warp
 "nnoremap <D-D>        		:action SplitVertically<CR>
 "nnoremap <D-S-D>        	:action SplitHorizontally<CR>
-nnoremap <leader>\| 				:action SplitVertically<CR>
+nnoremap <leader>\| 		:action SplitVertically<CR>
 let g:WhichKeyDesc_SplitVertically= "<leader>| Split Vertically"
-nnoremap <leader>- 				:action SplitHorizontally<CR>
+nnoremap <leader>- 			:action SplitHorizontally<CR>
 let g:WhichKeyDesc_SplitHorizontally= "<leader>- Split Horizontally"
 
 " next and previous buffers
@@ -40,7 +48,7 @@ let g:WhichKeyDesc_BufferBack= "<leader>bb [b]uffer [b]ack"
 nnoremap <leader>bn :bn<CR>
 let g:WhichKeyDesc_BufferNext= "<leader>bn [b]uffer [n]ext"
 
-nnoremap <C-c>      			:action CloseContent<CR>
+nnoremap <C-c>      		:action CloseContent<CR>
 nnoremap <leader>bc :bd<CR>
 let g:WhichKeyDesc_CloseContent= "<leader>bc [b]uffer [c]lose"
 " switch to alternative buffer
