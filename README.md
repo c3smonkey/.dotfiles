@@ -101,6 +101,12 @@ ln -s  ~/.dotfiles/.config/bat ~/.config/bat
 rm -rf ~/.config/yazi
 ln -s  ~/.dotfiles/.config/yazi ~/.config/yazi
 ```
+## mc
+
+```
+ln -s ~/.dotfiles/.config/mc ~/.config/mc
+```
+
 
 # GitHup CLI
 
