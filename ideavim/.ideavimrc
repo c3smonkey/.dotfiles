@@ -81,18 +81,32 @@ let g:WhichKeyDesc_PasteFromRegisteZero = "<leader>P [P]aste from register 0"
 "--------------------------------------------------------------------------------------------
 nnoremap zc 				:action CollapseRegion<CR>
 let g:WhichKeyDesc_ClollapseRegion= "zc Collaps Region"
-nnoremap zo 				:action ExpandRegion<CR>
-let g:WhichKeyDesc_ExpandRegion= "zo Expand Region"
+nnoremap ze 				:action ExpandRegion<CR>
+let g:WhichKeyDesc_ExpandRegion= "ze Expand Region"
 nnoremap <leader>zc 		:action CollapseAllRegions<CR>
 let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
 nnoremap <leader>zo 		:action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
-nnoremap zr 				:action EditorResetFontSize<CR>
-let g:WhichKeyDesc_EditorResetFontSize= "zr Editor Resent Font Size"
-nnoremap zi 				:action EditorIncreaseFontSize<CR>
-let g:WhichKeyDesc_EditorIncreaseFontSize= "zi Editor Increase Font Size"
+
+" CMD + SHIFT + = Increase Font Size
+nnoremap zi					:action EditorIncreaseFontSize<CR>
+nnoremap <M-=> 				:action EditorIncreaseFontSize<CR>
+let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
+nnoremap <M--> 				:action EditorDecreaseFontSize<CR>
+let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
+
+" CMD + - = Increase Font Size
 nnoremap zd 				:action EditorDecreaseFontSize<CR>
-let g:WhichKeyDesc_EditorDecreaseFontSize= "zd Editor Decrease Font Size"
+nnoremap <D-=> 				:action EditorIncreaseFontSize<CR>
+let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
+nnoremap <D--> 				:action EditorDecreaseFontSize<CR>
+let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
+
+" Reset Font Size
+nnoremap zr 				:action EditorResetFontSize<CR>
+nnoremap <D-0> 				:action EditorResetFontSize<CR>
+let g:WhichKeyDesc_EditorResetFontSize= "zr Editor Resent Font Size"
+
 
 "--------------------------------------------------------------------------------------------
 """"  Git                                                                          <leader> g
