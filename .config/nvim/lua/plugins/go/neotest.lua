@@ -34,7 +34,7 @@ return {
 
             vim.keymap.set("n", ",T", function()
                 require('neotest').run.run(vim.fn.expand("%"))
-            end, { desc = "[T]est File[" })
+            end, { desc = "[T]est File" })
 
         end,
     }

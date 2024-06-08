@@ -55,10 +55,11 @@ ConfigurePlugin                         = {
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-cmp"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["go.nvim"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["neotest"]                     = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["vim-go"]                      = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
-        ["vim-test"]                    = { enabled = false,  default     = { opts = true,  config = true, keys = true  }},
+        ["gopher.nvim"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
+        ["go.nvim"]                     = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["vim-go"]                      = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
+        ["vim-test"]                    = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
     }
 }
 
