@@ -15,10 +15,10 @@ return {
         else
             opts.signs = true
             opts.merge_keywords = true
-            -- opts.keywords = {
-            --     NOTE = { icon = " ", color = "#8A69BB", alt = {"note"}},
-            --     INFO = { icon = " ", color = "#ffd966", alt = {"info"}},
-            -- }
+            opts.keywords = {
+                NOTE = { icon = " ", color = "#8A69BB", alt = {"note"}},
+                INFO = { icon = " ", color = "#ffd966", alt = {"info"}},
+            }
         end
     end,
 }
