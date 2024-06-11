@@ -102,6 +102,8 @@ nnoremap <M-=> 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
 nnoremap <M--> 				:action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
+nnoremap <M-0> 				:action EditorResetFontSize<CR>
+let g:WhichKeyDesc_EditorDecreaseFontSize = "Reset Font Size"
 
 " CMD + - = Increase Font Size
 nnoremap zd 				:action EditorDecreaseFontSize<CR>
