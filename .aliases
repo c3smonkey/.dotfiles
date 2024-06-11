@@ -21,7 +21,7 @@ alias lp='lsof -ti'
 alias rp='realpath'
 alias pwdc='pwd | pbcopy'
 alias psj='ps aux | grep "[j]ava"'
-
+alias kill8080='lsof -ti:8080 | xargs kill'
 ialias mdf="createDirAndFollow"
 alias -g md='mkdir -p'
 alias -g rd='rm -r'
