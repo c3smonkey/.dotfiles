@@ -21,12 +21,10 @@ let mapleader=" "
 noremap <leader>l 			:action EditorGutterToggleGlobalLineNumbers<CR>
 let g:WhichKeyDesc_ToggleEditorGutterGlobalLineNumbers= "<leader>l toggle [l]ine numbers"
 
-
 """ Editing and Reloading the Config
 "--------------------------------------------------------------------------------------------
 nnoremap \e 				:e ~/.ideavimrc<CR>
 nnoremap \r 				:action IdeaVim.ReloadVimRc.reload<CR>
-
 
 "--------------------------------------------------------------------------------------------
 "
@@ -61,8 +59,8 @@ nnoremap <leader>bd :bd<CR>
 
 "nnoremap <D-[>        		:action PrevSplitter<CR>
 "nnoremap <D-]>        		:action NextSplitter<CR>
-nnoremap <C-j>        		:action PrevSplitter<CR>
-nnoremap <C-k>        		:action NextSplitter<CR>
+nnoremap <C-h>        		:action PrevSplitter<CR>
+nnoremap <C-l>        		:action NextSplitter<CR>
 
 nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
@@ -416,7 +414,7 @@ Plug 'preservim/nerdtree'
 "   R          Recursively refresh the current root
 "   m          Display the NERDTree menu
 map <leader>ee :NERDTreeToggle<CR>
-nmap <C-h> :NERDTreeFocus<CR>
+"nmap <C-h> :NERDTreeFocus<CR>
 
 "--------------------------------------------------------------------------------------------
 """ vim-highlightedyank plugin
