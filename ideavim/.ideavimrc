@@ -57,10 +57,12 @@ nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bd :bd<CR>
 
-"nnoremap <D-[>        		:action PrevSplitter<CR>
-"nnoremap <D-]>        		:action NextSplitter<CR>
-nnoremap <C-h>        		:action PrevSplitter<CR>
-nnoremap <C-l>        		:action NextSplitter<CR>
+
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
 
 nnoremap <C-S-h>      		:action StretchSplitToLeft<CR>
 nnoremap <C-S-j>      		:action StretchSplitToBottom<CR>
