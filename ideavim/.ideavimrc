@@ -105,7 +105,7 @@ let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
 nnoremap <M-0> 				:action EditorResetFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize = "Reset Font Size"
 
-" CMD + - = Increase Font Size
+" CMD + - = Increase Font Size*********======
 nnoremap zd 				:action EditorDecreaseFontSize<CR>
 nnoremap <D-=> 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
@@ -246,10 +246,10 @@ let g:WhichKeyDesc_Debug = ",d Debug"
 nnoremap ,D 				:action ChooseDebugConfiguration<CR>
 let g:WhichKeyDesc_ChooseDebugConfiguration= ",D Choose Debug Configuration"
 " Test
-nnoremap ,t 				:action RunClass<CR>
-let g:WhichKeyDesc_RunClass= ",t Run whole Test Class"
-nnoremap ,T 				:action ContextRun<CR>
-let g:WhichKeyDesc_ContextRun= ",T Run current Test"
+nnoremap ,T 				:action RunClass<CR>
+let g:WhichKeyDesc_RunClass= ",T Run whole Test Class"
+nnoremap ,t 				:action ContextRun<CR>
+let g:WhichKeyDesc_ContextRun= ",t Run current Test"
 nnoremap ,rf 				:action RerunFailedTests<CR>
 let g:WhichKeyDesc_RerunFailedTests = ",rf Rerun Failed Tests"
 
