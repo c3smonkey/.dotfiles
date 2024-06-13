@@ -83,6 +83,12 @@ let g:WhichKeyDesc_CloseProject = "<leader>pc Close Project"
 nnoremap <leader>P \\"0p
 let g:WhichKeyDesc_PasteFromRegisteZero = "<leader>P [P]aste from register 0"
 
+"--------------------------------------------------------------------------------------------
+""""  										                                       <leader> t
+"--------------------------------------------------------------------------------------------
+nnoremap <leader>tt 		:action ActivateTODOToolWindow<CR>
+let g:WhichKeyDesc_ActivateTODOToolWindow = "<leader>tt Activate TODO Tool Window"
+
 
 "--------------------------------------------------------------------------------------------
 """" Region and Font Size                                                                   z
@@ -290,14 +296,22 @@ vnoremap > >gv
 "--------------------------------------------------------------------------------------------
 
 "--------------------------------------------------------------------------------------------
-""" Harpoon
+""" Harpoonij plugin
 "--------------------------------------------------------------------------------------------
 " https://plugins.jetbrains.com/plugin/20782-harpoonij
-nnoremap <leader>hm 		:action HarpoonerAddFile<CR>
-let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm Mark File with harpoon"
-nnoremap <leader>hf 		:action ShowHarpoon<CR>
-let g:WhichKeyDesc_ShowHarpoon= "<leader>hf Show harpoon mark"
+"nnoremap <leader>hm 		:action AddToHarpoon<CR>
+"let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm [h]arpoon [m]ark"
+"nnoremap <leader>sm 		:action ShowHarpoon<CR>
+"let g:WhichKeyDesc_ShowHarpoon= "<leader>sm [s]earch harpoon [m]ark"
+
 "--------------------------------------------------------------------------------------------
+""" Harpooner plugin
+"--------------------------------------------------------------------------------------------
+"https://github.com/erotourtes/Harpooner#example
+nmap <leader>sm :action HarpoonerQuickMenu<cr>
+let g:WhichKeyDesc_ShowHarpoon= "<leader>sm [s]earch harpoon [m]ark"
+nmap <leader>hm :action HarpoonerAddFile<cr>
+let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm [h]arpoon [m]ark"
 
 
 
