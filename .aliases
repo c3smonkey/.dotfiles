@@ -69,8 +69,8 @@ alias lt3='lsd --tree --depth 3'
 alias t="tmux new -s \$(pwd | sed 's/.*\///g')"
 alias tn="tmux new -s $1"
 alias ta="tmux a -t $1"
-alias tls="tmux ls"
-alias tks="tmux kill-session -t $1"
+alias tl="tmux ls"
+alias tk="tmux kill-session -t $1"
 alias tka="tmux kill-server"
 
 # Maven
