@@ -4,7 +4,8 @@
 import = ["~/.dotfiles/.config/sesh/.sesh_terminal.toml"]
 
 [default_session]
-startup_command = "nvim -c ':Telescope find_files'"
+# startup_command = "nvim -c ':Telescope find_files'"
+startup_command = "nvim -c ':Telescope grep_string'"
 
 [[session]]
 name = "dotfiles  "
@@ -21,7 +22,6 @@ startup_command = "yazi"
 name = "git  "
 path = "~/git"
 startup_command = "nvim -c ':Lexplore'"
-
 
 [[session]]
 name = "tmux config  "
@@ -52,7 +52,6 @@ startup_command = "vi skhdrc"
 name = "yabai config 󰛓"
 path = "~/.dotfiles/.config/yabai"
 startup_command = "vi yabairc"
-
 
 [[session]]
 name = "zettelkasten "
