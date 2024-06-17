@@ -313,10 +313,10 @@ let g:WhichKeyDesc_ShowHarpoon= "<leader>sm [s]earch harpoon [m]ark"
 nmap <leader>hm :action HarpoonerAddFile<cr>
 let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm [h]arpoon [m]ark"
 
-nmap <leader>hn :action NextFileAction<cr>
-let g:WhichKeyDesc_NextFileAction= "<leader>hn [h]arpoon [n]ext"
-nmap <leader>hp :action PreviousFileAction<cr>
-let g:WhichKeyDesc_PreviousFileAction= "<leader>hp [h]arpoon [p]revious"
+nmap <leader>hn :action HarpoonerNextFileAction<cr>
+let g:WhichKeyDesc_HarpoonerNextFileAction= "<leader>hn [h]arpoon [n]ext"
+nmap <leader>hp :action HarpoonerPreviousFileAction<cr>
+let g:WhichKeyDesc_HarpoonerPreviousFileAction= "<leader>hp [h]arpoon [p]revious"
 
 
 
