@@ -4,7 +4,7 @@ local fonts = {}
 
 font_size = 12.0
 line_height = 1.1
-weight = "Bold"
+weight = "Regular"
 -- fontName = "JetBrainsMono Nerd Font Mono"
 fontName = "JetBrains Mono"
 --fontName = "FiraCode Nerd Font Mono"
