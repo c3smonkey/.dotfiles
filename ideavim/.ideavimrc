@@ -204,7 +204,7 @@ let g:WhichKeyDesc_RecentFiles = "<leader>sr [s]earch [r]ecent files"
 noremap <leader>rf 			:action ReplaceInPath<CR>
 let g:WhichKeyDesc_ReplaceInPath= "<leader>rf [r]eplace in [f]iles"
 nnoremap <leader>rn 				:action RenameElement<CR>
-let g:WhichKeyDesc_RenameElement= "<leader>rn [r]ename"
+let g:WhichKeyDesc_RenameElement= "<leader>rn [r]e[n]ame"
 
 "--------------------------------------------------------------------------------------------
 """" Got to                                                                                 g
@@ -313,10 +313,10 @@ let g:WhichKeyDesc_ShowHarpoon= "<leader>sm [s]earch harpoon [m]ark"
 nmap <leader>hm :action HarpoonerAddFile<cr>
 let g:WhichKeyDesc_HarpoonerAddFile= "<leader>hm [h]arpoon [m]ark"
 
-nmap <leader>hn :action HarpoonerNextFileAction<cr>
-let g:WhichKeyDesc_HarpoonerNextFileAction= "<leader>hn [h]arpoon [n]ext"
-nmap <leader>hp :action HarpoonerPreviousFileAction<cr>
-let g:WhichKeyDesc_HarpoonerPreviousFileAction= "<leader>hp [h]arpoon [p]revious"
+nmap <C-A-j> :action HarpoonerNextFileAction<cr>
+let g:WhichKeyDesc_HarpoonerNextFileAction= "[h]arpoon [n]ext"
+nmap <C-A-k> :action HarpoonerPreviousFileAction<cr>
+let g:WhichKeyDesc_HarpoonerPreviousFileAction= "[h]arpoon [p]revious"
 
 
 
