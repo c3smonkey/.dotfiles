@@ -232,6 +232,9 @@ nnoremap gU :action FindUsages<CR>
 "--------------------------------------------------------------------------------------------
 noremap <leader>ca 					:action CodeCompletion<CR>
 let g:WhichKeyDesc_CodeCompletion= "<leader>ca [c]ode [a]ction "
+noremap <leader>rn 					:action RenameElement<CR>
+let g:WhichKeyDesc_RenameElement= "<leader>rn [r]e[n]ame" "
+
 "--------------------------------------------------------------------------------------------
 """" Code                                                                                   ,
 "--------------------------------------------------------------------------------------------
