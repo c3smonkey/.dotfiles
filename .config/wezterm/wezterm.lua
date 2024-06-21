@@ -35,7 +35,7 @@ config.window_padding = {
 
 
 config.keys = {
-    { key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+    { key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
     { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
 	{ key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
 }

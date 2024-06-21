@@ -102,18 +102,18 @@ let g:WhichKeyDesc_CollapseAllRegions= "<leader>zc Collaps All Region"
 nnoremap <leader>zo 		:action ExpandAllRegions<CR>
 let g:WhichKeyDesc_ExpandAllRegions= "<leader>zo Expand All Region"
 
-" CMD + SHIFT + = Increase Font Size
+" CMD + SHIFT + -Increase Font Size
 nnoremap zi					:action EditorIncreaseFontSize<CR>
-nnoremap <M-=> 				:action EditorIncreaseFontSize<CR>
+nnoremap <M-\+> 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
 nnoremap <M--> 				:action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
 nnoremap <M-0> 				:action EditorResetFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize = "Reset Font Size"
 
-" CMD + - = Increase Font Size*********======
+" CMD + - Increase Font Size ======
 nnoremap zd 				:action EditorDecreaseFontSize<CR>
-nnoremap <D-=> 				:action EditorIncreaseFontSize<CR>
+nnoremap <D-\-> 				:action EditorIncreaseFontSize<CR>
 let g:WhichKeyDesc_EditorIncreaseFontSize = "Increase Font Size"
 nnoremap <D--> 				:action EditorDecreaseFontSize<CR>
 let g:WhichKeyDesc_EditorDecreaseFontSize = "Decrease Font Size"
