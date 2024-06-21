@@ -250,6 +250,11 @@ let g:WhichKeyDesc_QuickListPopupActions= ",rm Refactor Menu"
 nnoremap ,qi 				:action QuickImplementations<CR>
 let g:WhichKeyDesc_QuickImplementations= ",qi Quick Implementation"
 
+nnoremap ,se 				:action ShowErrorDescription<CR>
+let g:WhichKeyDesc_ShowErrorDescription= ",se [s]how [e]rror description"
+
+
+
 nnoremap K :action QuickJavaDoc<CR>
 let g:WhichKeyDesc_Rerun = "K Quick JavaDoc"
 
