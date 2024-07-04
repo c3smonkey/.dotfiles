@@ -3,7 +3,7 @@ local wezterm = require('wezterm')
 local fonts = {}
 
 font_size = 13.0
-line_height = 1.1
+line_height = 1.2
 weight = "Regular"
 fontName = "JetBrainsMono Nerd Font Mono"
 -- fontName = "JetBrains Mono"
