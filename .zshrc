@@ -11,6 +11,9 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 
+# Lazygit 
+export LG_CONFIG_FILE="/Users/morpheus/.dotfiles/.config/lazygit/.lazygit"
+
 # Source the dotfiles
 source ~/.dotfiles/zsh/init-zsh-plugins.zsh
 source ~/.dotfiles/.aliases
