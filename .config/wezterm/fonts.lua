@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 --
 local fonts = {}
 
-font_size = 11.0
+font_size = 13.0
 line_height = 1.1
 weight = "Light"
 
