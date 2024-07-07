@@ -16,3 +16,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {               -- highlight yanked 
         vim.highlight.on_yank()
     end,
 })
+
