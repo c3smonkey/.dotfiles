@@ -108,6 +108,11 @@ ln -s  ~/.dotfiles/.config/nvim ~/.config/nvim
 ```
 ln -s  ~/.dotfiles/.config/bat ~/.config/bat
 ```
+## lazygit
+
+```
+ln -s  ~/.dotfiles/.config/lazygit ~/.config/lazygit
+```
 
 ## yazi
 ```
