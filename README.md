@@ -37,6 +37,9 @@ brew install trash
 brew install gum
 brew install yazi
 brew install gh
+
+brew tap FelixKratz/formulae
+brew install borders
 ```
 
 
@@ -76,6 +79,16 @@ ln -s  ~/.dotfiles/.config/yabai ~/.config/yabai
 
 ```
 ln -s  ~/.dotfiles/.config/skhd ~/.config/skhd
+```
+
+## borders
+
+```
+ln -s  ~/.dotfiles/.config/borders ~/.config/borders
+```
+
+```
+brew services start borders
 ```
 
 ## ideavimrc

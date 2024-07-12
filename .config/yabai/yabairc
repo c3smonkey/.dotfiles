@@ -49,7 +49,9 @@ yabai -m rule --add app="Simulator$" manage=off
 # https://github.com/FelixKratz/JankyBorders?tab=readme-ov-file
 # https://convertingcolors.com/hex-color-FF00FF.html?search=Hex(FF00FF)
 # borders active_color=0xFF39FF14 inactive_color=0xff494d64 width=5.0 &
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+#
+# see new configuration location ./.config/borders/bordersrc
 
 echo "yabai configuration loaded.."
 
