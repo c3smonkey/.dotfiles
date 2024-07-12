@@ -10,7 +10,7 @@ local ConfigurePlugin = {}
 ConfigurePlugin                         = {
     plugins                             = {
         ["catppuccin"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
-        ["tokyonight.nvim"]             = { enabled = false,  default     = { opts = false, config = false,keys = true  }},
+        ["tokyonight.nvim"]             = { enabled = false, default     = { opts = false, config = false,keys = true  }},
         ["nvim-asciidoc-preview"]       = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["diffview.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = false }},
         ["dressing.nvim"]               = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
@@ -50,7 +50,7 @@ ConfigurePlugin                         = {
         ["refactoring"]                 = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["plantuml-syntax"]             = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["lsp-zero.nvim"]               = { enabled = false, default     = { opts = true,  config = true, keys = true  }},
-        ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = false, keys = true  }},
+        ["nvim-lspconfig"]              = { enabled = true,  default     = { opts = true,  config = false,keys = true  }},
         ["mason-lspconfig.nvim"]        = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["mason.nvim"]                  = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
         ["nvim-dap"]                    = { enabled = true,  default     = { opts = true,  config = true, keys = true  }},
