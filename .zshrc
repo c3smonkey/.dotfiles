@@ -5,6 +5,7 @@ export PATH="$HOME/.dotfiles/bin:${PATH}"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:${PATH}"
+
 # Go path
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -25,4 +26,5 @@ sourceIfExists ~/.helsanarc
 # Source other files
 source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
+
 
