@@ -20,10 +20,7 @@ brew install bat
 brew install exa
 brew install ripgrep
 brew install fd
-brew install alacritty
 brwe install --cask weztermt 
-brew install koekeishiya/formulae/skhd
-brew install koekeishiya/formulae/yabai
 brew install toilet
 brew install lf
 brew install zsh-autosuggestions
@@ -37,11 +34,18 @@ brew install trash
 brew install gum
 brew install yazi
 brew install gh
-
-brew tap FelixKratz/formulae
-brew install borders
+brew install --cask nikitabobko/tap/aerospace
 ```
 
+
+```bash
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+brew install alacritty
+brew install borders
+brew tap FelixKratz/formulae
+
+```
 
 # Create Symlink
 
@@ -119,11 +123,17 @@ ln -s  ~/.dotfiles/.config/lazygit ~/.config/lazygit
 rm -rf ~/.config/yazi
 ln -s  ~/.dotfiles/.config/yazi ~/.config/yazi
 ```
-## mc
 
+## mc
 ```
 ln -s ~/.dotfiles/.config/mc ~/.config/mc
 ```
+
+## aerospace
+```
+ln -s ~/.dotfiles/.config/aerospace ~/.config/aerospace
+```
+
 
 
 # GitHup CLI
@@ -261,4 +271,10 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-ty
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 ```
+
+# dragging window (https://github.com/nikitabobko/AeroSpace)
+```bash
+defaults write -g NSWindowShouldDragOnGesture YES
+```
+Now, you can move windows by holding ctrl+cmd and dragging any part of the window (not necessarily the window title)
 
