@@ -59,6 +59,11 @@ path = "~/.dotfiles/.config/yabai"
 startup_command = "vi yabairc"
 
 [[session]]
+name = "aerospace config 󰛓"
+path = "~/.dotfiles/.config/aerospace"
+startup_command = "vi aerospace.toml"
+
+[[session]]
 name = "zettelkasten "
 path = "~/git/github/marzelwidmer/zettelkasten"
 startup_command = "nvim -c ':Telescope grep_string'"
