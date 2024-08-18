@@ -1,33 +1,4 @@
 #!/bin/bah
-#############################################################################
-#____    ____  ___      .______        ___       __  
-#\   \  /   / /   \     |   _  \      /   \     |  | 
-# \   \/   / /  ^  \    |  |_)  |    /  ^  \    |  | 
-#  \_    _/ /  /_\  \   |   _  <    /  /_\  \   |  | 
-#    |  |  /  _____  \  |  |_)  |  /  _____  \  |  | 
-#    |__| /__/     \__\ |______/  /__/     \__\ |__| 
-#
-# inspiration of some other yabai configuration files:
-#
-# - https://github.com/Spondycode/skhd_config/blob/main/skhdrc
-# - https://github.com/sgoodluck/mac-dotfiles/blob/main/skhd/skhdrc
-# - https://github.com/josean-dev/dev-environment-files
-#
-#---------------------------------------------------------------------------- 
-# Hint: alt == option
-#   switch spaces :
-#   ctrl + N
-#
-#   hyper key :  
-#   ctrl + opt + cmd + shift
-#
-# Space 1: Warp
-# Space 2: Intellij
-# Space 3: Safari
-# Space 4: Mail
-# Space 5: Others
-#
-#############################################################################
 # === Navigation ===
 # change window focus 
 alt - h : yabai -m window --focus west
