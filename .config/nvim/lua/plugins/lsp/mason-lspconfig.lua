@@ -19,6 +19,7 @@ return {
                 "kotlin_language_server",
                 "marksman",
                 "gopls",
+				"taplo"
             },
             automatic_installation = true,
         })

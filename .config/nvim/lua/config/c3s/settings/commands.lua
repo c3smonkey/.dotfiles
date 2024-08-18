@@ -17,3 +17,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {               -- highlight yanked 
     end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {                  -- highlight yanked text
+	pattern = { "aerospace.toml"},
+	command = "!aerospace reload-config",
+})
