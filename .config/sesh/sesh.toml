@@ -5,7 +5,8 @@ import = ["~/.dotfiles/.config/sesh/.sesh_terminal.toml"]
 
 [default_session]
 # startup_command = "nvim -c ':Telescope find_files'"
-startup_command = "nvim -c ':Telescope grep_string'"
+# startup_command = "nvim -c ':Telescope grep_string'"
+startup_command = "ls -la"
 
 [[session]]
 name = "dotfiles  "
