@@ -4,8 +4,10 @@
 # -----------------------------------------------------------------------------
 
 # Styles...
-foreground: &foreground "#ebdbb2"
-background: &background "#272727"
+foreground: &foreground "#ffffff"
+background: &background "default"
+#foreground: &foreground "#ebdbb2"
+#background: &background "#272727"
 current_line: &current_line "#ebdbb2"
 selection: &selection "#3c3735"
 comment: &comment "#bdad93"
