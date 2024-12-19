@@ -4,8 +4,8 @@
 export PATH="$HOME/.dotfiles/bin:${PATH}"
 
 # Homebrew
-export PATH="/opt/homebrew/bin:${PATH}"
-
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+ 
 # Go path
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
