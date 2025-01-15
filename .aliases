@@ -29,6 +29,8 @@ alias -g rdf='rm -rf'
 
 ialias zet='zettelkasten' # zettelkasten see zsh/plugins/custom/note.zsh
 
+alias caff8h='caffeinate -dismu -t 28800 & '
+
 alias -g s1='sleep 1'
 alias -g s2='sleep 2'
 alias -g s01='sleep 0.1'
@@ -87,6 +89,7 @@ alias mciTT='mvnd clean install -Dmaven.test.skip'
 alias gcapf='git commit -a --amend --no-edit && git push --force-with-lease'
 
 # Docker
+alias dsa='docker stop $(docker ps -a -q)'
 alias d='docker'
 alias dp='docker ps'
 alias dpa='docker ps -a'
