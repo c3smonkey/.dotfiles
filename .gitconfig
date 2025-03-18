@@ -53,3 +53,8 @@
 	style = "!a() { if [ \"$1\" = \"-s\" ] || [ \"$1\" = \"--scope\" ]; then local scope=\"$2\"; shift 2; git commit -m \"style(${scope}): ${@}\"; else git commit -m \"style: ${@}\"; fi }; a"
 	test = "!a() { if [ \"$1\" = \"-s\" ] || [ \"$1\" = \"--scope\" ]; then local scope=\"$2\"; shift 2; git commit -m \"test(${scope}): ${@}\"; else git commit -m \"test: ${@}\"; fi }; a"
 	wip = "!a() { if [ \"$1\" = \"-s\" ] || [ \"$1\" = \"--scope\" ]; then local scope=\"$2\"; shift 2; git commit -m \"wip(${scope}): ${@}\"; else git commit -m \"wip: ${@}\"; fi }; a"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
