@@ -273,4 +273,7 @@ alias gow='go work'
 # Zscaler
 alias zsck="launchctl kickstart -kp system/com.zscaler.tunnel"
 
-
+# Spellcheck
+alias spellcheck-de='hunspell -d de_DE -l'
+alias spellcheck-en='hunspell -d en_US -l'
+alias spellfix-de='hunspell -d de_DE -a'

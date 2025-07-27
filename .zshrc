@@ -26,5 +26,5 @@ sourceIfExists ~/.helsanarc
 # Source other files
 source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
-
+source ~/.dotfiles/zsh/spellfix.zsh
 
