@@ -84,6 +84,9 @@ alias mvv='mvnd -v'
 alias mci='mvnd clean install'
 alias mciT='mvnd clean install -DskipTests'
 alias mciTT='mvnd clean install -Dmaven.test.skip'
+# ktlint with mvnd
+alias mcik='ktlintcheck && mvnd clean install'
+alias mck='ktlintcheck && mvnd clean compile'
 
 # Git
 alias gcapf='git commit -a --amend --no-edit && git push --force-with-lease'
