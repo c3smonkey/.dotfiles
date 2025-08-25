@@ -1,4 +1,4 @@
-[mgr]
+[manager]
 ratio         = [ 1, 2, 4 ]
 # sort_by        = "modified"
 sort_sensitive = true
