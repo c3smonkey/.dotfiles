@@ -70,6 +70,7 @@ return {
 				"dockerls",
 				"bashls",
 				"marksman",
+				"tsserver", -- Add TypeScript LSP server
 			},
 			handlers = {
 				lsp.default_setup,

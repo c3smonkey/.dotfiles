@@ -81,6 +81,11 @@ return {
                     capabilities = capabilities,
                 },
             })
+            lspconfig.tsserver.setup({
+                server = {
+                    capabilities = capabilities,
+                },
+            })
             lspconfig.kotlin_language_server.setup({
                 server = {
                     capabilities = capabilities,
