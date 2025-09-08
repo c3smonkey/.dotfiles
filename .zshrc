@@ -28,3 +28,6 @@ source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
 source ~/.dotfiles/zsh/spellfix.zsh
 
+
+# Created by `pipx` on 2025-09-08 18:55:14
+export PATH="$PATH:/$HOME/.local/bin"
