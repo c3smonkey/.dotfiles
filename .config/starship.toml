@@ -8,10 +8,10 @@ $directory\
 $character\
 """
 
-right_format = """
-$kubernetes\
-$battery\
-"""
+# right_format = """
+# $kubernetes\
+# $battery\
+# """
 
 
 [kubernetes]
