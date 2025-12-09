@@ -19,7 +19,6 @@ return {
             config = {}
         else
 
-            local lspconfig = require("lspconfig")
             local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -71,26 +70,16 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
 
-            lspconfig.lua_ls.setup({
-                server = {
-                    capabilities = capabilities,
-                },
+            -- Neue API für Neovim 0.11+
+            vim.lsp.config('*', {
+                capabilities = capabilities,
             })
-            lspconfig.gopls.setup({
-                server = {
-                    capabilities = capabilities,
-                },
-            })
-            lspconfig.tsserver.setup({
-                server = {
-                    capabilities = capabilities,
-                },
-            })
-            lspconfig.kotlin_language_server.setup({
-                server = {
-                    capabilities = capabilities,
-                },
-            })
+
+            -- Server aktivieren
+            vim.lsp.enable('lua_ls')
+            vim.lsp.enable('gopls')
+            vim.lsp.enable('ts_ls')
+            vim.lsp.enable('kotlin_language_server')
         end
 
     end

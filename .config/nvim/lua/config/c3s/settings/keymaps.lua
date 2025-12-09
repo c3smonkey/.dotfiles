@@ -113,3 +113,8 @@ Keymap("n", "]r", "<cmd>]r'<cr>", { desc = "Spell - Move to next rare word" })
 Keymap("n", "[s", "<cmd>[s'<cr>", { desc = "Spell - Move to previous misspelled word" })
 Keymap("n", "]s", "<cmd>]s'<cr>", { desc = "Spell - Move to next misspelled word" })
 
+-- INFO: Copilot Chat Keymaps
+Keymap("n", "<leader>cc", "<cmd>CopilotChat<CR>", { desc = "Open Copilot Chat" })
+Keymap("n", "<leader>co", "<cmd>CopilotChatOpen<CR>", { desc = "Open Chat panel" })
+Keymap("n", "<leader>cC", "<cmd>CopilotChatClose<CR>", { desc = "Close Copilot Chat panel" })
+
