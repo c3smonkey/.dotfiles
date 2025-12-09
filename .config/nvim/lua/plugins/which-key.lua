@@ -6,19 +6,9 @@ return {
 	"folke/" .. plugin,
 	event = "VeryLazy",
 	enabled = Is_Enabled(plugin),
-	config = function(_, config)
-		if Use_Default_Config(plugin) then
-			config = config
-		else
-			-- This is the function that runs, AFTER loading
-			require('which-key').setup()
-
-
-			-- Define custom keybindings
-			require('which-key').register {}
-
-
-
-		end
-	end,
+	opts = {},
+	keys = {
+		-- Falls du Keybindings definieren möchtest, hier ein Beispiel:
+		-- { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps" },
+	},
 }
