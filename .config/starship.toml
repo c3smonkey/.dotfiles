@@ -16,7 +16,7 @@ $battery\
 
 [kubernetes]
 format = '[☸ $context \($namespace\)](#524B88) '
-disabled = false
+disabled = true
 
 [[battery.display]]
 threshold = 5
