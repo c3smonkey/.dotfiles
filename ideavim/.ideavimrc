@@ -140,7 +140,7 @@ let g:WhichKeyDesc_UpdateProject= "<leader>gu Update Project"
 nnoremap <leader>gc 		:action CheckinProject<CR>
 let g:WhichKeyDesc_CheckinProject= "<leader>gc Commit"
 
-nnoremap <leader>gg 		:action CheckinProject<CR>
+nnoremap <leader>gg 		:action Git.Commit.Stage<CR>
 let g:WhichKeyDesc_Git= "<leader>gg Git Commit"
 
 nnoremap <leader>gb 		:action Git.CompareWithBranch<CR>
