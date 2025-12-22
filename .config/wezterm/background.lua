@@ -8,7 +8,7 @@ function background.setup(config)
 		hue = 1.0,
 		saturation = 1.0,
 	}
-	config.window_background_opacity = 0.8
+	config.window_background_opacity = 0.9
 	config.macos_window_background_blur = 10
 
 end
