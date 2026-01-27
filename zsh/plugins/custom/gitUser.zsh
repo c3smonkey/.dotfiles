@@ -20,7 +20,7 @@ gitsetmarzel() {
   echo "Git user set to 'marzelwidmer <marzelwidmer@gmail.com>' for this repository."
 }
 
-# Git Fix
+# Git Fix marzel
 gitfixmarzel() {
   git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
     echo "Not inside a git repository!"
@@ -41,3 +41,93 @@ gitfixmarzel() {
   echo "  $old"
   echo "  → $new"
 }
+
+# Git Fix c3s
+gitfixc3s() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "Not inside a git repository!"
+    return 1
+  }
+
+  old=$(git remote get-url origin)
+
+  if [[ "$old" != git@github-*:* ]]; then
+    echo "Remote already github.com (c3s)."
+    return 0
+  fi
+
+  new=$(echo "$old" | sed 's|git@github-[^:]*:|git@github.com:|')
+  git remote set-url origin "$new"
+
+  echo "✔ Remote fixed (c3s):"
+  echo "  $old"
+  echo "  → $new"
+}
+
+gitwhoami() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "Not inside a git repository!"
+    return 1
+  }
+
+  echo "📦 Repository:"
+  echo "  $(basename "$(git rev-parse --show-toplevel)")"
+  echo
+
+  echo "👤 Git user (local):"
+  git config --local user.name || echo "  (not set)"
+  git config --local user.email || echo "  (not set)"
+  echo
+
+  echo "👤 Git user (global):"
+  git config --global user.name || echo "  (not set)"
+  git config --global user.email || echo "  (not set)"
+  echo
+
+  echo "🔗 Git remote:"
+  git remote -v
+}
+
+sshwhoami() {
+  echo "🔐 SSH identities:"
+  ssh-add -l 2>/dev/null || echo "  No SSH keys loaded"
+  echo
+
+  echo "🌍 SSH config (github):"
+  ssh -G github.com 2>/dev/null | grep -E "user|identityfile|hostname"
+  echo
+
+  echo "🌍 SSH config (github-marzel):"
+  ssh -G github-marzel 2>/dev/null | grep -E "user|identityfile|hostname"
+}
+
+gitcontext() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "Not inside a git repository!"
+    return 1
+  }
+
+  name=$(git config user.name)
+  email=$(git config user.email)
+  remote=$(git remote get-url origin 2>/dev/null)
+
+  echo "🧠 Current Git context:"
+  echo
+
+  echo "👤 User:"
+  echo "  $name <$email>"
+  echo
+
+  echo "🔗 Remote:"
+  echo "  $remote"
+  echo
+
+  if [[ "$email" == *"c3s"* ]]; then
+    echo "✅ Context: c3s"
+  elif [[ "$email" == *"marzel"* ]]; then
+    echo "✅ Context: marzel"
+  else
+    echo "⚠ Unknown context"
+  fi
+}
+
