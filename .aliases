@@ -1,4 +1,6 @@
 #!/bin/zsh
+p
+alias pip311="source ~/open-webui-env/bin/activate && pip"
 alias so="source ~/.zshrc"
 
 # Zoxide
@@ -51,10 +53,13 @@ alias gg="lazygit"
 alias f="fuck"
 alias python="python3"
 alias pip="pip3"
+alias pip311="source ~/open-webui-env/bin/activate && pip"
 alias mon="bpytop"
 alias task="taskell"
 alias i="idea"
 alias i.="idea ."
+alias openwebui="source ~/open-webui-env/bin/activate && open-webui serve"
+
 
 # LSD
 alias ls="lsd"
