@@ -1,0 +1,6 @@
+[mgr]
+prepend_keymap = [
+  { on = ["d"], run = "remove", desc = "Move to trash" },
+  { on = ["D"], run = "remove --permanently", desc = "Permanently delete" },
+  { on = ["g", "T"], run = "cd ~/.Trash", desc = "Go to Trash" },
+]
