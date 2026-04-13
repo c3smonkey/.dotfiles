@@ -1,5 +1,4 @@
 #!/bin/zsh
-p
 alias pip311="source ~/open-webui-env/bin/activate && pip"
 alias so="source ~/.zshrc"
 
