@@ -39,6 +39,8 @@ nnoremap <leader>\| 		:action SplitVertically<CR>
 let g:WhichKeyDesc_SplitVertically= "<leader>| Split Vertically"
 nnoremap <leader>- 			:action SplitHorizontally<CR>
 let g:WhichKeyDesc_SplitHorizontally= "<leader>- Split Horizontally"
+nnoremap <leader>bx 		:action Unsplit<CR>
+let g:WhichKeyDesc_CloseAllSplits= "<leader>bx [b]uffer close all splits"
 
 " next and previous buffers
 nnoremap <leader>bb :bp<CR>
