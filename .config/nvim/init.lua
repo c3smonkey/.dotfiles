@@ -1,18 +1,61 @@
--- NOTE:
--- Thanks to https://github.com/Traap/nvim/
---
-vim.g.mapleader = [[ ]]
-vim.g.maplocalleader = [[,]]
+vim.g.mapleader = ' '
 
--- Aktiviere Dateityp-Erkennung und Syntax-Highlighting
-vim.cmd('filetype on')
-vim.cmd('filetype plugin on')
-vim.cmd('filetype indent on')
-vim.cmd('syntax on')
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.scrolloff = 8
+vim.opt.incsearch = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.wrap = true
+vim.opt.linebreak  = true
+vim.opt.breakindent = true
 
--- Bootstrap using lazy.nvim package manager.
-require("config.c3s.bootstrap")
-require("config.lazy")
+vim.pack.add({
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/nvim-mini/mini.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/mikavilpas/yazi.nvim'
+})
 
--- Apply  customizations.
-require("config.configure")
+-- Keymaps laden
+require('keymaps')
+
+-- Colorscheme Setup
+require('colorscheme')
+
+-- Mini.nvim Plugins
+require('mini.basics').setup()
+require('mini.surround').setup()
+require('mini.comment').setup()
+require('mini.pairs').setup()
+require('mini.tabline').setup()
+require('mini.pick').setup()
+require('mini.files').setup()
+
+require('mini.statusline').setup({
+  content = {
+    active = function()
+      return table.concat({
+        "[%{mode()}]",
+        "%f",
+        "%m",
+        "%=",
+        "%l/%L",
+      }, " ")
+    end,
+  }
+})
+
+-- Yazi File Manager
+require('yazi').setup({
+  open_for_directories = false,
+  floating_window_scaling_factor = 0.9,
+  yazi_floating_window_border = 'rounded',
+})
+
+
+
