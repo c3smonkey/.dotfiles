@@ -17,7 +17,7 @@ startup_command = "lla"
 [[session]]
 name = "zmk config  "
 path = "~/git/github/c3smonkey/zmk-config/"
-startup_command = "nvim -c ':Telescope find_files'"
+startup_command = "nvim -c ':Lexplore'"
 
 [[session]]
 name = "Home 󰋜 "
@@ -27,7 +27,7 @@ startup_command = "yazi"
 [[session]]
 name = "git  "
 path = "~/git"
-startup_command = "nvim -c ':Lexplore'"
+startup_command = "vi +explor"
 
 [[session]]
 name = "tmux config  "
@@ -68,7 +68,7 @@ startup_command = "vi aerospace.toml"
 name = "zettelkasten "
 path = "~/git/github/marzelwidmer/zettelkasten"
 # startup_command = "nvim -c ':Telescope grep_string'"
-startup_command = "vi +Explor"
+startup_command = "vi +explor"
 
 [[session]]
 name = "Downloads "
