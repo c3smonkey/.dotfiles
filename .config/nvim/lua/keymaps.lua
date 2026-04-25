@@ -149,6 +149,52 @@ end, {
 -- Yazi
 vim.keymap.set({ 'n', 'v' }, '<leader>ee', '<cmd>Yazi<CR>',  { desc = 'Open Yazi'})
 
+-- LazyGit
+vim.keymap.set('n', '<leader>gg', function()
+  if vim.fn.executable('lazygit') == 0 then
+    vim.notify('lazygit not found in PATH', vim.log.levels.ERROR)
+    return
+  end
+
+  local width = math.floor(vim.o.columns * 0.9)
+  local height = math.floor(vim.o.lines * 0.9)
+  local row = math.floor((vim.o.lines - height) / 2)
+  local col = math.floor((vim.o.columns - width) / 2)
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = 'editor',
+    width = width,
+    height = height,
+    row = row,
+    col = col,
+    style = 'minimal',
+    border = 'rounded',
+  })
+  vim.wo[win].winblend = 0
+  vim.wo[win].winhl = 'Normal:Normal,NormalFloat:Normal,FloatBorder:FloatBorder'
+
+  vim.fn.termopen('lazygit', {
+    on_exit = function()
+      vim.schedule(function()
+        if vim.api.nvim_win_is_valid(win) then
+          vim.api.nvim_win_close(win, true)
+        end
+        if vim.api.nvim_buf_is_valid(buf) then
+          vim.api.nvim_buf_delete(buf, { force = true })
+        end
+      end)
+    end,
+  })
+
+  vim.keymap.set('t', '<Esc>', [[<C-\><C-n>:close<CR>]], { buffer = buf, silent = true })
+  vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = buf, silent = true })
+  vim.cmd('startinsert')
+end, {
+  desc = 'Open lazygit',
+  silent = true,
+})
+
 
 -- ============================================
 -- Window Navigation
@@ -189,4 +235,3 @@ vim.keymap.set('v', '>', '>gv', {
   desc = 'Indent right and reselect',
   silent = true 
 })
-

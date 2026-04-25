@@ -91,11 +91,23 @@ local function set_transparent_bg()
     'VertSplit',
     'WinSeparator',
     
-    -- Statusline und Tabline
-    'StatusLine',
-    'StatusLineNC',
-    'TabLine',
-    'TabLineFill',
+     -- Statusline und Tabline
+     'StatusLine',
+     'StatusLineNC',
+     'TabLine',
+     'TabLineFill',
+     'TabLineSel',
+
+     -- mini.tabline Gruppen
+     'MiniTablineCurrent',
+     'MiniTablineVisible',
+     'MiniTablineHidden',
+     'MiniTablineModifiedCurrent',
+     'MiniTablineModifiedVisible',
+     'MiniTablineModifiedHidden',
+     'MiniTablineFill',
+     'MiniTablineTabpagesection',
+     'MiniTablineTrunc',
     
     -- Floating Windows
     'FloatBorder',
@@ -110,6 +122,10 @@ local function set_transparent_bg()
   for _, group in ipairs(hl_groups) do
     vim.api.nvim_set_hl(0, group, { bg = 'NONE' })
   end
+
+  -- Dezenter Marker: aktiver Buffer-Tab unterstrichen
+  vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = 'NONE', underline = true, bold = false })
+  vim.api.nvim_set_hl(0, 'TabLineSel', { bg = 'NONE', underline = true, bold = false })
 end
 
 -- Transparenz sofort anwenden

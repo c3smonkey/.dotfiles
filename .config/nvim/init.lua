@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.clipboard = 'unnamedplus'
@@ -18,7 +18,8 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-mini/mini.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/mikavilpas/yazi.nvim'
+  'https://github.com/mikavilpas/yazi.nvim',
+  'https://github.com/folke/which-key.nvim'
 })
 
 -- Keymaps laden
@@ -57,5 +58,6 @@ require('yazi').setup({
   yazi_floating_window_border = 'rounded',
 })
 
+require('which-key').setup()
 
 
