@@ -31,3 +31,4 @@ source ~/.dotfiles/zsh/spellfix.zsh
 
 # Created by `pipx` on 2025-09-08 18:55:14
 export PATH="$PATH:/$HOME/.local/bin"
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
