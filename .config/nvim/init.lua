@@ -12,5 +12,3 @@ require("colorschemes")
 -- Keymaps laden
 require("core.keymaps")
 
--- Optional: Auto-Commands
--- require("core.autocmds")
