@@ -13,7 +13,13 @@ M.modes = {
   none = {
     name = "Keine Transparenz",
     description = "Solid Gruvbox - maximale Lesbarkeit",
-    highlights = {}
+    highlights = {
+      { "Normal", { bg = "#282828" } },          -- Gruvbox dark background
+      { "NormalFloat", { bg = "#282828" } },
+      { "LineNr", { bg = "#282828" } },
+      { "SignColumn", { bg = "#282828" } },
+      { "EndOfBuffer", { bg = "#282828" } },
+    }
   },
   
   minimal = {
