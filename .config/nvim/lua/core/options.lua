@@ -96,9 +96,15 @@ opt.foldlevel = 99                  -- Hoher Foldlevel
 -- │  Neovim  │
 -- ╰──────────╯
 
+-- Netrw File-Explorer (VS Code-ähnliche Sidebar)
+g.netrw_winsize = 20               -- Schmale Sidebar (in %)
+g.netrw_banner = 0                 -- Kein Banner
+g.netrw_liststyle = 3              -- Tree-Ansicht
+g.netrw_browse_split = 4           -- Datei im vorherigen Fenster öffnen
+
 -- Disable Netrw (wenn File Explorer Plugin genutzt wird)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1
 
 -- Disable einige built-in Plugins für Performance
 local disabled_built_ins = {

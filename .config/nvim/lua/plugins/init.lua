@@ -1,16 +1,9 @@
 -- ╭─────────────────────────────────────────────────────────╮
--- │  Neovim 0.12+ Konfiguration                             │
--- │  Moderne Lua-basierte Setup                             │
+-- │  Plugin Bootstrap (Neovim 0.12+ vim.pack)              │
 -- ╰─────────────────────────────────────────────────────────╯
 
--- Core Einstellungen laden
-require("core.options")
+vim.pack.add({
+  "folke/which-key.nvim",
+})
 
--- Plugins laden (native vim.pack)
-require("plugins")
-
--- Colorscheme mit Transparenz laden
-require("colorschemes")
-
--- Keymaps laden
-require("core.keymaps")
+require("plugins.whichkey")

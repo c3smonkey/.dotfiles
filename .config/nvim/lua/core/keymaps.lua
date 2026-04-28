@@ -44,6 +44,7 @@ map("n", "<Esc>", ":nohlsearch<CR>", keymap_opts("Search Highlight löschen"))
 map("n", "<leader>w", ":write<CR>", keymap_opts("Speichern"))
 map("n", "<leader>q", ":quit<CR>", keymap_opts("Schließen"))
 map("n", "<leader>Q", ":quitall<CR>", keymap_opts("Alle schließen"))
+map("n", "<leader>e", ":Lexplore<CR>", keymap_opts("Datei-Explorer (Toggle)"))
 
 -- Zentral scrollen nach Suche
 map("n", "n", "nzzzv", opts)
