@@ -15,6 +15,7 @@ M.modes = {
     description = "Solid Gruvbox - maximale Lesbarkeit",
     highlights = {
       { "Normal", { bg = "#282828" } },          -- Gruvbox dark background
+      { "NormalNC", { bg = "#282828" } },
       { "NormalFloat", { bg = "#282828" } },
       { "LineNr", { bg = "#282828" } },
       { "SignColumn", { bg = "#282828" } },
@@ -26,7 +27,8 @@ M.modes = {
     name = "Minimal",
     description = "Nur Haupttext transparent",
     highlights = {
-      { "Normal", { bg = "NONE" } }
+      { "Normal", { bg = "NONE" } },
+      { "NormalNC", { bg = "NONE" } }
     }
   },
   
@@ -35,6 +37,7 @@ M.modes = {
     description = "Text + Dateiende transparent (empfohlen)",
     highlights = {
       { "Normal", { bg = "NONE" } },
+      { "NormalNC", { bg = "NONE" } },
       { "EndOfBuffer", { bg = "NONE" } }
     }
   },
@@ -44,6 +47,7 @@ M.modes = {
     description = "Alles transparent - voller layered effect",
     highlights = {
       { "Normal", { bg = "NONE" } },
+      { "NormalNC", { bg = "NONE" } },
       { "NormalFloat", { bg = "NONE" } },
       { "LineNr", { bg = "NONE" } },
       { "SignColumn", { bg = "NONE" } },
@@ -59,8 +63,9 @@ M.current_mode = "moderate"
 -- │  Transparenz anwenden   │
 -- ╰─────────────────────────╯
 
-function M.apply(mode)
+function M.apply(mode, silent)
   mode = mode or M.current_mode
+  silent = silent == true
   
   -- Validierung
   if not M.modes[mode] then
@@ -81,10 +86,12 @@ function M.apply(mode)
   end
   
   -- Notification
-  vim.notify(
-    string.format("Transparenz: %s", config.name),
-    vim.log.levels.INFO
-  )
+  if not silent then
+    vim.notify(
+      string.format("Transparenz: %s", config.name),
+      vim.log.levels.INFO
+    )
+  end
   
   return true
 end

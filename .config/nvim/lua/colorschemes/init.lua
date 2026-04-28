@@ -73,7 +73,7 @@ function M.load(name)
   
   -- Transparenz anwenden
   local transparency = require("colorschemes.transparency")
-  transparency.apply(M.config.transparency)
+  transparency.apply(M.config.transparency, true)
   
   -- Aktuelles Scheme speichern
   M.config.active = name

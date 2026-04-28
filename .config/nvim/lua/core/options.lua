@@ -32,9 +32,12 @@ opt.colorcolumn = ""                -- Keine color column (leer lassen)
 -- UI Verbesserungen
 opt.termguicolors = true            -- True Color Support (24-bit)
 opt.showmode = false                -- Mode nicht anzeigen (für Statusline)
-opt.cmdheight = 1                   -- Command line Höhe
+opt.cmdheight = 0                   -- Keine permanente Command-Zeile
 opt.pumheight = 10                  -- Popup menu Höhe
-opt.showtabline = 2                 -- Immer Tabline anzeigen
+opt.showtabline = 0                 -- Tabline ausblenden
+opt.laststatus = 0                  -- Statusline ausblenden
+opt.statusline = ""                 -- Keine Statusline-Inhalte
+opt.winbar = ""                     -- Kein Fensterpfad oben im Split
 
 -- ╭─────────────────╮
 -- │  Tabs & Spaces  │
@@ -78,6 +81,7 @@ opt.timeoutlen = 300                -- Schnelleres Key Timeout
 
 -- Completion
 opt.completeopt = "menu,menuone,noselect"  -- Completion Optionen
+opt.shortmess:append("F")          -- Keine Dateiname-Meldung bei Splits
 
 -- Mouse
 opt.mouse = "a"                     -- Mouse Support in allen Modi
