@@ -7,6 +7,17 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local resize_mode = false
 
+local function with_fzf(method)
+  return function()
+    local ok, fzf = pcall(require, "fzf-lua")
+    if not ok then
+      vim.notify("fzf-lua ist nicht geladen", vim.log.levels.WARN)
+      return
+    end
+    fzf[method]()
+  end
+end
+
 -- Helper für opts mit description
 local function keymap_opts(desc)
   return { noremap = true, silent = true, desc = desc }
@@ -60,6 +71,11 @@ map("n", "<leader>bx", ":only<CR>", keymap_opts("Unsplit (nur aktuelles Fenster)
 map("n", "<leader>-", "<cmd>silent split<CR>", keymap_opts("Horizontal split"))
 map("n", "<leader>|", "<cmd>silent vsplit<CR>", keymap_opts("Vertical split"))
 
+-- Search (fzf-lua)
+map("n", "<leader>sg", with_fzf("live_grep"), keymap_opts("Search by grep"))
+map("n", "<leader>se", with_fzf("global"), keymap_opts("Search everywhere"))
+map("n", "<leader>sf", with_fzf("files"), keymap_opts("Search file"))
+map("n", "<leader>sr", with_fzf("oldfiles"), keymap_opts("Search recent files"))
 -- Clear Search Highlights (ESC zum Löschen der Highlights)
 map("n", "<Esc>", function()
   if resize_mode then
