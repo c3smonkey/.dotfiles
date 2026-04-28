@@ -16,6 +16,7 @@ which_key.setup({
 which_key.add({
   { "<leader>b", group = "Buffer" },
   { "<leader>t", group = "Transparenz" },
+  { "<leader>p", group = "Plugins" },
   { "<leader>e", desc = "Datei-Explorer (Toggle)" },
   { "<leader>w", desc = "Speichern" },
   { "<leader>q", desc = "Schließen" },

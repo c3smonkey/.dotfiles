@@ -92,3 +92,11 @@ map("n", "<leader>tf", ":TransparencySet full<CR>", keymap_opts("Transparenz: Ma
 
 -- Colorscheme wechseln (für Zukunft)
 -- map("n", "<leader>cs", ":ColorschemeLoad<CR>", keymap_opts("Colorscheme auswählen"))
+
+-- ╭──────────────────────╮
+-- │  Plugin Management   │
+-- ╰──────────────────────╯
+
+map("n", "<leader>pu", ":PackUpdate<CR>", keymap_opts("Plugins updaten"))
+map("n", "<leader>pi", ":PackInfo<CR>", keymap_opts("Plugin Info"))
+map("n", "<leader>ps", ":PackSync<CR>", keymap_opts("Plugins synchronisieren"))

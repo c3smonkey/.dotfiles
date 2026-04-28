@@ -1,16 +1,4 @@
--- ╭─────────────────────────────────────────────────────────╮
--- │  Neovim 0.12+ Konfiguration                             │
--- │  Moderne Lua-basierte Setup                             │
--- ╰─────────────────────────────────────────────────────────╯
-
--- Core Einstellungen laden
 require("core.options")
-
--- Plugins laden (native vim.pack)
 require("plugins")
-
--- Colorscheme mit Transparenz laden
 require("colorschemes")
-
--- Keymaps laden
 require("core.keymaps")

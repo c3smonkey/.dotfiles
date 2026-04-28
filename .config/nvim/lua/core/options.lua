@@ -126,3 +126,19 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
+
+-- ╭─────────────────────╮
+-- │  Auto Commands      │
+-- ╰─────────────────────╯
+
+-- Highlight beim Kopieren (Yank)
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight beim Kopieren",
+  group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 200,
+    })
+  end,
+})

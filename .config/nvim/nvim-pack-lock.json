@@ -18,7 +18,7 @@
     },
     "nvim-lspconfig": {
       "rev": "8fde495949782bb61c2605174e231d145a048d8c",
-      "src": "https://github.com/neovim/nvim-lspconfig"
+      "src": "neovim/nvim-lspconfig"
     },
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
@@ -26,7 +26,7 @@
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
+      "src": "nvim-lua/plenary.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
@@ -34,7 +34,7 @@
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
-      "src": "https://github.com/folke/which-key.nvim"
+      "src": "folke/which-key.nvim"
     },
     "yazi.nvim": {
       "rev": "3ef2cd509e8b44bb4436e78834007f6342c7aaa5",
