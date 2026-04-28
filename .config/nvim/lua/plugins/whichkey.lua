@@ -25,6 +25,7 @@ which_key.add({
   { "<leader>s", group = "Search" },
   { "<leader>sg", desc = "Search by grep" },
   { "<leader>se", desc = "Search everywhere" },
+  { "<leader>sE", desc = "Search everywhere (home)" },
   { "<leader>sf", desc = "Search file" },
   { "<leader>sr", desc = "Search recent files" },
   { "<leader>p", group = "Plugins" },

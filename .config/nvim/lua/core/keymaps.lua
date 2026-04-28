@@ -74,6 +74,14 @@ map("n", "<leader>|", "<cmd>silent vsplit<CR>", keymap_opts("Vertical split"))
 -- Search (fzf-lua)
 map("n", "<leader>sg", with_fzf("live_grep"), keymap_opts("Search by grep"))
 map("n", "<leader>se", with_fzf("global"), keymap_opts("Search everywhere"))
+map("n", "<leader>sE", function()
+  local ok, fzf = pcall(require, "fzf-lua")
+  if not ok then
+    vim.notify("fzf-lua ist nicht geladen", vim.log.levels.WARN)
+    return
+  end
+  fzf.global({ cwd = vim.fn.expand("~") })
+end, keymap_opts("Search everywhere (home)"))
 map("n", "<leader>sf", with_fzf("files"), keymap_opts("Search file"))
 map("n", "<leader>sr", with_fzf("oldfiles"), keymap_opts("Search recent files"))
 -- Clear Search Highlights (ESC zum Löschen der Highlights)
