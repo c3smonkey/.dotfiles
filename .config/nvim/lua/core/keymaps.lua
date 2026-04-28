@@ -149,3 +149,6 @@ end, keymap_opts("Plugins aus Lockfile syncen"))
 map("n", "<leader>pi", function()
   vim.print(vim.pack.get())
 end, keymap_opts("Plugin-Liste anzeigen"))
+
+-- Git
+map("n", "<leader>gg", ":LazyGit<CR>", keymap_opts("LazyGit"))

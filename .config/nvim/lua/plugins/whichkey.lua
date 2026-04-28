@@ -31,6 +31,8 @@ which_key.add({
   { "<leader>pu", desc = "Plugins updaten" },
   { "<leader>ps", desc = "Lockfile sync" },
   { "<leader>pi", desc = "Plugin-Liste" },
+  { "<leader>g", group = "Git" },
+  { "<leader>gg", desc = "LazyGit" },
   { "<leader>t", group = "Transparenz" },
   { "<leader>r", desc = "Resize-Mode umschalten" },
   { "<leader>e", desc = "Datei-Explorer (Toggle)" },
