@@ -10,6 +10,11 @@ vim.pack.add({
   'https://github.com/L3MON4D3/LuaSnip',
   'https://github.com/saadparwaiz1/cmp_luasnip',
   
+  -- DAP (Debugging)
+  'https://github.com/mfussenegger/nvim-dap',
+  'https://github.com/rcarriga/nvim-dap-ui',
+  'https://github.com/nvim-neotest/nvim-nio',
+  
   -- Utilities
   'https://github.com/nvim-mini/mini.nvim',
   'https://github.com/nvim-lua/plenary.nvim',
@@ -27,3 +32,4 @@ require("plugins.fzf")
 require("plugins.mini")
 require("plugins.completion")  -- nvim-cmp
 require("plugins.lsp")
+require("plugins.dap")
