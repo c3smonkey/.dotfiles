@@ -25,11 +25,18 @@ mason.setup({
 -- LSP Configuration (Native Neovim 0.11+ API)
 -- ═══════════════════════════════════════════════════════════
 
+-- Get cmp_nvim_lsp capabilities (if nvim-cmp is loaded)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+if _G.cmp_nvim_lsp_capabilities then
+  capabilities = vim.tbl_deep_extend("force", capabilities, _G.cmp_nvim_lsp_capabilities)
+end
+
 -- Lua Language Server Configuration
 vim.lsp.config('lua_ls', {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
   root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
@@ -74,6 +81,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = bufnr, noremap = true, silent = true }
     
     -- ────────────────────────────────────────────────────────
+    -- NOTE: Auto-Completion is handled by nvim-cmp (see completion.lua)
+    -- Native vim.lsp.completion is disabled in favor of nvim-cmp
+    -- ────────────────────────────────────────────────────────
+    
+    -- ────────────────────────────────────────────────────────
     -- Navigation (g-Prefix - IDENTISCH zu IdeaVim)
     -- ────────────────────────────────────────────────────────
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, 
@@ -102,6 +114,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.tbl_extend("force", opts, { desc = "Signature help" }))
     vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help,
       vim.tbl_extend("force", opts, { desc = "Signature help" }))
+    
+    -- ────────────────────────────────────────────────────────
+    -- NOTE: Completion Keybindings are handled by nvim-cmp
+    -- See completion.lua for: <Tab>, <S-Tab>, <C-Space>, <CR>, etc.
+    -- ────────────────────────────────────────────────────────
     
     -- ────────────────────────────────────────────────────────
     -- Code Actions (<leader> Prefix - KONSISTENT zu IdeaVim)

@@ -80,7 +80,8 @@ opt.updatetime = 250                -- Schnellere Completion (CursorHold)
 opt.timeoutlen = 300                -- Schnelleres Key Timeout
 
 -- Completion
-opt.completeopt = "menu,menuone,noselect"  -- Completion Optionen
+opt.completeopt = "menu,menuone"  -- Completion Optionen (optimized for LSP)
+opt.complete = ""                 -- Disable builtin completion, use LSP only
 opt.shortmess:append("F")          -- Keine Dateiname-Meldung bei Splits
 
 -- Mouse
