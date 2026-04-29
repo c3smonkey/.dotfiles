@@ -15,15 +15,6 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/christoomey/vim-tmux-navigator',
   'https://github.com/folke/which-key.nvim',
-  'https://github.com/ibhagwan/fzf-lua',
   'https://github.com/kdheepak/lazygit.nvim',
 })
-
--- ╭──────────────────────╮
--- │  Konfigurationen     │
--- ╰──────────────────────╯
-require("plugins.whichkey")
-require("plugins.fzf")
-require("plugins.mini")
-require("plugins.completion")  -- nvim-cmp
-require("plugins.lsp")
+require("plugins.setup")

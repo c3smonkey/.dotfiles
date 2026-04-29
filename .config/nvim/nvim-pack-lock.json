@@ -20,10 +20,6 @@
       "rev": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90",
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
-    "fzf-lua": {
-      "rev": "2e29d5f233defe3c5587df0e4dd29af2bd95a5a7",
-      "src": "https://github.com/ibhagwan/fzf-lua"
-    },
     "kotlin.nvim": {
       "rev": "262340932602a77ce0be12aab949864a37a756bc",
       "src": "https://github.com/AlexandrosAlexiou/kotlin.nvim"

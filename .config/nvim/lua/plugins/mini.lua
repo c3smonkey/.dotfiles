@@ -62,3 +62,13 @@ if ok_pairs then
     },
   })
 end
+
+local ok_pick, pick = pcall(require, "mini.pick")
+if ok_pick then
+  pick.setup({})
+end
+
+local ok_extra, extra = pcall(require, "mini.extra")
+if ok_extra then
+  extra.setup({})
+end

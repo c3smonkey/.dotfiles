@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = bufnr, noremap = true, silent = true }
     
     -- ────────────────────────────────────────────────────────
-    -- NOTE: Auto-Completion is handled by nvim-cmp (see completion.lua)
+    -- NOTE: Auto-Completion is handled by nvim-cmp (see cmp.lua)
     -- Native vim.lsp.completion is disabled in favor of nvim-cmp
     -- ────────────────────────────────────────────────────────
     
@@ -137,7 +137,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     
     -- ────────────────────────────────────────────────────────
     -- NOTE: Completion Keybindings are handled by nvim-cmp
-    -- See completion.lua for: <Tab>, <S-Tab>, <C-Space>, <CR>, etc.
+    -- See cmp.lua for: <Tab>, <S-Tab>, <C-Space>, <CR>, etc.
     -- ────────────────────────────────────────────────────────
     
     -- ────────────────────────────────────────────────────────
