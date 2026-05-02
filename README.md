@@ -35,6 +35,7 @@ brew install gum
 brew install yazi
 brew install gh
 brew install --cask nikitabobko/tap/aerospace
+brew install w3m
 ```
 
 
@@ -247,13 +248,34 @@ ln -s ~/.dotfiles/.config/sesh ~/.config/sesh
 # aerc (secrets-safe)
 
 Use dotfiles for UI/theme, but keep accounts private.
+No manual changes are needed under `~/Library/Preferences/aerc` when using the shell wrapper.
+Install HTML mail rendering dependency first:
+
+```bash
+brew install w3m
+```
+
+Interactive setup (recommended):
+
+```bash
+exec zsh
+aerc-setup
+```
+
+You can also run the generator directly; in a terminal it prompts automatically:
+
+```bash
+~/.dotfiles/.config/aerc/generate-accounts.sh
+```
+
+Manual setup also works:
 
 ```bash
 mkdir -p ~/.secrets/aerc
-cp ~/.dotfiles/.config/aerc/accounts.conf.example ~/.secrets/aerc/accounts.conf
+cp ~/.dotfiles/.config/aerc/accounts.min.conf.example ~/.secrets/aerc/accounts.min.conf
 ```
 
-Edit `~/.secrets/aerc/accounts.conf` with real emails, then add passwords to Keychain:
+Edit `~/.secrets/aerc/accounts.min.conf` with real emails, then add passwords to Keychain:
 
 ```bash
 security add-generic-password -U -a "YOUR_ICLOUD_EMAIL@me.com" -s "aerc-icloud-imap" -w
@@ -268,6 +290,12 @@ Reload shell and start:
 exec zsh
 aerc
 ```
+
+The wrapper forces:
+- config: `~/.dotfiles/.config/aerc/aerc.conf`
+- accounts (generated): `~/.secrets/aerc/accounts.conf`
+- accounts input (minimal): `~/.secrets/aerc/accounts.min.conf`
+- binds: `~/.dotfiles/.config/aerc/binds.conf`
 
 
 
