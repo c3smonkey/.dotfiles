@@ -232,6 +232,34 @@ ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/.config/wezterm ~/.config/wezterm
 ```
 
+### WezTerm Keymaps (macOS)
+
+- `CMD +` Increase font size
+- `CMD -` Decrease font size
+- `CMD 0` Reset font size
+- `CTRL+SHIFT+M` Enter copy mode (vim-like cursor navigation)
+- `CMD+SHIFT+SPACE` Quick select words/paths/urls
+- `CMD+SHIFT+Y` Quick select URLs only
+
+### WezTerm Copy Mode Tutorial
+
+1. Press `CTRL+SHIFT+M` to enter copy mode.
+2. Move the cursor with `h` `j` `k` `l` (or `w`/`b`/`e`, `gg`, `G`).
+3. Press `Space` to start a selection.
+4. Move to expand the selection.
+5. Press `y` to copy and close copy mode.
+
+Advanced copy mode:
+- Press `Ctrl+v` in copy mode to switch to block selection manually.
+- Press `q` or `Esc` to leave copy mode.
+
+Quick select tutorial:
+- Press `CMD+SHIFT+SPACE`, type to filter, press `Enter` on match.
+- Press `CMD+SHIFT+Y` to select URL matches only.
+
+Cheatsheet:
+- `~/.dotfiles/.config/wezterm/CHEATSHEET.md`
+
 # LF
 
 ```bash

@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 wezterm.enable_osc8_hyperlink = true
 
@@ -67,12 +68,21 @@ config.window_padding = {
 
 
 config.keys = {
-    { key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
-    { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },	
-    { key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
-    
+    { key = "+", mods = "CMD", action = act.IncreaseFontSize },
+    { key = "-", mods = "CMD", action = act.DecreaseFontSize },	
+    { key = "0", mods = "CMD", action = act.ResetFontSize },
+    { key = "m", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
+    { key = "Space", mods = "CMD|SHIFT", action = act.QuickSelect },
+    {
+        key = "Y",
+        mods = "CMD|SHIFT",
+        action = act.QuickSelectArgs({
+            patterns = {
+                "https?://\\S+",
+            },
+        }),
+    },
+     
 }
-
-
 
 return config
