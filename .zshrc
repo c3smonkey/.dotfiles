@@ -28,6 +28,13 @@ source ~/.cargo/env
 source ~/.sdkman/bin/sdkman-init.sh
 source ~/.dotfiles/zsh/spellfix.zsh
 
+# aerc (use repo config + private accounts file)
+export AERC_CONFIG_FILE="$HOME/.dotfiles/.config/aerc/aerc.conf"
+export AERC_ACCOUNTS_CONF="${AERC_ACCOUNTS_CONF:-$HOME/.secrets/aerc/accounts.conf}"
+aerc() {
+  command aerc -C "$AERC_CONFIG_FILE" -A "$AERC_ACCOUNTS_CONF" "$@"
+}
+
 
 # Created by `pipx` on 2025-09-08 18:55:14
 export PATH="$PATH:/$HOME/.local/bin"
