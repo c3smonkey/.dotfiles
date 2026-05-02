@@ -244,6 +244,32 @@ ln -s ~/.dotfiles/.config/sesh ~/.config/sesh
 ```
 
 
+# aerc (secrets-safe)
+
+Use dotfiles for UI/theme, but keep accounts private.
+
+```bash
+mkdir -p ~/.secrets/aerc
+cp ~/.dotfiles/.config/aerc/accounts.conf.example ~/.secrets/aerc/accounts.conf
+```
+
+Edit `~/.secrets/aerc/accounts.conf` with real emails, then add passwords to Keychain:
+
+```bash
+security add-generic-password -U -a "YOUR_ICLOUD_EMAIL@me.com" -s "aerc-icloud-imap" -w
+security add-generic-password -U -a "YOUR_ICLOUD_EMAIL@me.com" -s "aerc-icloud-smtp" -w
+security add-generic-password -U -a "YOUR_GMAIL_EMAIL@gmail.com" -s "aerc-gmail-imap" -w
+security add-generic-password -U -a "YOUR_GMAIL_EMAIL@gmail.com" -s "aerc-gmail-smtp" -w
+```
+
+Reload shell and start:
+
+```bash
+exec zsh
+aerc
+```
+
+
 
 # OSW Settings
 
@@ -277,4 +303,3 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write -g NSWindowShouldDragOnGesture YES
 ```
 Now, you can move windows by holding ctrl+cmd and dragging any part of the window (not necessarily the window title)
-
