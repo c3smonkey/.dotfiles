@@ -1,76 +1,74 @@
-# The default session to start when no session is specified
-# https://github.com/joshmedeski/sesh?tab=readme-ov-file#startup-script
-# Icons : https://www.nerdfonts.com/cheat-sheet
-import = ["~/.dotfiles/.config/sesh/.sesh_terminal.toml"]
-
-[default_session]
-# startup_command = "nvim -c ':Telescope find_files'"
-# startup_command = "nvim -c ':Telescope grep_string'"
-startup_command = "ls -la"
-
 [[session]]
-name = "dotfiles  "
+name = "dotfiles"
 path = "~/.dotfiles"
-startup_command = "lla"
-# startup_command = "~/.config/sesh/startup.sh"
+startup_command = "zsh"
 
 [[session]]
-name = "zmk config  "
-path = "~/git/github/c3smonkey/zmk-config/"
-startup_command = "nvim -c ':Lexplore'"
-
-[[session]]
-name = "Home 󰋜 "
-path = "~/"
-startup_command = "yazi"
-
-[[session]]
-name = "git  "
-path = "~/git"
-startup_command = "vi +explor"
-
-[[session]]
-name = "tmux config  "
-path = "~/.dotfiles/.config/tmux"
-startup_command = "vi tmux.conf"
-
-[[session]]
-name = "gitmux config "
-path = "~/.dotfiles/.config/tmux"
-startup_command = "vi gitmux.yml"
-
-[[session]]
-name = "sesh config "
+name = "sesh config"
 path = "~/.dotfiles/.config/sesh"
 startup_command = "vi sesh.toml"
 
 [[session]]
-name = "nvim config 󰛓"
+name = "zmk config"
+path = "~/git/github/c3smonkey/zmk-config/"
+startup_command = "yazi"
+
+[[session]]
+name = "Home"
+path = "~/"
+startup_command = "yazi"
+
+[[session]]
+name = "git"
+path = "~/git"
+startup_command = "yazi"
+
+[[session]]
+name = "tmux config"
+path = "~/.dotfiles/.config/tmux"
+startup_command = "vi tmux.conf"
+
+[[session]]
+name = "gitmux config"
+path = "~/.dotfiles/.config/tmux"
+startup_command = "vi gitmux.yml"
+
+[[session]]
+name = "nvim config"
 path = "~/.dotfiles/.config/nvim"
 startup_command = "vi init.lua"
 
 [[session]]
-name = "skhd config 󰛓"
+name = "skhd config"
 path = "~/.dotfiles/.config/skhd"
 startup_command = "vi skhdrc"
 
 [[session]]
-name = "yabai config 󰛓"
+name = "yabai config"
 path = "~/.dotfiles/.config/yabai"
 startup_command = "vi yabairc"
 
 [[session]]
-name = "aerospace config 󰛓"
+name = "aerospace config"
 path = "~/.dotfiles/.config/aerospace"
 startup_command = "vi aerospace.toml"
 
 [[session]]
-name = "zettelkasten "
+name = "zettelkasten"
 path = "~/git/github/marzelwidmer/zettelkasten"
-# startup_command = "nvim -c ':Telescope grep_string'"
-startup_command = "vi +explor"
+startup_command = "yazi"
 
 [[session]]
-name = "Downloads "
+name = "Downloads"
 path = "~/Downloads"
 startup_command = "yazi"
+
+[[session]]
+name = "alacritty config"
+path = "~/.dotfiles/.config/alacritty"
+startup_command = "vi alacritty.toml"
+
+[[session]]
+name = "wezterm config"
+path = "~/.dotfiles/.config/wezterm"
+startup_command = "vi wezterm.lua"
