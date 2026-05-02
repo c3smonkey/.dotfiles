@@ -45,6 +45,9 @@ vim.o.statusline = "%<%t %h%w%m%r%=%-14.(%l,%c%V%) %P"
 vim.o.cmdheight = 0
 vim.o.undofile = true
 
+-- Use system clipboard (register +) so copy/paste works with macOS
+vim.opt.clipboard = "unnamedplus"
+
 -- yazi
 require("yazi").setup({
 	open_for_directories = false,
