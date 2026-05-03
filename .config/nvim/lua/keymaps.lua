@@ -119,8 +119,24 @@ end, { desc = 'Theme rotate' })
 
 -- File/Buffer/Grep search using mini.pick
 vim.keymap.set('n', '<leader>sf', function()
-  require('mini.pick').builtin.files()
-end, { desc = '[S]earch [F]iles' })
+  local cwd = vim.fn.getcwd()
+  local cmd = 'cd ' .. vim.fn.shellescape(cwd) .. ' && rg --files --hidden --glob "!.git"'
+  local files = vim.fn.systemlist(cmd)
+  if vim.v.shell_error ~= 0 then
+    vim.notify('ripgrep (rg) not found or failed', vim.log.levels.WARN)
+    return
+  end
+  if #files == 0 then
+    vim.notify('No files found (rg)', vim.log.levels.INFO)
+    return
+  end
+  require('mini.pick').start({
+    source = {
+      items = files,
+      name = 'Files (rg)',
+    },
+  })
+end, { desc = '[S]earch [F]iles (rg)' })
 
 vim.keymap.set('n', '<leader>sb', function()
   require('mini.pick').builtin.buffers()
