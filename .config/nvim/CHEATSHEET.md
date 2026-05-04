@@ -1,5 +1,28 @@
 # Neovim Daily Keys
 
+## Kotlin Spring Boot
+
+### Run & Build:
+- `,rr`: run Spring Boot (auto-detect Gradle/Maven)
+- `,R`: run with module selection (multi-module projects)
+- `,rs`: stop running Spring Boot app
+- `,c`: compile project (Gradle/Maven)
+- `,f`: format buffer
+- `,i`: organize imports
+
+### Testing:
+- `,t`: run test method under cursor (fast - skip compile)
+- `,T`: run entire test class (fast - skip compile)
+- `,rf`: rerun last test
+
+**Workflow:** Edit code → `,c` (compile) → `,T` (test fast) → `,T` (rerun fast)  
+**Note:** Tests reuse same terminal window. Close with `:q` in normal mode.
+
+### In Terminal Window:
+- `Ctrl-C`: stop Spring Boot app / stop test
+- `q`: close terminal window (normal mode)
+- `i`: enter insert mode to interact with terminal
+
 ## File Explorer (mini.files)
 
 - `<leader>e`: open mini.files explorer (fast, no preview by default)

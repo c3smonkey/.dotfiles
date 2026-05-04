@@ -142,6 +142,77 @@ vim.keymap.set('n', '<leader>sb', function()
   require('mini.pick').builtin.buffers()
 end, { desc = '[S]earch [B]uffers' })
 
+-- Search Kotlin/Java Classes (production + test)
+vim.keymap.set('n', '<leader>sc', function()
+  local cwd = vim.fn.getcwd()
+  
+  -- Simpler ripgrep: find any line with class/interface/enum/object keyword
+  -- Use -g for glob patterns, --hidden to search in .config and other hidden dirs
+  local cmd = string.format(
+    'cd %s && rg -g "*.kt" -g "*.java" -n ' ..
+    '"\\b(class|interface|enum|object)\\s+\\w+" ' ..
+    '--no-heading --color=never --hidden --glob "!.git" 2>/dev/null',
+    vim.fn.shellescape(cwd)
+  )
+  
+  local results = vim.fn.systemlist(cmd)
+  
+  if vim.v.shell_error ~= 0 or #results == 0 then
+    vim.notify('No classes found', vim.log.levels.INFO)
+    return
+  end
+  
+  -- Parse ripgrep output: file:line:content
+  -- Format for display: ClassName (file:line)
+  local items = {}
+  local seen = {}  -- Dedup by class name
+  
+  for _, line in ipairs(results) do
+    local file, line_num, content = line:match('^(.+):(%d+):(.*)')
+    if file and line_num and content then
+      -- Extract class name (word after class/interface/enum/object)
+      local class_name = content:match('class%s+([%w_]+)') 
+                      or content:match('interface%s+([%w_]+)')
+                      or content:match('enum%s+([%w_]+)')
+                      or content:match('object%s+([%w_]+)')
+      
+      if class_name and not seen[class_name] then
+        seen[class_name] = true
+        -- Embed full file path in display string for parsing in choose callback
+        table.insert(items, string.format('%-40s (%s:%s)', class_name, file, line_num))
+      end
+    end
+  end
+  
+  if #items == 0 then
+    vim.notify('No classes found', vim.log.levels.INFO)
+    return
+  end
+  
+  table.sort(items)
+  
+  require('mini.pick').start({
+    source = {
+      items = items,
+      name = 'Classes',
+      choose = function(selected)
+        if selected then
+          -- Parse: "ClassName (file:line)" → extract file and line
+          local file, line = selected:match('%((.+):(%d+)%)')
+          if file and line then
+            -- Defer to next tick so mini.pick closes first
+            vim.schedule(function()
+              vim.cmd('edit ' .. vim.fn.fnameescape(file))
+              vim.api.nvim_win_set_cursor(0, {tonumber(line), 0})
+              vim.cmd('normal! zz')  -- Center line
+            end)
+          end
+        end
+      end,
+    },
+  })
+end, { desc = '[S]earch [C]lass' })
+
 vim.keymap.set('n', '<leader>sg', function()
   require('mini.pick').builtin.grep_live()
 end, { desc = '[S]earch [G]rep' })
@@ -210,7 +281,7 @@ vim.keymap.set('n', '<leader>sk', function()
 end, { desc = '[S]earch [K]eymaps' })
 
 -- Search Commands
-vim.keymap.set('n', '<leader>sc', function()
+vim.keymap.set('n', '<leader>sC', function()
   local commands = vim.api.nvim_get_commands({})
   local items = {}
   
@@ -450,6 +521,482 @@ local function compile_project_with_fallback()
 
   attempt(1, {})
 end
+
+-- ╭────────────────────────────────────────────╮
+-- │  Spring Boot Run (Kotlin)                 │
+-- ╰────────────────────────────────────────────╯
+
+-- State tracking for running Spring Boot apps
+local spring_boot_state = {
+  terminal_buf = nil,
+  terminal_win = nil,
+  job_id = nil,
+  root = nil,
+  module = nil,
+}
+
+-- Run Spring Boot application (auto-detect Gradle/Maven)
+local function run_spring_boot(module_path)
+  -- Find project root
+  local root = vim.fs.root(0, { 
+    'mvnw', 'pom.xml', 
+    'gradlew', 'build.gradle.kts', 'build.gradle',
+    'settings.gradle.kts', 'settings.gradle',
+    '.git' 
+  }) or vim.fn.getcwd()
+
+  local has_file = function(name)
+    return vim.fn.filereadable(root .. '/' .. name) == 1
+  end
+
+  -- Detect build tool and construct command
+  local candidates = {}
+  
+  -- Module-specific bootRun task
+  local module_task = module_path and (':' .. module_path .. ':bootRun') or 'bootRun'
+  
+  if has_file('gradlew') then
+    table.insert(candidates, { 
+      label = 'gradlew', 
+      cmd = './gradlew ' .. module_task 
+    })
+  end
+  if (has_file('build.gradle') or has_file('build.gradle.kts')) and vim.fn.executable('gradle') == 1 then
+    table.insert(candidates, { 
+      label = 'gradle', 
+      cmd = 'gradle ' .. module_task 
+    })
+  end
+  -- Prefer system mvn over mvnw (mvnw may be corrupted in corporate networks)
+  if has_file('pom.xml') and vim.fn.executable('mvn') == 1 then
+    local mvn_module = module_path and ('-pl ' .. module_path .. ' ') or ''
+    table.insert(candidates, { 
+      label = 'mvn', 
+      cmd = 'mvn ' .. mvn_module .. 'spring-boot:run' 
+    })
+  end
+  if has_file('mvnw') then
+    local mvn_module = module_path and ('-pl ' .. module_path .. ' ') or ''
+    table.insert(candidates, { 
+      label = 'mvnw', 
+      cmd = './mvnw ' .. mvn_module .. 'spring-boot:run' 
+    })
+  end
+
+  if #candidates == 0 then
+    vim.notify('No build tool found (gradlew/mvnw)', vim.log.levels.WARN)
+    return
+  end
+
+  -- Use first available build tool
+  local candidate = candidates[1]
+  local cmd = candidate.cmd
+  
+  -- Warn if using mvn fallback (mvnw might be corrupted)
+  if candidate.label == 'mvn' and has_file('mvnw') then
+    vim.notify(
+      'Maven wrapper found but using system mvn\n' ..
+      'If mvnw is corrupted, fix with: mvn wrapper:wrapper',
+      vim.log.levels.WARN
+    )
+  end
+  
+  vim.notify('Starting Spring Boot via ' .. candidate.label .. '...', vim.log.levels.INFO)
+
+  -- Open terminal in bottom split (30% height)
+  vim.cmd('botright split')
+  local height = math.floor(vim.o.lines * 0.3)
+  vim.cmd('resize ' .. height)
+  
+  -- Start Spring Boot in terminal
+  local full_cmd = 'cd ' .. vim.fn.shellescape(root) .. ' && ' .. cmd
+  vim.cmd('terminal ' .. full_cmd)
+  
+  -- Track state
+  spring_boot_state.terminal_buf = vim.api.nvim_get_current_buf()
+  spring_boot_state.terminal_win = vim.api.nvim_get_current_win()
+  spring_boot_state.job_id = vim.b.terminal_job_id
+  spring_boot_state.root = root
+  spring_boot_state.module = module_path
+  
+  -- Enter insert mode to see logs
+  vim.cmd('startinsert')
+  
+  vim.notify('Spring Boot started. Press Ctrl-C to stop, q to close terminal', vim.log.levels.INFO)
+end
+
+-- Stop running Spring Boot application
+local function stop_spring_boot()
+  if spring_boot_state.job_id then
+    -- Send SIGTERM to job
+    vim.fn.jobstop(spring_boot_state.job_id)
+    vim.notify('Spring Boot stopped', vim.log.levels.INFO)
+    
+    -- Clear state
+    spring_boot_state = {
+      terminal_buf = nil,
+      terminal_win = nil,
+      job_id = nil,
+      root = nil,
+      module = nil,
+    }
+  else
+    vim.notify('No running Spring Boot application found', vim.log.levels.WARN)
+  end
+end
+
+-- Detect Spring Boot modules in multi-module projects
+local function detect_spring_boot_modules()
+  local root = vim.fs.root(0, { 
+    'settings.gradle.kts', 'settings.gradle',
+    'pom.xml', '.git' 
+  }) or vim.fn.getcwd()
+
+  local modules = {}
+  
+  -- Try Gradle settings.gradle.kts first
+  local settings_gradle_kts = root .. '/settings.gradle.kts'
+  local settings_gradle = root .. '/settings.gradle'
+  
+  if vim.fn.filereadable(settings_gradle_kts) == 1 then
+    local content = vim.fn.readfile(settings_gradle_kts)
+    for _, line in ipairs(content) do
+      -- Match: include("module-name") or include(":module-name")
+      local module = line:match('include%(["\'][:]*([^"\']+)["\']%)')
+      if module then
+        table.insert(modules, module)
+      end
+    end
+  elseif vim.fn.filereadable(settings_gradle) == 1 then
+    local content = vim.fn.readfile(settings_gradle)
+    for _, line in ipairs(content) do
+      local module = line:match('include%(["\'][:]*([^"\']+)["\']%)')
+      if module then
+        table.insert(modules, module)
+      end
+    end
+  end
+  
+  -- Fallback: scan for directories with build.gradle.kts
+  if #modules == 0 then
+    local subdirs = vim.fn.globpath(root, '*/', 0, 1)
+    for _, dir in ipairs(subdirs) do
+      if vim.fn.filereadable(dir .. 'build.gradle.kts') == 1 or 
+         vim.fn.filereadable(dir .. 'build.gradle') == 1 then
+        local module_name = vim.fn.fnamemodify(dir, ':h:t')
+        table.insert(modules, module_name)
+      end
+    end
+  end
+  
+  return modules
+end
+
+-- Choose and run Spring Boot module (interactive)
+local function choose_and_run_module()
+  local modules = detect_spring_boot_modules()
+  
+  if #modules == 0 then
+    -- No modules found, run from root
+    vim.notify('No modules detected, running from root', vim.log.levels.INFO)
+    run_spring_boot(nil)
+  elseif #modules == 1 then
+    -- Only one module, run it directly
+    vim.notify('Running module: ' .. modules[1], vim.log.levels.INFO)
+    run_spring_boot(modules[1])
+  else
+    -- Multiple modules, let user choose with mini.pick
+    require('mini.pick').start({
+      source = {
+        items = modules,
+        name = 'Spring Boot Modules',
+      },
+      choose = function(selected)
+        if selected then
+          vim.notify('Running module: ' .. selected, vim.log.levels.INFO)
+          run_spring_boot(selected)
+        end
+      end,
+    })
+  end
+end
+
+-- Keymaps (match IdeaVim ,rr, ,rs, ,R)
+vim.keymap.set('n', ',rr', run_spring_boot, { desc = 'Run Spring Boot' })
+vim.keymap.set('n', ',rs', stop_spring_boot, { desc = 'Stop Spring Boot' })
+vim.keymap.set('n', ',R', choose_and_run_module, { desc = 'Run Spring Boot (choose module)' })
+
+-- ╭────────────────────────────────────────────╮
+-- │  Spring Boot Testing (JUnit)              │
+-- ╰────────────────────────────────────────────╯
+
+-- Test state tracking (for rerun)
+local test_state = {
+  last_test_cmd = nil,
+  last_test_root = nil,
+}
+
+-- Test terminal state (for reuse - avoid creating multiple terminals)
+local test_terminal_state = {
+  buf = nil,
+  win = nil,
+  job_id = nil,
+}
+
+-- Helper: Run command in reusable test terminal
+local function run_in_test_terminal(cmd, root)
+  local full_cmd = 'cd ' .. vim.fn.shellescape(root) .. ' && ' .. cmd
+  
+  -- Check if terminal exists and is valid
+  if test_terminal_state.buf and 
+     vim.api.nvim_buf_is_valid(test_terminal_state.buf) and
+     test_terminal_state.job_id then
+    
+    -- Terminal exists, check if window is open
+    if test_terminal_state.win and vim.api.nvim_win_is_valid(test_terminal_state.win) then
+      -- Window open, focus it
+      vim.api.nvim_set_current_win(test_terminal_state.win)
+    else
+      -- Window closed, reopen buffer in split
+      vim.cmd('botright split')
+      local height = math.floor(vim.o.lines * 0.3)
+      vim.cmd('resize ' .. height)
+      vim.cmd('buffer ' .. test_terminal_state.buf)
+      test_terminal_state.win = vim.api.nvim_get_current_win()
+    end
+    
+    -- Clear terminal and send new command
+    vim.fn.chansend(test_terminal_state.job_id, 'clear\n')
+    vim.fn.chansend(test_terminal_state.job_id, full_cmd .. '\n')
+  else
+    -- Terminal doesn't exist, create new one
+    vim.cmd('botright split')
+    local height = math.floor(vim.o.lines * 0.3)
+    vim.cmd('resize ' .. height)
+    vim.cmd('terminal ' .. full_cmd)
+    
+    -- Track state
+    test_terminal_state.buf = vim.api.nvim_get_current_buf()
+    test_terminal_state.win = vim.api.nvim_get_current_win()
+    test_terminal_state.job_id = vim.b.terminal_job_id
+  end
+  
+  -- Enter insert mode to see output
+  vim.cmd('startinsert')
+end
+
+-- Detect test context (class + method) under cursor
+local function detect_test_context()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  local cursor_line = cursor[1]
+  
+  -- 1. Extract package from file (search top 50 lines)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 50, false)
+  local package_name = nil
+  for _, line in ipairs(lines) do
+    local pkg = line:match('^package%s+([%w%.]+)')
+    if pkg then
+      package_name = pkg
+      break
+    end
+  end
+  
+  -- 2. Find class name (search backward from cursor)
+  local class_name = nil
+  for i = cursor_line - 1, 1, -1 do
+    local line = vim.api.nvim_buf_get_lines(bufnr, i - 1, i, false)[1]
+    -- Kotlin: class MyTest or class MyTest : BaseTest
+    -- Java: public class MyTest
+    local name = line:match('^%s*class%s+(%w+)') or line:match('^%s*public%s+class%s+(%w+)')
+    if name then
+      class_name = name
+      break
+    end
+  end
+  
+  -- 3. Find test method name (search upward for @Test + fun/void methodName)
+  local method_name = nil
+  local found_test_annotation = false
+  for i = cursor_line, 1, -1 do
+    local line = vim.api.nvim_buf_get_lines(bufnr, i - 1, i, false)[1]
+    
+    -- Check for JUnit test annotations
+    if line:match('@Test') or line:match('@ParameterizedTest') or line:match('@RepeatedTest') then
+      found_test_annotation = true
+    end
+    
+    -- Check for method declaration after @Test
+    if found_test_annotation then
+      -- Kotlin: fun methodName() or fun `method name with spaces`()
+      -- Java: void methodName() or public void methodName()
+      local method = line:match('fun%s+`?([%w_]+)`?%s*%(') 
+                  or line:match('void%s+(%w+)%s*%(')
+      if method then
+        method_name = method
+        break
+      end
+    end
+    
+    -- Stop if we hit another method or class (we've gone too far)
+    if line:match('^%s*class%s+') or (line:match('^%s*fun%s+') and not found_test_annotation) then
+      break
+    end
+  end
+  
+  -- 4. Construct full qualified name
+  if not class_name then
+    vim.notify('Could not detect test class', vim.log.levels.WARN)
+    return nil
+  end
+  
+  local full_class_name = package_name and (package_name .. '.' .. class_name) or class_name
+  
+  return {
+    class = full_class_name,
+    method = method_name, -- nil if not found (will run entire class)
+  }
+end
+
+-- Run test with Gradle/Maven
+local function run_test(context, run_type)
+  if not context then return end
+  
+  local root = vim.fs.root(0, { 
+    'gradlew', 'build.gradle.kts', 'build.gradle',
+    'mvnw', 'pom.xml', '.git' 
+  }) or vim.fn.getcwd()
+
+  local has_file = function(name)
+    return vim.fn.filereadable(root .. '/' .. name) == 1
+  end
+
+  -- Build test command
+  local candidates = {}
+  
+  -- Gradle commands
+  if has_file('gradlew') then
+    local test_filter = context.class
+    if run_type == 'method' and context.method then
+      test_filter = test_filter .. '.' .. context.method
+    end
+    table.insert(candidates, { 
+      label = 'gradlew', 
+      cmd = './gradlew test --tests ' .. vim.fn.shellescape(test_filter)
+    })
+  end
+  if (has_file('build.gradle') or has_file('build.gradle.kts')) and vim.fn.executable('gradle') == 1 then
+    local test_filter = context.class
+    if run_type == 'method' and context.method then
+      test_filter = test_filter .. '.' .. context.method
+    end
+    table.insert(candidates, { 
+      label = 'gradle', 
+      cmd = 'gradle test --tests ' .. vim.fn.shellescape(test_filter)
+    })
+  end
+  
+  -- Maven commands (prefer system mvn over mvnw)
+  -- Use test-compile + surefire:test to resolve @{argLine} and skip main compile
+  -- Skip heavy plugins (ktlint, jacoco, dependency unpack) for speed
+  if has_file('pom.xml') and vim.fn.executable('mvn') == 1 then
+    local test_filter = context.class
+    if run_type == 'method' and context.method then
+      test_filter = test_filter .. '#' .. context.method
+    end
+    table.insert(candidates, { 
+      label = 'mvn', 
+      cmd = 'mvn test-compile surefire:test ' ..
+            '-Dktlint.skip=true ' ..
+            '-Djacoco.skip=true ' ..
+            '-Dmaven.gitcommitid.skip=true ' ..
+            '-Dasciidoctor.skip=true ' ..
+            '-Dtest=' .. vim.fn.shellescape(test_filter)
+    })
+  end
+  if has_file('mvnw') then
+    local test_filter = context.class
+    if run_type == 'method' and context.method then
+      test_filter = test_filter .. '#' .. context.method
+    end
+    table.insert(candidates, { 
+      label = 'mvnw', 
+      cmd = './mvnw test-compile surefire:test ' ..
+            '-Dktlint.skip=true ' ..
+            '-Djacoco.skip=true ' ..
+            '-Dmaven.gitcommitid.skip=true ' ..
+            '-Dasciidoctor.skip=true ' ..
+            '-Dtest=' .. vim.fn.shellescape(test_filter)
+    })
+  end
+
+  if #candidates == 0 then
+    vim.notify('No build tool found (gradlew/mvnw)', vim.log.levels.WARN)
+    return
+  end
+
+  -- Use first available build tool
+  local candidate = candidates[1]
+  local cmd = candidate.cmd
+  
+  -- Warn if using mvn fallback (mvnw might be corrupted)
+  if candidate.label == 'mvn' and has_file('mvnw') then
+    vim.notify(
+      'Maven wrapper found but using system mvn\n' ..
+      'If mvnw is corrupted, fix with: mvn wrapper:wrapper',
+      vim.log.levels.WARN
+    )
+  end
+  
+  local test_desc = run_type == 'method' and 'test method' or 'test class'
+  vim.notify('Running ' .. test_desc .. ' via ' .. candidate.label .. '...', vim.log.levels.INFO)
+
+  -- Run in reusable test terminal
+  run_in_test_terminal(cmd, root)
+  
+  -- Track for rerun
+  test_state.last_test_cmd = cmd
+  test_state.last_test_root = root
+end
+
+-- Run test method under cursor
+local function run_test_method()
+  local context = detect_test_context()
+  if not context then return end
+  
+  if not context.method then
+    vim.notify('No @Test method found under cursor. Use ,T to run entire class', vim.log.levels.WARN)
+    return
+  end
+  
+  run_test(context, 'method')
+end
+
+-- Run entire test class
+local function run_test_class()
+  local context = detect_test_context()
+  if not context then return end
+  
+  run_test(context, 'class')
+end
+
+-- Rerun last test
+local function rerun_last_test()
+  if not test_state.last_test_cmd then
+    vim.notify('No previous test to rerun', vim.log.levels.WARN)
+    return
+  end
+  
+  vim.notify('Rerunning last test...', vim.log.levels.INFO)
+  
+  -- Run in reusable test terminal
+  run_in_test_terminal(test_state.last_test_cmd, test_state.last_test_root)
+end
+
+-- Keymaps (match IdeaVim ,t, ,T, ,rf)
+vim.keymap.set('n', ',t', run_test_method, { desc = 'Run test method' })
+vim.keymap.set('n', ',T', run_test_class, { desc = 'Run test class' })
+vim.keymap.set('n', ',rf', rerun_last_test, { desc = 'Rerun last test' })
 
 -- ╭────────────────────────────────────────────╮
 -- │  Code Formatting                          │
