@@ -1,5 +1,38 @@
 # Neovim Daily Keys
 
+## File Explorer (mini.files)
+
+- `<leader>e`: open mini.files explorer (fast, no preview by default)
+- `<leader>ee`: open Yazi file manager (full-featured)
+
+### Navigation in mini.files (default keymaps):
+- `j` / `k`: move up/down in list
+- `-`: go to parent directory ⬆️
+- `H`: go to parent directory (stay on entry)
+- `Enter`: open file / enter directory ⬇️
+- `h` / `l`: move between columns (Vim-style)
+- `p`: toggle preview ON/OFF 🔄
+- `q`: close explorer
+- `g?`: show help with all keymaps
+- `<BS>`: reset to initial directory
+- `@`: reveal current working directory
+- `m`: set mark
+- `'`: goto mark
+- `=`: synchronize filesystem changes
+
+## Search
+
+- `<leader>sf`: search files (ripgrep)
+- `<leader>sg`: search by grep (live)
+- `<leader>sb`: search buffers
+- `<leader>sr`: search recent files (project only, max 10)
+- `<leader>sk`: search keymaps 🆕
+- `<leader>sc`: search commands 🆕
+- `<leader>sR`: search registers (yank history) 🆕
+- `<leader>sw`: search word under cursor in project 🆕
+
+## LSP & Code Actions
+
 - `grr`: references
 - `gra`: code action
 - `grn`: rename symbol
@@ -7,9 +40,14 @@
 - `ge` / `gE`: next / previous diagnostic
 - `,f`: format buffer
 - `,i`: organize imports
+- `,se`: show line diagnostics
+
+## Copilot
+
 - `<Tab>` (insert): accept Copilot if visible, else normal tab
 - `⌥l` (`<M-l>`): accept Copilot
 - `⌥]` / `⌥[` (`<M-]>` / `<M-[>`): next / previous Copilot suggestion
+- `<leader>cc`: toggle Copilot Chat
 
 ## rebase -i
 

@@ -40,6 +40,79 @@ require("mini.pairs").setup()
 require("mini.tabline").setup()
 require("mini.pick").setup()
 
+-- mini.files (central overlay file explorer)
+require("mini.files").setup({
+	-- Customize window appearance
+	windows = {
+		preview = false,  -- Preview OFF by default for performance (toggle with 'p')
+		width_preview = 50,  -- Preview window width (when enabled)
+		width_focus = 40,  -- Main window width (wider without preview)
+		width_nofocus = 25,  -- Unfocused window width
+		max_number = 3,  -- Maximum number of windows to show
+	},
+	-- Customize mappings inside mini.files
+	mappings = {
+		close = "q",           -- Close with q
+		go_in = "<CR>",        -- Enter directory/open file with Enter
+		go_in_plus = "<C-CR>", -- Open in split
+		go_out = "-",          -- Go to parent directory with -
+		go_out_plus = "H",     -- Go to parent and stay on same entry
+		reset = "<BS>",        -- Reset to initial directory
+		reveal_cwd = "@",      -- Reveal current working directory
+		show_help = "g?",      -- Show help
+		synchronize = "=",     -- Synchronize filesystem changes
+		trim_left = "<",       -- Trim left column
+		trim_right = ">",      -- Trim right column
+	},
+	-- Options for file/directory operations
+	options = {
+		permanent_delete = false,  -- Use trash instead of permanent delete
+		use_as_default_explorer = true,  -- Use as default file explorer
+	},
+	-- Customize content display
+	content = {
+		filter = nil,  -- Predicate to filter entries (nil = show all)
+		prefix = nil,  -- Function to add prefix to entry
+		sort = nil,    -- Function to sort entries (nil = alphabetical)
+	},
+})
+
+-- Custom: Toggle preview in mini.files with 'p' key
+-- This creates a proper toggle that persists across navigation
+local preview_enabled = false
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MiniFilesBufferCreate",
+	callback = function(args)
+		local buf_id = args.data.buf_id
+		
+		-- Add 'p' keymap to toggle preview
+		vim.keymap.set("n", "p", function()
+			preview_enabled = not preview_enabled
+			
+			-- Close and reopen with new settings
+			local MiniFiles = require("mini.files")
+			local current_entry = MiniFiles.get_fs_entry()
+			
+			MiniFiles.close()
+			
+			-- Update config
+			MiniFiles.config.windows.preview = preview_enabled
+			
+			-- Reopen at same location
+			if current_entry then
+				MiniFiles.open(current_entry.path)
+			else
+				MiniFiles.open()
+			end
+			
+			-- Notify user
+			local status = preview_enabled and "ON ✓" or "OFF"
+			vim.notify("Preview: " .. status, vim.log.levels.INFO)
+		end, { buffer = buf_id, desc = "Toggle preview (p)" })
+	end,
+})
+
 vim.o.laststatus = 3
 vim.o.statusline = "%<%t %h%w%m%r%=%-14.(%l,%c%V%) %P"
 vim.o.cmdheight = 0

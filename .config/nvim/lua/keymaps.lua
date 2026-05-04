@@ -79,7 +79,7 @@ vim.keymap.set('n', '<leader>wr', toggle_resize_mode, { desc = 'Toggle window re
 -- │  File Explorer                            │
 -- ╰────────────────────────────────────────────╯
 
--- Yazi file manager integration
+-- mini.files (simple KISS setup)
 vim.keymap.set('n', '<leader>e', function()
   local bufname = vim.api.nvim_buf_get_name(0)
   local path = bufname ~= '' and bufname or vim.fn.getcwd()
@@ -173,6 +173,159 @@ vim.keymap.set('n', '<leader>sr', function()
     }
   })
 end, { desc = '[S]earch [R]ecent files (project, max 10)' })
+
+-- Search Keymaps
+vim.keymap.set('n', '<leader>sk', function()
+  local keymaps = {}
+  
+  -- Collect keymaps from all modes
+  for _, mode in ipairs({'n', 'i', 'v', 'x', 't', 'o', 'c'}) do
+    local maps = vim.api.nvim_get_keymap(mode)
+    for _, map in ipairs(maps) do
+      local desc = map.desc or map.rhs or '(no description)'
+      local lhs = map.lhs:gsub('%s', '<Space>')  -- Make spaces visible
+      table.insert(keymaps, string.format('[%s] %-20s → %s', mode, lhs, desc))
+    end
+  end
+  
+  -- Also get buffer-local keymaps
+  local buf_maps = vim.api.nvim_buf_get_keymap(0, 'n')
+  for _, map in ipairs(buf_maps) do
+    local desc = map.desc or map.rhs or '(no description)'
+    local lhs = map.lhs:gsub('%s', '<Space>')
+    table.insert(keymaps, string.format('[n-buf] %-20s → %s', lhs, desc))
+  end
+  
+  if #keymaps == 0 then
+    vim.notify('No keymaps found', vim.log.levels.INFO)
+    return
+  end
+  
+  require('mini.pick').start({
+    source = {
+      items = keymaps,
+      name = 'Keymaps',
+    },
+  })
+end, { desc = '[S]earch [K]eymaps' })
+
+-- Search Commands
+vim.keymap.set('n', '<leader>sc', function()
+  local commands = vim.api.nvim_get_commands({})
+  local items = {}
+  
+  for name, details in pairs(commands) do
+    local desc = details.definition or details.script_id or '(user command)'
+    table.insert(items, string.format('%-30s → %s', name, desc))
+  end
+  
+  table.sort(items)
+  
+  if #items == 0 then
+    vim.notify('No commands found', vim.log.levels.INFO)
+    return
+  end
+  
+  require('mini.pick').start({
+    source = {
+      items = items,
+      name = 'Commands',
+    },
+  })
+end, { desc = '[S]earch [C]ommands' })
+
+-- Search Registers
+vim.keymap.set('n', '<leader>sR', function()
+  local registers = {}
+  
+  -- Common registers to show
+  local reg_list = {
+    '"', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '+', '*', '/', '-', ':', '.', '%', '#', '='
+  }
+  
+  for _, reg in ipairs(reg_list) do
+    local ok, content = pcall(vim.fn.getreg, reg)
+    if ok and content and content ~= '' then
+      -- Limit preview to first 100 chars, replace newlines with ↵
+      local preview = content:gsub('\n', '↵'):sub(1, 100)
+      if #content > 100 then preview = preview .. '...' end
+      table.insert(registers, {
+        register = reg,
+        content = content,
+        display = string.format('["%s] %s', reg, preview)
+      })
+    end
+  end
+  
+  if #registers == 0 then
+    vim.notify('No registers with content found', vim.log.levels.INFO)
+    return
+  end
+  
+  local items = vim.tbl_map(function(r) return r.display end, registers)
+  
+  require('mini.pick').start({
+    source = {
+      items = items,
+      name = 'Registers',
+      choose = function(selected)
+        if selected then
+          -- Extract register name from selection
+          local reg = selected:match('%[\"(.-)%]')
+          if reg then
+            -- Paste the register content
+            vim.cmd('normal! "' .. reg .. 'p')
+            vim.notify('Pasted from register "' .. reg, vim.log.levels.INFO)
+          end
+        end
+      end,
+    },
+  })
+end, { desc = '[S]earch [R]egisters' })
+
+-- Search Word (word under cursor)
+vim.keymap.set('n', '<leader>sw', function()
+  local word = vim.fn.expand('<cword>')
+  
+  if word == '' then
+    vim.notify('No word under cursor', vim.log.levels.WARN)
+    return
+  end
+  
+  local cwd = vim.fn.getcwd()
+  -- Use ripgrep to search for the word
+  local cmd = string.format('cd %s && rg --line-number --column --no-heading --color=never --hidden --glob "!.git" -- %s',
+    vim.fn.shellescape(cwd),
+    vim.fn.shellescape(word))
+  
+  local results = vim.fn.systemlist(cmd)
+  
+  if vim.v.shell_error ~= 0 or #results == 0 then
+    vim.notify('No matches found for: ' .. word, vim.log.levels.INFO)
+    return
+  end
+  
+  require('mini.pick').start({
+    source = {
+      items = results,
+      name = 'Search: ' .. word,
+      choose = function(selected)
+        if selected then
+          -- Parse ripgrep output: filename:line:column:text
+          local file, line, col = selected:match('^(.+):(%d+):(%d+):')
+          if file and line then
+            vim.cmd('edit ' .. vim.fn.fnameescape(file))
+            vim.api.nvim_win_set_cursor(0, {tonumber(line), tonumber(col) - 1})
+            vim.cmd('normal! zz')  -- Center the line
+          end
+        end
+      end,
+    },
+  })
+end, { desc = '[S]earch [W]ord under cursor' })
 
 -- ╭────────────────────────────────────────────╮
 -- │  Yank Buffer Protection (KISS Prinzip)    │
