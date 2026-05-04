@@ -79,14 +79,45 @@ vim.keymap.set('n', '<leader>wr', toggle_resize_mode, { desc = 'Toggle window re
 -- │  File Explorer                            │
 -- ╰────────────────────────────────────────────╯
 
--- mini.files (simple KISS setup)
+-- Lexplore (native Netrw) - toggle
 vim.keymap.set('n', '<leader>e', function()
-  local bufname = vim.api.nvim_buf_get_name(0)
-  local path = bufname ~= '' and bufname or vim.fn.getcwd()
-  require('mini.files').open(path, true)
-end, { desc = 'Open file explorer' })
+  local lexplore_win = nil
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.api.nvim_buf_get_option(buf, 'filetype') == 'netrw' then
+      lexplore_win = win
+      break
+    end
+  end
+  if lexplore_win then
+    vim.api.nvim_win_close(lexplore_win, true)
+  else
+    vim.cmd('Lexplore!')
+    vim.cmd('30wincmd |')
+  end
+end)
 
-vim.keymap.set('n', '<leader>ee', '<cmd>Yazi<CR>', { desc = 'Open Yazi file manager' })
+-- mini.files (overlay file explorer) - toggle
+vim.keymap.set('n', '<leader>f', function()
+  local MiniFiles = require('mini.files')
+  local is_open = false
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_get_option(buf, 'filetype') == 'minifiles' then
+      is_open = true
+      break
+    end
+  end
+  if is_open then
+    MiniFiles.close()
+  else
+    local bufname = vim.api.nvim_buf_get_name(0)
+    local path = bufname ~= '' and vim.fn.fnamemodify(bufname, ':p:h') or vim.fn.getcwd()
+    MiniFiles.open(path, true)
+  end
+end)
+
+-- Yazi - file manager
+vim.keymap.set('n', '<leader>y', '<cmd>Yazi<CR>')
 
 -- ╭────────────────────────────────────────────╮
 -- │  Theme & Transparency                     │

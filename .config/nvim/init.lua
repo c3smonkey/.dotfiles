@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.env.MASON = vim.env.MASON or (vim.fn.stdpath("data") .. "/mason")
 
+-- Netrw: hide banner
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 0
+
 if not vim.env.KOTLIN_LSP_DIR then
 	local kotlin_pkg = vim.fn.stdpath("data") .. "/mason/packages/kotlin-lsp"
 	local matches = vim.fn.glob(kotlin_pkg .. "/kotlin-server-*", false, true)
