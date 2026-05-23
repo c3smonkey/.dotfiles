@@ -89,7 +89,7 @@ outer.right = 2
 alt-shift-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
 
 cmd-h = [] # Disable "hide application"
-cmd-alt-h = [] # Disable "hide others"
+# cmd-alt-h = [] # Disable "hide others"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
