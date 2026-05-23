@@ -21,7 +21,7 @@ startup_command = "yazi"
 [[session]]
 name = "git"
 path = "~/git"
-startup_command = "yazi"
+# startup_command = "yazi"
 
 [[session]]
 name = "tmux config"
