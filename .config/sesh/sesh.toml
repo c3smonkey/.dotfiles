@@ -1,7 +1,6 @@
 [[session]]
 name = "dotfiles"
 path = "~/.dotfiles"
-startup_command = "zsh"
 
 [[session]]
 name = "sesh config"
