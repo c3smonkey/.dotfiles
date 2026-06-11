@@ -34,7 +34,7 @@ _llm_running() {
 _llm_start() {
   local server=$(_llm_server)
 
-  "$server" -m "$LLM_MODEL" -p $LLM_PORT >/dev/null 2>&1 &
+  "$server" -m "$LLM_MODEL" --port $LLM_PORT >/dev/null 2>&1 &
 
   # warten bis Server ready
   for i in {1..40}; do
@@ -61,7 +61,7 @@ _llm_start() {
 #   - bleibt offen
 
 llm() {
-  "$(_llm_cli)" -m "$LLM_MODEL" -i
+  "$(_llm_cli)" -m "$LLM_MODEL" -cnv
 }
 
 
@@ -74,11 +74,13 @@ llm() {
 # Verhalten:
 #   - eine Antwort
 #   - danach Exit
-#   - zeigt noch Banner (normal)
+#   - kein Banner / kein raw token output
 
 llm1() {
-  printf "%s\n/exit\n" "$*" \
-  | "$(_llm_cli)" -m "$LLM_MODEL" -n 128
+  "$(_llm_cli)" -m "$LLM_MODEL" \
+    --chat-template mistral \
+    -p "[INST] $* [/INST]" \
+    -n 256 --no-display-prompt
 }
 
 
@@ -96,30 +98,21 @@ llm1() {
 #   - nutzt JSON API
 
 llm2() {
-  local server="$HOME/.local/llama.cpp/build/bin/llama-server"
-  local model="$HOME/models/mistral.gguf"
-  local url="http://localhost:6969"
-
-  # detect correct port flag (-p vs --port)
-  local portflag="--port"
-  "$server" -h 2>&1 | grep -q -- "--port" || portflag="-p"
+  local server="$(_llm_server)"
+  local url="$LLM_URL"
 
   # server starten falls nicht läuft
-  if ! curl -s "$url" >/dev/null 2>&1; then
-    "$server" -m "$model" $portflag 6969 >/dev/null 2>&1 &
-
-    # warten bis ready
-    for i in {1..40}; do
-      sleep 0.2
-      curl -s "$url" >/dev/null 2>&1 && break
-    done
+  if ! _llm_running; then
+    _llm_start
   fi
 
-  # request + robust parsing
+  # request + robust parsing (content kann string oder array sein)
   curl -s "$url/completion" \
     -H "Content-Type: application/json" \
     -d "{\"prompt\":\"[INST] $* [/INST]\",\"n_predict\":128}" \
-  | jq -r '.completion // .content'
+  | jq -r 'if .content | type == "string" then .content
+           elif .content | type == "array" then .content[0].text
+           else .completion end'
 }
 
 
@@ -149,12 +142,11 @@ llm3() {
   fi
 
   # fixer System Prompt (Tool Definition)
-local SYSTEM="Du bist ein deutscher Lektor.
+  local SYSTEM="Du bist ein deutscher Lektor.
 Korrigiere Grammatik, Rechtschreibung und Zeichensetzung.
 Erhalte die ursprüngliche Bedeutung.
 Antworte immer auf Deutsch.
 Gib nur den korrigierten Text zurück, ohne Erklärung."
-
 
   # JSON sicher zusammenbauen (wichtig für Sonderzeichen)
   local payload=$(jq -n \
@@ -172,6 +164,7 @@ Gib nur den korrigierten Text zurück, ohne Erklärung."
     -d "$payload" \
   | jq -r '.completion // .content'
 }
+
 
 # =========================
 # llm-status → DEBUG / INFO
