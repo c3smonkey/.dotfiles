@@ -173,7 +173,17 @@ _llm_completion() {
 
 # Spell-Helper: fester Lektor-Modus
 _llm_spell() {
-  _llm_completion "$1" "$2" 256 0.2
+  local result
+  result="$(_llm_completion "$1" "$2" 256 0.2)"
+
+  # führende Whitespaces entfernen
+  result="${result#"${result%%[![:space:]]*}"}"
+
+  echo "$result"
+
+  # korrigierten Text in die Zwischenablage kopieren
+  print -r -- "$result" | pbcopy
+  echo "✅ Korrigierter Text kopiert (pbcopy)"
 }
 
 llm-spell-de() {
