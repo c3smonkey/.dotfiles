@@ -15,6 +15,8 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOPATH:$GOBIN"
 
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+
 # pipx / user bins (FIXED)
 export PATH="$PATH:$HOME/.local/bin"
 

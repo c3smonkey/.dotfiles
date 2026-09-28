@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.env.MASON = vim.env.MASON or (vim.fn.stdpath("data") .. "/mason")
 
+-- Unset SSL_CERT_FILE for Neovim so public API connections (like GitHub Copilot) use the default CA store instead of only trusting Helsana certs
+vim.env.SSL_CERT_FILE = nil
+
 -- Netrw: hide banner
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 0
