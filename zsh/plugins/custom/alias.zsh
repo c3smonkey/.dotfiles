@@ -20,3 +20,6 @@ expand-alias-space() {
 }
 zle -N expand-alias-space
 bindkey " " expand-alias-space
+
+# Accept autosuggestion with Ctrl+L
+bindkey '^L' autosuggest-accept
