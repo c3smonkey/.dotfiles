@@ -1,0 +1,269 @@
+#!/usr/bin/env python3
+"""repo-rag – indexiert ein Git-Repo in Qdrant (Embeddings via Ollama) und sucht darin.
+
+Nutzung (im Repo-Verzeichnis):
+  repo-rag index                     # Repo indexieren (inkrementell: nur geänderte Dateien)
+  repo-rag index --full              # alles neu indexieren
+  repo-rag search "wo wird die Order an die Exchange geschickt?"
+  repo-rag search -k 5 --path backend-go "risk limit pro position"
+  repo-rag stats
+
+Nur Python-Standardbibliothek. Braucht: Ollama (nomic-embed-text) + Qdrant auf localhost.
+Umgebungsvariablen: OLLAMA_HOST, QDRANT_URL, REPO_RAG_MODEL
+"""
+import argparse
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import urllib.error
+import urllib.request
+import uuid
+
+OLLAMA = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
+if not OLLAMA.startswith("http"):
+    OLLAMA = "http://" + OLLAMA
+QDRANT = os.environ.get("QDRANT_URL", "http://localhost:6333").rstrip("/")
+MODEL = os.environ.get("REPO_RAG_MODEL", "nomic-embed-text")
+
+EXTENSIONS = {".go", ".ts", ".tsx", ".js", ".mjs", ".md", ".sql", ".yaml", ".yml", ".proto", ".sh"}
+SKIP_DIRS = {"node_modules", "vendor", "dist", "build", ".git", ".next", "coverage", "tmp"}
+SKIP_SUFFIXES = (".min.js", ".pb.go", "_gen.go", ".d.ts", "package-lock.json", "pnpm-lock.yaml")
+MAX_FILE_BYTES = 200_000
+CHUNK_LINES = 60
+OVERLAP = 10
+MAX_CHUNK_CHARS = 6000
+BATCH = 32
+
+
+# ---------- HTTP-Helfer ----------
+
+def http(method, url, body=None):
+    data = json.dumps(body).encode() if body is not None else None
+    req = urllib.request.Request(url, data=data, method=method,
+                                 headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=300) as r:
+            raw = r.read()
+            return json.loads(raw) if raw else {}
+    except urllib.error.HTTPError as e:
+        if e.code == 404 and method == "GET":
+            return None
+        detail = e.read().decode(errors="replace")[:300]
+        sys.exit(f"repo-rag: HTTP {e.code} bei {url}: {detail}")
+    except urllib.error.URLError as e:
+        sys.exit(f"repo-rag: {url} nicht erreichbar ({e.reason}). Laufen Ollama und Qdrant?")
+
+
+def embed(texts):
+    res = http("POST", f"{OLLAMA}/api/embed", {"model": MODEL, "input": texts})
+    if "embeddings" not in res:
+        sys.exit(f"repo-rag: unerwartete Antwort von Ollama: {str(res)[:200]}")
+    return res["embeddings"]
+
+
+# ---------- Repo-Infos ----------
+
+def repo_root():
+    try:
+        return subprocess.check_output(["git", "rev-parse", "--show-toplevel"],
+                                       text=True, stderr=subprocess.DEVNULL).strip()
+    except subprocess.CalledProcessError:
+        return os.getcwd()
+
+
+def collection_name(root):
+    name = os.path.basename(root).lower()
+    return "repo_" + "".join(c if c.isalnum() else "_" for c in name)
+
+
+def list_files(root):
+    try:
+        out = subprocess.check_output(["git", "ls-files", "-co", "--exclude-standard"],
+                                      cwd=root, text=True)
+        files = out.splitlines()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        files = []
+        for d, dirs, fs in os.walk(root):
+            dirs[:] = [x for x in dirs if x not in SKIP_DIRS]
+            files += [os.path.relpath(os.path.join(d, f), root) for f in fs]
+    result = []
+    for f in files:
+        parts = f.split("/")
+        if any(p in SKIP_DIRS for p in parts):
+            continue
+        if f.endswith(SKIP_SUFFIXES) or os.path.splitext(f)[1] not in EXTENSIONS:
+            continue
+        full = os.path.join(root, f)
+        if os.path.isfile(full) and os.path.getsize(full) <= MAX_FILE_BYTES:
+            result.append(f)
+    return sorted(result)
+
+
+def chunk_file(path, text):
+    lines = text.splitlines()
+    chunks, start = [], 0
+    while start < len(lines):
+        end = min(start + CHUNK_LINES, len(lines))
+        body = "\n".join(lines[start:end]).strip()
+        if body:
+            chunks.append((start + 1, end, body[:MAX_CHUNK_CHARS]))
+        if end == len(lines):
+            break
+        start = end - OVERLAP
+    return chunks
+
+
+# ---------- State (welche Datei mit welchem Hash indexiert ist) ----------
+
+def state_path(coll):
+    d = os.path.expanduser("~/.cache/repo-rag")
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, f"{coll}.json")
+
+
+def load_state(coll):
+    try:
+        with open(state_path(coll)) as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def save_state(coll, state):
+    with open(state_path(coll), "w") as f:
+        json.dump(state, f)
+
+
+# ---------- Qdrant ----------
+
+def ensure_collection(coll, dim, recreate=False):
+    exists = http("GET", f"{QDRANT}/collections/{coll}") is not None
+    if exists and recreate:
+        http("DELETE", f"{QDRANT}/collections/{coll}")
+        exists = False
+    if not exists:
+        http("PUT", f"{QDRANT}/collections/{coll}",
+             {"vectors": {"size": dim, "distance": "Cosine"}})
+        http("PUT", f"{QDRANT}/collections/{coll}/index",
+             {"field_name": "path", "field_schema": "keyword"})
+
+
+def delete_file_points(coll, path):
+    http("POST", f"{QDRANT}/collections/{coll}/points/delete?wait=true",
+         {"filter": {"must": [{"key": "path", "match": {"value": path}}]}})
+
+
+# ---------- Befehle ----------
+
+def cmd_index(args):
+    root = repo_root()
+    coll = collection_name(root)
+    dim = len(embed(["search_document: test"])[0])
+    ensure_collection(coll, dim, recreate=args.full)
+    state = {} if args.full else load_state(coll)
+
+    files = list_files(root)
+    current = {}
+    todo = []
+    for f in files:
+        with open(os.path.join(root, f), "rb") as fh:
+            raw = fh.read()
+        h = hashlib.sha1(raw).hexdigest()
+        current[f] = h
+        if state.get(f) != h:
+            todo.append((f, raw.decode("utf-8", errors="replace")))
+
+    removed = [f for f in state if f not in current]
+    for f in removed:
+        delete_file_points(coll, f)
+
+    print(f"Repo: {root}\nCollection: {coll}\n{len(files)} Dateien, "
+          f"{len(todo)} neu/geändert, {len(removed)} entfernt")
+
+    for i, (f, text) in enumerate(todo, 1):
+        if state.get(f):
+            delete_file_points(coll, f)
+        chunks = chunk_file(f, text)
+        for b in range(0, len(chunks), BATCH):
+            batch = chunks[b:b + BATCH]
+            inputs = [f"search_document: File {f} lines {s}-{e}\n{body}" for s, e, body in batch]
+            vectors = embed(inputs)
+            points = [{
+                "id": str(uuid.uuid5(uuid.NAMESPACE_URL, f"{coll}:{f}:{s}")),
+                "vector": v,
+                "payload": {"path": f, "start": s, "end": e, "text": body},
+            } for (s, e, body), v in zip(batch, vectors)]
+            http("PUT", f"{QDRANT}/collections/{coll}/points?wait=true", {"points": points})
+        state[f] = current[f]
+        print(f"  [{i}/{len(todo)}] {f} ({len(chunks)} Chunks)")
+        if i % 20 == 0:
+            save_state(coll, state)
+
+    for f in removed:
+        state.pop(f, None)
+    save_state(coll, state)
+    print("Fertig.")
+
+
+def cmd_search(args):
+    root = repo_root()
+    coll = collection_name(root)
+    if http("GET", f"{QDRANT}/collections/{coll}") is None:
+        sys.exit(f"repo-rag: Collection {coll} existiert nicht. Zuerst 'repo-rag index' ausführen.")
+    vec = embed([f"search_query: {' '.join(args.query)}"])[0]
+    body = {"vector": vec, "limit": args.k * 3 if args.path else args.k, "with_payload": True}
+    res = http("POST", f"{QDRANT}/collections/{coll}/points/search", body)["result"]
+    if args.path:
+        res = [r for r in res if r["payload"]["path"].startswith(args.path)][:args.k]
+    if not res:
+        print("Keine Treffer.")
+        return
+    for r in res:
+        p = r["payload"]
+        print(f"### {p['path']}:{p['start']}-{p['end']}  (score {r['score']:.3f})")
+        if not args.files_only:
+            text = p["text"]
+            if args.max_lines:
+                text = "\n".join(text.splitlines()[:args.max_lines])
+            print(f"```\n{text}\n```\n")
+
+
+def cmd_stats(args):
+    root = repo_root()
+    coll = collection_name(root)
+    info = http("GET", f"{QDRANT}/collections/{coll}")
+    if info is None:
+        print(f"Collection {coll} existiert nicht.")
+        return
+    r = info["result"]
+    print(f"Collection: {coll}\nPunkte: {r.get('points_count')}\n"
+          f"Indexierte Dateien: {len(load_state(coll))}")
+
+
+def main():
+    p = argparse.ArgumentParser(description="Repo in Qdrant indexieren und durchsuchen")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    pi = sub.add_parser("index", help="Repo indexieren")
+    pi.add_argument("--full", action="store_true", help="alles neu indexieren")
+    pi.set_defaults(fn=cmd_index)
+
+    ps = sub.add_parser("search", help="semantisch suchen")
+    ps.add_argument("query", nargs="+")
+    ps.add_argument("-k", type=int, default=6, help="Anzahl Treffer")
+    ps.add_argument("--path", help="nur Treffer unter diesem Pfad-Präfix")
+    ps.add_argument("--files-only", action="store_true", help="nur Pfade/Zeilen, kein Code")
+    ps.add_argument("--max-lines", type=int, default=0, help="Code pro Treffer kürzen")
+    ps.set_defaults(fn=cmd_search)
+
+    pt = sub.add_parser("stats", help="Status der Collection")
+    pt.set_defaults(fn=cmd_stats)
+
+    args = p.parse_args()
+    args.fn(args)
+
+
+if __name__ == "__main__":
+    main()
