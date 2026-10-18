@@ -96,4 +96,3 @@ aerc() {
     command aerc -C "$AERC_CONFIG_FILE" -A "$AERC_ACCOUNTS_CONF" "$@"
   fi
 }
-export PATH="$HOME/bin:$PATH"
