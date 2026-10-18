@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+# git-ai-init – richtet das lokale AI-Setup (repo-rag, ask-local) für ein Git-Repo ein.
+#
+# Aufruf (im Repo):   git ai-init            Hook + Index + Checks
+#                     git ai-init --claude   zusätzlich Abschnitt in CLAUDE.md ergänzen
+#                     git ai-init --global   nur die globale Hook-Vorlage einrichten
+#
+# Mehrfach aufrufbar: es wird nichts doppelt angelegt und kein fremder Hook überschrieben.
+set -u
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+TEMPLATE_DIR="$DOTFILES/git-template"
+HOOK_MARK="# ai-init: repo-rag"
+HOOK_BODY="#!/bin/sh
+$HOOK_MARK
+(repo-rag index >/dev/null 2>&1 &)"
+OLLAMA="${OLLAMA_HOST:-http://localhost:11434}"
+QDRANT="${QDRANT_URL:-http://localhost:6333}"
+NEEDED_MODELS="deepseek-coder-v2:16b qwen2.5-coder:14b nomic-embed-text"
+
+ok()   { printf '  \033[32m✓\033[0m %s\n' "$1"; }
+warn() { printf '  \033[33m!\033[0m %s\n' "$1"; }
+fail() { printf '  \033[31m✗\033[0m %s\n' "$1"; }
+
+setup_global() {
+  echo "Globale Hook-Vorlage"
+  mkdir -p "$TEMPLATE_DIR/hooks"
+  if [ ! -f "$TEMPLATE_DIR/hooks/post-commit" ]; then
+    printf '%s\n' "$HOOK_BODY" > "$TEMPLATE_DIR/hooks/post-commit"
+    chmod +x "$TEMPLATE_DIR/hooks/post-commit"
+    ok "Vorlage angelegt: $TEMPLATE_DIR/hooks/post-commit"
+  else
+    ok "Vorlage vorhanden"
+  fi
+  current="$(git config --global init.templateDir || true)"
+  if [ "$current" != "$TEMPLATE_DIR" ]; then
+    git config --global init.templateDir "$TEMPLATE_DIR"
+    ok "git config --global init.templateDir = $TEMPLATE_DIR${current:+ (vorher: $current)}"
+  else
+    ok "init.templateDir zeigt auf die Vorlage"
+  fi
+}
+
+check_services() {
+  echo "Dienste"
+  if curl -sf -m 3 "$OLLAMA/api/tags" >/tmp/ai-init-tags.$$ 2>/dev/null; then
+    ok "Ollama läuft ($OLLAMA)"
+    for m in $NEEDED_MODELS; do
+      if grep -q "\"$m" /tmp/ai-init-tags.$$; then ok "Modell $m"; else warn "Modell fehlt: ollama pull $m"; fi
+    done
+  else
+    fail "Ollama nicht erreichbar: brew services start ollama"
+  fi
+  rm -f /tmp/ai-init-tags.$$
+  if curl -sf -m 3 "$QDRANT/collections" >/dev/null 2>&1; then
+    ok "Qdrant läuft ($QDRANT)"
+  else
+    fail "Qdrant nicht erreichbar: Docker Desktop starten, dann docker start qdrant"
+  fi
+  for t in repo-rag ask-local; do
+    if command -v "$t" >/dev/null; then ok "$t im PATH"; else fail "$t fehlt im PATH ($DOTFILES/bin)"; fi
+  done
+}
+
+setup_repo() {
+  root="$(git rev-parse --show-toplevel 2>/dev/null)" || { fail "Kein Git-Repo"; return 1; }
+  echo "Repo: $root"
+  hook="$(git rev-parse --git-path hooks)/post-commit"
+  case "$hook" in /*) ;; *) hook="$root/$hook" ;; esac
+  if [ ! -f "$hook" ]; then
+    mkdir -p "$(dirname "$hook")"
+    printf '%s\n' "$HOOK_BODY" > "$hook"; chmod +x "$hook"
+    ok "post-commit-Hook installiert"
+  elif grep -q "repo-rag index" "$hook"; then
+    ok "post-commit-Hook vorhanden"
+  else
+    warn "Fremder post-commit-Hook vorhanden, nicht verändert: $hook"
+    warn "Von Hand ergänzen: (repo-rag index >/dev/null 2>&1 &)"
+  fi
+  if command -v repo-rag >/dev/null; then
+    (cd "$root" && repo-rag index >/dev/null 2>&1 &)
+    ok "Indexierung läuft im Hintergrund (Status: repo-rag stats)"
+  fi
+}
+
+setup_claude() {
+  root="$(git rev-parse --show-toplevel 2>/dev/null)" || return 0
+  file="$root/CLAUDE.md"
+  if [ -f "$file" ] && grep -q "repo-rag search" "$file"; then
+    ok "CLAUDE.md enthält bereits repo-rag-Regeln"
+    return 0
+  fi
+  cat >> "$file" <<'EOF'
+
+## Code finden (repo-rag)
+Bevor du Ordner durchsuchst oder Dateien breit liest:
+`repo-rag search --files-only "<konkrete englische Frage mit Code-Begriffen>"`
+Lies danach nur die gefundenen Dateien/Zeilen. Optional `--path <ordner>` zum Eingrenzen.
+
+## Token-Sparen: lokales Modell (ask-local)
+- Nur für EINE Quelle: Logs, Diffs, Fixtures, Commit-Messages
+  (`tail -n 500 app.log | ask-local "Fasse Fehler zusammen"`).
+- `ask-local --deep` nur, wenn Gewichtung/Verständnis nötig ist.
+- Nicht delegieren: Architektur, Fachlogik, Sicherheit, Reviews.
+EOF
+  ok "Abschnitt in CLAUDE.md ergänzt (bitte prüfen und committen)"
+}
+
+main() {
+  case "${1:-}" in
+    -h|--help) sed -n '2,8p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+  esac
+  setup_global
+  [ "${1:-}" = "--global" ] && exit 0
+  check_services
+  setup_repo || exit 1
+  [ "${1:-}" = "--claude" ] && setup_claude
+  echo "Fertig."
+}
+
+main "$@"
