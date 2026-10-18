@@ -5,13 +5,14 @@ Beispiele:
   git diff --staged | ask-local "Schreib eine kurze Commit-Message (Conventional Commits)"
   tail -n 300 app.log | ask-local "Was ist die Ursache des Fehlers?"
   ask-local -f internal/orders/service.go "Erklär diese Datei in 5 Punkten"
-  ask-local -m qwen2.5-coder:7b "Regex für ISO-Datum"
-  ask-local --fast "Commit-Message" < diff.txt   # schnelles 7b-Modell
+  ask-local --deep "Was hat sich zuletzt Wichtiges geändert?" < log.txt   # 14b, mehr Verständnis
+  ask-local -m mistral:latest "..."               # beliebiges Modell
 
 Gut für EINE Quelle (Log, Diff, Datei). Schwach bei Vergleichen mehrerer Quellen.
 
 Umgebungsvariablen:
-  ASK_LOCAL_MODEL  (Default: qwen2.5-coder:14b)
+  ASK_LOCAL_MODEL       (Default: qwen2.5-coder:7b, schnell, gut im Herauslesen)
+  ASK_LOCAL_DEEP_MODEL  (Default: qwen2.5-coder:14b, für --deep)
   OLLAMA_HOST      (Default: http://localhost:11434)
 """
 import argparse
@@ -20,8 +21,8 @@ import os
 import sys
 import urllib.request
 
-DEFAULT_MODEL = os.environ.get("ASK_LOCAL_MODEL", "qwen2.5-coder:14b")
-FAST_MODEL = os.environ.get("ASK_LOCAL_FAST_MODEL", "qwen2.5-coder:7b")
+DEFAULT_MODEL = os.environ.get("ASK_LOCAL_MODEL", "qwen2.5-coder:7b")
+DEEP_MODEL = os.environ.get("ASK_LOCAL_DEEP_MODEL", "qwen2.5-coder:14b")
 KEEP_ALIVE = os.environ.get("ASK_LOCAL_KEEP_ALIVE", "30m")
 MAX_CTX = 32768          # mehr wird auf dem Air zu langsam / zu speicherhungrig
 CHARS_PER_TOKEN = 3.5    # grobe Schätzung
@@ -42,7 +43,8 @@ def main():
     p.add_argument("prompt", nargs="+", help="Die Frage / Aufgabe")
     p.add_argument("-m", "--model", default=DEFAULT_MODEL)
     p.add_argument("-f", "--file", action="append", default=[], help="Datei anhängen (mehrfach möglich)")
-    p.add_argument("--fast", action="store_true", help=f"schnelles Modell ({FAST_MODEL})")
+    p.add_argument("--deep", action="store_true", help=f"gründlicheres, langsameres Modell ({DEEP_MODEL})")
+    p.add_argument("--fast", action="store_true", help="veraltet, ist jetzt Standard")
     p.add_argument("-c", "--ctx", type=int, default=0, help="Kontextfenster in Tokens (Default: automatisch)")
     args = p.parse_args()
 
@@ -59,8 +61,8 @@ def main():
         if data.strip():
             parts.append(f"### Eingabe\n```\n{data}\n```")
 
-    if args.fast:
-        args.model = FAST_MODEL
+    if args.deep:
+        args.model = DEEP_MODEL
 
     context = "\n\n".join(parts)
     reserve = 2048  # Platz für Aufgabe + Antwort
