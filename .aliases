@@ -284,3 +284,27 @@ alias zsck="launchctl kickstart -kp system/com.zscaler.tunnel"
 alias spellcheck-de='hunspell -d de_DE -l'
 alias spellcheck-en='hunspell -d en_US -l'
 alias spellfix-de='hunspell -d de_DE -a'
+
+# AI lokal (Ollama + Qdrant + Claude Code) – Übersicht: aihelp
+alias rr='repo-rag search --files-only'        # rr "fetch open positions from bingx"
+alias rri='repo-rag index'                      # Repo (neu) indexieren
+alias rrs='repo-rag stats'                      # Index-Status
+alias al='ask-local'                            # git diff | al "Commit-Message"
+alias ald='ask-local --deep'                    # gründlicher (qwen 14b)
+alias aiinit='git ai-init'                      # Repo einrichten (Hook, Index, Checks)
+alias aibench='bench-local'                     # lokale Modelle messen
+aihelp() {
+  cat <<'HELP'
+AI-Setup lokal  (Doku: ~/.dotfiles/docs/ai-setup.md)
+
+  Repo einrichten   git ai-init [--claude]   Hook, Index, Checks (--claude: CLAUDE.md-Regeln)
+  Code suchen       rr "<frage>"             repo-rag search --files-only
+  Index             rri | rrs                neu indexieren | Status
+  Lokales Modell    al "<frage>"             deepseek-coder-v2:16b (~40 tok/s)
+                    ald "<frage>"            qwen2.5-coder:14b, gründlicher
+                    git diff | al "Commit-Message"
+  Modelle messen    aibench [-m <modell>]    im Repo ausführen
+  Dienste           ollama ps | docker ps | grep qdrant
+  Claude Code       /clear nach jedem Commit · /usage · /effort low|medium
+HELP
+}

@@ -359,3 +359,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write -g NSWindowShouldDragOnGesture YES
 ```
 Now, you can move windows by holding ctrl+cmd and dragging any part of the window (not necessarily the window title)
+
+## AI-Setup lokal
+
+Ollama + Qdrant + Claude Code, Tools `git ai-init`, `repo-rag`, `ask-local`, `bench-local`.
+Anleitung: [docs/ai-setup.md](docs/ai-setup.md) · Übersicht im Terminal: `aihelp`
