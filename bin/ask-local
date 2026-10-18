@@ -11,7 +11,7 @@ Beispiele:
 Gut für EINE Quelle (Log, Diff, Datei). Schwach bei Vergleichen mehrerer Quellen.
 
 Umgebungsvariablen:
-  ASK_LOCAL_MODEL       (Default: qwen2.5-coder:7b, schnell, gut im Herauslesen)
+  ASK_LOCAL_MODEL       (Default: deepseek-coder-v2:16b, MoE, ~40 tok/s, gut im Herauslesen)
   ASK_LOCAL_DEEP_MODEL  (Default: qwen2.5-coder:14b, für --deep)
   OLLAMA_HOST      (Default: http://localhost:11434)
 """
@@ -21,7 +21,7 @@ import os
 import sys
 import urllib.request
 
-DEFAULT_MODEL = os.environ.get("ASK_LOCAL_MODEL", "qwen2.5-coder:7b")
+DEFAULT_MODEL = os.environ.get("ASK_LOCAL_MODEL", "deepseek-coder-v2:16b")
 DEEP_MODEL = os.environ.get("ASK_LOCAL_DEEP_MODEL", "qwen2.5-coder:14b")
 KEEP_ALIVE = os.environ.get("ASK_LOCAL_KEEP_ALIVE", "30m")
 MAX_CTX = 32768          # mehr wird auf dem Air zu langsam / zu speicherhungrig
