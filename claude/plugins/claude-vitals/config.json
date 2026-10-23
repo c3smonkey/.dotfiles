@@ -1,0 +1,6 @@
+{
+  "layout": "expanded",
+  "show": { "agents": true, "tools": true, "todos": true, "cost": true, "memory": false, "speed": false },
+  "contextValue": "both",
+  "thresholds": { "contextWarn": 60, "contextDanger": 80 }
+}

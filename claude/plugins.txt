@@ -1,0 +1,6 @@
+# Marketplaces (eine pro Zeile, Präfix "marketplace ")
+marketplace johnnyvizz/claude-kit
+# Plugins (Name@Marketplace)
+savvy-progress@claude-kit
+gopls-lsp@claude-plugins-official
+# Superpowers, Excalidraw, claude-vitals kommen über das claude.ai-Konto
