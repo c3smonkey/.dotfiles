@@ -12,11 +12,11 @@ Zentrale Einstellungen für Claude Code auf jedem Mac.
 - Neues Plugin: Zeile in `plugins.txt` ergänzen, `setup.sh` erneut ausführen.
 - Keine Secrets hier ablegen (`settings.json` vor dem Commit prüfen).
 
-## Skills, Agents, Commands → ai-os
-Die liegen nicht mehr hier, sondern zentral in ai-os (`~/git/ai-c3smonkey/ai-os/ai/`).
-`setup.sh` verlinkt `~/.claude/agents` und `~/.claude/commands` dorthin und ruft `ai-link --global` auf,
-das die Skills aus `ai/global.txt` einzeln nach `~/.claude/skills/` verlinkt.
-Projekt-Skills: `.claude/skills.txt` im Repo, dann `ai-link`. Details: README in `ai-os/ai/`.
+## Skills und Agents → ai-os
+Die liegen nicht hier, sondern zentral in ai-os (`~/git/ai-c3smonkey/ai-os/ai/`).
+`setup.sh` ruft `ai-link --global` auf: verlinkt `ai/global.txt` (Skills) und `ai/global-agents.txt` (Agents)
+einzeln nach `~/.claude/skills/` bzw. `~/.claude/agents/`.
+Pro Repo: `.claude/skills.txt` und `.claude/agents.txt`, dann `ai-link`. Details: `ai-os/ai/README.md`.
 
 ## Nicht in den Dotfiles (gehört nicht hierher)
 - Anmeldedaten: `~/.notebooklm/` (`notebooklm login` pro Mac), Claude-Login, API-Keys.
