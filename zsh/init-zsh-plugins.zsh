@@ -32,7 +32,6 @@ source "$HOME/.dotfiles/zsh/plugins/custom/createDirAndFollow.zsh"
 source "$HOME/.dotfiles/zsh/plugins/custom/sourceIfExists.zsh"
 source "$HOME/.dotfiles/zsh/plugins/custom/vi-mode.zsh"
 source "$HOME/.dotfiles/zsh/plugins/custom/gitUser.zsh"
-source "$HOME/.dotfiles/zsh/plugins/custom/llm.zsh"
 
 source "$HOME/.dotfiles/.config/lf/lf-icons.zsh"
 

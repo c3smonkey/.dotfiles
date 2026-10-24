@@ -363,4 +363,4 @@ Now, you can move windows by holding ctrl+cmd and dragging any part of the windo
 ## AI-Setup lokal
 
 Ollama + Qdrant + Claude Code, Tools `git ai-init`, `repo-rag`, `ask-local`, `bench-local`.
-Anleitung: [docs/ai-setup.md](docs/ai-setup.md) · Übersicht im Terminal: `aihelp`
+Liegt jetzt in ai-os: `~/git/ai-c3smonkey/ai-os/ai/` (Skripte, Skills, Doku `ai/docs/ai-setup.md`) · Übersicht im Terminal: `aihelp`
