@@ -59,6 +59,10 @@ else
   echo "claude nicht gefunden: Plugins übersprungen"
 fi
 # CLIs, die Skills brauchen
+if command -v brew >/dev/null; then
+  command -v backlog >/dev/null || brew install backlog-md
+  echo "ok      backlog (Backlog.md, Skill development/backlog)"
+fi
 if command -v uv >/dev/null; then
   command -v notebooklm >/dev/null || uv tool install "notebooklm-py[browser]"
   echo "ok      notebooklm-CLI (Anmeldung einmal selbst: notebooklm login)"
