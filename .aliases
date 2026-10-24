@@ -285,6 +285,9 @@ alias spellcheck-de='hunspell -d de_DE -l'
 alias spellcheck-en='hunspell -d en_US -l'
 alias spellfix-de='hunspell -d de_DE -a'
 
+# ai-os: zentrale AI-Bibliothek (Skills, Agents, Tools) – ai-link im PATH
+[ -d "$HOME/git/ai-c3smonkey/ai-os/ai/bin" ] && export PATH="$HOME/git/ai-c3smonkey/ai-os/ai/bin:$PATH"
+
 # AI lokal (Ollama + Qdrant + Claude Code) – Übersicht: aihelp
 alias rr='repo-rag search --files-only'        # rr "fetch open positions from bingx"
 alias rri='repo-rag index'                      # Repo (neu) indexieren
