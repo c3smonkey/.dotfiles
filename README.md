@@ -38,6 +38,13 @@ brew install --cask nikitabobko/tap/aerospace
 brew install w3m
 ```
 
+AI-Setup (Claude Code, Skills aus ai-os):
+```bash
+brew install backlog-md
+brew install uv
+```
+Den Rest (ai-os klonen, `claude/setup.sh`) erledigt `bootstrap-mac.sh`.
+
 
 ```bash
 brew install koekeishiya/formulae/yabai
